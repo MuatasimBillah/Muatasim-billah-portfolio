@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muatasim Billah | Portfolio</title>
+  <meta name="description" content="Portfolio website showcasing work in graphic design, digital marketing, Shopify development, and more.">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Custom Cursor (Desktop Only) -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav class="glass">
+      <a href="#" class="logo">
+        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links desktop-nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <button class="mobile-close-btn" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="background-effects">
+      <div class="effect-blob primary"></div>
+      <div class="effect-blob secondary"></div>
+      <div class="effect-blob accent"></div>
+    </div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="subtitle hero-fade-in">Hello, I'm</p>
+          <h1 class="hero-title hero-fade-in">
+            <span>Muatasim</span>
+            <span class="primary-text"> Billah</span>
+          </h1>
+          <div class="title-underline hero-fade-in"></div>
+          <h2 class="hero-fade-in">
+            <span>Multi-Skilled Professional in </span>
+            <span id="typing-text" class="primary-text"></span>
+          </h2>
+          <p class="hero-description hero-fade-in">
+            Creating stunning designs, engaging marketing campaigns, and innovative digital solutions with a unique blend of creativity and technical expertise.
+          </p>
+          <div class="hero-buttons hero-fade-in">
+            <a href="#contact" class="btn-primary">Get in Touch</a>
+            <a href="#projects" class="btn-secondary">View My Work</a>
+          </div>
+  <div class="footer-social">
+            <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Mehardesigner/Meharportfolio" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://web.facebook.com/profile.php?id=100095466197402" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UCtg52ZzH02pfjfh31a7wA2Q" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+      
+        </div>
+        <div class="hero-image hero-fade-in">
+          <div class="image-wrapper">
+            <div class="image-blob"></div>
+            <div class="glass-frame">
+              <img src="https://i.pinimg.com/736x/83/8e/05/838e05d228f7bd25e945f99cb6632df4.jpg" alt="Muatasim Billah">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-indicator">
+        <a href="#about">
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about-section section-reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About <span class="primary-text">Me</span></h2>
+        <p class="section-subtitle">My Introduction</p>
+        <div class="section-underline"></div>
+      </div>
+      
+      <div class="about-content">
+        <div class="about-image">
+          <div class="image-frame">
+            <img src="https://scontent.fisb4-2.fna.fbcdn.net/v/t39.30808-6/479918713_647874191247454_4829321967974759426_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF3nbr-KVn18PN3A3YrQ8t-ZTOLy8EekPVlM4vLwR6Q9dNUyyY-30SZ8xNtcS88buvmP-nbyiu9xJ8BMU9BELc7&_nc_ohc=cNDB7qCVU88Q7kNvgG0FgqI&_nc_oc=AdnZu1WpfpwLX8KjA3MTugD07mrCsfZfKM7IWlOT1zSwdxBA2jqAeC9e8Hf33DEq7ZhAl-h6KN9Ug9Uo574dAtL8&_nc_zt=23&_nc_ht=scontent.fisb4-2.fna&_nc_gid=R7AjJySfvZy5chpP4ffHbQ&oh=00_AYEe3C0JPe3zxLUTEoelfUsfqN76gpjEpwX3ZYdMBGfWxw&oe=67EC799A" alt="About Muatasim">
+          </div>
+        </div>
+        <div class="about-text">
+          <p>I'm a multi-skilled professional with over 5 years of experience in graphic design, digital marketing, and web development. I have worked with clients from various industries, helping them build their online presence and reach their target audience.</p>
+          <p>My passion lies in creating visually appealing and functional designs that deliver results. I believe that good design is not just about aesthetics, but also about solving problems and improving user experience.</p>
+          
+          <div class="about-stats">
+            <div class="stat">
+              <h3>5+</h3>
+              <p>Years of Experience</p>
+            </div>
+            <div class="stat">
+              <h3>100+</h3>
+              <p>Completed Projects</p>
+            </div>
+            <div class="stat">
+              <h3>50+</h3>
+              <p>Happy Clients</p>
+            </div>
+          </div>
+          
+          <h3 class="skills-title">My Skills</h3>
+          <div class="skill-bars">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Graphic Design</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Digital Marketing</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Shopify Development</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Video Editing</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="75%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>AI Tools</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <a href="#contact" class="btn-primary">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills-section section-reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">My <span class="primary-text">Skills</span></h2>
+        <p class="section-subtitle">What I'm good at</p>
+        <div class="section-underline"></div>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skill-card glass">
+          <div class="skill-icon skill-icon-shopify">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3>Shopify Store Designing</h3>
+          <p>Building and customizing e-commerce stores on Shopify to maximize sales and conversions.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Theme Dev</span>
+            <span class="skill-tag">Apps</span>
+            <span class="skill-tag">Liquid</span>
+            <span class="skill-tag">Optimization</span>
+          </div>
+        </div>
+        
+        <div class="skill-card glass">
+          <div class="skill-icon skill-icon-frontend">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Frontend Website Designing</h3>
+          <p>Creating stunning, responsive websites with a focus on user experience and modern design trends.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">UI/UX</span>
+          </div>
+        </div>
+        
+        <div class="skill-card glass">
+          <div class="skill-icon skill-icon-ai">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI Talking Avatars</h3>
+          <p>Creating lifelike AI avatars that can interact, speak, and deliver content in a natural way.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">D-ID</span>
+            <span class="skill-tag">HeyGen</span>
+            <span class="skill-tag">Synthesia</span>
+            <span class="skill-tag">Personality</span>
+          </div>
+        </div>
+        
+        <div class="skill-card glass">
+          <div class="skill-icon skill-icon-canva">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>Canva Expert</h3>
+          <p>Designing eye-catching graphics, presentations, and marketing materials using Canva.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Templates</span>
+            <span class="skill-tag">Brand Kits</span>
+            <span class="skill-tag">Social Media</span>
+            <span class="skill-tag">Presentations</span>
+          </div>
+        </div>
+        
+        <div class="skill-card glass">
+          <div class="skill-icon skill-icon-voice">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <h3>AI Voice Over</h3>
+          <p>Generating professional-quality voice overs using cutting-edge AI voice synthesis technology.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">ElevenLabs</span>
+            <span class="skill-tag">Play.ht</span>
+            <span class="skill-tag">Voice Cloning</span>
+            <span class="skill-tag">Multilingual</span>
+          </div>
+        </div>
+        
+        <div class="skill-card glass">
+          <div class="skill-icon skill-icon-audio">
+            <i class="fas fa-headphones"></i>
+          </div>
+          <h3>Audio Engineering</h3>
+          <p>Professional audio editing, mixing, and mastering for various media projects and productions.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Editing</span>
+            <span class="skill-tag">Mixing</span>
+            <span class="skill-tag">Sound Design</span>
+            <span class="skill-tag">Restoration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Projects Section -->
+<section id="projects" class="section projects-section section-reveal">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My <span class="primary-text">Projects</span></h2>
+      <p class="section-subtitle">Recent work</p>
+      <div class="section-underline"></div>
+    </div>
+    
+    <div class="project-filters">
+      <button class="project-filter active" data-filter="all">All</button>
+      <button class="project-filter" data-filter="shopify">Shopify</button>
+      <button class="project-filter" data-filter="frontend">Frontend</button>
+      <button class="project-filter" data-filter="avatars">AI Avatars</button>
+      <button class="project-filter" data-filter="canva">Canva</button>
+      <button class="project-filter" data-filter="voice">AI Voice</button>
+      <button class="project-filter" data-filter="audio">Audio</button>
+    </div>
+    
+    <div class="projects-grid">
+      <!-- Shopify Project -->
+      <div class="project-item glass" data-categories="shopify">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Shopify Store">
+          <div class="project-overlay">
+            <a href="projects/ecommerce-redesign.html" class="project-link view-project-btn">
+              <i class="fas fa-eye"></i> View Project
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Shopify Store Development</h3>
+          <p>Custom Shopify theme development with enhanced product pages and checkout optimization.</p>
+          <div class="project-tags">
+            <span class="project-tag">Liquid</span>
+            <span class="project-tag">E-commerce</span>
+            <span class="project-tag">UI/UX</span>
+          </div>
+          <a href="projects/ecommerce-redesign.html" class="btn-secondary view-project-btn">View Project</a>
+        </div>
+      </div>
+      
+      <!-- Frontend Project -->
+      <div class="project-item glass" data-categories="frontend">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29kaW5nfGVufDB8fDB8fHww" alt="Web Development">
+          <div class="project-overlay">
+            <a href="projects/web-development.html" class="project-link view-project-btn">
+              <i class="fas fa-eye"></i> View Project
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Web Development</h3>
+          <p>Modern responsive website built with HTML5, CSS3, and JavaScript.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS3</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+          <a href="projects/web-development.html" class="btn-secondary view-project-btn">View Project</a>
+        </div>
+      </div>
+      
+      <!-- Audio Engineering Project -->
+      <div class="project-item glass" data-categories="audio">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Audio Engineering">
+          <div class="project-overlay">
+            <a href="projects/audio-engineering.html" class="project-link view-project-btn">
+              <i class="fas fa-eye"></i> View Project <i class="fas fa-volume-up media-icon"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Audio Engineering</h3>
+          <p>Professional audio mixing and mastering for music production.</p>
+          <div class="project-tags">
+            <span class="project-tag">Mixing</span>
+            <span class="project-tag">Mastering</span>
+            <span class="project-tag">Pro Tools</span>
+          </div>
+          <a href="projects/audio-engineering.html" class="btn-secondary view-project-btn">View Project</a>
+        </div>
+      </div>
+      
+      <!-- AI Voice Project -->
+      <div class="project-item glass" data-categories="voice">
+        <div class="project-image">
+          <img src="https://plus.unsplash.com/premium_photo-1664195074951-fe91ec456eed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG1pY3JvcGhvbmV8ZW58MHx8MHx8fDA%3D" alt="AI Voice Over">
+          <div class="project-overlay">
+            <a href="projects/ai-voice.html" class="project-link view-project-btn">
+              <i class="fas fa-eye"></i> View Project <i class="fas fa-volume-up media-icon"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>AI Voiceover</h3>
+          <p>Natural-sounding AI voice generation for commercials and narrations.</p>
+          <div class="project-tags">
+            <span class="project-tag">ElevenLabs</span>
+            <span class="project-tag">Text-to-Speech</span>
+            <span class="project-tag">Voice Cloning</span>
+          </div>
+          <a href="projects/ai-voice.html" class="btn-secondary view-project-btn">View Project</a>
+        </div>
+      </div>
+      
+      <!-- AI Avatar Project -->
+      <div class="project-item glass" data-categories="avatars">
+        <div class="project-image">
+          <img src="https://plus.unsplash.com/premium_photo-1733938563538-cb03d87c9385?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGFpJTIwdGFsa2luZyUyMGF2YXRhcnN8ZW58MHx8MHx8fDA%3D" alt="AI Avatar">
+          <div class="project-overlay">
+            <a href="projects/ai-avatar.html" class="project-link view-project-btn">
+              <i class="fas fa-eye"></i> View Project <i class="fas fa-video media-icon"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>AI Talking Avatar</h3>
+          <p>Custom AI-generated video spokespersons for marketing and training.</p>
+          <div class="project-tags">
+            <span class="project-tag">D-ID</span>
+            <span class="project-tag">HeyGen</span>
+            <span class="project-tag">Synthesia</span>
+          </div>
+          <a href="projects/ai-avatar.html" class="btn-secondary view-project-btn">View Project</a>
+        </div>
+      </div>
+      
+      <!-- Canva Project -->
+      <div class="project-item glass" data-categories="canva">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Graphic Design">
+          <div class="project-overlay">
+            <a href="projects/graphic-design.html" class="project-link view-project-btn">
+              <i class="fas fa-eye"></i> View Project
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Canva Graphic Design</h3>
+          <p>Professional social media templates and marketing materials.</p>
+          <div class="project-tags">
+            <span class="project-tag">Templates</span>
+            <span class="project-tag">Branding</span>
+            <span class="project-tag">Social Media</span>
+          </div>
+          <a href="projects/graphic-design.html" class="btn-secondary view-project-btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Services Section -->
+  <section id="services" class="section services-section section-reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">My <span class="primary-text">Services</span></h2>
+        <p class="section-subtitle">What I offer</p>
+        <div class="section-underline"></div>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card glass">
+          <div class="service-icon">
+            <i class="fas fa-pencil-ruler"></i>
+          </div>
+          <h3>Canva expert</h3>
+          <p>Professional graphic design services for all your branding and marketing needs.</p>
+          <ul class="service-list">
+            <li>Logo Design</li>
+            <li>Brand Identity</li>
+            <li>Marketing Materials</li>
+            <li>Social Media Graphics</li>
+          </ul>
+          <a href="#contact" class="btn-primary service-btn">Get Started</a>
+        </div>
+        
+        <div class="service-card glass">
+          <div class="service-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3>Shopify Development</h3>
+          <p>Full-service Shopify store development and optimization to boost your e-commerce business.</p>
+          <ul class="service-list">
+            <li>Store Setup</li>
+            <li>Theme Customization</li>
+            <li>App Integration</li>
+            <li>Performance Optimization</li>
+          </ul>
+          <a href="#contact" class="btn-primary service-btn">Get Started</a>
+        </div>
+        
+        <div class="service-card glass">
+          <div class="service-icon">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h3>Ai voiceover</h3>
+          <p>Ai voiceover human like realistic Ai voiceover </p>
+          <ul class="service-list">
+            <li>For content creators</li>
+            <li>Tiktok videos</li>
+            <li>Instagram videos</li>
+            <li>for story telling</li>
+          </ul>
+          <a href="#contact" class="btn-primary service-btn">Get Started</a>
+        </div>
+        
+        <div class="service-card glass">
+          <div class="service-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3>Audio Engineering</h3>
+          <p>Professional & clean Audio production services for promotional content, tutorials, and more.</p>
+          <ul class="service-list">
+            <li>Promotional Videos</li>
+            <li>Tutorial Videos</li>
+            <li>Youtube content </li>
+            <li>Podcast Audio</li>
+          </ul>
+          <a href="#contact" class="btn-primary service-btn">Get Started</a>
+        </div>
+        
+        <div class="service-card glass">
+          <div class="service-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI Content Creation</h3>
+          <p>Innovative AI-powered content creation services to enhance your digital presence.</p>
+          <ul class="service-list">
+            <li>AI Avatars</li>
+            <li>AI Voice Overs</li>
+            <li>AI-Generated Imagery</li>
+            <li>Content Generation</li>
+          </ul>
+          <a href="#contact" class="btn-primary service-btn">Get Started</a>
+        </div>
+        
+        <div class="service-card glass">
+          <div class="service-icon">
+            <i class="fas fa-code"></i> <!-- Web development icon -->
+          </div>
+          <h3>Frontend web Development</h3>
+          <p>Complete Frontend website Of Html,Css, & Java Script Professional website</p>
+          <ul class="service-list">
+            <li>Smart seo</li>
+            <li>Animations</li>
+            <li>Attractive navbar</li>
+            <li>Footor Links</li>
+          </ul>
+          <a href="#contact" class="btn-primary service-btn">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section testimonials-section section-reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Client <span class="primary-text">Testimonials</span></h2>
+        <p class="section-subtitle">What clients say</p>
+        <div class="section-underline"></div>
+      </div>
+      
+      <div class="testimonials-slider">
+        <div class="testimonial-container">
+          <div class="testimonial-cards">
+            <div class="testimonial-card glass active">
+              <div class="testimonial-content">
+                <div class="quote-icon">
+                  <i class="fas fa-quote-left"></i>
+                </div>
+                <p>Muatasim completely transformed our e-commerce store. The new design is not only visually appealing but has also significantly improved our conversion rate. His attention to detail and understanding of user experience is exceptional.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Sarah Johnson">
+                </div>
+                <div class="author-info">
+                  <h3>Sarah Johnson</h3>
+                  <p>CEO, Fashion Boutique</p>
+                  <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-card glass">
+              <div class="testimonial-content">
+                <div class="quote-icon">
+                  <i class="fas fa-quote-left"></i>
+                </div>
+                <p>Working with Muatasim on our digital marketing campaign was a game-changer for our business. His strategic approach and creative solutions helped us reach our target audience effectively. The results exceeded our expectations!</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="David Chen">
+                </div>
+                <div class="author-info">
+                  <h3>David Chen</h3>
+                  <p>Marketing Director, Tech Startup</p>
+                  <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-card glass">
+              <div class="testimonial-content">
+                <div class="quote-icon">
+                  <i class="fas fa-quote-left"></i>
+                </div>
+                <p>The AI avatar Muatasim created for our training program has been incredibly well-received by our team. The natural voice and lifelike appearance made our content much more engaging. I highly recommend his services for anyone looking to incorporate AI into their content strategy.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Emma Lopez">
+                </div>
+                <div class="author-info">
+                  <h3>Emma Lopez</h3>
+                  <p>HR Manager, Corporate Training</p>
+                  <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-controls">
+            <button class="testimonial-arrow prev" aria-label="Previous testimonial">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="testimonial-indicators">
+              <button class="testimonial-indicator active" data-index="0" aria-label="Go to testimonial 1"></button>
+              <button class="testimonial-indicator" data-index="1" aria-label="Go to testimonial 2"></button>
+              <button class="testimonial-indicator" data-index="2" aria-label="Go to testimonial 3"></button>
+            </div>
+            <button class="testimonial-arrow next" aria-label="Next testimonial">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section section-reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Get in <span class="primary-text">Touch</span></h2>
+        <p class="section-subtitle">Contact me</p>
+        <div class="section-underline"></div>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info glass">
+          <h3>Contact Information</h3>
+          <p>Feel free to get in touch with me. I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-details">
+              <h4>Email</h4>
+              <p><a href="mailto:contact@muatasim.com">Meharmahalcoll@gmail.com</a></p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-details">
+              <h4>Phone</h4>
+              <p><a href="tel:+1234567890">+92308 8754565</a></p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-details">
+              <h4>Location</h4>
+              <p>Pakistan Peshawar </p>
+            </div>
+          </div>
+          
+          <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" class="social-link" aria-label="LinkedIn Profile">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          
+          
+        
+          <a href="https://www.youtube.com/channel/UCtg52ZzH02pfjfh31a7wA2Q" target="_blank" class="social-link" aria-label="YouTube Channel">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form glass">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="#" class="logo">
+            <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+          </a>
+          <p>Creating digital experiences that stand out.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Services</h3>
+          <a href="#services">shopify Store Designing</a>
+          <a href="#services">Frontend Website designing </a>
+          <a href="#services">Canva Expert</a>
+          <a href="#services">Ai Voiceover creation</a>
+          <a href="#services">Audio Engineering</a>
+          <a href="#services">Ai talking Avatars</a>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>Contact Me</h3>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:contact@muatasim.com">Meharmahalcoll@gmail.com</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:+1234567890">+92308  8754565</a></p>
+          <p><i class="fas fa-map-marker-alt"></i> Pakistan Peshawar </p>
+   <div class="footer-social">
+            <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Mehardesigner/Meharportfolio" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://web.facebook.com/profile.php?id=100095466197402" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UCtg52ZzH02pfjfh31a7wA2Q" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+      
+        </div>
+        </div>
+      </div>
+      <div id="chat-container" class="chat-container">
+        <div class="chat-header">
+          <div class="chat-avatar">
+            <img src="https://i.pinimg.com/236x/22/41/4d/22414dedc4a6980f85cdfdeef064cb8b.jpg" alt="Muatasim Billah">
+          </div>
+          <div class="chat-title">
+            <h3>Chat with Muatasim</h3>
+            <p>Online & Ready to Help</p>
+          </div>
+          <div class="chat-controls">
+            <button id="minimize-chat" class="minimize-button">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button id="close-chat" class="close-button">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+          <!-- Messages will appear here -->
+        </div>
+        
+        <div class="suggested-questions" id="suggested-questions">
+          <p>Common Questions:</p>
+          <div class="questions-container">
+            <button class="question-btn">What services do you offer?</button>
+            <button class="question-btn">How much does a Shopify store cost?</button>
+            <button class="question-btn">How long does it take to create a website?</button>
+            <button class="question-btn">Do AI avatars support Urdu?</button>
+            <button class="question-btn">Can you help with Canva designs?</button>
+            <button class="question-btn">How do AI voice overs work?</button>
+          </div>
+        </div>
+        
+        <div class="chat-input">
+          <input type="text" id="user-input" placeholder="Type your question here...">
+          <button id="send-button">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+      
+      <button id="chat-icon" class="chat-icon pulse">
+        <i class="fas fa-comment-dots"></i>
+      </button>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2023</span> Muatasim Billah. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
