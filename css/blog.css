@@ -1,0 +1,229 @@
+/* CLEAN BLOG CSS */
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  
+  /* Blog Card */
+  .blog-card {
+    background: #1a1a2e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Blog Image */
+  .blog-image {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .blog-card:hover .blog-image img {
+    transform: scale(1.05);
+  }
+  
+  /* Blog Date */
+  .blog-date {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #7000ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  /* Blog Content */
+  .blog-content {
+    padding: 20px;
+  }
+  
+  .blog-category {
+    color: #7000ff;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  .blog-title-card {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  .blog-excerpt {
+    color: #cccccc;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .blog-link {
+    color: #7000ff;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .blog-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-link:hover i {
+    transform: translateX(5px);
+  }
+  
+  /* Category Filter */
+  .category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .filter-btn {
+    background: #1a1a2e;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: #7000ff;
+    border-color: #7000ff;
+  }
+  
+  /* Blog Post Page */
+  .blog-post-header {
+    padding: 60px 0 40px;
+    text-align: center;
+  }
+  
+  .blog-post-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .blog-post-meta {
+    color: #cccccc;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .blog-post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .blog-post-text {
+    color: #f0f0f0;
+    line-height: 1.8;
+  }
+  
+  .blog-post-text h2 {
+    font-size: 28px;
+    margin: 40px 0 20px;
+    color: #ffffff;
+  }
+  
+  .blog-post-text h3 {
+    font-size: 24px;
+    margin: 30px 0 15px;
+    color: #ffffff;
+  }
+  
+  .blog-post-text p {
+    margin-bottom: 20px;
+  }
+  
+  .blog-post-text ul,
+  .blog-post-text ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+  
+  .blog-post-text blockquote {
+    border-left: 4px solid #7000ff;
+    padding-left: 20px;
+    margin: 20px 0;
+    font-style: italic;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .blog-post-title {
+      font-size: 28px;
+    }
+    
+    .blog-post-meta {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .category-filter {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .filter-btn {
+      width: 80%;
+    }
+  }
+  /* Fix navbar at the top of the page */
+.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 10, 18, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Add padding to the body to prevent content from going under navbar */
+  body {
+    padding-top: 80px; /* Adjust based on your navbar height */
+  }
+  
+  /* Fix for blog header section */
+  .blog-header {
+    padding-top: 40px;
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 768px) {
+    body {
+      padding-top: 70px; /* Smaller padding for mobile */
+    }
+  }
