@@ -798,6 +798,7 @@
           <a href="#services">Ai Voiceover creation</a>
           <a href="#services">Audio Engineering</a>
           <a href="#services">Ai talking Avatars</a>
+          
         </div>
         
         <div class="footer-contact">
@@ -815,105 +816,114 @@
         </div>
         </div>
       </div>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+     
    
-    <!-- Chat Widget HTML Structure -->
-    <div id="chat-widget" class="fixed-bottom-right">
-        <!-- Chat Icon Button -->
-        <button 
-            id="chat-icon"
-            class="chat-button"
-            aria-label="Open chat assistant"
-        >
-            <i class="ri-message-3-line"></i>
-        </button>
-        
-        <!-- Chat Container -->
-        <div id="chat-container" class="chat-container hidden">
-            <!-- Chat Header -->
-            <div class="chat-header">
-                <div class="header-avatar">
-                    <div class="avatar-icon">
-                        <i class="ri-robot-line"></i>
-                    </div>
-                    <div>
-                        <h3 class="header-title">Portfolio Assistant</h3>
-                        <p class="header-status">Online</p>
-                    </div>
-                </div>
-                <div class="header-actions">
-                    <button id="minimize-chat" class="header-button" aria-label="Minimize chat">
-                        <i class="ri-subtract-line"></i>
-                    </button>
-                    <button id="close-chat" class="header-button" aria-label="Close chat">
-                        <i class="ri-close-line"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Chat Messages Area -->
-            <div id="chat-messages" class="chat-messages"></div>
-            
-            <!-- Chat Input Area -->
-            <div class="chat-input-area">
-                <div class="input-container">
-                    <button 
-                        id="voice-input"
-                        class="voice-button"
-                        aria-label="Voice input"
-                    >
-                        <i class="ri-mic-line"></i>
-                    </button>
-                    
-                    <div class="text-input-wrapper">
-                        <input 
-                            id="user-input"
-                            type="text" 
-                            class="text-input"
-                            placeholder="Type your message..."
-                        />
-                        <div id="voice-status" class="voice-status hidden">
-                            <span class="voice-indicator"></span>
-                            <span class="voice-indicator"></span>
-                            <span class="voice-indicator"></span>
-                        </div>
-                    </div>
-                    
-                    <button 
-                        id="send-button"
-                        class="send-button"
-                        aria-label="Send message"
-                        disabled
-                    >
-                        <i class="ri-send-plane-fill"></i>
-                    </button>
-                </div>
-                
-                <!-- Input status area -->
-                <div id="input-status" class="input-status hidden">
-                    <span>Listening...</span>
-                </div>
-            </div>
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Your existing website content goes here -->
+
+<!-- Chatbot Container -->
+<div class="chatbot-container">
+  <!-- Chat Toggle Button -->
+  <button class="chat-toggle-btn">
+    <i class="fas fa-comment-alt"></i>
+  </button>
+  
+  <!-- Chat Interface -->
+  <div class="chat-interface">
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <div class="chat-header-user">
+        <div class="chat-avatar">
+          <i class="fas fa-robot"></i>
         </div>
-    </div>
-      <div class="footer-bottom">
-        <p>&copy; <span id="current-year">2023</span> Muatasim Billah. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-of-service.html">Terms of Service</a>
+        <div class="chat-user-info">
+          <h3 class="chat-user-name">Mehar Bot</h3>
+          <div class="chat-user-status">
+            <span class="status-indicator"></span>
+            <span class="status-text">Online</span>
+          </div>
         </div>
       </div>
+      <button class="chat-close-btn">
+        <i class="fas fa-minus"></i>
+      </button>
     </div>
-  </footer>
-
-  <!-- Back to Top Button -->
-  <button id="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
+    
+    <!-- Chat Messages Area -->
+    <div class="chat-messages">
+      <!-- Messages will be dynamically added here by JavaScript -->
+      
+      <!-- Examples of message structure:
+      <div class="chat-message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-bubble">
+          <div class="message-text">
+            Hi there! I'm Muatasim's portfolio assistant. How can I help you today?
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-message user-message">
+        <div class="message-bubble">
+          <div class="message-text">
+            What services do you offer?
+          </div>
+        </div>
+        <div class="message-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+      </div> -->
+    </div>
+    
+    <!-- Suggested Questions (shown after bot's first message) -->
+    <div class="suggested-questions">
+      <button class="suggested-question">What services do you offer?</button>
+      <button class="suggested-question">View portfolio</button>
+      <button class="suggested-question">Contact info</button>
+    </div>
+    
+    <!-- Chat Input Area -->
+    <div class="chat-input-area">
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Type your message here..." autocomplete="off">
+        <button type="submit" class="chat-send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+        
+        <!-- Back to Top Button -->
+        <button id="back-to-top" aria-label="Back to top">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+        
+      </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="current-year">2023</span> Muatasim Billah. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   <!-- JavaScript -->
-  <script src="js/data.js"></script>
+  <script src="js\chatbot.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
