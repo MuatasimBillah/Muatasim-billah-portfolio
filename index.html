@@ -907,6 +907,338 @@
   </div>
 </div>
         
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عید مبارک</title>
+  <!-- فونٹ آسم لنک -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- عربی فونٹس -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* عید مبارک پاپ اپ سٹائلز */
+    .eid-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease;
+    }
+
+    .eid-popup.show {
+      opacity: 1;
+      visibility: visible;
+      animation: fadeInScale 0.7s ease forwards;
+    }
+
+    .eid-popup.hide {
+      animation: fadeOutScale 0.7s ease forwards;
+    }
+
+    .eid-content {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+      max-width: 90%;
+      width: 500px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eid-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.2;
+    }
+
+    .eid-header {
+      position: relative;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .moon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #FFD700;
+      font-size: 50px;
+      animation: glow 2s infinite alternate;
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .stars i {
+      position: absolute;
+      color: #FFD700;
+      opacity: 0;
+    }
+
+    .stars i:nth-child(1) {
+      top: 20%;
+      left: 20%;
+      font-size: 15px;
+      animation: twinkle 2s infinite 0.1s;
+    }
+
+    .stars i:nth-child(2) {
+      top: 10%;
+      left: 40%;
+      font-size: 10px;
+      animation: twinkle 2s infinite 0.3s;
+    }
+
+    .stars i:nth-child(3) {
+      top: 30%;
+      left: 70%;
+      font-size: 12px;
+      animation: twinkle 2s infinite 0.5s;
+    }
+
+    .stars i:nth-child(4) {
+      top: 40%;
+      left: 30%;
+      font-size: 8px;
+      animation: twinkle 2s infinite 0.7s;
+    }
+
+    .stars i:nth-child(5) {
+      top: 20%;
+      left: 80%;
+      font-size: 14px;
+      animation: twinkle 2s infinite 0.9s;
+    }
+
+    .eid-title {
+      font-size: 60px;
+      margin: 0 0 10px;
+      font-family: 'Amiri', 'Scheherazade New', serif;
+      color: #FFD700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      animation: scaleIn 1s ease, float 3s ease infinite;
+    }
+
+    .eid-subtitle {
+      font-size: 24px;
+      margin: 0 0 20px;
+      color: #FAFAFA;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 2px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .eid-graphic {
+      font-size: 60px;
+      margin: 20px 0;
+      color: #FFD700;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .eid-message {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 20px 0 0;
+      color: #FAFAFA;
+      font-family: 'Amiri', 'Scheherazade New', serif;
+      animation: fadeIn 2s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeOutScale {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+      }
+      100% {
+        text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700;
+      }
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* موبائل ریسپانسیونس */
+    @media (max-width: 576px) {
+      .eid-content {
+        padding: 30px 20px;
+      }
+      
+      .eid-title {
+        font-size: 40px;
+      }
+      
+      .eid-subtitle {
+        font-size: 18px;
+      }
+      
+      .eid-graphic {
+        font-size: 40px;
+      }
+      
+      .eid-message {
+        font-size: 14px;
+      }
+    }
+
+    /* آپشنل: پیج سٹائلز (صرف ڈیمو کے لیے) */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    
+    h1 {
+      color: #1e3c72;
+    }
+  </style>
+</head>
+<body>
+  <!-- عید مبارک پاپ اپ -->
+  <div class="eid-popup" id="eidPopup">
+    <div class="eid-content">
+      <div class="eid-header">
+        <div class="moon">
+          <i class="fas fa-moon"></i>
+        </div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      <h1 class="eid-title">عید مبارک</h1>
+      <p class="eid-subtitle">Eid Mubarak</p>
+      <div class="eid-graphic">
+        <i class="fas fa-mosque"></i>
+      </div>
+      <p class="eid-message">آپ کو اور آپ کے اہل خانہ کو عید کی مبارکباد</p>
+    </div>
+  </div>
+
+  <!-- پیج کانٹینٹ (موجودہ ویب سائٹ کانٹینٹ) -->
+  <h1>آپ کی ویب سائٹ کا مواد یہاں ہوگا</h1>
+  <p>یہ ایک ڈیمو پیج ہے۔ اپنی موجودہ ویب سائٹ میں عید مبارک پاپ اپ شامل کریں۔</p>
+  
+  <!-- جاوا سکرپٹ -->
+  <script>
+    // عید مبارک پاپ اپ فنکشنالٹی
+    document.addEventListener('DOMContentLoaded', function() {
+      const eidPopup = document.getElementById('eidPopup');
+      
+      // عید پاپ اپ دکھائیں
+      setTimeout(() => {
+        eidPopup.classList.add('show');
+        
+        // اس کو 5 سیکنڈ بعد بند کریں
+        setTimeout(() => {
+          eidPopup.classList.add('hide');
+          setTimeout(() => {
+            eidPopup.classList.remove('show');
+            eidPopup.classList.remove('hide');
+          }, 700); // انیمیشن مکمل ہونے کا وقت
+        }, 5000);
+      }, 500); // تھوڑی دیر بعد پاپ اپ دکھائیں
+    });
+  </script>
+</body>
+</html>
         <!-- Back to Top Button -->
         <button id="back-to-top" aria-label="Back to top">
           <i class="fas fa-arrow-up"></i>
