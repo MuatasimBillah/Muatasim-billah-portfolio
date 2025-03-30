@@ -814,63 +814,101 @@
       
         </div>
         </div>
-      </div>
-      <div id="chat-container" class="chat-container">
-        <div class="chat-header">
-          <div class="chat-avatar">
-            <img src="https://i.pinimg.com/236x/22/41/4d/22414dedc4a6980f85cdfdeef064cb8b.jpg" alt="Muatasim Billah">
-          </div>
-          <div class="chat-title">
-            <h3>Chat with Muatasim</h3>
-            <p>Online & Ready to Help</p>
-          </div>
-          <div class="chat-controls">
-            <button id="minimize-chat" class="minimize-button">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button id="close-chat" class="close-button">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Portfolio Chatbot</title>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+            <link rel="stylesheet" href="styles.css">
+        </head>
+        <body>
+            <!-- Chat Widget HTML Structure -->
+            <div id="chat-widget" class="fixed-bottom-right">
+                <!-- Chat Icon Button -->
+                <button 
+                    id="chat-icon"
+                    class="chat-button"
+                    aria-label="Open chat assistant"
+                >
+                    <i class="ri-message-3-line"></i>
+                </button>
+                
+                <!-- Chat Container -->
+                <div id="chat-container" class="chat-container hidden">
+                    <!-- Chat Header -->
+                    <div class="chat-header">
+                        <div class="header-avatar">
+                            <div class="avatar-icon">
+                                <i class="ri-robot-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="header-title">Portfolio Assistant</h3>
+                                <p class="header-status">Online</p>
+                            </div>
+                        </div>
+                        <div class="header-actions">
+                            <button id="minimize-chat" class="header-button" aria-label="Minimize chat">
+                                <i class="ri-subtract-line"></i>
+                            </button>
+                            <button id="close-chat" class="header-button" aria-label="Close chat">
+                                <i class="ri-close-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Messages Area -->
+                    <div id="chat-messages" class="chat-messages"></div>
+                    
+                    <!-- Chat Input Area -->
+                    <div class="chat-input-area">
+                        <div class="input-container">
+                            <button 
+                                id="voice-input"
+                                class="voice-button"
+                                aria-label="Voice input"
+                            >
+                                <i class="ri-mic-line"></i>
+                            </button>
+                            
+                            <div class="text-input-wrapper">
+                                <input 
+                                    id="user-input"
+                                    type="text" 
+                                    class="text-input"
+                                    placeholder="Type your message..."
+                                />
+                                <div id="voice-status" class="voice-status hidden">
+                                    <span class="voice-indicator"></span>
+                                    <span class="voice-indicator"></span>
+                                    <span class="voice-indicator"></span>
+                                </div>
+                            </div>
+                            
+                            <button 
+                                id="send-button"
+                                class="send-button"
+                                aria-label="Send message"
+                                disabled
+                            >
+                                <i class="ri-send-plane-fill"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Input status area -->
+                        <div id="input-status" class="input-status hidden">
+                            <span>Listening...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         
-        <div class="chat-messages" id="chat-messages">
-          <!-- Messages will appear here -->
-        </div>
-        
-        <div class="suggested-questions" id="suggested-questions">
-          <p>Common Questions:</p>
-          <div class="questions-container">
-            <button class="question-btn">What services do you offer?</button>
-            <button class="question-btn">How much does a Shopify store cost?</button>
-            <button class="question-btn">How long does it take to create a website?</button>
-            <button class="question-btn">Do AI avatars support Urdu?</button>
-            <button class="question-btn">Can you help with Canva designs?</button>
-            <button class="question-btn">How do AI voice overs work?</button>
-          </div>
-        </div>
-        
-        <div class="chat-input">
-          <input type="text" id="user-input" placeholder="Type your question here...">
-          <button id="send-button">
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </div>
-      </div>
-      
-      <button id="chat-icon" class="chat-icon pulse">
-        <i class="fas fa-comment-dots"></i>
-      </button>
-      <div class="footer-bottom">
-        <p>&copy; <span id="current-year">2023</span> Muatasim Billah. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-of-service.html">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+            <script src="knowledgeBase.js"></script>
+            <script src="chatbot.js"></script>
+        </body>
+        </html>
   <!-- Back to Top Button -->
   <button id="back-to-top" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
