@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <!-- Chat Widget HTML Structure -->
+    <div id="chat-widget" class="fixed-bottom-right">
+        <!-- Chat Icon Button -->
+        <button 
+            id="chat-icon"
+            class="chat-button"
+            aria-label="Open chat assistant"
+        >
+            <i class="ri-message-3-line"></i>
+        </button>
+        
+        <!-- Chat Container -->
+        <div id="chat-container" class="chat-container hidden">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="header-avatar">
+                    <div class="avatar-icon">
+                        <i class="ri-robot-line"></i>
+                    </div>
+                    <div>
+                        <h3 class="header-title">Portfolio Assistant</h3>
+                        <p class="header-status">Online</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="minimize-chat" class="header-button" aria-label="Minimize chat">
+                        <i class="ri-subtract-line"></i>
+                    </button>
+                    <button id="close-chat" class="header-button" aria-label="Close chat">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Chat Messages Area -->
+            <div id="chat-messages" class="chat-messages"></div>
+            
+            <!-- Chat Input Area -->
+            <div class="chat-input-area">
+                <div class="input-container">
+                    <button 
+                        id="voice-input"
+                        class="voice-button"
+                        aria-label="Voice input"
+                    >
+                        <i class="ri-mic-line"></i>
+                    </button>
+                    
+                    <div class="text-input-wrapper">
+                        <input 
+                            id="user-input"
+                            type="text" 
+                            class="text-input"
+                            placeholder="Type your message..."
+                        />
+                        <div id="voice-status" class="voice-status hidden">
+                            <span class="voice-indicator"></span>
+                            <span class="voice-indicator"></span>
+                            <span class="voice-indicator"></span>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        id="send-button"
+                        class="send-button"
+                        aria-label="Send message"
+                        disabled
+                    >
+                        <i class="ri-send-plane-fill"></i>
+                    </button>
+                </div>
+                
+                <!-- Input status area -->
+                <div id="input-status" class="input-status hidden">
+                    <span>Listening...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="knowledgeBase.js"></script>
+    <script src="js\main.js"></script>
+</body>
+</html>
