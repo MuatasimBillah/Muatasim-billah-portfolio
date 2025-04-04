@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Top E-commerce Trends Reshaping Online Retail | Muatasim Billah</title>
+  <meta name="title" content="Top E-commerce Trends Reshaping Online Retail | Muatasim Billah">
+  <meta name="description" content="Discover the latest e-commerce trends including AI personalization, social commerce, and sustainable practices that are transforming the digital retail landscape.">
+  <meta name="keywords" content="e-commerce trends, online retail, digital shopping, e-commerce technology, shopify, mobile shopping, AI shopping, social commerce">
+  <meta name="author" content="Muatasim Billah">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://muatasim.com/blog/ecommerce-trends.html">
+  <meta property="og:title" content="Top E-commerce Trends Reshaping Online Retail | Muatasim Billah">
+  <meta property="og:description" content="Discover the latest e-commerce trends including AI personalization, social commerce, and sustainable practices that are transforming the digital retail landscape.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://muatasim.com/blog/ecommerce-trends.html">
+  <meta property="twitter:title" content="Top E-commerce Trends Reshaping Online Retail | Muatasim Billah">
+  <meta property="twitter:description" content="Discover the latest e-commerce trends including AI personalization, social commerce, and sustainable practices that are transforming the digital retail landscape.">
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3">
+  
+  <!-- Canonical Link -->
+  <meta rel="canonical" href="https://muatasim.com/blog/ecommerce-trends.html">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary: #7000ff;
+      --primary-light: #9a45ff;
+      --primary-dark: #5a00cc;
+      --secondary: #00d9ff;
+      --secondary-dark: #00afd0;
+      --tertiary: #ff007a;
+      --dark: #0f0f1a;
+      --dark-lighter: #191927;
+      --dark-lightest: #222234;
+      --light: #f7f7fc;
+      --light-darker: #e6e6f0;
+      --gray: #8e8ea0;
+      --gray-light: #c5c5d2;
+      --gray-dark: #65657d;
+      --success: #00ca8e;
+      --danger: #ff4e64;
+      --warning: #ffb950;
+      --info: #2e7bff;
+    }
+
+    /* Global Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body.dark-mode {
+      color: var(--light);
+      background-color: var(--dark);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-light);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, .btn {
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Custom Cursor */
+    .cursor-dot,
+    .cursor-outline {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 9999;
+    }
+
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary);
+    }
+
+    .cursor-outline {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--primary);
+    }
+
+    @media (max-width: 992px) {
+      .cursor-dot, .cursor-outline {
+        display: none;
+      }
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(247, 247, 252, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-mode .navbar.scrolled {
+      background-color: rgba(15, 15, 26, 0.8);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+      margin: 1rem;
+    }
+
+    .dark-mode .glass {
+      background: rgba(15, 15, 26, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .dark-mode .logo {
+      color: var(--light);
+    }
+
+    .logo-primary {
+      color: var(--primary);
+    }
+
+    .logo-accent {
+      color: var(--tertiary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .dark-mode .nav-link {
+      color: var(--light);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary);
+      background-color: rgba(112, 0, 255, 0.05);
+    }
+
+    .dark-mode .nav-link:hover, .dark-mode .nav-link.active {
+      background-color: rgba(112, 0, 255, 0.15);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: var(--primary);
+    }
+
+    .theme-toggle, .mobile-menu-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.05);
+      color: var(--dark);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .dark-mode .theme-toggle, .dark-mode .mobile-menu-btn {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--light);
+    }
+
+    .theme-toggle:hover, .mobile-menu-btn:hover {
+      background-color: rgba(112, 0, 255, 0.1);
+      color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 350px;
+      height: 100vh;
+      background-color: var(--light);
+      z-index: 1001;
+      padding: 2rem;
+      transition: right 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .dark-mode .mobile-menu {
+      background-color: var(--dark-lighter);
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.05);
+      color: var(--dark);
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dark-mode .mobile-close-btn {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--light);
+    }
+
+    .mobile-close-btn:hover {
+      background-color: rgba(112, 0, 255, 0.1);
+      color: var(--primary);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 3rem;
+    }
+
+    .mobile-nav-links .nav-link {
+      font-size: 1.1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .dark-mode .mobile-nav-links .nav-link {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    .mobile-nav-links .nav-link.active {
+      background-color: rgba(112, 0, 255, 0.1);
+    }
+
+    .dark-mode .mobile-nav-links .nav-link.active {
+      background-color: rgba(112, 0, 255, 0.2);
+    }
+
+    @media (max-width: 992px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: flex;
+      }
+    }
+
+    /* Blog Post Header */
+    .blog-post-header {
+      position: relative;
+      padding: 8rem 0 4rem;
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      color: white;
+      overflow: hidden;
+    }
+
+    .blog-post-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 0, 122, 0.2) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(0, 217, 255, 0.2) 0%, transparent 30%);
+    }
+
+    .blog-category {
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-post-title {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+    }
+
+    .blog-post-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .blog-post-title {
+        font-size: 2.2rem;
+      }
+      
+      .blog-post-meta {
+        gap: 1rem;
+      }
+    }
+
+    /* Blog Post Content */
+    .blog-post-content {
+      padding: 4rem 0 6rem;
+    }
+
+    .blog-post-image {
+      margin-bottom: 3rem;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode .blog-post-image {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-caption {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .blog-post-text {
+      font-size: 1.1rem;
+      color: var(--dark);
+      line-height: 1.8;
+    }
+
+    .dark-mode .blog-post-text {
+      color: var(--light-darker);
+    }
+
+    .blog-toc {
+      background-color: var(--light-darker);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+    }
+
+    .dark-mode .blog-toc {
+      background-color: var(--dark-lightest);
+    }
+
+    .blog-toc h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .blog-toc ul {
+      margin-left: 1.5rem;
+    }
+
+    .blog-toc ul ul {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-toc li {
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-toc a {
+      text-decoration: none;
+      color: var(--primary);
+      transition: color 0.3s ease;
+    }
+
+    .blog-toc a:hover {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 2.5rem 0 1.5rem;
+      color: var(--dark);
+    }
+
+    .dark-mode h2 {
+      color: var(--light);
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      margin: 1.5rem 0 2rem 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .stat-item {
+      background-color: var(--light-darker);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .dark-mode .stat-item {
+      background-color: var(--dark-lightest);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .stat-item h3 {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .stat-item p {
+      margin-bottom: 0;
+      font-size: 1rem;
+      color: var(--dark);
+    }
+
+    .dark-mode .stat-item p {
+      color: var(--light);
+    }
+
+    /* Author Bio */
+    .author-bio {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background-color: var(--light-darker);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 4rem 0;
+    }
+
+    .dark-mode .author-bio {
+      background-color: var(--dark-lightest);
+    }
+
+    .author-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info h3 {
+      margin-bottom: 1rem;
+    }
+
+    .author-info p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .author-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .author-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(112, 0, 255, 0.1);
+      color: var(--primary);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .author-social a:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Related Posts */
+    .related-posts {
+      margin-top: 4rem;
+    }
+
+    .related-posts h3 {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .related-posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .related-post {
+      background-color: var(--light);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    .dark-mode .related-post {
+      background-color: var(--dark-lighter);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      color: var(--light);
+    }
+
+    .related-post:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(112, 0, 255, 0.1);
+    }
+
+    .dark-mode .related-post:hover {
+      box-shadow: 0 10px 30px rgba(112, 0, 255, 0.2);
+    }
+
+    .related-post img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .related-post h4 {
+      padding: 1.5rem 1.5rem 0.5rem;
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+
+    .dark-mode .related-post h4 {
+      color: var(--light);
+    }
+
+    .post-date {
+      padding: 0 1.5rem 1.5rem;
+      display: block;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Comments Section */
+    .comments-section {
+      margin-top: 4rem;
+    }
+
+    .comments-section h3 {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .comment {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .comment-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .comment-content {
+      flex: 1;
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .comment-header h4 {
+      font-size: 1.1rem;
+    }
+
+    .comment-date {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .comment-content p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .reply-btn {
+      background-color: transparent;
+      border: none;
+      color: var(--primary);
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .reply-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* Comment Form */
+    .comment-form {
+      margin-top: 3rem;
+      background-color: var(--light-darker);
+      border-radius: 15px;
+      padding: 2rem;
+    }
+
+    .dark-mode .comment-form {
+      background-color: var(--dark-lightest);
+    }
+
+    .comment-form h3 {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--gray-light);
+      background-color: var(--light);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .dark-mode .form-group input,
+    .dark-mode .form-group textarea {
+      background-color: var(--dark-lighter);
+      border-color: var(--dark-lightest);
+      color: var(--light);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(112, 0, 255, 0.2);
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin: 0;
+    }
+
+    .checkbox label {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .submit-btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+      padding: 6rem 0;
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .newsletter-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-content h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .newsletter-content p {
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .newsletter-form button {
+      background-color: var(--dark);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background-color: black;
+      transform: translateY(-3px);
+    }
+
+    .form-note {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 5rem 0 2rem;
+      background-color: var(--dark);
+      color: white;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-logo p {
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-top: 0.5rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 30px;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 3px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom p {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: white;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 999;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(112, 0, 255, 0.3);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .stat-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blog-post-title {
+        font-size: 2.2rem;
+      }
+      
+      .footer-links {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .author-bio {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .author-social {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .footer-links {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .related-posts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom Cursor (Desktop Only) -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  
+  <!-- Navbar -->
+  <header class="navbar scrolled">
+    <nav class="glass">
+      <a href="../index.html" class="logo">
+        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links desktop-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#testimonials" class="nav-link">Testimonials</a>
+        <a href="index.html" class="nav-link active">Blog</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <button class="mobile-close-btn" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#testimonials" class="nav-link">Testimonials</a>
+        <a href="index.html" class="nav-link active">Blog</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Blog Post Header -->
+  <section class="blog-post-header">
+    <div class="container">
+      <span class="blog-category">E-commerce</span>
+      <h1 class="blog-post-title">Top E-commerce Trends Reshaping Online Retail</h1>
+      <div class="blog-post-meta">
+        <span><i class="far fa-calendar"></i> April 10, 2023</span>
+        <span><i class="far fa-user"></i> By Muatasim Billah</span>
+        <span><i class="far fa-clock"></i> 10 min read</span>
+        <span><i class="far fa-comment"></i> 8 comments</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Blog Post Content -->
+  <section class="blog-post-content">
+    <div class="container">
+      <div class="blog-post-image">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="E-commerce trends illustration showing digital shopping" width="1200" height="800">
+      </div>
+      
+      <div class="blog-post-text">
+        <!-- Table of Contents -->
+        <div class="blog-toc">
+          <h3>Table of Contents</h3>
+          <ul>
+            <li><a href="#introduction">Introduction: The Evolution of Online Shopping</a></li>
+            <li><a href="#ai-personalization">AI-Powered Personalization</a></li>
+            <li><a href="#social-commerce">The Rise of Social Commerce</a></li>
+            <li><a href="#mobile-shopping">Mobile Shopping Dominance</a></li>
+            <li><a href="#omnichannel">Omnichannel Retail Experiences</a></li>
+            <li><a href="#sustainability">Sustainability in E-commerce</a></li>
+            <li><a href="#ar-vr">Augmented and Virtual Reality Shopping</a></li>
+            <li><a href="#voice-commerce">Voice Commerce</a></li>
+            <li><a href="#checkout">Streamlined Checkout Processes</a></li>
+            <li><a href="#subscription">Subscription-Based Models</a></li>
+            <li><a href="#b2b-ecommerce">B2B E-commerce Growth</a></li>
+            <li><a href="#future-outlook">Future Outlook: Where Is E-commerce Headed?</a></li>
+            <li><a href="#conclusion">Conclusion: Adapting to the New E-commerce Landscape</a></li>
+          </ul>
+        </div>
+
+        <h2 id="introduction">Introduction: The Evolution of Online Shopping</h2>
+        <p>E-commerce has undergone a remarkable transformation since its inception in the early 1990s. What started as simple online transactions has evolved into a sophisticated ecosystem that blends technology, psychology, and business strategy to create seamless shopping experiences.</p>
+        
+        <p>Today, global e-commerce sales are projected to reach $6.3 trillion in 2023, accounting for nearly 22% of all retail sales worldwide. This explosive growth has been accelerated by the COVID-19 pandemic, which permanently shifted consumer behaviors and expectations.</p>
+        
+        <p>In this rapidly evolving landscape, staying current with the latest trends isn't just beneficial—it's essential for business survival. As consumers' digital expectations continue to rise, businesses must adapt to these new realities or risk falling behind more innovative competitors.</p>
+        
+        <h2 id="ai-personalization">AI-Powered Personalization</h2>
+        <p>Artificial Intelligence has revolutionized how online retailers connect with customers. By analyzing vast amounts of data including browsing history, purchase patterns, and demographic information, AI systems can create highly personalized shopping experiences that boost engagement and sales.</p>
+        
+        <div class="blog-post-image">
+          <img src="https://images.unsplash.com/photo-1535303311164-664fc9ec6532?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="AI personalization in e-commerce showing personalized product recommendations" width="1200" height="800">
+          <p class="image-caption">AI-driven personalization creates tailored shopping experiences that increase customer satisfaction and boost sales.</p>
+        </div>
+        
+        <p>Advanced AI applications in e-commerce include:</p>
+        
+        <ul>
+          <li>Product recommendations that adapt in real-time to user behavior</li>
+          <li>Dynamic pricing strategies based on demand, competition, and customer value</li>
+          <li>Visual search capabilities allowing customers to find products by uploading images</li>
+          <li>Personalized email marketing with timing and content tailored to individual preferences</li>
+          <li>Chatbots that provide intelligent customer service around the clock</li>
+        </ul>
+        
+        <p>The statistics speak for themselves: businesses implementing AI-powered personalization report up to 30% higher conversion rates and a 20% increase in average order value. As one industry expert notes, "AI personalization transforms transactional e-commerce into conversational commerce—it's like having a personal shopper for every customer."</p>
+        
+        <h2 id="social-commerce">The Rise of Social Commerce</h2>
+        <p>Social commerce—the integration of shopping experiences directly into social media platforms—has exploded in popularity. With over 4.7 billion social media users worldwide, platforms like Instagram, Facebook, TikTok, and Pinterest have become powerful sales channels.</p>
+        
+        <div class="blog-post-image">
+          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Social commerce concept showing shopping on social media platforms" width="1200" height="800">
+          <p class="image-caption">Social commerce eliminates friction by allowing consumers to discover and purchase products without leaving their favorite social platforms.</p>
+        </div>
+        
+        <p>Social commerce is reshaping online retail through:</p>
+        
+        <ul>
+          <li>Shoppable posts and stories that enable direct purchases without leaving the app</li>
+          <li>Live shopping events where products are demonstrated and sold in real-time</li>
+          <li>Influencer partnerships that leverage trusted voices to drive sales</li>
+          <li>User-generated content that provides authentic social proof</li>
+          <li>AR filters allowing customers to virtually try products before buying</li>
+        </ul>
+        
+        <p>The growth numbers are staggering: social commerce is expected to reach $1.2 trillion globally by 2025, growing three times as fast as traditional e-commerce. Brands that have mastered social commerce report that these channels can account for up to 30% of their total online revenue.</p>
+        
+        <div class="stat-container">
+          <div class="stat-item">
+            <h3>30%</h3>
+            <p>Higher conversion rates with AI-powered personalization</p>
+          </div>
+          <div class="stat-item">
+            <h3>$1.2T</h3>
+            <p>Projected global social commerce market by 2025</p>
+          </div>
+          <div class="stat-item">
+            <h3>72%</h3>
+            <p>Of e-commerce sales will come from mobile by 2025</p>
+          </div>
+        </div>
+        
+        <h2 id="mobile-shopping">Mobile Shopping Dominance</h2>
+        <p>The smartphone has become the primary shopping device for many consumers. Mobile commerce (m-commerce) is expected to account for 72% of all e-commerce sales by 2025, driven by younger generations who are mobile-first in their shopping habits.</p>
+        
+        <p>Leading retailers are responding with mobile-optimized experiences that go beyond responsive design to create truly mobile-native shopping journeys. These include:</p>
+        
+        <ul>
+          <li>Progressive Web Apps (PWAs) that combine the best of websites and native apps</li>
+          <li>One-tap checkout options that eliminate friction at the most critical moment</li>
+          <li>Mobile wallets integration for seamless payment processing</li>
+          <li>Gesture-based navigation that feels natural on touchscreen devices</li>
+          <li>Location-based offers that connect online shopping with physical locations</li>
+        </ul>
+        
+        <p>The impact of mobile optimization can't be overstated: conversion rates can increase by 65% when a site offers a well-designed mobile experience. As industry analysts observe, "Mobile is no longer just one channel among many—it's becoming the primary digital touchpoint between brands and consumers."</p>
+        
+        <h2 id="omnichannel">Omnichannel Retail Experiences</h2>
+        <p>The line between online and offline shopping continues to blur as retailers embrace omnichannel strategies. Today's consumers expect seamless transitions between digital and physical shopping experiences, with 73% using multiple channels during their shopping journey.</p>
+        
+        <div class="blog-post-image">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Omnichannel retail experience showing integration of online and offline shopping" width="1200" height="800">
+          <p class="image-caption">Omnichannel retail creates consistent, integrated shopping experiences across all customer touchpoints.</p>
+        </div>
+        
+        <p>Successful omnichannel strategies include:</p>
+        
+        <ul>
+          <li>Buy Online, Pick Up In-Store (BOPIS) and curbside pickup options</li>
+          <li>Ship-from-store capabilities that turn retail locations into fulfillment centers</li>
+          <li>Unified inventory systems that provide real-time product availability across channels</li>
+          <li>Connected loyalty programs that recognize customers regardless of shopping channel</li>
+          <li>In-store digital experiences that bring online features into physical retail</li>
+        </ul>
+        
+        <p>The business impact is clear: retailers with strong omnichannel strategies retain an average of 89% of their customers, compared to 33% for those with weak omnichannel approaches. As one retail executive puts it, "Omnichannel isn't just about being everywhere—it's about creating a consistent, connected experience that follows customers wherever they go."</p>
+        
+        <h2 id="sustainability">Sustainability in E-commerce</h2>
+        <p>Environmental concerns are increasingly influencing consumer purchasing decisions. A recent study found that 73% of global consumers are willing to change their consumption habits to reduce environmental impact, and this sentiment is particularly strong among younger shoppers.</p>
+        
+        <p>E-commerce businesses are responding with sustainable practices such as:</p>
+        
+        <ul>
+          <li>Eco-friendly packaging solutions that minimize waste</li>
+          <li>Carbon-neutral shipping options</li>
+          <li>Transparent supply chains with ethical sourcing</li>
+          <li>Resale and recommerce programs that extend product lifecycle</li>
+          <li>Digital receipts and documentation to reduce paper usage</li>
+        </ul>
+        
+        <p>Brands that authentically embrace sustainability aren't just helping the environment—they're building customer loyalty and differentiation in an increasingly competitive market. As consumers become more environmentally conscious, sustainability is evolving from a nice-to-have feature to a business imperative.</p>
+        
+        <h2 id="conclusion">Conclusion: Adapting to the New E-commerce Landscape</h2>
+        <p>The e-commerce world continues to evolve at a breakneck pace. Businesses that thrive will be those that stay agile, embrace innovation, and put customer experience at the center of their strategy. While technology drives many of these trends, the fundamental principle remains unchanged: understanding and meeting customer needs is the key to e-commerce success.</p>
+        
+        <p>As we look ahead, one thing is certain—e-commerce will continue to transform how we shop, discover, and interact with brands. The businesses that recognize these shifts early and adapt quickly will be positioned to capture market share in this exciting new era of digital commerce.</p>
+        
+        <p>What e-commerce trends are you most excited about? How is your business adapting to these changes? Share your thoughts in the comments below!</p>
+        
+        <!-- Author Bio -->
+        <div class="author-bio">
+          <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80" alt="Muatasim Billah - E-commerce Consultant" class="author-image">
+          <div class="author-info">
+            <h3>About the Author</h3>
+            <p>Muatasim Billah is a web developer and e-commerce specialist with over 8 years of experience building successful online stores. He has helped dozens of businesses implement cutting-edge e-commerce solutions that drive growth and enhance customer experience.</p>
+            <div class="author-social">
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Related Posts -->
+        <div class="related-posts">
+          <h3>Related Posts</h3>
+          <div class="related-posts-grid">
+            <a href="#" class="related-post">
+              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Shopify Store Optimization Tips">
+              <h4>10 Shopify Store Optimization Tips to Boost Sales</h4>
+              <span class="post-date">March 22, 2023</span>
+            </a>
+            <a href="#" class="related-post">
+              <img src="https://images.unsplash.com/photo-1599658880436-c61792e70672?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Mobile Shopping Experience">
+              <h4>Creating a Seamless Mobile Shopping Experience</h4>
+              <span class="post-date">February 18, 2023</span>
+            </a>
+            <a href="#" class="related-post">
+              <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Customer Retention Strategies">
+              <h4>Customer Retention Strategies for E-commerce Businesses</h4>
+              <span class="post-date">January 05, 2023</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments (8)</h3>
+          
+          <div class="comment">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="Sarah J." class="comment-avatar">
+            <div class="comment-content">
+              <div class="comment-header">
+                <h4>Sarah J.</h4>
+                <span class="comment-date">April 12, 2023</span>
+              </div>
+              <p>Great article! I've been implementing some AI personalization on my own Shopify store and have seen a significant increase in conversion rates. Would love to see a more detailed post about practical AI implementations for small businesses.</p>
+              <button class="reply-btn">Reply</button>
+            </div>
+          </div>
+          
+          <div class="comment">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="David R." class="comment-avatar">
+            <div class="comment-content">
+              <div class="comment-header">
+                <h4>David R.</h4>
+                <span class="comment-date">April 11, 2023</span>
+              </div>
+              <p>I'm particularly interested in the sustainability trends you mentioned. Do you have any specific examples of e-commerce brands that are doing this well? I think it's becoming a major factor in consumer decision-making.</p>
+              <button class="reply-btn">Reply</button>
+            </div>
+          </div>
+          
+         <!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+
+
+<!-- Your existing website content goes here -->
+
+<!-- Chatbot Container -->
+<div class="chatbot-container">
+  <!-- Chat Toggle Button -->
+  <button class="chat-toggle-btn">
+    <i class="fas fa-comment-alt"></i>
+  </button>
+  
+  <!-- Chat Interface -->
+  <div class="chat-interface">
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <div class="chat-header-user">
+        <div class="chat-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-user-info">
+          <h3 class="chat-user-name">Mehar Bot</h3>
+          <div class="chat-user-status">
+            <span class="status-indicator"></span>
+            <span class="status-text">Online</span>
+          </div>
+        </div>
+      </div>
+      <button class="chat-close-btn">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+    
+    <!-- Chat Messages Area -->
+    <div class="chat-messages">
+      <!-- Messages will be dynamically added here by JavaScript -->
+      
+      <!-- Examples of message structure:
+      <div class="chat-message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-bubble">
+          <div class="message-text">
+            Hi there! I'm Muatasim's portfolio assistant. How can I help you today?
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-message user-message">
+        <div class="message-bubble">
+          <div class="message-text">
+            What services do you offer?
+          </div>
+        </div>
+        <div class="message-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+      </div> -->
+    </div>
+    
+    <!-- Suggested Questions (shown after bot's first message) -->
+    <div class="suggested-questions">
+      <button class="suggested-question">What services do you offer?</button>
+      <button class="suggested-question">View portfolio</button>
+      <button class="suggested-question">Contact info</button>
+    </div>
+    
+    <!-- Chat Input Area -->
+    <div class="chat-input-area">
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Type your message here..." autocomplete="off">
+        <button type="submit" class="chat-send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+        
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="../index.html">
+            <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+          </a>
+          <p>Web Developer & E-commerce Specialist</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Navigation</h3>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#skills">Skills</a></li>
+              <li><a href="../index.html#projects">Projects</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">Shopify Stores</a></li>
+              <li><a href="#">E-commerce Solutions</a></li>
+              <li><a href="#">AI Voice & Avatar</a></li>
+              <li><a href="#">Audio Engineering</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Connect</h3>
+            <ul>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <li><a href="index.html">Blog</a></li>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Muatasim Billah. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript for the page -->
+  <script>
+    // Theme Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.querySelector('i').classList.remove('fa-moon');
+      themeToggle.querySelector('i').classList.add('fa-sun');
+    }
+    
+    // Toggle theme
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      // Update icon
+      if (body.classList.contains('dark-mode')) {
+        themeToggle.querySelector('i').classList.remove('fa-moon');
+        themeToggle.querySelector('i').classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeToggle.querySelector('i').classList.remove('fa-sun');
+        themeToggle.querySelector('i').classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    
+    // Mobile Menu
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileCloseBtn = document.querySelector('.mobile-close-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    mobileCloseBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links .nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // Custom Cursor (Desktop Only)
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+    
+    if (window.innerWidth > 992) {
+      window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        
+        cursorDot.style.opacity = '1';
+        cursorOutline.style.opacity = '1';
+        
+        cursorDot.style.transform = `translate(${posX}px, ${posY}px)`;
+        cursorOutline.style.transform = `translate(${posX}px, ${posY}px)`;
+      });
+    }
+    
+    // Back to Top Button
+    const backToTopBtn = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Animated Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 100;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Initialize GSAP ScrollTrigger if available
+    if (typeof ScrollTrigger !== 'undefined') {
+      // Fade in blog post sections
+      gsap.utils.toArray('.blog-post-text h2, .blog-post-image, .stat-container, .author-bio, .related-posts, .comments-section').forEach(elem => {
+        gsap.from(elem, { 
+          y: 30,
+          opacity: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: elem,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>

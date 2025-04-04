@@ -364,7 +364,92 @@
     </div>
   </section>
   
-  <!-- Footer -->
+  <!-- Footer --<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+
+
+<!-- Your existing website content goes here -->
+
+<!-- Chatbot Container -->
+<div class="chatbot-container">
+  <!-- Chat Toggle Button -->
+  <button class="chat-toggle-btn">
+    <i class="fas fa-comment-alt"></i>
+  </button>
+  
+  <!-- Chat Interface -->
+  <div class="chat-interface">
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <div class="chat-header-user">
+        <div class="chat-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-user-info">
+          <h3 class="chat-user-name">Mehar Bot</h3>
+          <div class="chat-user-status">
+            <span class="status-indicator"></span>
+            <span class="status-text">Online</span>
+          </div>
+        </div>
+      </div>
+      <button class="chat-close-btn">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+    
+    <!-- Chat Messages Area -->
+    <div class="chat-messages">
+      <!-- Messages will be dynamically added here by JavaScript -->
+      
+      <!-- Examples of message structure:
+      <div class="chat-message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-bubble">
+          <div class="message-text">
+            Hi there! I'm Muatasim's portfolio assistant. How can I help you today?
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-message user-message">
+        <div class="message-bubble">
+          <div class="message-text">
+            What services do you offer?
+          </div>
+        </div>
+        <div class="message-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+      </div> -->
+    </div>
+    
+    <!-- Suggested Questions (shown after bot's first message) -->
+    <div class="suggested-questions">
+      <button class="suggested-question">What services do you offer?</button>
+      <button class="suggested-question">View portfolio</button>
+      <button class="suggested-question">Contact info</button>
+    </div>
+    
+    <!-- Chat Input Area -->
+    <div class="chat-input-area">
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Type your message here..." autocomplete="off">
+        <button type="submit" class="chat-send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+        >
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -623,5 +708,8 @@
       }
     }
   </style>
+   <!-- JavaScript -->
+   <script src="js\chatbot.js"></script>
+   <script src="js/main.js"></script>
 </body>
 </html>

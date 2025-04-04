@@ -2358,7 +2358,7 @@
   }
   
 
-  /* Chatbot Styles */
+ /* Enhanced Chatbot Styles */
 
 /* Main Container */
 .chatbot-container {
@@ -2499,6 +2499,23 @@
   overflow-y: auto;
   padding: 15px;
   background-color: var(--bg-dark, #0c0c14);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(112, 0, 255, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar for Webkit browsers */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(112, 0, 255, 0.3);
+  border-radius: 10px;
 }
 
 .chat-message {
@@ -2571,6 +2588,18 @@
 .message-text {
   line-height: 1.6;
   font-size: 14px;
+}
+
+/* Improved style for lists in chat messages */
+.message-text ul {
+  margin: 8px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.message-text ul li {
+  margin-bottom: 6px;
+  color: var(--text-light, #ffffff);
 }
 
 /* Typing Indicator */
@@ -2690,32 +2719,16 @@
   transform: scale(1.05);
 }
 
-/* Light Theme Adjustments */
-.light-theme .chat-interface {
-  background-color: var(--bg-dark-lighter, #ffffff);
+/* Enhanced chat list for bullet points */
+.chat-list {
+  margin: 8px 0;
+  padding-left: 20px;
+  list-style-type: disc;
 }
 
-.light-theme .chat-messages {
-  background-color: var(--bg-dark, #f5f5fa);
-}
-
-.light-theme .message-bubble {
-  color: var(--text-light, #16161f);
-}
-
-.light-theme .chat-input-area {
-  background-color: var(--card-dark, #ffffff);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.light-theme #chat-input {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: var(--text-light, #16161f);
-}
-
-.light-theme .suggested-questions {
-  background-color: var(--bg-dark, #f5f5fa);
+.chat-list li {
+  margin-bottom: 6px;
+  color: var(--text-light, #ffffff);
 }
 
 /* Mobile Responsiveness */
@@ -2739,4 +2752,42 @@
   .chat-messages {
     height: 300px;
   }
+}
+
+/* Light Theme Adjustments */
+.light-theme .chat-interface {
+  background-color: #ffffff;
+}
+
+.light-theme .chat-messages {
+  background-color: #f5f5fa;
+}
+
+.light-theme .bot-message .message-bubble {
+  background-color: rgba(112, 0, 255, 0.05);
+  color: #333333;
+}
+
+.light-theme .user-message .message-bubble {
+  background-color: rgba(0, 217, 255, 0.05);
+  color: #333333;
+}
+
+.light-theme .message-text ul li {
+  color: #333333;
+}
+
+.light-theme .chat-input-area {
+  background-color: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.light-theme #chat-input {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #333333;
+}
+
+.light-theme .suggested-questions {
+  background-color: #f5f5fa;
 }
