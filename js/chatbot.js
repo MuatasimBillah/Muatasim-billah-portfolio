@@ -31,9 +31,9 @@ const knowledgeBase = {
     ],
     contact: [
       "You can contact Muatasim through:",
-      "• Email: contact@muatasim.com",
-      "• The contact form on the website",
-      "• LinkedIn profile (linked on website)"
+      "• Email: Meharmahalcoll@gmail.com",
+      "• Phone number: 03088754565",
+      "• Also in social links that include in website)"
     ],
     webDevelopment: [
       "Muatasim specializes in frontend web development using HTML, CSS, and JavaScript, creating responsive websites with modern designs and smooth animations.",
