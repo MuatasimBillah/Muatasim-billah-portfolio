@@ -2791,3 +2791,43 @@
 .light-theme .suggested-questions {
   background-color: #f5f5fa;
 }
+/* Skill tags styling */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+/* Button wrapper for proper spacing */
+.fiverr-btn-wrapper {
+  margin-top: 10px;
+  padding-top: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Button styling */
+.fiverr-order-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: #1dbf73;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: none;
+  cursor: pointer;
+  width: auto;
+  min-width: 140px;
+  text-align: center;
+}
+
+.fiverr-order-btn:hover {
+  background-color: #19a463;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
