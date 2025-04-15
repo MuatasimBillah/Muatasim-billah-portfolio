@@ -68,7 +68,7 @@ const supportedLanguages = {
 // Knowledge Base for the chatbot
 const knowledgeBase = {
   services: [
-    "Muatasim offers several professional services including:",
+    "Motasim offers several professional services including:",
     "• Frontend Web Development with HTML, CSS, and JavaScript",
     "• Custom Shopify Store Design",
     "• Professional Audio Engineering",
@@ -77,7 +77,7 @@ const knowledgeBase = {
     "• Canva Design and Graphics"
   ],
   skills: [
-    "Muatasim core skills include:",
+    "Motasim core skills include:",
     "• Web Development (HTML, CSS, JavaScript)",
     "• E-commerce (Shopify)",
     "• Audio Engineering & Production",
@@ -101,7 +101,7 @@ const knowledgeBase = {
     "• Also in social links that include in website)"
   ],
   webDevelopment: [
-    "Muatasim specializes in frontend web development using HTML, CSS, and JavaScript, creating responsive websites with modern designs and smooth animations.",
+    "Motasim specializes in frontend web development using HTML, CSS, and JavaScript, creating responsive websites with modern designs and smooth animations.",
     "His projects feature:",
     "• Responsive web design that adapts to all screen sizes",
     "• Interactive UI/UX with GSAP animations",
@@ -109,7 +109,7 @@ const knowledgeBase = {
     "• Modern CSS techniques including Grid and Flexbox"
   ],
   shopify: [
-    "Muatasim billah is an expert in custom Shopify store design, providing high-converting e-commerce solutions with:",
+    "Motasim billah is an expert in custom Shopify store design, providing high-converting e-commerce solutions with:",
     "• Distinctive branding and visual aesthetics",
     "• Intuitive navigation and user experience",
     "• Optimized conversion funnels",
@@ -117,7 +117,7 @@ const knowledgeBase = {
     "• Mobile-first responsive design"
   ],
   audioEngineering: [
-    "Muatasim billah provides professional audio engineering services including:",
+    "Motasim billah provides professional audio engineering services including:",
     "• Music production and mixing",
     "• Podcast editing and enhancement",
     "• Sound design for videos",
@@ -125,7 +125,7 @@ const knowledgeBase = {
     "• Voice processing and cleanup"
   ],
   aiVoiceover: [
-    "Muatasim billah offers AI voiceover services using cutting-edge neural voice technology to create ultra-realistic voiceovers for:",
+    "Motasim billah offers AI voiceover services using cutting-edge neural voice technology to create ultra-realistic voiceovers for:",
     "• Commercial advertisements",
     "• Explainer videos",
     "• E-learning content",
@@ -134,7 +134,7 @@ const knowledgeBase = {
     "These sound virtually indistinguishable from human recordings."
   ],
   aiAvatar: [
-    "Muatasim billah creates lifelike AI talking avatars for:",
+    "Motasim billah creates lifelike AI talking avatars for:",
     "• Business presentations",
     "• Marketing videos",
     "• Educational content",
@@ -143,7 +143,7 @@ const knowledgeBase = {
     "These AI avatars provide engaging visual representation with synchronized lip movements and natural expressions."
   ],
   graphicDesign: [
-    "Muatasim billah offers professional Canva design services for:",
+    "Motasim billah offers professional Canva design services for:",
     "• Social media posts and stories",
     "• Brand identity packages",
     "• Marketing materials",
@@ -154,25 +154,25 @@ const knowledgeBase = {
   
   // Conversational responses
   greetings: [
-    "Hello! How can I help you with Muatasim billah portfolio today?",
-    "Hi there! I'm Muatasim portfolio assistant. What would you like to know?",
-    "Welcome! How can I assist you with information about Muatasim billah services?",
-    "Greetings! I'd be happy to tell you about muatasim billah work. What are you interested in?"
+    "Hello! How can I help you with Motasim billah portfolio today?",
+    "Hi there! I'm Motasim portfolio assistant. What would you like to know?",
+    "Welcome! How can I assist you with information about Motasim billah services?",
+    "Greetings! I'd be happy to tell you about Motasim billah work. What are you interested in?"
   ],
   howAreYou: [
-    "I'm doing great, thanks for asking! How can I help you learn about Muatasim billah services today?",
-    "I'm excellent! Ready to assist you with information about Muatasim billah portfolio. What would you like to know?",
-    "I'm functioning perfectly! What information about Muatasim billah work are you looking for?"
+    "I'm doing great, thanks for asking! How can I help you learn about Motasim billah services today?",
+    "I'm excellent! Ready to assist you with information about Motasim billah portfolio. What would you like to know?",
+    "I'm functioning perfectly! What information about Motasim billah work are you looking for?"
   ],
   thanks: [
-    "You're welcome! Is there anything else you'd like to know about Muatasim billah services?",
-    "My pleasure! Let me know if you need any other information about Muatasim billah work.",
-    "Happy to help! Feel free to ask if you have more questions about Muatasim billah portfolio."
+    "You're welcome! Is there anything else you'd like to know about Motasim billah services?",
+    "My pleasure! Let me know if you need any other information about Motasim billah work.",
+    "Happy to help! Feel free to ask if you have more questions about Motasim billah portfolio."
   ],
   goodbye: [
-    "Goodbye! Feel free to return if you have more questions about Muatasim billah services.",
-    "Take care! If you need more information about Muatasim billah work in the future, I'll be here.",
-    "Farewell! Don't hesitate to reach out again if you need details about Muatasim billah portfolio."
+    "Goodbye! Feel free to return if you have more questions about Motasim billah services.",
+    "Take care! If you need more information about Motasim billah work in the future, I'll be here.",
+    "Farewell! Don't hesitate to reach out again if you need details about Motasim billah portfolio."
   ],
   about: [
     "Mehar is a skilled professional specializing in web development, e-commerce design, audio engineering, AI voice technology, and graphic design.",
@@ -186,7 +186,7 @@ const languageResponses = {
   // Urdu responses
   urdu: {
     services: [
-      "Muatasim in services provide karte hain:",
+      "Motasim in services provide karte hain:",
       "• Web Development aur responsive websites",
       "• Custom Shopify Store Design",
       "• Professional Audio Engineering",
@@ -195,21 +195,21 @@ const languageResponses = {
       "• Graphic Design aur Canva design services"
     ],
     webDevelopment: [
-      "Muatasim modern web development ke expert hain aur responsive websites banate hain jo har device par perfect nazar aati hain.",
+      "Motasim modern web development ke expert hain aur responsive websites banate hain jo har device par perfect nazar aati hain.",
       "• Mobile friendly websites",
       "• Interactive animations aur smooth transitions",
       "• Fast loading pages",
       "• Modern design elements"
     ],
     shopify: [
-      "Muatasim custom Shopify stores banate hain jo sales badhaane mein madad karte hain:",
+      "Motasim custom Shopify stores banate hain jo sales badhaane mein madad karte hain:",
       "• Professional aur unique design",
       "• Easy navigation aur user experience",
       "• Mobile-friendly shopping",
       "• Custom product pages jo conversion improve karte hain"
     ],
     audioEngineering: [
-      "Audio engineering mein Muatasim ye services provide karte hain:",
+      "Audio engineering mein Motasim ye services provide karte hain:",
       "• Professional mixing aur mastering",
       "• Podcast editing aur enhancement",
       "• Voice processing aur cleanup",
@@ -237,12 +237,12 @@ const languageResponses = {
       "• Professional presentations aur business materials"
     ],
     greetings: [
-      "Assalam-o-Alaikum! Muatasim Billah ki portfolio ke baray mein kya janna chahtay hain?",
-      "Hello! Mein Muatasim ka virtual assistant hoon. Aap ko kya information chahiye?",
-      "Kya haal hain? Muatasim ki services ke baray mein kya poochna chahte hain?"
+      "Assalam-o-Alaikum! Motasim Billah ki portfolio ke baray mein kya janna chahtay hain?",
+      "Hello! Mein Motasim ka virtual assistant hoon. Aap ko kya information chahiye?",
+      "Kya haal hain? Motasim ki services ke baray mein kya poochna chahte hain?"
     ],
     howAreYou: [
-      "Mein bilkul theek hoon, shukriya poochnay ka! Muatasim ki services ke baray mein kya janna chahte hain?",
+      "Mein bilkul theek hoon, shukriya poochnay ka! Motasim ki services ke baray mein kya janna chahte hain?",
       "Alhamdulillah, bohot acha! Aap ko kaunsi service ke baare mein bataun?"
     ],
     thanks: [
@@ -254,14 +254,14 @@ const languageResponses = {
       "Khuda Hafiz! Baad mein kabhi bhi contact kar sakte hain."
     ],
     about: [
-      "Muatasim Billah ek professional web developer, audio engineer, aur AI voice/avatar creator hain. Unke paas in services mein kaafi experience hai aur unhone kai clients ko high-quality solutions provide kiye hain."
+      "Motasim Billah ek professional web developer, audio engineer, aur AI voice/avatar creator hain. Unke paas in services mein kaafi experience hai aur unhone kai clients ko high-quality solutions provide kiye hain."
     ],
     pricing: [
-      "Pricing project ki complexity aur requirements par depend karti hai. Exact quote ke liye Muatasim se directly contact karen.",
+      "Pricing project ki complexity aur requirements par depend karti hai. Exact quote ke liye Motasim se directly contact karen.",
       "Contact information: Email: Meharmahalcoll@gmail.com, Phone: 03088754565"
     ],
     process: [
-      "Muatasim ka kaam karne ka process simple hai:",
+      "Motasim ka kaam karne ka process simple hai:",
       "1. Requirements gathering aur consultation",
       "2. Strategy aur planning",
       "3. Design mockups aur approval",
@@ -270,13 +270,13 @@ const languageResponses = {
       "6. Delivery aur support"
     ],
     contact: [
-      "Aap Muatasim se is tarah contact kar sakte hain:",
+      "Aap Motasim se is tarah contact kar sakte hain:",
       "• Email: Meharmahalcoll@gmail.com",
       "• Phone number: 03088754565",
       "• Website ke social links bhi use kar sakte hain"
     ],
     skills: [
-      "Muatasim Billah ki main skills hain:",
+      "Motasim Billah ki main skills hain:",
       "• Web Development (HTML, CSS, JavaScript)",
       "• E-commerce (Shopify)",
       "• Audio Engineering",
@@ -285,7 +285,7 @@ const languageResponses = {
       "• Graphic Design"
     ],
     projects: [
-      "Muatasim Billah ne ye projects kiye hain:",
+      "Motasim Billah ne ye projects kiye hain:",
       "• Web Development (responsive websites)",
       "• E-commerce aur Shopify stores",
       "• Audio Engineering (music, podcasts)",
@@ -298,7 +298,7 @@ const languageResponses = {
   // Hindi responses
   hindi: {
     services: [
-      "Muatasim ye services provide karte hain:",
+      "Motasim ye services provide karte hain:",
       "• Web Development aur responsive websites",
       "• Custom Shopify Store Design",
       "• Professional Audio Engineering",
@@ -307,11 +307,11 @@ const languageResponses = {
       "• Graphic Design aur Canva design services"
     ],
     greetings: [
-      "Namaste! Muatasim Billah ke portfolio ke baare mein kya jaanna chahte hain?",
-      "Namaskaar! Main Muatasim ka virtual assistant hoon. Aapko kya jaankari chahiye?"
+      "Namaste! Motasim Billah ke portfolio ke baare mein kya jaanna chahte hain?",
+      "Namaskaar! Main Motasim ka virtual assistant hoon. Aapko kya jaankari chahiye?"
     ],
     howAreYou: [
-      "Main bilkul theek hoon, dhanyavaad poochne ke liye! Muatasim ki services ke baare mein kya jaanna chahte hain?",
+      "Main bilkul theek hoon, dhanyavaad poochne ke liye! Motasim ki services ke baare mein kya jaanna chahte hain?",
       "Bahut badhiya! Aapko kaunsi service ke baare mein bataun?"
     ],
     thanks: [
@@ -323,7 +323,7 @@ const languageResponses = {
       "Alvida! Baad mein kabhi bhi contact kar sakte hain."
     ],
     contact: [
-      "Aap Muatasim se is prakar contact kar sakte hain:",
+      "Aap Motasim se is prakar contact kar sakte hain:",
       "• Email: Meharmahalcoll@gmail.com",
       "• Phone number: 03088754565",
       "• Website ke social links bhi use kar sakte hain"
@@ -368,11 +368,11 @@ const languageResponses = {
   // Spanish responses
   spanish: {
     greetings: [
-      "¡Hola! ¿Cómo puedo ayudarte con la información de Muatasim hoy?",
-      "¡Saludos! Soy el asistente virtual de Muatasim. ¿Qué te gustaría saber?"
+      "¡Hola! ¿Cómo puedo ayudarte con la información de Motasim hoy?",
+      "¡Saludos! Soy el asistente virtual de Motasim. ¿Qué te gustaría saber?"
     ],
     howAreYou: [
-      "¡Estoy muy bien, gracias por preguntar! ¿Cómo puedo ayudarte con los servicios de Muatasim?",
+      "¡Estoy muy bien, gracias por preguntar! ¿Cómo puedo ayudarte con los servicios de Motasim?",
       "¡Excelente! ¿Sobre qué servicio te gustaría saber más?"
     ],
     thanks: [
@@ -384,13 +384,13 @@ const languageResponses = {
       "¡Hasta luego! Puedes contactar en cualquier momento si necesitas ayuda."
     ],
     contact: [
-      "Puedes contactar a Muatasim a través de:",
+      "Puedes contactar a Motasim a través de:",
       "• Email: Meharmahalcoll@gmail.com",
       "• Número de teléfono: 03088754565",
       "• También puedes usar los enlaces de redes sociales en el sitio web"
     ],
     services: [
-      "Muatasim ofrece varios servicios profesionales que incluyen:",
+      "Motasim ofrece varios servicios profesionales que incluyen:",
       "• Desarrollo web frontend con HTML, CSS y JavaScript",
       "• Diseño personalizado de tiendas Shopify",
       "• Ingeniería de audio profesional",
@@ -713,7 +713,7 @@ const questionPatterns = {
 const contextualInfo = {
   benefit: {
     webDevelopment: [
-      "A responsive website designed by Muatasim will help your business:",
+      "A responsive website designed by Motasim will help your business:",
       "• Increase online visibility and attract more visitors",
       "• Create a professional first impression that builds trust",
       "• Provide a seamless experience across all devices",
@@ -721,7 +721,7 @@ const contextualInfo = {
       "• Convert more visitors into leads or customers with intuitive navigation"
     ],
     shopify: [
-      "Muatasim billah custom Shopify store design services will help your business:",
+      "Motasim billah custom Shopify store design services will help your business:",
       "• Increase conversion rates with optimized checkout flows",
       "• Build customer trust with professional, branded design",
       "• Stand out from competitors with unique, custom features",
@@ -737,7 +737,7 @@ const contextualInfo = {
       "• Ensuring consistent volume levels across all content"
     ],
     aiVoiceover: [
-      "Muatasim billah AI voiceover services provide advantages like:",
+      "Motasim billah AI voiceover services provide advantages like:",
       "• Cost-effective alternative to hiring voice actors for multiple projects",
       "• Quick turnaround times for urgent deadlines",
       "• Consistency in voice across all your marketing materials",
@@ -745,7 +745,7 @@ const contextualInfo = {
       "• Easy revisions without scheduling re-recording sessions"
     ],
     aiAvatar: [
-      "Using Muatasim billah AI avatars for your business provides benefits such as:",
+      "Using Motasim billah AI avatars for your business provides benefits such as:",
       "• Creating engaging video content without filming equipment or studio",
       "• Maintaining consistent brand representation across all videos",
       "• Easily updating content without re-shoots when information changes",
@@ -753,7 +753,7 @@ const contextualInfo = {
       "• Professional video presence without the anxiety of being on camera"
     ],
     graphicDesign: [
-      "Muatasim billah Canva design services help your business by:",
+      "Motasim billah Canva design services help your business by:",
       "• Creating consistent visual branding that increases recognition",
       "• Designing eye-catching social media graphics that improve engagement",
       "• Producing professional marketing materials that convert prospects",
@@ -763,7 +763,7 @@ const contextualInfo = {
   },
   process: {
     webDevelopment: [
-      "Muatasim billah web development process includes:",
+      "Motasim billah web development process includes:",
       "1. Discovery - Understanding your business goals and target audience",
       "2. Planning - Creating sitemaps and wireframes for optimal user flow",
       "3. Design - Developing visual mockups for your approval",
@@ -781,7 +781,7 @@ const contextualInfo = {
       "6. Launch - Deploying your store and providing training"
     ],
     audioEngineering: [
-      "Muatasim's audio engineering workflow typically follows these steps:",
+      "Motasim's audio engineering workflow typically follows these steps:",
       "1. Consultation - Understanding your project goals and requirements",
       "2. Recording/Source Assessment - Evaluating existing audio or recording new content",
       "3. Editing - Cleaning up recordings and arranging audio elements",
@@ -790,7 +790,7 @@ const contextualInfo = {
       "6. Delivery - Providing files in your required formats"
     ],
     aiVoiceover: [
-      "Muatasim's AI voiceover creation process includes:",
+      "Motasim's AI voiceover creation process includes:",
       "1. Script Analysis - Reviewing your script for optimal voice delivery",
       "2. Voice Selection - Choosing the perfect AI voice for your brand and content",
       "3. Generation - Creating the initial AI voiceover",
@@ -799,7 +799,7 @@ const contextualInfo = {
       "6. Delivery - Providing the final voiceover in your preferred format"
     ],
     aiAvatar: [
-      "When creating AI avatars, Muatasim follows these steps:",
+      "When creating AI avatars, Motasim follows these steps:",
       "1. Character Design - Selecting or customizing the perfect digital human",
       "2. Script Development - Creating natural-sounding dialogue",
       "3. Voice Generation - Creating the avatar's voice",
@@ -808,7 +808,7 @@ const contextualInfo = {
       "6. Delivery - Providing the final video in your required format"
     ],
     graphicDesign: [
-      "Muatasim's graphic design process with Canva includes:",
+      "Motasim's graphic design process with Canva includes:",
       "1. Brief - Understanding your brand, goals, and target audience",
       "2. Research - Analyzing trends and competition for inspiration",
       "3. Concept - Developing initial design concepts",
@@ -819,7 +819,7 @@ const contextualInfo = {
   },
   examples: {
     webDevelopment: [
-      "Muatasim has created several impressive websites, including:",
+      "Motasim has created several impressive websites, including:",
       "• A responsive portfolio site for a creative agency with smooth GSAP animations",
       "• A business landing page that increased lead generation by 45%",
       "• An interactive product showcase with advanced JavaScript functionality",
@@ -827,7 +827,7 @@ const contextualInfo = {
       "Visit the projects section to see more examples."
     ],
     shopify: [
-      "Some of Muatasim's notable Shopify store designs include:",
+      "Some of Motasim's notable Shopify store designs include:",
       "• A fashion boutique that saw a 65% increase in mobile conversions",
       "• A home goods store with custom collection pages that boosted average order value",
       "• A specialty food shop with optimized product pages that improved conversion rates",
@@ -835,7 +835,7 @@ const contextualInfo = {
       "Check out the e-commerce portfolio for more examples."
     ],
     audioEngineering: [
-      "Muatasim's audio engineering portfolio includes:",
+      "Motasim's audio engineering portfolio includes:",
       "• Professional podcast editing for business and interview shows",
       "• Music production and mixing for independent artists",
       "• Sound design for promotional videos and commercials",
@@ -843,7 +843,7 @@ const contextualInfo = {
       "• Background music composition for corporate presentations"
     ],
     aiVoiceover: [
-      "Examples of Muatasim's AI voiceover work include:",
+      "Examples of Motasim's AI voiceover work include:",
       "• Explainer videos for tech companies with natural-sounding narration",
       "• IVR system prompts for customer service lines",
       "• E-learning course narration in multiple languages",
@@ -851,7 +851,7 @@ const contextualInfo = {
       "• Commercial advertisements with compelling voice delivery"
     ],
     aiAvatar: [
-      "Muatasim has created AI avatars for various purposes, including:",
+      "Motasim has created AI avatars for various purposes, including:",
       "• Virtual spokespersons for company websites",
       "• Presenters for product demonstrations",
       "• Trainers for corporate e-learning programs",
@@ -859,7 +859,7 @@ const contextualInfo = {
       "• Social media content creators for brands"
     ],
     graphicDesign: [
-      "Muatasim's graphic design portfolio showcases:",
+      "Motasim's graphic design portfolio showcases:",
       "• Social media content series that increased engagement by 78%",
       "• Brand identity packages for startups and established businesses",
       "• Marketing materials for product launches and events",
@@ -1767,7 +1767,7 @@ function initChatbot() {
       } else if (lang === 'spanish') {
         response = "Ahora puedo leer las respuestas en voz alta. ¿Tienes alguna pregunta para mí?";
       } else {
-        response = "I can now read answers aloud to you. What would you like to know about Muatasim's services?";
+        response = "I can now read answers aloud to you. What would you like to know about Motasim's services?";
       }
       setTimeout(() => {
         speakText(response);
@@ -1775,7 +1775,7 @@ function initChatbot() {
     }
     // Check for about
     else if ((containsAny(input, ['who is', 'about', 'tell me about', 'who\'s', 'background', 'describe', 'introduce', 'information on', 'kaun hai', 'kaun hain', 'kon hai', 'kon hain', 'kya karte hain']) && 
-             containsAny(input, ['muatasim', 'mehar', 'you', 'your', 'creator', 'owner', 'portfolio', 'developer', 'himself', 'designer', 'company', 'business', 'aap', 'apka', 'tumhara']))) {
+             containsAny(input, ['Motasim', 'mehar', 'you', 'your', 'creator', 'owner', 'portfolio', 'developer', 'himself', 'designer', 'company', 'business', 'aap', 'apka', 'tumhara']))) {
       if (lang === 'urdu' && languageResponses.urdu.about) {
         response = languageResponses.urdu.about[0];
       } else if (lang === 'hindi' && languageResponses.hindi.about) {
@@ -1787,7 +1787,7 @@ function initChatbot() {
       } else {
         response = getRandomResponse(knowledgeBase.about);
       }
-      response += `\n\nYou can learn more about Muatasim here: <a href="${pageLinks.about}" target="_blank">About Muatasim</a>`;
+      response += `\n\nYou can learn more about Motasim here: <a href="${pageLinks.about}" target="_blank">About Motasim</a>`;
       chatContext.conversationStage = 'exploring';
     }
     // Check for skills
@@ -1803,7 +1803,7 @@ function initChatbot() {
       } else {
         response = knowledgeBase.skills.join('\n');
       }
-      response += `\n\nYou can see more details about Muatasim's skills here: <a href="${pageLinks.skills}" target="_blank">Skills & Expertise</a>`;
+      response += `\n\nYou can see more details about Motasim's skills here: <a href="${pageLinks.skills}" target="_blank">Skills & Expertise</a>`;
       chatContext.conversationStage = 'exploring';
     }
     // Check for services
@@ -1835,7 +1835,7 @@ function initChatbot() {
       } else {
         response = knowledgeBase.projects.join('\n');
       }
-      response += `\n\nSee Muatasim's project portfolio here: <a href="${pageLinks.projects}" target="_blank">Projects</a>`;
+      response += `\n\nSee Motasim's project portfolio here: <a href="${pageLinks.projects}" target="_blank">Projects</a>`;
       chatContext.conversationStage = 'exploring';
     }
     // Check for contact information
@@ -1851,7 +1851,7 @@ function initChatbot() {
       } else {
         response = knowledgeBase.contact.join('\n');
       }
-      response += `\n\nYou can contact Muatasim directly here: <a href="${pageLinks.contact}" target="_blank">Contact</a>`;
+      response += `\n\nYou can contact Motasim directly here: <a href="${pageLinks.contact}" target="_blank">Contact</a>`;
       chatContext.conversationStage = 'specific';
     }
     // Check for dynamic FAQ request
@@ -1896,7 +1896,7 @@ function initChatbot() {
       } else if (lang === 'spanish' && languageResponses.spanish.pricing) {
         response = languageResponses.spanish.pricing.join('\n');
       } else {
-        response = "Pricing for services varies based on project scope, complexity, and timeline. For a personalized quote, please contact Muatasim directly to discuss your specific requirements.";
+        response = "Pricing for services varies based on project scope, complexity, and timeline. For a personalized quote, please contact Motasim directly to discuss your specific requirements.";
       }
       response += `\n\nGet a quote here: <a href="${pageLinks.contact}" target="_blank">Contact for Pricing</a>`;
       chatContext.conversationStage = 'specific';
@@ -1915,7 +1915,7 @@ function initChatbot() {
       } else if (topic && contextualInfo.process[topic]) {
         response = contextualInfo.process[topic].join('\n');
       } else {
-        response = "Muatasim follows a structured process for all projects, beginning with understanding your requirements, developing a strategy, implementation, and thorough testing before delivery.";
+        response = "Motasim follows a structured process for all projects, beginning with understanding your requirements, developing a strategy, implementation, and thorough testing before delivery.";
       }
       chatContext.conversationStage = 'specific';
     }
@@ -1946,15 +1946,15 @@ function initChatbot() {
       } else {
         // Generic response for unrecognized queries
         if (lang === 'urdu') {
-          response = "Mein aapki madad kar sakta hoon Muatasim Billah ki services ke baare mein. Aap web development, Shopify store design, audio engineering, AI voice technology, AI avatars, ya graphic design ke baare mein pooch sakte hain. Kya jaanna chahte hain?";
+          response = "Mein aapki madad kar sakta hoon Motasim Billah ki services ke baare mein. Aap web development, Shopify store design, audio engineering, AI voice technology, AI avatars, ya graphic design ke baare mein pooch sakte hain. Kya jaanna chahte hain?";
         } else if (lang === 'hindi') {
-          response = "मैं आपकी मदद कर सकता हूं Muatasim Billah की सेवाओं के बारे में। आप वेब डेवलपमेंट, शॉपिफाई स्टोर डिज़ाइन, ऑडियो इंजीनियरिंग, AI वॉयस टेक्नोलॉजी, AI अवतार, या ग्राफिक डिज़ाइन के बारे में पूछ सकते हैं। क्या जानना चाहते हैं?";
+          response = "मैं आपकी मदद कर सकता हूं Motasim Billah की सेवाओं के बारे में। आप वेब डेवलपमेंट, शॉपिफाई स्टोर डिज़ाइन, ऑडियो इंजीनियरिंग, AI वॉयस टेक्नोलॉजी, AI अवतार, या ग्राफिक डिज़ाइन के बारे में पूछ सकते हैं। क्या जानना चाहते हैं?";
         } else if (lang === 'arabic') {
           response = "يمكنني مساعدتك بخصوص خدمات معتصم بالله. يمكنك السؤال عن تطوير الويب، تصميم متجر شوبيفاي، هندسة الصوت، تقنية الصوت الاصطناعي، الشخصيات الافتراضية، أو التصميم الجرافيكي. ما الذي ترغب في معرفته؟";
         } else if (lang === 'spanish') {
-          response = "Puedo ayudarte con información sobre los servicios de Muatasim Billah. Puedes preguntar sobre desarrollo web, diseño de tiendas Shopify, ingeniería de audio, tecnología de voz IA, avatares IA o diseño gráfico. ¿Qué te gustaría saber?";
+          response = "Puedo ayudarte con información sobre los servicios de Motasim Billah. Puedes preguntar sobre desarrollo web, diseño de tiendas Shopify, ingeniería de audio, tecnología de voz IA, avatares IA o diseño gráfico. ¿Qué te gustaría saber?";
         } else {
-          response = "I'd be happy to help you learn more about Muatasim's services. You can ask about web development, Shopify stores, audio engineering, AI voice technology, AI avatars, or graphic design. What interests you?";
+          response = "I'd be happy to help you learn more about Motasim's services. You can ask about web development, Shopify stores, audio engineering, AI voice technology, AI avatars, or graphic design. What interests you?";
         }
         chatContext.conversationStage = 'exploring';
       }
@@ -1996,13 +1996,13 @@ function initChatbot() {
     
     // If user prefers Urdu, give Urdu response when available
     if (chatContext.userPreferences.language === 'urdu' && languageResponses.urdu[topic]) {
-      response = "Muatasim Billah is service mein expert hain. Aap unse specific details aur pricing ke liye directly contact kar sakte hain.";
+      response = "Motasim Billah is service mein expert hain. Aap unse specific details aur pricing ke liye directly contact kar sakte hain.";
       return response;
     }
     
     // Similar for other languages
     if (chatContext.userPreferences.language === 'hindi' && languageResponses.hindi[topic]) {
-      response = "Muatasim Billah इस सेवा में विशेषज्ञ हैं। आप विशिष्ट विवरण और मूल्य निर्धारण के लिए सीधे उनसे संपर्क कर सकते हैं।";
+      response = "Motasim Billah इस सेवा में विशेषज्ञ हैं। आप विशिष्ट विवरण और मूल्य निर्धारण के लिए सीधे उनसे संपर्क कर सकते हैं।";
       return response;
     }
     
@@ -2012,66 +2012,66 @@ function initChatbot() {
     }
     
     if (chatContext.userPreferences.language === 'spanish' && languageResponses.spanish[topic]) {
-      response = "Muatasim Billah es experto en este servicio. Puedes contactarlo directamente para detalles específicos y precios.";
+      response = "Motasim Billah es experto en este servicio. Puedes contactarlo directamente para detalles específicos y precios.";
       return response;
     }
     
     // Check if the message contains any specific subtopic keywords
     if (topic === 'webDevelopment') {
       if (containsAny(lowerMessage, ['code', 'coding', 'html', 'css', 'javascript', 'development'])) {
-        response = "Muatasim specializes in clean, efficient frontend code using HTML5, CSS3, and JavaScript. He creates responsive websites that work perfectly across all devices and browsers, with attention to performance optimization.";
+        response = "Motasim specializes in clean, efficient frontend code using HTML5, CSS3, and JavaScript. He creates responsive websites that work perfectly across all devices and browsers, with attention to performance optimization.";
       } else if (containsAny(lowerMessage, ['responsive', 'mobile', 'tablet', 'device', 'screen size'])) {
-        response = "Responsive design is at the core of Muatasim's development approach. He creates websites that adapt beautifully to any screen size, ensuring optimal user experience whether on desktop, tablet, or mobile devices.";
+        response = "Responsive design is at the core of Motasim's development approach. He creates websites that adapt beautifully to any screen size, ensuring optimal user experience whether on desktop, tablet, or mobile devices.";
       } else if (containsAny(lowerMessage, ['animation', 'animate', 'movement', 'transition', 'gsap'])) {
-        response = "Muatasim creates engaging animations using GSAP (GreenSock Animation Platform) that enhance user experience while maintaining performance. These animations guide user attention and create memorable interactions.";
+        response = "Motasim creates engaging animations using GSAP (GreenSock Animation Platform) that enhance user experience while maintaining performance. These animations guide user attention and create memorable interactions.";
       } else if (containsAny(lowerMessage, ['speed', 'performance', 'fast', 'loading', 'optimize'])) {
-        response = "Website speed is crucial for both user experience and SEO. Muatasim optimizes all websites for maximum performance through efficient code, image optimization, lazy loading, and minimizing HTTP requests.";
+        response = "Website speed is crucial for both user experience and SEO. Motasim optimizes all websites for maximum performance through efficient code, image optimization, lazy loading, and minimizing HTTP requests.";
       }
     } else if (topic === 'shopify') {
       if (containsAny(lowerMessage, ['conversion', 'convert', 'sales', 'revenue', 'customers'])) {
-        response = "Muatasim designs Shopify stores with conversion optimization as the primary goal. He implements strategic product page layouts, persuasive call-to-action elements, streamlined checkout processes, and trust indicators that transform visitors into customers.";
+        response = "Motasim designs Shopify stores with conversion optimization as the primary goal. He implements strategic product page layouts, persuasive call-to-action elements, streamlined checkout processes, and trust indicators that transform visitors into customers.";
       } else if (containsAny(lowerMessage, ['custom', 'customize', 'unique', 'modification', 'tailor'])) {
-        response = "Muatasim specializes in customizing Shopify themes to perfectly reflect your brand identity. From custom sections and features to specialized functionality, he ensures your store stands out from template-based competitors.";
+        response = "Motasim specializes in customizing Shopify themes to perfectly reflect your brand identity. From custom sections and features to specialized functionality, he ensures your store stands out from template-based competitors.";
       } else if (containsAny(lowerMessage, ['mobile', 'phone', 'tablet', 'responsive', 'device'])) {
-        response = "With over 70% of e-commerce traffic coming from mobile devices, Muatasim creates Shopify stores with a mobile-first approach, ensuring seamless shopping experiences across all devices with touch-friendly navigation and optimized layouts.";
+        response = "With over 70% of e-commerce traffic coming from mobile devices, Motasim creates Shopify stores with a mobile-first approach, ensuring seamless shopping experiences across all devices with touch-friendly navigation and optimized layouts.";
       }
     } else if (topic === 'audioEngineering') {
       if (containsAny(lowerMessage, ['mix', 'mixing', 'balance', 'levels', 'eq'])) {
-        response = "Muatasim's mixing expertise balances all elements of your audio with precision, creating clarity and definition. Using advanced equalization, compression, and spatial processing, he ensures vocals sit perfectly in the mix while maintaining the integrity of all sounds.";
+        response = "Motasim's mixing expertise balances all elements of your audio with precision, creating clarity and definition. Using advanced equalization, compression, and spatial processing, he ensures vocals sit perfectly in the mix while maintaining the integrity of all sounds.";
       } else if (containsAny(lowerMessage, ['master', 'mastering', 'finalize', 'polish', 'commercial'])) {
-        response = "Professional mastering is the final polish that makes your audio sound commercial-quality. Muatasim applies subtle but effective processing to enhance loudness, depth, and consistency across all playback systems.";
+        response = "Professional mastering is the final polish that makes your audio sound commercial-quality. Motasim applies subtle but effective processing to enhance loudness, depth, and consistency across all playback systems.";
       } else if (containsAny(lowerMessage, ['restore', 'fix', 'repair', 'clean', 'noise'])) {
-        response = "Muatasim specializes in audio restoration to recover and enhance recordings with issues. Using specialized tools, he can remove background noise, fix clipping, eliminate hum and buzz, and restore clarity to problematic audio.";
+        response = "Motasim specializes in audio restoration to recover and enhance recordings with issues. Using specialized tools, he can remove background noise, fix clipping, eliminate hum and buzz, and restore clarity to problematic audio.";
       }
     } else if (topic === 'aiVoiceover') {
       if (containsAny(lowerMessage, ['natural', 'human', 'realistic', 'life-like', 'real'])) {
-        response = "Muatasim creates AI voiceovers that sound remarkably human, with natural intonation, appropriate pacing, and emotional resonance. Using cutting-edge neural voice technology, these voiceovers avoid the robotic qualities associated with older text-to-speech systems.";
+        response = "Motasim creates AI voiceovers that sound remarkably human, with natural intonation, appropriate pacing, and emotional resonance. Using cutting-edge neural voice technology, these voiceovers avoid the robotic qualities associated with older text-to-speech systems.";
       } else if (containsAny(lowerMessage, ['language', 'languages', 'multilingual', 'translate', 'accent'])) {
-        response = "Muatasim offers AI voiceovers in numerous languages and accents without the need to hire separate voice talents, ensuring consistent brand representation across global markets with authentic-sounding localization.";
+        response = "Motasim offers AI voiceovers in numerous languages and accents without the need to hire separate voice talents, ensuring consistent brand representation across global markets with authentic-sounding localization.";
       } else if (containsAny(lowerMessage, ['commercial', 'advertisement', 'ad', 'marketing', 'promotion'])) {
-        response = "For commercial advertisements, Muatasim creates compelling AI voiceovers that capture attention and convey your message with the perfect tone and emphasis, helping your products and services stand out in a crowded marketplace.";
+        response = "For commercial advertisements, Motasim creates compelling AI voiceovers that capture attention and convey your message with the perfect tone and emphasis, helping your products and services stand out in a crowded marketplace.";
       }
     } else if (topic === 'aiAvatar') {
       if (containsAny(lowerMessage, ['realistic', 'real', 'human-like', 'lifelike', 'natural'])) {
-        response = "Muatasim creates hyper-realistic AI avatars with natural facial expressions, fluid movements, and lifelike appearances. These digital humans bridge the uncanny valley with subtle details like micro-expressions, natural eye movement, and realistic skin textures.";
+        response = "Motasim creates hyper-realistic AI avatars with natural facial expressions, fluid movements, and lifelike appearances. These digital humans bridge the uncanny valley with subtle details like micro-expressions, natural eye movement, and realistic skin textures.";
       } else if (containsAny(lowerMessage, ['business', 'corporate', 'professional', 'company', 'brand'])) {
-        response = "AI avatars transform how businesses present information. Muatasim designs custom avatars that deliver your message with professional presence, consistent branding, and engaging visual communication that captures and maintains viewer attention.";
+        response = "AI avatars transform how businesses present information. Motasim designs custom avatars that deliver your message with professional presence, consistent branding, and engaging visual communication that captures and maintains viewer attention.";
       } else if (containsAny(lowerMessage, ['customize', 'custom', 'personalize', 'tailored', 'specific'])) {
-        response = "Beyond stock avatars, Muatasim can create customized AI presenters that align with your brand identity, matching specific demographic characteristics, clothing styles, backgrounds, and presentation mannerisms to your exact requirements.";
+        response = "Beyond stock avatars, Motasim can create customized AI presenters that align with your brand identity, matching specific demographic characteristics, clothing styles, backgrounds, and presentation mannerisms to your exact requirements.";
       }
     } else if (topic === 'graphicDesign') {
       if (containsAny(lowerMessage, ['social', 'instagram', 'facebook', 'media', 'posts'])) {
-        response = "Muatasim designs eye-catching social media graphics that stop the scroll and drive engagement. His designs are optimized for each platform's unique requirements and audience expectations, helping your brand stand out in crowded feeds.";
+        response = "Motasim designs eye-catching social media graphics that stop the scroll and drive engagement. His designs are optimized for each platform's unique requirements and audience expectations, helping your brand stand out in crowded feeds.";
       } else if (containsAny(lowerMessage, ['brand', 'branding', 'identity', 'logo', 'consistent'])) {
-        response = "Consistent visual branding builds recognition and trust. Muatasim creates cohesive design systems in Canva that establish your visual identity across all platforms, from social media to marketing materials, ensuring instant brand recognition.";
+        response = "Consistent visual branding builds recognition and trust. Motasim creates cohesive design systems in Canva that establish your visual identity across all platforms, from social media to marketing materials, ensuring instant brand recognition.";
       } else if (containsAny(lowerMessage, ['marketing', 'promotion', 'advertise', 'campaign', 'sales'])) {
-        response = "Effective marketing materials convert prospects into customers. Muatasim creates persuasive visual designs that communicate your value proposition clearly and compellingly, with strategic use of color, typography, and imagery to guide viewer action.";
+        response = "Effective marketing materials convert prospects into customers. Motasim creates persuasive visual designs that communicate your value proposition clearly and compellingly, with strategic use of color, typography, and imagery to guide viewer action.";
       }
     }
     
     // If no specific subtopic is detected, provide a general response about the topic
     if (!response) {
-      response = `Muatasim has extensive expertise in ${topic.replace(/([A-Z])/g, ' $1').toLowerCase()}. Is there a specific aspect you'd like to know more about?`;
+      response = `Motasim has extensive expertise in ${topic.replace(/([A-Z])/g, ' $1').toLowerCase()}. Is there a specific aspect you'd like to know more about?`;
     }
     
     return response;
@@ -2156,7 +2156,7 @@ function initChatbot() {
         response = knowledgeBase.graphicDesign.join('\n');
         break;
       default:
-        response = "I'd be happy to tell you about Muatasim's services. What specific area are you interested in?";
+        response = "I'd be happy to tell you about Motasim's services. What specific area are you interested in?";
     }
     
     return response;
@@ -2172,15 +2172,15 @@ function initChatbot() {
     // Add service links section
     response += "\n\n====================\n";
     if (chatContext.userPreferences.language === 'urdu') {
-      response += "Muatasim ki services ke baare mein mazeed jaanein:";
+      response += "Motasim ki services ke baare mein mazeed jaanein:";
     } else if (chatContext.userPreferences.language === 'hindi') {
-      response += "Muatasim की सेवाओं के बारे में अधिक जानें:";
+      response += "Motasim की सेवाओं के बारे में अधिक जानें:";
     } else if (chatContext.userPreferences.language === 'arabic') {
       response += "تعرف على المزيد حول خدمات معتصم:";
     } else if (chatContext.userPreferences.language === 'spanish') {
-      response += "Aprende más sobre los servicios de Muatasim:";
+      response += "Aprende más sobre los servicios de Motasim:";
     } else {
-      response += "Learn more about Muatasim's services:";
+      response += "Learn more about Motasim's services:";
     }
     
     // Add links based on detected topics
@@ -2219,15 +2219,15 @@ function initChatbot() {
     
     // Add contact link based on language
     if (chatContext.userPreferences.language === 'urdu') {
-      response += `\n\nMuatasim se contact karein: <a href="${pageLinks.contact}" target="_blank">Contact</a>`;
+      response += `\n\nMotasim se contact karein: <a href="${pageLinks.contact}" target="_blank">Contact</a>`;
     } else if (chatContext.userPreferences.language === 'hindi') {
-      response += `\n\nMuatasim से संपर्क करें: <a href="${pageLinks.contact}" target="_blank">संपर्क करें</a>`;
+      response += `\n\nMotasim से संपर्क करें: <a href="${pageLinks.contact}" target="_blank">संपर्क करें</a>`;
     } else if (chatContext.userPreferences.language === 'arabic') {
       response += `\n\nتواصل مع معتصم: <a href="${pageLinks.contact}" target="_blank">اتصال</a>`;
     } else if (chatContext.userPreferences.language === 'spanish') {
-      response += `\n\nContacta con Muatasim: <a href="${pageLinks.contact}" target="_blank">Contacto</a>`;
+      response += `\n\nContacta con Motasim: <a href="${pageLinks.contact}" target="_blank">Contacto</a>`;
     } else {
-      response += `\n\nContact Muatasim: <a href="${pageLinks.contact}" target="_blank">Get in Touch</a>`;
+      response += `\n\nContact Motasim: <a href="${pageLinks.contact}" target="_blank">Get in Touch</a>`;
     }
     
     return response;
