@@ -1,4 +1,4 @@
-// Enhanced Chatbot.js with AI-like smart features
+// Enhanced Chatbot.js with AI-like smart features and voice capabilities
 
 // Knowledge Base for the chatbot
 const knowledgeBase = {
@@ -12,7 +12,7 @@ const knowledgeBase = {
     "• Canva Design and Graphics"
   ],
   skills: [
-    "Muatasim's core skills include:",
+    "Muatasim core skills include:",
     "• Web Development (HTML, CSS, JavaScript)",
     "• E-commerce (Shopify)",
     "• Audio Engineering & Production",
@@ -30,7 +30,7 @@ const knowledgeBase = {
     "• Graphic Design (social media, branding)"
   ],
   contact: [
-    "You can contact Muatasim through:",
+    "You can contact Mehar through:",
     "• Email: Meharmahalcoll@gmail.com",
     "• Phone number: 03088754565",
     "• Also in social links that include in website)"
@@ -44,7 +44,7 @@ const knowledgeBase = {
     "• Modern CSS techniques including Grid and Flexbox"
   ],
   shopify: [
-    "Muatasim is an expert in custom Shopify store design, providing high-converting e-commerce solutions with:",
+    "Muatasim billah is an expert in custom Shopify store design, providing high-converting e-commerce solutions with:",
     "• Distinctive branding and visual aesthetics",
     "• Intuitive navigation and user experience",
     "• Optimized conversion funnels",
@@ -52,7 +52,7 @@ const knowledgeBase = {
     "• Mobile-first responsive design"
   ],
   audioEngineering: [
-    "Muatasim provides professional audio engineering services including:",
+    "Muatasim billah provides professional audio engineering services including:",
     "• Music production and mixing",
     "• Podcast editing and enhancement",
     "• Sound design for videos",
@@ -60,7 +60,7 @@ const knowledgeBase = {
     "• Voice processing and cleanup"
   ],
   aiVoiceover: [
-    "Muatasim offers AI voiceover services using cutting-edge neural voice technology to create ultra-realistic voiceovers for:",
+    "Muatasim billah offers AI voiceover services using cutting-edge neural voice technology to create ultra-realistic voiceovers for:",
     "• Commercial advertisements",
     "• Explainer videos",
     "• E-learning content",
@@ -69,7 +69,7 @@ const knowledgeBase = {
     "These sound virtually indistinguishable from human recordings."
   ],
   aiAvatar: [
-    "Muatasim creates lifelike AI talking avatars for:",
+    "Muatasim billah creates lifelike AI talking avatars for:",
     "• Business presentations",
     "• Marketing videos",
     "• Educational content",
@@ -78,7 +78,7 @@ const knowledgeBase = {
     "These AI avatars provide engaging visual representation with synchronized lip movements and natural expressions."
   ],
   graphicDesign: [
-    "Muatasim offers professional Canva design services for:",
+    "Muatasim billah offers professional Canva design services for:",
     "• Social media posts and stories",
     "• Brand identity packages",
     "• Marketing materials",
@@ -89,29 +89,29 @@ const knowledgeBase = {
   
   // Conversational responses
   greetings: [
-    "Hello! How can I help you with Muatasim's portfolio today?",
-    "Hi there! I'm Muatasim's portfolio assistant. What would you like to know?",
-    "Welcome! How can I assist you with information about Muatasim's services?",
-    "Greetings! I'd be happy to tell you about Muatasim's work. What are you interested in?"
+    "Hello! How can I help you with Muatasim billah portfolio today?",
+    "Hi there! I'm Muatasim portfolio assistant. What would you like to know?",
+    "Welcome! How can I assist you with information about Muatasim billah  services?",
+    "Greetings! I'd be happy to tell you about muatasim billah work. What are you interested in?"
   ],
   howAreYou: [
-    "I'm doing great, thanks for asking! How can I help you learn about Muatasim's services today?",
-    "I'm excellent! Ready to assist you with information about Muatasim's portfolio. What would you like to know?",
-    "I'm functioning perfectly! What information about Muatasim's work are you looking for?"
+    "I'm doing great, thanks for asking! How can I help you learn about Muatasim billah services today?",
+    "I'm excellent! Ready to assist you with information about Muatasim billah portfolio. What would you like to know?",
+    "I'm functioning perfectly! What information about Muatasim billah work are you looking for?"
   ],
   thanks: [
-    "You're welcome! Is there anything else you'd like to know about Muatasim's services?",
-    "My pleasure! Let me know if you need any other information about Muatasim's work.",
-    "Happy to help! Feel free to ask if you have more questions about Muatasim's portfolio."
+    "You're welcome! Is there anything else you'd like to know about Muatasim billah services?",
+    "My pleasure! Let me know if you need any other information about Muatasim billah work.",
+    "Happy to help! Feel free to ask if you have more questions about Muatasim billah portfolio."
   ],
   goodbye: [
-    "Goodbye! Feel free to return if you have more questions about Muatasim's services.",
-    "Take care! If you need more information about Muatasim's work in the future, I'll be here.",
-    "Farewell! Don't hesitate to reach out again if you need details about Muatasim's portfolio."
+    "Goodbye! Feel free to return if you have more questions about Muatasim billah services.",
+    "Take care! If you need more information about Muatasim billah work in the future, I'll be here.",
+    "Farewell! Don't hesitate to reach out again if you need details about Muatasim billah portfolio."
   ],
   about: [
-    "Muatasim Billah is a skilled professional specializing in web development, e-commerce design, audio engineering, AI voice technology, and graphic design.",
-    "With years of experience, Muatasim has helped numerous clients achieve their digital goals through creative solutions and technical expertise.",
+    "Mehar is a skilled professional specializing in web development, e-commerce design, audio engineering, AI voice technology, and graphic design.",
+    "With years of experience, Mehar has helped numerous clients achieve their digital goals through creative solutions and technical expertise.",
     "His portfolio showcases a diverse range of projects that highlight his versatility and commitment to quality."
   ]
 };
@@ -182,7 +182,7 @@ const questionPatterns = {
 const contextualInfo = {
   benefit: {
     webDevelopment: [
-      "A responsive website designed by Muatasim will help your business:",
+      "A responsive website designed by Mehar will help your business:",
       "• Increase online visibility and attract more visitors",
       "• Create a professional first impression that builds trust",
       "• Provide a seamless experience across all devices",
@@ -190,7 +190,7 @@ const contextualInfo = {
       "• Convert more visitors into leads or customers with intuitive navigation"
     ],
     shopify: [
-      "Muatasim's custom Shopify store design services will help your business:",
+      "Muatasim billah custom Shopify store design services will help your business:",
       "• Increase conversion rates with optimized checkout flows",
       "• Build customer trust with professional, branded design",
       "• Stand out from competitors with unique, custom features",
@@ -198,7 +198,7 @@ const contextualInfo = {
       "• Integrate seamlessly with marketing tools to drive more sales"
     ],
     audioEngineering: [
-      "Professional audio engineering by Muatasim benefits your projects by:",
+      "Professional audio engineering by Mehar benefits your projects by:",
       "• Enhancing overall sound quality and clarity",
       "• Creating a polished, professional impression that builds credibility",
       "• Improving listener engagement and retention with clean, balanced audio",
@@ -206,7 +206,7 @@ const contextualInfo = {
       "• Ensuring consistent volume levels across all content"
     ],
     aiVoiceover: [
-      "Muatasim's AI voiceover services provide advantages like:",
+      "Muatasim billah AI voiceover services provide advantages like:",
       "• Cost-effective alternative to hiring voice actors for multiple projects",
       "• Quick turnaround times for urgent deadlines",
       "• Consistency in voice across all your marketing materials",
@@ -214,7 +214,7 @@ const contextualInfo = {
       "• Easy revisions without scheduling re-recording sessions"
     ],
     aiAvatar: [
-      "Using Muatasim's AI avatars for your business provides benefits such as:",
+      "Using Muatasim billah AI avatars for your business provides benefits such as:",
       "• Creating engaging video content without filming equipment or studio",
       "• Maintaining consistent brand representation across all videos",
       "• Easily updating content without re-shoots when information changes",
@@ -222,7 +222,7 @@ const contextualInfo = {
       "• Professional video presence without the anxiety of being on camera"
     ],
     graphicDesign: [
-      "Muatasim's Canva design services help your business by:",
+      "Muatasim billah Canva design services help your business by:",
       "• Creating consistent visual branding that increases recognition",
       "• Designing eye-catching social media graphics that improve engagement",
       "• Producing professional marketing materials that convert prospects",
@@ -232,7 +232,7 @@ const contextualInfo = {
   },
   process: {
     webDevelopment: [
-      "Muatasim's web development process includes:",
+      "Muatasim billah web development process includes:",
       "1. Discovery - Understanding your business goals and target audience",
       "2. Planning - Creating sitemaps and wireframes for optimal user flow",
       "3. Design - Developing visual mockups for your approval",
@@ -241,7 +241,7 @@ const contextualInfo = {
       "6. Launch - Deploying the website and providing training"
     ],
     shopify: [
-      "For Shopify store design, Muatasim follows this process:",
+      "For Shopify store design, Mehar follows this process:",
       "1. Strategy - Analyzing your products, audience, and competition",
       "2. Structure - Planning the store architecture and user flows",
       "3. Design - Creating custom mockups of key pages",
@@ -250,7 +250,7 @@ const contextualInfo = {
       "6. Launch - Setting up analytics and providing store management training"
     ],
     audioEngineering: [
-      "Muatasim's audio engineering process includes:",
+      "Muatasim billah audio engineering process includes:",
       "1. Consultation - Understanding your audio needs and desired outcome",
       "2. Assessment - Evaluating your raw audio files",
       "3. Editing - Removing mistakes, gaps, and unwanted noise",
@@ -259,7 +259,7 @@ const contextualInfo = {
       "6. Delivery - Providing files in your required format"
     ],
     aiVoiceover: [
-      "For AI voiceover creation, Muatasim's process involves:",
+      "For AI voiceover creation, Muatasim billah process involves:",
       "1. Script Review - Ensuring your script is optimized for voice generation",
       "2. Voice Selection - Choosing the perfect AI voice for your project",
       "3. Initial Generation - Creating the first version of your voiceover",
@@ -268,7 +268,7 @@ const contextualInfo = {
       "6. Delivery - Providing the final audio in your preferred format"
     ],
     aiAvatar: [
-      "Muatasim creates AI avatars through this process:",
+      "Mehar creates AI avatars through this process:",
       "1. Concept - Discussing your avatar needs and selecting a base character",
       "2. Script Preparation - Creating or refining your script for optimal delivery",
       "3. Voice Generation - Creating the audio component",
@@ -277,7 +277,7 @@ const contextualInfo = {
       "6. Delivery - Providing the final video in your required format"
     ],
     graphicDesign: [
-      "For Canva design projects, Muatasim follows these steps:",
+      "For Canva design projects, Mehar follows these steps:",
       "1. Brief - Understanding your brand, target audience, and design needs",
       "2. Concept - Creating initial design concepts for your feedback",
       "3. Development - Refining the approved concept with detailed execution",
@@ -349,11 +349,20 @@ const suggestedQuestionSets = {
 };
 
 // Initial greeting message from the bot
-const initialMessage = "👋 Hi there! I'm Muatasim's portfolio assistant. How can I help you today?";
+const initialMessage = "👋 Hi there! I'm Muatasim billah portfolio assistant. How can I help you today?";
 
 // Main enhanced chatbot class
 class EnhancedChatBot {
   constructor() {
+    this.chatToggleBtn = document.querySelector('.chat-toggle-btn');
+    this.chatInterface = document.querySelector('.chat-interface');
+    
+    // If chatbot elements don't exist yet, create them
+    if (!this.chatToggleBtn || !this.chatInterface) {
+      this.createChatbotHTML();
+    }
+    
+    // Now get references to all elements
     this.chatToggleBtn = document.querySelector('.chat-toggle-btn');
     this.chatInterface = document.querySelector('.chat-interface');
     this.chatForm = document.getElementById('chat-form');
@@ -376,9 +385,255 @@ class EnhancedChatBot {
     this.sentimentScore = 0;
     this.userConfusion = 0;
     
+    // Voice related properties
+    this.isSpeechEnabled = true; // By default speech is enabled
+    this.speechVoice = null;
+    this.speechRate = 1.0; // Normal speech rate
+    this.speechPitch = 1.0; // Normal pitch
+    this.initSpeech();
+    
     this.initEventListeners();
     this.sendBotMessage(initialMessage);
     this.displaySuggestedQuestions(suggestedQuestionSets.initial);
+  }
+  
+  // Add this method to create the complete HTML structure
+  createChatbotHTML() {
+    // Create container if it doesn't exist
+    let container = document.querySelector('.chatbot-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'chatbot-container';
+      document.body.appendChild(container);
+    }
+    
+    // Create toggle button
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'chat-toggle-btn';
+    toggleBtn.innerHTML = '<i class="fas fa-comment"></i>';
+    container.appendChild(toggleBtn);
+    
+    // Create chat interface
+    const chatInterface = document.createElement('div');
+    chatInterface.className = 'chat-interface';
+    
+    // Add complete HTML structure including the header with name
+    chatInterface.innerHTML = `
+      <div class="chat-header">
+        <div class="chat-header-user">
+          <div class="chat-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="chat-user-info">
+            <h3 class="chat-user-name">Mehar Bot</h3>
+            <div class="chat-user-status">
+              <span class="status-indicator"></span>
+              <span class="status-text">Online</span>
+            </div>
+          </div>
+        </div>
+        <button class="chat-close-btn">
+          <i class="fas fa-minus"></i>
+        </button>
+      </div>
+      <div class="chat-messages"></div>
+      <div class="suggested-questions"></div>
+      <div class="chat-input-area">
+        <form id="chat-form">
+          <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off">
+          <button type="submit" class="chat-send-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    `;
+    
+    container.appendChild(chatInterface);
+  }
+  
+  // Voice functionality methods
+  initSpeech() {
+    // Check if browser supports speech synthesis
+    if ('speechSynthesis' in window) {
+      // Get available voices
+      setTimeout(() => {
+        const voices = window.speechSynthesis.getVoices();
+        
+        // Try to find Urdu voice, or fallback to English
+        this.speechVoice = voices.find(voice => 
+          voice.lang === 'ur-PK' || voice.lang === 'ur' || 
+          voice.name.includes('Urdu')
+        );
+        
+        // If no Urdu voice found, use English
+        if (!this.speechVoice) {
+          this.speechVoice = voices.find(voice => 
+            voice.lang === 'en-US' || voice.lang === 'en-GB'
+          );
+        }
+        
+        // If still no voice found, use the first available
+        if (!this.speechVoice && voices.length > 0) {
+          this.speechVoice = voices[0];
+        }
+        
+        // Add speech toggle button to chat header
+        this.addSpeechToggleButton();
+        
+      }, 300); // Small delay to ensure voices are loaded
+    }
+  }
+
+  speakText(text) {
+    // Skip if speech is disabled or not supported
+    if (!this.isSpeechEnabled || !('speechSynthesis' in window)) return;
+    
+    // Cancel any ongoing speech
+    window.speechSynthesis.cancel();
+    
+    // Clean text for speaking (remove HTML tags)
+    const cleanText = text.replace(/<[^>]*>?/gm, '');
+    
+    // Create utterance
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    
+    // Set voice properties
+    if (this.speechVoice) utterance.voice = this.speechVoice;
+    utterance.rate = this.speechRate;
+    utterance.pitch = this.speechPitch;
+    
+    // Speak
+    window.speechSynthesis.speak(utterance);
+  }
+
+  toggleSpeech() {
+    this.isSpeechEnabled = !this.isSpeechEnabled;
+    
+    // Update button UI
+    const speechBtn = document.querySelector('.speech-toggle-btn');
+    if (speechBtn) {
+      speechBtn.innerHTML = this.isSpeechEnabled 
+        ? '<i class="fas fa-volume-up"></i>' 
+        : '<i class="fas fa-volume-mute"></i>';
+      
+      // Show feedback
+      if (this.isSpeechEnabled) {
+        this.speakText("Voice is now enabled");
+      }
+    }
+  }
+
+  addSpeechToggleButton() {
+    // Create speech toggle button
+    const speechBtn = document.createElement('button');
+    speechBtn.className = 'speech-toggle-btn';
+    speechBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+    speechBtn.title = 'Toggle voice output';
+    
+    // Add event listener
+    speechBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.toggleSpeech();
+    });
+    
+    // Add to chat header
+    const chatHeader = document.querySelector('.chat-header');
+    const closeBtn = document.querySelector('.chat-close-btn');
+    
+    if (chatHeader && closeBtn) {
+      chatHeader.insertBefore(speechBtn, closeBtn);
+    }
+  }
+
+  addVoiceSelector() {
+    const voices = window.speechSynthesis.getVoices();
+    
+    // Create dropdown
+    const voiceSelect = document.createElement('select');
+    voiceSelect.className = 'voice-selector';
+    
+    // Add voices as options
+    voices.forEach((voice, i) => {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = `${voice.name} (${voice.lang})`;
+      voiceSelect.appendChild(option);
+    });
+    
+    // Set default selected voice
+    if (this.speechVoice) {
+      const index = voices.indexOf(this.speechVoice);
+      if (index > -1) voiceSelect.selectedIndex = index;
+    }
+    
+    // Add change event
+    voiceSelect.addEventListener('change', () => {
+      this.speechVoice = voices[voiceSelect.selectedIndex];
+      
+      // Save preference to localStorage
+      localStorage.setItem('preferredVoice', this.speechVoice.name);
+      
+      // Speak a test
+      this.speakText("This is the new voice");
+    });
+    
+    // Add to settings panel (you'll need to create a settings panel)
+    const settingsPanel = document.createElement('div');
+    settingsPanel.className = 'chatbot-settings';
+    settingsPanel.appendChild(voiceSelect);
+    
+    // Add to chat interface
+    this.chatInterface.appendChild(settingsPanel);
+  }
+
+  addVoiceControls() {
+    // Create controls container
+    const controls = document.createElement('div');
+    controls.className = 'voice-controls';
+    
+    // Add speed slider
+    const speedControl = document.createElement('div');
+    speedControl.innerHTML = `
+      <label>Speed: <span id="speed-value">1.0</span></label>
+      <input type="range" min="0.5" max="2" step="0.1" value="1.0" id="speed-slider">
+    `;
+    
+    // Add pitch slider
+    const pitchControl = document.createElement('div');
+    pitchControl.innerHTML = `
+      <label>Pitch: <span id="pitch-value">1.0</span></label>
+      <input type="range" min="0.5" max="2" step="0.1" value="1.0" id="pitch-slider">
+    `;
+    
+    // Add to controls
+    controls.appendChild(speedControl);
+    controls.appendChild(pitchControl);
+    
+    // Add event listeners
+    const speedSlider = controls.querySelector('#speed-slider');
+    const pitchSlider = controls.querySelector('#pitch-slider');
+    
+    speedSlider.addEventListener('input', () => {
+      this.speechRate = parseFloat(speedSlider.value);
+      controls.querySelector('#speed-value').textContent = this.speechRate.toFixed(1);
+    });
+    
+    pitchSlider.addEventListener('input', () => {
+      this.speechPitch = parseFloat(pitchSlider.value);
+      controls.querySelector('#pitch-value').textContent = this.speechPitch.toFixed(1);
+    });
+    
+    // Add to settings panel
+    const settingsPanel = document.querySelector('.chatbot-settings') || 
+                          document.createElement('div');
+    settingsPanel.className = 'chatbot-settings';
+    settingsPanel.appendChild(controls);
+    
+    // Add to chat interface if not already added
+    if (!document.querySelector('.chatbot-settings')) {
+      this.chatInterface.appendChild(settingsPanel);
+    }
   }
   
   initEventListeners() {
@@ -648,6 +903,9 @@ class EnhancedChatBot {
     // Add bot message to UI
     this.addMessageToUI(text, false);
     
+    // Speak the message
+    this.speakText(text);
+    
     // Save to messages array
     this.messages.push({ text, isUser: false });
     
@@ -785,14 +1043,14 @@ class EnhancedChatBot {
     // CEO or creator questions
     if (message.includes('ceo') || message.includes('who is your boss') || message.includes('who created you') || 
         message.includes('who made you') || message.includes('who owns')) {
-      return "Muatasim Billah is my CEO and creator. 🎩";
+      return "Mehar is my CEO and creator. 🎩";
     }
     
     // Check for greeting patterns
     if (message.match(/^(hi|hello|hey|greetings|howdy|hola)/i)) {
       // Different greetings based on conversation stage
       if (this.conversationStage === 'engaged') {
-        return "Hello again! I'm still here to help. What other aspects of Muatasim's services would you like to explore?";
+        return "Hello again! I'm still here to help. What other aspects of Muatasim billah services would you like to explore?";
       }
       return this.getRandomResponse(knowledgeBase.greetings);
     }
@@ -814,11 +1072,11 @@ class EnhancedChatBot {
     
     // Check for "about you" or "who are you"
     if (message.match(/(who are you|about you|tell me about you|what are you)/i)) {
-      return "I'm a virtual assistant for Muatasim Billah's portfolio website. I can tell you about his services, skills, projects, and how to contact him. How can I help you today?";
+      return "I'm a virtual assistant for Muatasim billah portfolio website. I can tell you about his services, skills, projects, and how to contact him. How can I help you today?";
     }
     
-    // Check for "about Muatasim"
-    if (message.match(/(about muatasim|who is muatasim|tell me about muatasim)/i)) {
+    // Check for "about Mehar"
+    if (message.match(/(about mehar|who is mehar|tell me about mehar)/i)) {
       return this.getRandomResponse(knowledgeBase.about);
     }
     
@@ -826,9 +1084,9 @@ class EnhancedChatBot {
     if (this.detectedIntents.has('pricing')) {
       // If topic is detected, give specific pricing info
       if (this.currentTopic) {
-        return `For ${this.currentTopic} services, Muatasim offers customized pricing based on project scope and requirements. Each project is unique, so pricing is tailored to your specific needs. For a detailed quote, please contact Muatasim directly through the contact form or email at Meharmahalcoll@gmail.com.`;
+        return `For ${this.currentTopic} services, Mehar offers customized pricing based on project scope and requirements. Each project is unique, so pricing is tailored to your specific needs. For a detailed quote, please contact Mehar directly through the contact form or email at Meharmahalcoll@gmail.com.`;
       }
-      return "For information about pricing and packages, please contact Muatasim directly through the contact form or email at Meharmahalcoll@gmail.com. Pricing varies based on project requirements and scope.";
+      return "For information about pricing and packages, please contact Mehar directly through the contact form or email at Meharmahalcoll@gmail.com. Pricing varies based on project requirements and scope.";
     }
     
     // Deep topic-specific questions with context awareness
@@ -854,7 +1112,7 @@ class EnhancedChatBot {
     }
     
     // Skills related questions
-    if (message.includes('skills') || message.includes('expertise') || message.includes('what can muatasim do')) {
+    if (message.includes('skills') || message.includes('expertise') || message.includes('what can mehar do')) {
       return knowledgeBase.skills.join('<br>');
     }
     
@@ -918,21 +1176,21 @@ class EnhancedChatBot {
         };
         return timelineInfo[this.currentTopic];
       }
-      return "Project timelines vary depending on the scope and complexity. Muatasim works efficiently to deliver quality results within agreed timeframes. For a specific estimate on your project, please reach out through the contact form.";
+      return "Project timelines vary depending on the scope and complexity. Mehar works efficiently to deliver quality results within agreed timeframes. For a specific estimate on your project, please reach out through the contact form.";
     }
     
     // Handle language support
     if (message.match(/(language|languages|speak|translate)/i)) {
-      return "Muatasim can work with clients in English and Urdu. His AI voice and avatar services can also be created in multiple languages based on your requirements.";
+      return "Mehar can work with clients in English and Urdu. His AI voice and avatar services can also be created in multiple languages based on your requirements.";
     }
     
     // Smart fallback that considers context
     if (this.currentTopic) {
-      return `I notice you're interested in ${this.currentTopic.replace(/([A-Z])/g, ' $1').trim().toLowerCase()}. Muatasim offers excellent services in this area. Would you like specific information about his approach, pricing, timeline, or examples of previous work?`;
+      return `I notice you're interested in ${this.currentTopic.replace(/([A-Z])/g, ' $1').trim().toLowerCase()}. Mehar offers excellent services in this area. Would you like specific information about his approach, pricing, timeline, or examples of previous work?`;
     }
     
     // Default fallback response
-    return "I'd be happy to tell you about Muatasim's services, skills, or projects. You can ask me about specific offerings like web development, Shopify design, audio engineering, AI voiceovers, AI avatars, or graphic design. How can I help you today?";
+    return "I'd be happy to tell you about Muatasim billah services, skills, or projects. You can ask me about specific offerings like web development, Shopify design, audio engineering, AI voiceovers, AI avatars, or graphic design. How can I help you today?";
   }
   
   getRandomResponse(responseArray) {
@@ -1041,6 +1299,75 @@ document.addEventListener('DOMContentLoaded', () => {
       0% { transform: scale(0.8); opacity: 0; }
       70% { transform: scale(1.05); opacity: 1; }
       100% { transform: scale(1); opacity: 1; }
+    }
+    
+    /* Speech Toggle Button Styles */
+    .speech-toggle-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .speech-toggle-btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Animation for speaking */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .speech-toggle-btn.speaking i {
+      animation: pulse 1.5s infinite;
+      color: #4CAF50;
+    }
+    
+    /* Voice Controls Styling */
+    .chatbot-settings {
+      background: rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      display: none; /* Hidden by default - can be toggled */
+    }
+    
+    .voice-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 5px;
+    }
+    
+    .voice-controls label {
+      display: block;
+      color: #fff;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    
+    .voice-controls input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary, #7000ff);
+    }
+    
+    .voice-selector {
+      width: 100%;
+      padding: 6px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      margin-bottom: 10px;
     }
   `;
   document.head.appendChild(style);
