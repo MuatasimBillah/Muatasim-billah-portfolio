@@ -1027,11 +1027,21 @@ function createLanguageSelector() {
   const langSelector = document.createElement('select');
   langSelector.className = 'language-selector-dropdown';
   
+  // Short language names only
+  const shortNames = {
+    english: 'Eng',
+    urdu: 'Urdu',
+    hindi: 'Hindi',
+    arabic: 'Arabic',
+    spanish: 'Esp'
+  };
+  
   // Add language options
   for (const [langKey, langInfo] of Object.entries(supportedLanguages)) {
     const option = document.createElement('option');
     option.value = langKey;
-    option.text = `${langInfo.flag} ${langInfo.name}`;
+    // Use just the short name without flag
+    option.text = shortNames[langKey] || langInfo.name;
     langSelector.appendChild(option);
   }
   
@@ -2180,7 +2190,7 @@ function initChatbot() {
     } else if (chatContext.userPreferences.language === 'spanish') {
       response += "Aprende más sobre los servicios de Motasim:";
     } else {
-      response += "Learn more about Motasim's services:";
+      response += "Learn more about Mutasim's services:";
     }
     
     // Add links based on detected topics
@@ -2219,15 +2229,15 @@ function initChatbot() {
     
     // Add contact link based on language
     if (chatContext.userPreferences.language === 'urdu') {
-      response += `\n\nMotasim se contact karein: <a href="${pageLinks.contact}" target="_blank">Contact</a>`;
+      response += `\n\nMutasim se contact karein: <a href="${pageLinks.contact}" target="_blank">Contact</a>`;
     } else if (chatContext.userPreferences.language === 'hindi') {
-      response += `\n\nMotasim से संपर्क करें: <a href="${pageLinks.contact}" target="_blank">संपर्क करें</a>`;
+      response += `\n\nMutasim से संपर्क करें: <a href="${pageLinks.contact}" target="_blank">संपर्क करें</a>`;
     } else if (chatContext.userPreferences.language === 'arabic') {
       response += `\n\nتواصل مع معتصم: <a href="${pageLinks.contact}" target="_blank">اتصال</a>`;
     } else if (chatContext.userPreferences.language === 'spanish') {
-      response += `\n\nContacta con Motasim: <a href="${pageLinks.contact}" target="_blank">Contacto</a>`;
+      response += `\n\nContacta con Mutasim: <a href="${pageLinks.contact}" target="_blank">Contacto</a>`;
     } else {
-      response += `\n\nContact Motasim: <a href="${pageLinks.contact}" target="_blank">Get in Touch</a>`;
+      response += `\n\nContact Mutasim: <a href="${pageLinks.contact}" target="_blank">Get in Touch</a>`;
     }
     
     return response;
