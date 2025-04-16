@@ -1383,3 +1383,100 @@ document.addEventListener('DOMContentLoaded', function() {
     trustTrack.style.width = `${newTotalWidth}px`;
   });
 });
+// Pricing Section Animations
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if GSAP is loaded
+  if (typeof gsap !== 'undefined') {
+    // Animate pricing cards
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    
+    gsap.set(pricingCards, { 
+      y: 100, 
+      opacity: 0 
+    });
+    
+    gsap.to(pricingCards, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: '.pricing-preview-section',
+        start: 'top 80%'
+      }
+    });
+    
+    // Badge animation
+    const pricingBadges = document.querySelectorAll('.pricing-badge');
+    
+    gsap.set(pricingBadges, { 
+      y: -50, 
+      opacity: 0 
+    });
+    
+    gsap.to(pricingBadges, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      stagger: 0.1,
+      delay: 0.5,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: '.pricing-preview-section',
+        start: 'top 80%'
+      }
+    });
+    
+    // Learn more button animation
+    const learnMoreBtn = document.querySelector('.learn-more-btn');
+    
+    gsap.set(learnMoreBtn, { 
+      scale: 0.8, 
+      opacity: 0 
+    });
+    
+    gsap.to(learnMoreBtn, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.5,
+      delay: 1,
+      ease: "elastic.out(1, 0.5)",
+      scrollTrigger: {
+        trigger: '.pricing-cta',
+        start: 'top 90%'
+      }
+    });
+    
+    // Hover animation for pricing cards
+    pricingCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card.querySelector('.pricing-header'), {
+          y: -5,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+        
+        gsap.to(card.querySelector('.pricing-badge'), {
+          scale: 1.1,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card.querySelector('.pricing-header'), {
+          y: 0,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+        
+        gsap.to(card.querySelector('.pricing-badge'), {
+          scale: 1,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+      });
+    });
+  }
+});
