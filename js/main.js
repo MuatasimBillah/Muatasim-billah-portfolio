@@ -1174,3 +1174,119 @@ function loadLatestBlogPosts() {
       blogContainer.innerHTML = '<p class="error-message">Could not load latest blog posts. Please visit the blog section.</p>';
     });
 }
+// Add Epic MB Logo Favicon with Big Circle
+function addEpicMBFavicon() {
+  // Create a canvas element
+  const canvas = document.createElement('canvas');
+  canvas.width = 64;
+  canvas.height = 64;
+  
+  // Get the canvas context for drawing
+  const ctx = canvas.getContext('2d');
+  
+  // Cool futuristic background - full circle
+  const bgGradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+  bgGradient.addColorStop(0, '#3a0ca3');    // Dark purple inner
+  bgGradient.addColorStop(0.7, '#7209b7');  // Mid purple
+  bgGradient.addColorStop(1, '#9d4edd');    // Light purple outer
+  
+  // Clear background
+  ctx.clearRect(0, 0, 64, 64);
+  
+  // First draw a big outer glowing circle
+  ctx.shadowColor = '#9d4edd';
+  ctx.shadowBlur = 12;
+  ctx.beginPath();
+  ctx.arc(32, 32, 30, 0, Math.PI * 2);
+  ctx.fillStyle = bgGradient;
+  ctx.fill();
+  
+  // Reset shadow
+  ctx.shadowBlur = 0;
+  
+  // Add subtle ring with gradient
+  const ringGradient = ctx.createLinearGradient(16, 16, 48, 48);
+  ringGradient.addColorStop(0, '#f72585');
+  ringGradient.addColorStop(1, '#4361ee');
+  
+  ctx.strokeStyle = ringGradient;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(32, 32, 26, 0, Math.PI * 2);
+  ctx.stroke();
+  
+  // Draw 'M' with cool styling
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 24px Poppins, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  
+  // Draw M with 3D effect
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+  ctx.fillText('M', 33, 28);
+  ctx.fillStyle = '#ffffff';
+  ctx.fillText('M', 32, 27);
+  
+  // Draw B with 3D effect
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+  ctx.fillText('B', 33, 40);
+  ctx.fillStyle = '#ffffff';
+  ctx.fillText('B', 32, 39);
+  
+  // Add outer shine/accent dots
+  ctx.fillStyle = '#f72585';
+  let dotRadius = 2;
+  
+  // Create dots around the circle
+  for (let i = 0; i < 8; i++) {
+    const angle = (Math.PI / 4) * i;
+    const x = 32 + 32 * Math.cos(angle);
+    const y = 32 + 32 * Math.sin(angle);
+    
+    ctx.beginPath();
+    ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  
+  // Add a shiny reflection effect
+  ctx.globalCompositeOperation = 'lighter';
+  const shine = ctx.createLinearGradient(16, 16, 48, 48);
+  shine.addColorStop(0, 'rgba(255, 255, 255, 0.2)');
+  shine.addColorStop(0.5, 'rgba(255, 255, 255, 0.1)');
+  shine.addColorStop(1, 'rgba(255, 255, 255, 0)');
+  
+  ctx.fillStyle = shine;
+  ctx.beginPath();
+  ctx.arc(24, 24, 20, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Reset composite operation
+  ctx.globalCompositeOperation = 'source-over';
+  
+  // Convert canvas to data URL
+  const dataUrl = canvas.toDataURL('image/png');
+  
+  // Create a favicon link element
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.type = 'image/png';
+  favicon.href = dataUrl;
+  
+  // Remove any existing favicons
+  const existingFavicons = document.querySelectorAll('link[rel*="icon"]');
+  existingFavicons.forEach(icon => icon.parentNode.removeChild(icon));
+  
+  // Add the new favicon to the document head
+  document.head.appendChild(favicon);
+  
+  // Also add apple touch icon for iOS devices
+  const appleIcon = document.createElement('link');
+  appleIcon.rel = 'apple-touch-icon';
+  appleIcon.href = dataUrl;
+  document.head.appendChild(appleIcon);
+  
+  console.log('Epic MB Favicon with Big Circle added successfully');
+}
+
+// Run favicon creation when document is loaded
+document.addEventListener('DOMContentLoaded', addEpicMBFavicon);
