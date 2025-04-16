@@ -1290,3 +1290,96 @@ function addEpicMBFavicon() {
 
 // Run favicon creation when document is loaded
 document.addEventListener('DOMContentLoaded', addEpicMBFavicon);
+// Trust Indicators JavaScript - Edge to Edge Scrolling
+document.addEventListener('DOMContentLoaded', function() {
+  const trustTrack = document.querySelector('.mb-trust-track');
+  const trustCards = document.querySelectorAll('.mb-trust-card');
+  
+  // Calculate total width of all cards + margins
+  const cardWidth = trustCards[0].offsetWidth + parseInt(getComputedStyle(trustCards[0]).marginLeft) * 2;
+  const cardsPerScreen = Math.ceil(window.innerWidth / cardWidth);
+  
+  // Set a large enough width to ensure full coverage
+  const totalWidth = cardWidth * trustCards.length;
+  trustTrack.style.width = `${totalWidth}px`;
+  
+  // Get first set of cards (half of total)
+  const firstSetCount = Math.floor(trustCards.length / 2);
+  
+  // Animation variables
+  let animationId;
+  let position = 0;
+  const speed = 1; // pixels per animation frame - adjust for speed
+  
+  // Function to clone additional cards if needed
+  function ensureEnoughCards() {
+    // If we need more cards to fill the screen completely
+    if (trustCards.length < cardsPerScreen * 3) {
+      // Clone more cards
+      const cardsToAdd = cardsPerScreen * 3 - trustCards.length;
+      for (let i = 0; i < cardsToAdd; i++) {
+        const cardToClone = trustCards[i % firstSetCount].cloneNode(true);
+        trustTrack.appendChild(cardToClone);
+      }
+    }
+  }
+  
+  // Make sure we have enough cards
+  ensureEnoughCards();
+  
+  // Animation function
+  function animateTrustIndicators() {
+    position -= speed;
+    
+    // Reset position for seamless infinite scrolling
+    // Use the width of first set of cards as reset point
+    if (Math.abs(position) >= cardWidth * firstSetCount) {
+      position = 0;
+    }
+    
+    // Apply transform to move the track
+    trustTrack.style.transform = `translateX(${position}px)`;
+    
+    // Continue animation
+    animationId = requestAnimationFrame(animateTrustIndicators);
+  }
+  
+  // Start animation
+  animationId = requestAnimationFrame(animateTrustIndicators);
+  
+  // Pause animation on hover
+  trustTrack.addEventListener('mouseenter', function() {
+    cancelAnimationFrame(animationId);
+  });
+  
+  // Resume animation when mouse leaves
+  trustTrack.addEventListener('mouseleave', function() {
+    animationId = requestAnimationFrame(animateTrustIndicators);
+  });
+  
+  // Handle touch devices
+  trustTrack.addEventListener('touchstart', function() {
+    cancelAnimationFrame(animationId);
+  });
+  
+  trustTrack.addEventListener('touchend', function() {
+    animationId = requestAnimationFrame(animateTrustIndicators);
+  });
+  
+  // Handle visibility change (tab switching)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      cancelAnimationFrame(animationId);
+    } else {
+      animationId = requestAnimationFrame(animateTrustIndicators);
+    }
+  });
+  
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    // Update calculations on resize
+    const newCardWidth = trustCards[0].offsetWidth + parseInt(getComputedStyle(trustCards[0]).marginLeft) * 2;
+    const newTotalWidth = newCardWidth * trustCards.length;
+    trustTrack.style.width = `${newTotalWidth}px`;
+  });
+});

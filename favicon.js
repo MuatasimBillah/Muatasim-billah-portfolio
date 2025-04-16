@@ -1,4 +1,4 @@
-// MB Full-screen Preloader (Internet Speed Based)
+// MB Full-screen Preloader (Fixed 4-5 Second Timer)
 const mbPreloader = {
     // Create preloader DOM elements
     create: function() {
@@ -59,7 +59,7 @@ const mbPreloader = {
           left: 0;
           width: 100%;
           height: 100%;
-          background: #121212;
+          background: #12121F;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -93,7 +93,7 @@ const mbPreloader = {
         #mb-preloader .progress-bar {
           height: 100%;
           width: 0%;
-          background: linear-gradient(to right, #9d4edd, #7209b7);
+          background: linear-gradient(to right, #7000ff, #9a4eff);
           transition: width 0.3s;
         }
         
@@ -124,8 +124,8 @@ const mbPreloader = {
           centerX - 60, centerY - 60, 
           centerX + 60, centerY + 60
         );
-        gradient.addColorStop(0, '#9d4edd');
-        gradient.addColorStop(1, '#7209b7');
+        gradient.addColorStop(0, '#7000ff');  // Updated to your primary color
+        gradient.addColorStop(1, '#5a00cc');  // Updated to your primary-dark color
         
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -163,59 +163,36 @@ const mbPreloader = {
       animate();
     },
     
-    // Track loading progress
-    trackProgress: function() {
-      let progressBar = document.getElementById('mb-progress-bar');
+    // Fixed progress animation (4-5 seconds)
+    animateFixedProgress: function() {
+      const progressBar = document.getElementById('mb-progress-bar');
+      const duration = 4500; // 4.5 seconds
+      const startTime = Date.now();
       
-      // Create a list of resources that need to be loaded
-      const resources = Array.from(document.querySelectorAll('img, script, link[rel="stylesheet"]'));
-      let loadedResources = 0;
-      
-      // Function to update progress bar
       function updateProgress() {
-        loadedResources++;
-        const progressPercent = (loadedResources / resources.length) * 100;
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration * 100, 100);
         
         if (progressBar) {
-          progressBar.style.width = `${progressPercent}%`;
+          progressBar.style.width = `${progress}%`;
         }
         
-        // If all resources are loaded, we're at 100%
-        if (loadedResources >= resources.length) {
-          if (progressBar) {
-            progressBar.style.width = '100%';
-          }
+        if (progress < 100) {
+          // Continue until 100%
+          requestAnimationFrame(updateProgress);
         }
       }
       
-      // Track all resources
-      resources.forEach(resource => {
-        // If the resource has already loaded, count it
-        if (resource.complete || resource.readyState === 4) {
-          updateProgress();
-        } else {
-          // Otherwise, wait for it to load
-          resource.addEventListener('load', updateProgress);
-          resource.addEventListener('error', updateProgress); // Count errors too
-        }
-      });
+      // Start progress animation
+      updateProgress();
       
-      // If no resources found or few resources, simulate progress
-      if (resources.length < 5) {
-        let fakeProgress = 0;
-        const interval = setInterval(() => {
-          fakeProgress += 5;
-          if (progressBar) {
-            progressBar.style.width = `${fakeProgress}%`;
-          }
-          if (fakeProgress >= 100) {
-            clearInterval(interval);
-          }
-        }, 100);
-      }
+      // Hide preloader after 4.5 seconds (+ 0.5s for fade out = 5 seconds total)
+      setTimeout(() => {
+        this.hide();
+      }, duration);
     },
     
-    // Hide preloader when page is loaded
+    // Hide preloader
     hide: function() {
       const preloader = document.getElementById('mb-preloader');
       if (preloader) {
@@ -236,12 +213,9 @@ const mbPreloader = {
     // Create preloader immediately
     const preloader = mbPreloader.create();
     
-    // Start tracking resource loading progress 
-    mbPreloader.trackProgress();
+    // Start fixed progress animation (4-5 seconds)
+    mbPreloader.animateFixedProgress();
     
-    // Hide preloader when page is fully loaded
-    window.addEventListener('load', function() {
-      // Hide immediately when loaded - no artificial delay
-      mbPreloader.hide();
-    });
+    // Remove the load event listener since we're using fixed timing
+    // window.addEventListener('load', function() {...});
   });

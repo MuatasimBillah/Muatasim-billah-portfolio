@@ -3091,3 +3091,106 @@
     height: 180px;
   }
 }
+/* Trust Indicators CSS - Edge-to-Edge with Correct Background Color */
+.mb-trust-section {
+  padding: 5rem 0;
+  background-color: #12121F; /* Updated to your specified color */
+  overflow: hidden;
+  position: relative;
+}
+
+.mb-trust-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.mb-trust-track {
+  display: flex;
+  will-change: transform;
+  width: max-content;
+}
+
+.mb-trust-card {
+  flex: 0 0 auto;
+  width: 220px;
+  height: 180px;
+  margin: 0 15px;
+  padding: 30px 20px;
+  background: #16161f; /* Card background color */
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mb-trust-card:hover {
+  transform: translateY(-10px);
+  background: #1a1a28;
+  border-color: rgba(112, 0, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(112, 0, 255, 0.2);
+}
+
+.mb-trust-icon {
+  margin-bottom: 15px;
+  color: #7000ff;
+  display: flex;
+  justify-content: center;
+}
+
+.mb-trust-stat {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #7000ff;
+}
+
+.mb-trust-label {
+  font-size: 14px;
+  color: #9e9eb3;
+  line-height: 1.4;
+}
+
+/* Remove unnecessary margins and paddings */
+.mb-trust-section .container {
+  max-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mb-trust-card {
+    width: 180px;
+    height: 160px;
+  }
+  
+  .mb-trust-stat {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mb-trust-card {
+    width: 150px;
+    height: 150px;
+    margin: 0 10px;
+    padding: 20px 10px;
+  }
+  
+  .mb-trust-stat {
+    font-size: 22px;
+  }
+  
+  .mb-trust-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+}
