@@ -1,4 +1,4 @@
-// Enhanced Search Feature with GSAP Animations and New Tab Opening
+// Enhanced Search Feature with GSAP Animations, New Tab Opening, and Responsive Design
 class EnhancedSearchFeature {
   constructor() {
     this.overlay = null;
@@ -10,11 +10,12 @@ class EnhancedSearchFeature {
     this.isOpen = false;
     this.searchData = [];
     this.minSearchLength = 1; // Allow single letter searches
-    this.cacheKey = 'search_index_v5'; // Version your cache
+    this.cacheKey = 'search_index_v6'; // Version your cache
     this.cacheDuration = 24 * 60 * 60 * 1000; // 24 hours
     this.lastIndexTime = 0;
     this.crawledUrls = new Set();
     this.isIndexing = false;
+    this.isMobile = window.innerWidth <= 768; // Check if mobile
     
     // Important blog posts that should always be in search results
     this.knownBlogPosts = [
@@ -137,7 +138,21 @@ class EnhancedSearchFeature {
       }
     ];
     
+    // Listen for window resize events to update mobile status
+    window.addEventListener('resize', this.handleResize.bind(this));
+    
     this.init();
+  }
+  
+  handleResize() {
+    const wasMobile = this.isMobile;
+    this.isMobile = window.innerWidth <= 768;
+    
+    // If the device type changed while search is open, close and reopen it
+    if (this.isOpen && wasMobile !== this.isMobile) {
+      this.closeSearch();
+      setTimeout(() => this.openSearch(), 300);
+    }
   }
   
   async init() {
@@ -291,7 +306,7 @@ class EnhancedSearchFeature {
     this.searchStats = document.getElementById('search-stats');
   }
   
-  // Add modern styling to the search overlay
+  // Add modern styling to the search overlay with responsive design
   applyModernStyling() {
     const style = document.createElement('style');
     style.textContent = `
@@ -427,7 +442,7 @@ class EnhancedSearchFeature {
       
       .search-result {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         padding: 16px 24px;
         margin: 4px 8px;
         border-radius: 10px;
@@ -441,12 +456,6 @@ class EnhancedSearchFeature {
         background: rgba(40, 35, 55, 0.6);
         transform: translateX(4px);
       }
-      
-      .search-result:nth-child(1) { transition-delay: 0.05s; }
-      .search-result:nth-child(2) { transition-delay: 0.1s; }
-      .search-result:nth-child(3) { transition-delay: 0.15s; }
-      .search-result:nth-child(4) { transition-delay: 0.2s; }
-      .search-result:nth-child(5) { transition-delay: 0.25s; }
       
       .result-icon {
         width: 44px;
@@ -599,44 +608,117 @@ class EnhancedSearchFeature {
         font-weight: 500;
       }
       
-      @media (max-width: 600px) {
-        .search-container {
-          margin: 0 15px;
-          max-height: 90vh;
-          border-radius: 12px;
-        }
-        
+      /* Mobile Styles */
+      @media (max-width: 768px) {
         .search-overlay {
           align-items: flex-start;
-          padding-top: 60px;
+          padding: 0;
+        }
+        
+        .search-container {
+          max-width: 100%;
+          height: 100%;
+          max-height: 100%;
+          margin: 0;
+          border-radius: 0;
         }
         
         .search-form {
-          padding: 16px 20px;
+          padding: 16px;
         }
         
         #search-input {
           font-size: 16px;
         }
         
-        .result-title {
-          font-size: 15px;
+        .search-icon {
+          font-size: 18px;
+          margin-right: 12px;
         }
         
-        .result-excerpt {
+        #search-clear {
+          width: 32px;
+          height: 32px;
+        }
+        
+        .search-stats {
+          padding: 10px 16px;
           font-size: 13px;
-          -webkit-line-clamp: 1;
         }
         
-        .result-icon {
-          width: 40px;
-          height: 40px;
-          margin-right: 14px;
+        .search-results {
+          max-height: calc(100vh - 130px);
         }
         
         .search-result {
           padding: 14px 16px;
           margin: 4px;
+          flex-direction: column;
+        }
+        
+        .result-icon {
+          width: 36px;
+          height: 36px;
+          font-size: 16px;
+          margin-right: 12px;
+          float: left;
+          margin-bottom: 8px;
+        }
+        
+        .result-content {
+          width: 100%;
+          margin-left: 48px;
+        }
+        
+        .result-title {
+          font-size: 15px;
+          white-space: normal;
+          margin-top: -5px;
+        }
+        
+        .result-excerpt {
+          font-size: 13px;
+          -webkit-line-clamp: 3;
+        }
+        
+        .result-category {
+          font-size: 10px;
+          padding: 2px 6px;
+        }
+        
+        .result-arrow {
+          position: absolute;
+          top: 14px;
+          right: 16px;
+          margin-left: 0;
+        }
+        
+        .search-footer {
+          padding: 12px 16px;
+        }
+        
+        .search-footer kbd {
+          font-size: 10px;
+          padding: 3px 5px;
+        }
+      }
+      
+      /* Large Screen Adjustments */
+      @media (min-width: 1200px) {
+        .search-container {
+          max-width: 900px;
+        }
+        
+        .result-title {
+          font-size: 18px;
+        }
+        
+        .result-excerpt {
+          font-size: 15px;
+        }
+        
+        .search-result {
+          padding: 18px 28px;
         }
       }
       
@@ -1236,43 +1318,64 @@ class EnhancedSearchFeature {
   }
   
   openSearch() {
+    // Add 'active' class to overlay to make it visible
     this.overlay.classList.add('active');
     
-    // GSAP animation for opening
+    // Apply different animations for mobile and desktop
     if (window.gsap) {
-      // Set initial state
-      gsap.set('.search-container', { opacity: 0, y: 20 });
-      gsap.set('.search-form', { opacity: 0, y: -10 });
-      gsap.set('.search-icon', { scale: 0.5 });
+      // Clear any previous animations
+      gsap.killTweensOf('.search-container');
+      gsap.killTweensOf('.search-form');
+      gsap.killTweensOf('.search-icon');
       
-      // Create timeline
-      const tl = gsap.timeline();
+      if (this.isMobile) {
+        // Mobile animation - slide up from bottom
+        gsap.fromTo('.search-container', 
+          { y: '100%', opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }
+        );
+        
+        // Animate form elements
+        gsap.fromTo('.search-form', 
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.3, delay: 0.2, ease: 'power1.out' }
+        );
+      } else {
+        // Desktop animation - scale and fade in
+        gsap.set('.search-container', { opacity: 0, scale: 0.95, y: 20 });
+        gsap.set('.search-form', { opacity: 0, y: -10 });
+        gsap.set('.search-icon', { scale: 0.5 });
+        
+        // Create timeline
+        const tl = gsap.timeline();
+        
+        // Container animation
+        tl.to('.search-container', { 
+          opacity: 1, 
+          scale: 1,
+          y: 0, 
+          duration: 0.4, 
+          ease: "back.out(1.2)" 
+        });
+        
+        // Search form animation
+        tl.to('.search-form', { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.4, 
+          ease: "power1.out" 
+        }, "-=0.2");
+        
+        // Icon animation
+        tl.to('.search-icon', { 
+          scale: 1, 
+          duration: 0.5, 
+          ease: "elastic.out(1, 0.5)" 
+        }, "-=0.2");
+      }
       
-      // Container animation
-      tl.to('.search-container', { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.5, 
-        ease: "power2.out" 
-      });
-      
-      // Search form animation
-      tl.to('.search-form', { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.4, 
-        ease: "power1.out" 
-      }, "-=0.3");
-      
-      // Icon animation
-      tl.to('.search-icon', { 
-        scale: 1, 
-        duration: 0.5, 
-        ease: "elastic.out(1, 0.5)" 
-      }, "-=0.2");
-      
-      // Input focus with delay
-      tl.add(() => this.searchInput.focus(), "-=0.2");
+      // Focus input after animation
+      setTimeout(() => this.searchInput.focus(), 300);
     } else {
       // Fallback without GSAP
       this.searchInput.focus();
@@ -1285,21 +1388,35 @@ class EnhancedSearchFeature {
   closeSearch() {
     // GSAP animation for closing
     if (window.gsap) {
-      const tl = gsap.timeline({
-        onComplete: () => {
-          this.overlay.classList.remove('active');
-          document.body.style.overflow = ''; // Restore scrolling
-          this.isOpen = false;
-        }
-      });
-      
-      // Fade out container
-      tl.to('.search-container', { 
-        opacity: 0, 
-        y: 20, 
-        duration: 0.3, 
-        ease: "power1.in" 
-      });
+      // Different animations for mobile and desktop
+      if (this.isMobile) {
+        // Mobile animation - slide down
+        gsap.to('.search-container', {
+          y: '100%',
+          opacity: 0,
+          duration: 0.3,
+          ease: 'power2.in',
+          onComplete: () => {
+            this.overlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            this.isOpen = false;
+          }
+        });
+      } else {
+        // Desktop animation - fade out and scale down
+        gsap.to('.search-container', { 
+          opacity: 0, 
+          scale: 0.95,
+          y: 20, 
+          duration: 0.3, 
+          ease: "power1.in",
+          onComplete: () => {
+            this.overlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            this.isOpen = false;
+          }
+        });
+      }
     } else {
       // Fallback without GSAP
       this.overlay.classList.remove('active');
@@ -1624,7 +1741,7 @@ class EnhancedSearchFeature {
     // Add animation with GSAP if available
     if (window.gsap) {
       gsap.from('.search-result', {
-        y: 20,
+        y: this.isMobile ? 30 : 20,
         opacity: 0,
         duration: 0.4,
         stagger: 0.05,
@@ -1732,7 +1849,7 @@ class EnhancedSearchFeature {
     if (window.gsap && !newTab) {
       gsap.to('.search-container', {
         opacity: 0,
-        y: -20,
+        y: this.isMobile ? 100 : -20,
         duration: 0.3,
         ease: 'power1.in',
         onComplete: () => {
