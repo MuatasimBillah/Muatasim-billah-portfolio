@@ -493,38 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTestimonials();
   }
   
-  // Initialize contact form
-  function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (!contactForm) return;
-    
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      // Basic validation
-      if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields.');
-        return;
-      }
-      
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-      
-      // Simulate form submission - would be replaced with actual API call
-      alert('Your message has been sent. Thank you!');
-      contactForm.reset();
-    });
-  }
+
   
   // Initialize back to top button
   function initBackToTop() {
