@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Enhancement Tool | MeharDesigner</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="audio-tool.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <h1>Audio Enhancement Tool</h1>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="tool-container">
+        <!-- File Upload / Record Section -->
+        <section class="tool-section input-section">
+          <h2>Input Audio</h2>
+          <div class="upload-area" id="uploadArea">
+            <i class="fas fa-file-audio"></i>
+            <p>Drag & drop your audio file or click to browse</p>
+            <span>Supports MP3, WAV, OGG (Max 20MB)</span>
+            <input type="file" id="audioFileInput" accept="audio/*" hidden>
+          </div>
+          
+          <div class="or-divider">
+            <span>OR</span>
+          </div>
+          
+          <div class="record-area">
+            <button id="recordButton" class="action-btn">
+              <i class="fas fa-microphone"></i> <span>Record Audio</span>
+            </button>
+            <div id="recordingControls" class="recording-controls">
+              <div class="recording-time">00:00</div>
+              <button id="stopRecording" class="record-control-btn">
+                <i class="fas fa-stop"></i>
+              </button>
+              <div class="recording-indicator">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Audio Preview Section -->
+        <section class="tool-section visualization-section">
+          <h2>Audio Visualization</h2>
+          <div class="waveform-container">
+            <div id="waveformOriginal" class="waveform">
+              <div class="waveform-label">Original</div>
+            </div>
+            <div id="waveformProcessed" class="waveform">
+              <div class="waveform-label">Processed</div>
+            </div>
+          </div>
+          <div class="audio-controls">
+            <button id="playButton" class="control-btn" disabled>
+              <i class="fas fa-play"></i>
+            </button>
+            <button id="pauseButton" class="control-btn" disabled>
+              <i class="fas fa-pause"></i>
+            </button>
+            <button id="stopButton" class="control-btn" disabled>
+              <i class="fas fa-stop"></i>
+            </button>
+            <div class="time-display">
+              <span id="currentTime">00:00</span> / <span id="totalTime">00:00</span>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Processing Controls Section -->
+        <section class="tool-section processing-section">
+          <h2>Enhancement Controls</h2>
+          
+          <!-- Noise Reduction -->
+          <div class="control-group">
+            <div class="control-header">
+              <h3>Noise Reduction</h3>
+              <div class="tooltip">
+                <i class="fas fa-info-circle"></i>
+                <span class="tooltip-text">Reduces background noise using frequency filtering</span>
+              </div>
+            </div>
+            <div class="control-body">
+              <label for="noiseReduction">Reduction Amount:</label>
+              <input type="range" id="noiseReduction" min="0" max="100" value="0" class="slider">
+              <div class="slider-value"><span id="noiseReductionValue">0</span>%</div>
+            </div>
+          </div>
+          
+          <!-- Equalizer -->
+          <div class="control-group">
+            <div class="control-header">
+              <h3>Equalizer</h3>
+              <div class="tooltip">
+                <i class="fas fa-info-circle"></i>
+                <span class="tooltip-text">Adjust frequency bands to enhance audio quality</span>
+              </div>
+            </div>
+            <div class="control-body eq-controls">
+              <div class="eq-band">
+                <span>Bass</span>
+                <input type="range" id="bassEQ" min="-12" max="12" value="0" class="slider vertical-slider">
+                <div class="slider-value"><span id="bassEQValue">0</span>dB</div>
+              </div>
+              <div class="eq-band">
+                <span>Mid</span>
+                <input type="range" id="midEQ" min="-12" max="12" value="0" class="slider vertical-slider">
+                <div class="slider-value"><span id="midEQValue">0</span>dB</div>
+              </div>
+              <div class="eq-band">
+                <span>Treble</span>
+                <input type="range" id="trebleEQ" min="-12" max="12" value="0" class="slider vertical-slider">
+                <div class="slider-value"><span id="trebleEQValue">0</span>dB</div>
+              </div>
+              <button id="resetEQ" class="small-btn">Reset</button>
+            </div>
+          </div>
+          
+          <!-- Voice Enhancement -->
+          <div class="control-group">
+            <div class="control-header">
+              <h3>Voice Enhancement</h3>
+              <div class="tooltip">
+                <i class="fas fa-info-circle"></i>
+                <span class="tooltip-text">Enhances vocal frequencies for clearer speech</span>
+              </div>
+            </div>
+            <div class="control-body">
+              <label for="voiceEnhancement">Enhancement:</label>
+              <input type="range" id="voiceEnhancement" min="0" max="100" value="0" class="slider">
+              <div class="slider-value"><span id="voiceEnhancementValue">0</span>%</div>
+            </div>
+          </div>
+          
+          <!-- Volume Normalization -->
+          <div class="control-group">
+            <div class="control-header">
+              <h3>Volume Normalization</h3>
+              <div class="tooltip">
+                <i class="fas fa-info-circle"></i>
+                <span class="tooltip-text">Balances audio levels for consistent volume</span>
+              </div>
+            </div>
+            <div class="control-body">
+              <div class="toggle-container">
+                <label class="toggle">
+                  <input type="checkbox" id="normalization">
+                  <span class="toggle-switch"></span>
+                </label>
+                <span>Apply Normalization</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Reverb Reduction -->
+          <div class="control-group">
+            <div class="control-header">
+              <h3>Reverb Reduction</h3>
+              <div class="tooltip">
+                <i class="fas fa-info-circle"></i>
+                <span class="tooltip-text">Reduces echo and room reverberations</span>
+              </div>
+            </div>
+            <div class="control-body">
+              <label for="reverbReduction">Reduction:</label>
+              <input type="range" id="reverbReduction" min="0" max="100" value="0" class="slider">
+              <div class="slider-value"><span id="reverbReductionValue">0</span>%</div>
+            </div>
+          </div>
+          
+          <!-- Apply Button -->
+          <button id="applyEffects" class="action-btn wide-btn" disabled>
+            <i class="fas fa-magic"></i> Apply Enhancements
+          </button>
+        </section>
+        
+        <!-- Export Section -->
+        <section class="tool-section export-section">
+          <h2>Export Processed Audio</h2>
+          <div class="export-options">
+            <div class="export-format">
+              <h3>Format:</h3>
+              <div class="format-options">
+                <label>
+                  <input type="radio" name="format" value="mp3" checked>
+                  <span>MP3</span>
+                </label>
+                <label>
+                  <input type="radio" name="format" value="wav">
+                  <span>WAV</span>
+                </label>
+              </div>
+            </div>
+            <div class="export-quality">
+              <h3>Quality:</h3>
+              <select id="qualitySelect">
+                <option value="128">128 kbps</option>
+                <option value="192">192 kbps</option>
+                <option value="256" selected>256 kbps</option>
+                <option value="320">320 kbps</option>
+              </select>
+            </div>
+          </div>
+          <button id="exportButton" class="action-btn wide-btn" disabled>
+            <i class="fas fa-download"></i> Download Enhanced Audio
+          </button>
+        </section>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 MeharDesigner. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loader">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="#a020f0" stroke-width="8" fill="none" stroke-dasharray="251" stroke-dashoffset="251" />
+      </svg>
+      <div class="loader-text">Processing Audio...</div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/wavesurfer.js@6"></script>
+  <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+  <script src="audio-tool.js"></script>
+</body>
+</html>
