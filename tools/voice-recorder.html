@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Voice Recorder | Muatasim Billah</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="voice-recorder.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav class="glass">
+      <a href="../index.html" class="logo">
+        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+     
+      <div class="nav-links desktop-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link active">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <button class="mobile-close-btn" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="voice-recorder-container">
+    <h2 class="tool-title">Online Voice Recorder</h2>
+    
+    <div class="recorder-card glass">
+      <div class="recorder-instructions" id="instructions">
+        <i class="fas fa-microphone"></i>
+        <p>Click the record button to start recording your voice</p>
+        <p class="small-text">Your audio stays on your device - nothing is uploaded to our servers</p>
+      </div>
+      
+      <div class="recorder-visualization">
+        <canvas id="visualizer" width="500" height="100"></canvas>
+      </div>
+      
+      <div class="recording-time" id="recording-time">00:00</div>
+      
+      <div class="recording-controls">
+        <button id="recordButton" class="btn-record">
+          <i class="fas fa-microphone"></i>
+          <span>Record</span>
+        </button>
+        <button id="stopButton" class="btn-stop hidden">
+          <i class="fas fa-stop"></i>
+          <span>Stop</span>
+        </button>
+        <button id="pauseButton" class="btn-pause hidden">
+          <i class="fas fa-pause"></i>
+          <span>Pause</span>
+        </button>
+        <button id="resumeButton" class="btn-resume hidden">
+          <i class="fas fa-play"></i>
+          <span>Resume</span>
+        </button>
+      </div>
+      
+      <div class="recording-list" id="recordings">
+        <h3 class="recordings-title hidden" id="recordings-title">Your Recordings</h3>
+        <div class="recordings-container" id="recordings-container"></div>
+      </div>
+    </div>
+    
+    <div class="back-to-tools">
+      <a href="index.html" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Tools
+      </a>
+    </div>
+  </div>
+  <script defer src="favicon.js"></script>
+  <script src="voice-recorder.js"></script>
+</body>
+</html>

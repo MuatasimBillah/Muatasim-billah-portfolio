@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Cutter Tool</title>
+  <link rel="stylesheet" href="audio-cutter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="audio-cutter-container">
+    <h2 class="tool-title">Audio Cutter Tool</h2>
+    
+    <div class="upload-container">
+      <div class="upload-prompt" id="upload-prompt">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Upload an audio file</p>
+        <p class="upload-formats">(MP3, WAV, OGG, M4A)</p>
+        <label for="audio-upload" class="btn-upload">Choose File</label>
+        <input type="file" id="audio-upload" accept="audio/*" class="hidden">
+      </div>
+    </div>
+    
+    <div class="editor-container hidden" id="editor-container">
+      <div class="audio-info">
+        <div class="file-info">
+          <span id="file-name">filename.mp3</span>
+          <span id="file-duration">00:00</span>
+        </div>
+        <button id="btn-reset" class="btn-reset"><i class="fas fa-times"></i> Clear</button>
+      </div>
+      
+      <div class="audio-player">
+        <audio id="audio-element" controls></audio>
+      </div>
+      
+      <div class="waveform-container">
+        <div id="waveform"></div>
+        <div class="selection-container">
+          <div id="selection-start" class="selection-handle start"></div>
+          <div id="selection-area" class="selection-area"></div>
+          <div id="selection-end" class="selection-handle end"></div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+      
+      <div class="trim-controls">
+        <div class="time-inputs">
+          <div class="time-input-group">
+            <label for="start-time">Start Time:</label>
+            <input type="text" id="start-time" placeholder="00:00.000">
+          </div>
+          <div class="time-input-group">
+            <label for="end-time">End Time:</label>
+            <input type="text" id="end-time" placeholder="00:00.000">
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button id="btn-preview" class="btn-action"><i class="fas fa-play"></i> Preview Selection</button>
+          <button id="btn-cut" class="btn-action primary"><i class="fas fa-cut"></i> Cut Audio</button>
+          <button id="btn-download" class="btn-action success hidden"><i class="fas fa-download"></i> Download</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="processing-overlay" class="processing-overlay hidden">
+      <div class="processing-content">
+        <div class="spinner"></div>
+        <p>Processing Audio...</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+  <script defer src="favicon.js"></script>
+  <script src="audio-cutter.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette Generator | Muatasim Billah</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="color-palette.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav class="glass">
+      <a href="../index.html" class="logo">
+        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+     
+      <div class="nav-links desktop-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link active">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <button class="mobile-close-btn" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="color-palette-container">
+    <h2 class="tool-title">Color Palette Generator</h2>
+    
+    <div class="palette-controls glass">
+      <div class="generator-options">
+        <div class="option-group">
+          <label for="palette-type">Palette Type</label>
+          <select id="palette-type" class="select-control">
+            <option value="random">Random</option>
+            <option value="monochromatic">Monochromatic</option>
+            <option value="analogous">Analogous</option>
+            <option value="complementary">Complementary</option>
+            <option value="triadic">Triadic</option>
+            <option value="tetradic">Tetradic</option>
+          </select>
+        </div>
+        
+        <div class="option-group">
+          <label for="color-count">Number of Colors</label>
+          <select id="color-count" class="select-control">
+            <option value="3">3 Colors</option>
+            <option value="4">4 Colors</option>
+            <option value="5" selected>5 Colors</option>
+            <option value="6">6 Colors</option>
+            <option value="7">7 Colors</option>
+            <option value="8">8 Colors</option>
+          </select>
+        </div>
+        
+        <div class="option-group">
+          <label for="base-color">Base Color</label>
+          <div class="color-picker-wrap">
+            <input type="color" id="base-color" value="#7000ff">
+          </div>
+        </div>
+      </div>
+      
+      <div class="generator-buttons">
+        <button id="generate-btn" class="btn-primary">
+          <i class="fas fa-palette"></i> Generate Palette
+        </button>
+        <button id="save-btn" class="btn-secondary">
+          <i class="fas fa-save"></i> Save Palette
+        </button>
+      </div>
+    </div>
+    
+    <div class="current-palette glass" id="current-palette">
+      <!-- Color swatches will be generated here -->
+    </div>
+    
+    <div class="palette-info glass">
+      <h3>How to Use This Palette</h3>
+      <div class="info-tabs">
+        <button class="tab-btn active" data-tab="web-tab">Web</button>
+        <button class="tab-btn" data-tab="css-tab">CSS</button>
+        <button class="tab-btn" data-tab="sass-tab">SASS</button>
+        <button class="tab-btn" data-tab="sketch-tab">Sketch</button>
+      </div>
+      
+      <div class="tab-content">
+        <div id="web-tab" class="tab-pane active">
+          <div class="code-block">
+            <pre><code id="web-code">/* Select a palette to see the codes */</code></pre>
+            <button class="copy-btn" data-target="web-code">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div id="css-tab" class="tab-pane">
+          <div class="code-block">
+            <pre><code id="css-code">/* Select a palette to see the codes */</code></pre>
+            <button class="copy-btn" data-target="css-code">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div id="sass-tab" class="tab-pane">
+          <div class="code-block">
+            <pre><code id="sass-code">/* Select a palette to see the codes */</code></pre>
+            <button class="copy-btn" data-target="sass-code">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div id="sketch-tab" class="tab-pane">
+          <div class="code-block">
+            <pre><code id="sketch-code">/* Select a palette to see the codes */</code></pre>
+            <button class="copy-btn" data-target="sketch-code">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="saved-palettes" id="saved-palettes-container">
+      <h3 class="saved-palettes-title">Saved Palettes</h3>
+      <div class="saved-palettes-list" id="saved-palettes-list">
+        <!-- Saved palettes will appear here -->
+        <p class="no-palettes-message" id="no-palettes-message">No saved palettes yet. Generate and save some palettes!</p>
+      </div>
+    </div>
+    
+    <div class="back-to-tools">
+      <a href="index.html" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Tools
+      </a>
+    </div>
+  </div>
+  
+  <script defer src="favicon.js"></script>
+  <script src="color-palette.js"></script>
+</body>
+</html>

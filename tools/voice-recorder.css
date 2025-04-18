@@ -1,0 +1,311 @@
+:root {
+    --primary: #7000ff;
+    --primary-light: #9a4eff;
+    --primary-dark: #5a00cc;
+    --secondary: #00d9ff;
+    --accent: #ff6b00;
+    --bg-dark: #0c0c14;
+    --bg-dark-lighter: #12121f;
+    --card-dark: #16161f;
+    --text-light: #ffffff;
+    --text-muted: #9e9eb3;
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --border-radius: 12px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --transition: 0.3s ease;
+  }
+  
+  body {
+    padding-top: 80px;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  .voice-recorder-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+  
+  .tool-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .tool-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 2px;
+  }
+  
+  .recorder-card {
+    border-radius: var(--border-radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow);
+  }
+  
+  .recorder-instructions {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .recorder-instructions i {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 15px;
+  }
+  
+  .small-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+  }
+  
+  .recorder-visualization {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+  
+  #visualizer {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  .recording-time {
+    font-family: 'Space Mono', monospace;
+    font-size: 24px;
+    margin-bottom: 20px;
+    min-height: 30px;
+  }
+  
+  .recording-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .btn-record, .btn-stop, .btn-pause, .btn-resume {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+    font-family: inherit;
+    font-size: 1rem;
+  }
+  
+  .btn-record {
+    background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    color: white;
+    box-shadow: 0 4px 10px rgba(112, 0, 255, 0.3);
+  }
+  
+  .btn-record:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(112, 0, 255, 0.4);
+  }
+  
+  .btn-stop {
+    background: linear-gradient(to right, var(--danger), #bd2130);
+    color: white;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+  }
+  
+  .btn-stop:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+  }
+  
+  .btn-pause, .btn-resume {
+    background: linear-gradient(to right, var(--warning), #e0a800);
+    color: var(--bg-dark);
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+  }
+  
+  .btn-pause:hover, .btn-resume:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 193, 7, 0.4);
+  }
+  
+  .btn-record i, .btn-stop i, .btn-pause i, .btn-resume i {
+    margin-right: 8px;
+  }
+  
+  .recording-list {
+    width: 100%;
+  }
+  
+  .recordings-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: all var(--transition);
+  }
+  
+  .audio-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .audio-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .audio-info i {
+    margin-right: 15px;
+    font-size: 20px;
+    color: var(--primary-light);
+  }
+  
+  .audio-player {
+    flex-grow: 1;
+    margin: 0 15px;
+  }
+  
+  .audio-player audio {
+    width: 100%;
+    height: 35px;
+  }
+  
+  .audio-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-action {
+    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+  
+  .btn-action:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .btn-action.download {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: var(--success);
+  }
+  
+  .btn-action.download:hover {
+    background-color: rgba(40, 167, 69, 0.3);
+  }
+  
+  .btn-action.delete {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: var(--danger);
+  }
+  
+  .btn-action.delete:hover {
+    background-color: rgba(220, 53, 69, 0.3);
+  }
+  
+  .back-to-tools {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .btn-secondary {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition);
+  }
+  
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+  }
+  
+  .btn-secondary i {
+    margin-right: 8px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .recording-controls {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .btn-record, .btn-stop, .btn-pause, .btn-resume {
+      width: 100%;
+    }
+    
+    .audio-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .audio-info {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    
+    .audio-actions {
+      margin-top: 10px;
+      align-self: flex-end;
+    }
+  }

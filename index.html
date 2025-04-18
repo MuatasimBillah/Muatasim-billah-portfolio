@@ -31,6 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="darkmood.css">
     
     <!-- Google Analytics (non-critical, can load after CSS) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1502JK6E7V"></script>
@@ -58,9 +59,13 @@
         <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
       </a>
       
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
+      <label class="theme-toggle-switch" aria-label="Toggle theme">
+        <input type="checkbox" id="theme-toggle-input">
+        <span class="toggle-slider">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </span>
+      </label>
      
       <div class="nav-links desktop-nav">
         <a href="#home" class="nav-link">Home</a>
@@ -69,6 +74,7 @@
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#services" class="nav-link">Services</a>
         <a href="blog/index.html" class="nav-link">Blog</a>
+        <a href="tools\index.html" class="nav-link">Tools</a>
         <a href="#testimonials" class="nav-link">Testimonials</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
@@ -1052,35 +1058,51 @@
       </div>
   </div>
 </section>
-<!-- Audio Enhancement Tool Section -->
-<section id="audio-tool" class="tool-section">
-<div class="container">
- <div class="tool-content">
-   <div class="tool-text">
-     <h2>Audio Enhancement Tool</h2>
-     <p>Professional audio processing in your browser. Reduce noise, enhance clarity, and improve your audio quality with our advanced web-based tools.</p>
-     <ul class="tool-features">
-       <li><i class="fas fa-volume-off"></i> Noise Reduction</li>
-       <li><i class="fas fa-sliders-h"></i> Equalizer Controls</li>
-       <li><i class="fas fa-compress-arrows-alt"></i> Volume Normalization</li>
-       <li><i class="fas fa-microphone"></i> Voice Enhancement</li>
-     </ul>
-     <a href="audio-tool.html" class="tool-btn">Use Tool Now</a>
-   </div>
-   <div class="tool-image">
-     <div class="waveform-animation">
-       <span></span>
-       <span></span>
-       <span></span>
-       <span></span>
-       <span></span>
-       <span></span>
-       <span></span>
-       <span></span>
-     </div>
-   </div>
- </div>
+<!-- Tools Section -->
+<section id="tools" class="section tools-section section-reveal">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Free <span class="primary-text">Tools</span></h2>
+      <p class="section-subtitle">Useful utilities to enhance your workflow</p>
+      <div class="section-underline"></div>
+    </div>
+    
+    <div class="tools-preview">
+      <div class="tool-card glass">
+        <div class="tool-icon">
+          <i class="fas fa-cut"></i>
+        </div>
+        <h3>Audio Cutter</h3>
+        <p>Trim your audio files with precision. Cut unwanted sections and keep only what you need.</p>
+        <a href="tools/audio-cutter.html" class="btn-tool">Use Tool</a>
+      </div>
+      
+      <div class="tool-card glass">
+        <div class="tool-icon">
+          <i class="fas fa-microphone"></i>
+        </div>
+        <h3>Voice Recorder</h3>
+        <p>Record audio directly in your browser. Create high-quality voice recordings and download them instantly.</p>
+        <a href="tools/voice-recorder.html" class="btn-tool">Use Tool</a>
+      </div>
+      
+      <!-- CV Creator Tool -->
+<div class="tool-card glass">
+  <div class="tool-icon">
+    <i class="fas fa-file-alt"></i>
+  </div>
+  <h3>Professional CV Creator</h3>
+  <p>Create a stunning professional CV in minutes. Choose from multiple templates, customize colors and fonts, then download as a PDF.</p>
+  <a href="tools\cv-creator.html" class="btn-tool">Use Tool</a>
 </div>
+    </div>
+    
+    <div class="tools-cta">
+      <a href="tools/index.html" class="btn-primary">
+        <i class="fas fa-tools"></i> View All Tools
+      </a>
+    </div>
+  </div>
 </section>
   <!-- Footer -->
   <footer class="footer">
@@ -1237,5 +1259,6 @@
   <script src="js/main.js"></script>
   <script src="favicon.js"></script>
   <script src="contactform.js"></script>
+  <script src="darkmood.js"></script>
 </body>
 </html>

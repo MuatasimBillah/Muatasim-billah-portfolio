@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator | Muatasim Billah</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="qr-generator.css">
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav class="glass">
+      <a href="../index.html" class="logo">
+        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+     
+      <div class="nav-links desktop-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link active">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <button class="mobile-close-btn" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="qr-container">
+    <h2 class="tool-title">QR Code Generator</h2>
+    
+    <div class="qr-wrapper">
+      <div class="input-section glass">
+        <h3>Create Your QR Code</h3>
+        
+        <div class="input-group">
+          <label for="qr-text">Enter URL or Text</label>
+          <textarea id="qr-text" placeholder="Enter URL, text, contact info, or any data you want to encode in the QR code..."></textarea>
+        </div>
+        
+        <div class="options-grid">
+          <div class="option-group">
+            <label for="qr-size">QR Code Size</label>
+            <select id="qr-size" class="select-control">
+              <option value="128">Small (128×128px)</option>
+              <option value="200" selected>Medium (200×200px)</option>
+              <option value="280">Large (280×280px)</option>
+              <option value="400">Extra Large (400×400px)</option>
+            </select>
+          </div>
+          
+          <div class="option-group">
+            <label for="qr-color">QR Code Color</label>
+            <div class="color-picker-wrap">
+              <input type="color" id="qr-color" value="#7000ff">
+            </div>
+          </div>
+          
+          <div class="option-group">
+            <label for="qr-bg-color">Background Color</label>
+            <div class="color-picker-wrap">
+              <input type="color" id="qr-bg-color" value="#ffffff">
+            </div>
+          </div>
+          
+          <div class="option-group">
+            <label for="qr-error-correction">Error Correction</label>
+            <select id="qr-error-correction" class="select-control">
+              <option value="L">Low (7%)</option>
+              <option value="M" selected>Medium (15%)</option>
+              <option value="Q">Quartile (25%)</option>
+              <option value="H">High (30%)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button id="generate-btn" class="btn-primary">
+            <i class="fas fa-qrcode"></i> Generate QR Code
+          </button>
+          <button id="clear-btn" class="btn-secondary">
+            <i class="fas fa-trash-alt"></i> Clear
+          </button>
+        </div>
+        
+        <div class="template-section">
+          <h4>Quick Templates</h4>
+          <div class="template-buttons">
+            <button class="template-btn" data-template="url">Website URL</button>
+            <button class="template-btn" data-template="email">Email</button>
+            <button class="template-btn" data-template="wifi">WiFi</button>
+            <button class="template-btn" data-template="vcard">Contact</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="preview-section glass">
+        <h3>Your QR Code</h3>
+        
+        <div class="qr-preview-container">
+          <div id="qr-preview" class="qr-preview">
+            <div class="qr-placeholder">
+              <i class="fas fa-qrcode"></i>
+              <p>Your QR code will appear here</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="download-options">
+          <button id="download-png-btn" class="btn-download" disabled>
+            <i class="fas fa-download"></i> Download PNG
+          </button>
+          <button id="download-svg-btn" class="btn-download" disabled>
+            <i class="fas fa-file-download"></i> Download SVG
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="qr-info glass">
+      <h3>About QR Codes</h3>
+      <p>QR (Quick Response) codes are two-dimensional barcodes that can store various types of information such as URLs, text, contact details, and more. They can be scanned using a smartphone camera or a QR code reader app.</p>
+      
+      <div class="qr-tips">
+        <h4>Tips for QR Codes</h4>
+        <ul>
+          <li>Keep your data short to make a less complex QR code that's easier to scan</li>
+          <li>Ensure good contrast between the QR code and background colors</li>
+          <li>Higher error correction makes your QR code more reliable but also more complex</li>
+          <li>Always test your QR code with different devices before sharing it</li>
+        </ul>
+      </div>
+      
+      <div class="usage-ideas">
+        <h4>Creative Uses for QR Codes</h4>
+        <div class="idea-cards">
+          <div class="idea-card">
+            <i class="fas fa-globe"></i>
+            <h5>Website Links</h5>
+            <p>Share your portfolio, blog, or social media profiles</p>
+          </div>
+          
+          <div class="idea-card">
+            <i class="fas fa-address-card"></i>
+            <h5>Digital Business Card</h5>
+            <p>Create a digital business card with your contact info</p>
+          </div>
+          
+          <div class="idea-card">
+            <i class="fas fa-wifi"></i>
+            <h5>WiFi Login</h5>
+            <p>Help guests connect to your WiFi without typing passwords</p>
+          </div>
+          
+          <div class="idea-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h5>Location Sharing</h5>
+            <p>Share a Google Maps location for your business or event</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="back-to-tools">
+      <a href="index.html" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Tools
+      </a>
+    </div>
+  </div>
+  <script defer src="favicon.js"></script>
+  
+  <script src="qr-generator.js"></script>
+</body>
+</html>

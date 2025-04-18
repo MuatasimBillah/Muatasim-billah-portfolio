@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional CV Creator | Muatasim Billah</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="cv-creator.css">
+  <!-- HTML2Canvas for generating image -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- jsPDF for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Sortable.js for drag and drop -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav class="glass">
+      <a href="../index.html" class="logo">
+        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+     
+      <div class="nav-links desktop-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link active">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <button class="mobile-close-btn" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="cv-container">
+    <h2 class="tool-title">Professional CV Creator</h2>
+    
+    <div class="cv-intro">
+      <p>Create a stunning professional CV in minutes with our easy-to-use tool. Fill in your information, choose a template, and download your CV as a PDF.</p>
+      <div class="cv-features-pills">
+        <span class="feature-pill"><i class="fas fa-sync-alt"></i> Live Preview</span>
+        <span class="feature-pill"><i class="fas fa-paint-brush"></i> Custom Styles</span>
+        <span class="feature-pill"><i class="fas fa-file-alt"></i> Multiple Templates</span>
+        <span class="feature-pill"><i class="fas fa-download"></i> PDF Export</span>
+        <span class="feature-pill"><i class="fas fa-save"></i> Auto-Save</span>
+      </div>
+    </div>
+    
+    <div class="cv-actions-bar glass">
+      <div class="cv-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-text" id="progress-text">0% Complete</span>
+      </div>
+      
+      <div class="cv-global-actions">
+        <button id="save-cv-btn" class="action-btn" title="Save Progress">
+          <i class="fas fa-save"></i> Save
+        </button>
+        <button id="load-cv-btn" class="action-btn" title="Load Saved CV">
+          <i class="fas fa-folder-open"></i> Load
+        </button>
+        <button id="reset-cv-btn" class="action-btn danger" title="Reset Form">
+          <i class="fas fa-trash-alt"></i> Reset
+        </button>
+        <button id="download-cv-btn" class="action-btn primary" title="Download CV">
+          <i class="fas fa-download"></i> Download PDF
+        </button>
+      </div>
+    </div>
+    
+    <div class="cv-wrapper">
+      <div class="cv-form-section glass">
+        <div class="form-sidebar">
+          <div class="form-nav-container">
+            <nav class="form-nav">
+              <button class="nav-item active" data-section="personal-section">
+                <i class="fas fa-user"></i>
+                <span>Personal</span>
+              </button>
+              <button class="nav-item" data-section="education-section">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Education</span>
+              </button>
+              <button class="nav-item" data-section="experience-section">
+                <i class="fas fa-briefcase"></i>
+                <span>Experience</span>
+              </button>
+              <button class="nav-item" data-section="skills-section">
+                <i class="fas fa-tools"></i>
+                <span>Skills</span>
+              </button>
+              <button class="nav-item" data-section="customize-section">
+                <i class="fas fa-paint-brush"></i>
+                <span>Customize</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+        
+        <div class="form-content-container">
+          <div class="form-content">
+            <!-- Personal Information Section -->
+            <section id="personal-section" class="form-section active">
+              <div class="section-header">
+                <h3><i class="fas fa-user"></i> Personal Information</h3>
+                <p class="section-description">Add your basic contact information and professional summary.</p>
+              </div>
+              
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label for="full-name">Full Name <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="full-name" class="form-input required" placeholder="John Doe">
+                  </div>
+                  <div class="error-message" id="full-name-error">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="job-title">Professional Title <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-id-badge input-icon"></i>
+                    <input type="text" id="job-title" class="form-input required" placeholder="Software Developer">
+                  </div>
+                  <div class="error-message" id="job-title-error">Please enter your professional title</div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" id="email" class="form-input required" placeholder="johndoe@example.com">
+                  </div>
+                  <div class="error-message" id="email-error">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone">Phone Number <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-phone-alt input-icon"></i>
+                    <input type="tel" id="phone" class="form-input required" placeholder="+1 234 567 890">
+                  </div>
+                  <div class="error-message" id="phone-error">Please enter your phone number</div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="location">Location <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-map-marker-alt input-icon"></i>
+                    <input type="text" id="location" class="form-input required" placeholder="New York, USA">
+                  </div>
+                  <div class="error-message" id="location-error">Please enter your location</div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="photo-upload">Profile Photo</label>
+                  <div class="photo-upload-container">
+                    <div class="photo-preview" id="photo-preview">
+                      <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="photo-upload-btns">
+                      <label for="photo-input" class="photo-upload-btn">
+                        <i class="fas fa-upload"></i> Upload Photo
+                      </label>
+                      <input type="file" id="photo-input" accept="image/*" hidden>
+                      <button type="button" id="remove-photo-btn" class="photo-remove-btn">
+                        <i class="fas fa-trash-alt"></i> Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group full-width social-links-section">
+                  <label>Social Media & Websites</label>
+                  
+                  <div class="social-links-container">
+                    <div class="social-link-item">
+                      <div class="input-with-icon">
+                        <i class="fab fa-linkedin input-icon"></i>
+                        <input type="text" id="linkedin" class="form-input" placeholder="linkedin.com/in/johndoe">
+                      </div>
+                    </div>
+                    
+                    <div class="social-link-item">
+                      <div class="input-with-icon">
+                        <i class="fas fa-globe input-icon"></i>
+                        <input type="text" id="website" class="form-input" placeholder="johndoe.com">
+                      </div>
+                    </div>
+                    
+                    <div class="social-link-item">
+                      <div class="input-with-icon">
+                        <i class="fab fa-github input-icon"></i>
+                        <input type="text" id="github" class="form-input" placeholder="github.com/johndoe">
+                      </div>
+                    </div>
+                    
+                    <div class="social-link-item">
+                      <div class="input-with-icon">
+                        <i class="fab fa-twitter input-icon"></i>
+                        <input type="text" id="twitter" class="form-input" placeholder="twitter.com/johndoe">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="profile-summary">Professional Summary <span class="required">*</span></label>
+                  <div class="input-with-count">
+                    <textarea id="profile-summary" class="form-textarea required" rows="5" placeholder="Brief overview of your professional background, key strengths, and career goals..."></textarea>
+                    <div class="character-count"><span id="summary-count">0</span>/500</div>
+                  </div>
+                  <div class="error-message" id="profile-summary-error">Please enter a professional summary</div>
+                </div>
+              </div>
+              
+              <div class="form-actions">
+                <button class="form-next-btn" data-next="education-section">
+                  Next: Education <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+            
+            <!-- Education Section -->
+            <section id="education-section" class="form-section">
+              <div class="section-header">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <p class="section-description">Add your educational background, starting with the most recent.</p>
+              </div>
+              
+              <div class="section-message" id="education-empty-message">
+                <i class="fas fa-info-circle"></i>
+                <p>No education entries added yet. Use the button below to add your first educational qualification.</p>
+              </div>
+              
+              <div class="sortable-items-container" id="education-items-container">
+                <!-- Education items will be added here -->
+              </div>
+              
+              <button id="add-education-btn" class="add-item-btn">
+                <i class="fas fa-plus"></i> Add Education
+              </button>
+              
+              <div class="form-actions">
+                <button class="form-prev-btn" data-prev="personal-section">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="form-next-btn" data-next="experience-section">
+                  Next: Experience <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+            
+            <!-- Experience Section -->
+            <section id="experience-section" class="form-section">
+              <div class="section-header">
+                <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                <p class="section-description">Add your work experience, starting with the most recent position.</p>
+              </div>
+              
+              <div class="section-message" id="experience-empty-message">
+                <i class="fas fa-info-circle"></i>
+                <p>No experience entries added yet. Use the button below to add your first work experience.</p>
+              </div>
+              
+              <div class="sortable-items-container" id="experience-items-container">
+                <!-- Experience items will be added here -->
+              </div>
+              
+              <button id="add-experience-btn" class="add-item-btn">
+                <i class="fas fa-plus"></i> Add Experience
+              </button>
+              
+              <div class="form-actions">
+                <button class="form-prev-btn" data-prev="education-section">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="form-next-btn" data-next="skills-section">
+                  Next: Skills <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section id="skills-section" class="form-section">
+              <div class="section-header">
+                <h3><i class="fas fa-tools"></i> Skills</h3>
+                <p class="section-description">Add your technical and soft skills. Separate each skill with a comma.</p>
+              </div>
+              
+              <div class="form-group">
+                <label for="technical-skills">Technical Skills <span class="required">*</span></label>
+                <div class="skills-input-container">
+                  <div class="skills-input-wrapper">
+                    <textarea id="technical-skills" class="form-textarea required" rows="3" placeholder="e.g., JavaScript, React, Node.js, SQL, Git, Docker, AWS"></textarea>
+                  </div>
+                  <div class="skills-preview" id="technical-skills-preview">
+                    <!-- Skill tags will appear here -->
+                  </div>
+                </div>
+                <div class="form-hint">Separate skills with commas. These will appear as individual skill tags.</div>
+                <div class="error-message" id="technical-skills-error">Please enter at least one technical skill</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="soft-skills">Soft Skills</label>
+                <div class="skills-input-container">
+                  <div class="skills-input-wrapper">
+                    <textarea id="soft-skills" class="form-textarea" rows="3" placeholder="e.g., Communication, Leadership, Problem-solving, Time management, Teamwork"></textarea>
+                  </div>
+                  <div class="skills-preview" id="soft-skills-preview">
+                    <!-- Skill tags will appear here -->
+                  </div>
+                </div>
+                <div class="form-hint">Separate skills with commas. These will appear as individual skill tags.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="languages">Languages</label>
+                <div class="skills-input-container">
+                  <div class="skills-input-wrapper">
+                    <textarea id="languages" class="form-textarea" rows="2" placeholder="e.g., English (Native), Spanish (Fluent), French (Intermediate)"></textarea>
+                  </div>
+                  <div class="skills-preview" id="languages-preview">
+                    <!-- Language tags will appear here -->
+                  </div>
+                </div>
+                <div class="form-hint">Separate languages with commas. Include proficiency level in parentheses.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="certificates">Certifications & Licenses</label>
+                <div id="certificates-container">
+                  <div class="certificate-item">
+                    <div class="input-with-icon">
+                      <i class="fas fa-certificate input-icon"></i>
+                      <input type="text" class="certificate-name form-input" placeholder="Certification name (e.g., AWS Certified Solutions Architect)">
+                    </div>
+                    <div class="certificate-year-container">
+                      <input type="text" class="certificate-year form-input" placeholder="Year">
+                      <button type="button" class="remove-certificate-btn">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <button id="add-certificate-btn" class="add-small-item-btn">
+                  <i class="fas fa-plus"></i> Add Certificate
+                </button>
+              </div>
+              
+              <div class="form-actions">
+                <button class="form-prev-btn" data-prev="experience-section">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="form-next-btn" data-next="customize-section">
+                  Next: Customize <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+            
+            <!-- Customize Section -->
+            <section id="customize-section" class="form-section">
+              <div class="section-header">
+                <h3><i class="fas fa-paint-brush"></i> Customize Your CV</h3>
+                <p class="section-description">Personalize the look of your CV by selecting a template, color scheme, and font.</p>
+              </div>
+              
+              <div class="form-group">
+                <label>CV Template</label>
+                <div class="templates-grid">
+                  <div class="template-option active" data-template="modern">
+                    <div class="template-preview modern-preview"></div>
+                    <div class="template-name">Modern</div>
+                    <div class="template-badge">Most Popular</div>
+                  </div>
+                  <div class="template-option" data-template="classic">
+                    <div class="template-preview classic-preview"></div>
+                    <div class="template-name">Classic</div>
+                  </div>
+                  <div class="template-option" data-template="minimalist">
+                    <div class="template-preview minimalist-preview"></div>
+                    <div class="template-name">Minimalist</div>
+                  </div>
+                  <div class="template-option" data-template="creative">
+                    <div class="template-preview creative-preview"></div>
+                    <div class="template-name">Creative</div>
+                    <div class="template-badge">New</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Color Scheme</label>
+                <div class="color-options">
+                  <div class="color-option active" data-color="blue" style="background-color: #1976d2;"></div>
+                  <div class="color-option" data-color="purple" style="background-color: #7000ff;"></div>
+                  <div class="color-option" data-color="teal" style="background-color: #009688;"></div>
+                  <div class="color-option" data-color="green" style="background-color: #4caf50;"></div>
+                  <div class="color-option" data-color="orange" style="background-color: #ff6b00;"></div>
+                  <div class="color-option" data-color="red" style="background-color: #d32f2f;"></div>
+                  <div class="color-option" data-color="pink" style="background-color: #e91e63;"></div>
+                  <div class="color-option" data-color="gray" style="background-color: #607d8b;"></div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="font-selection">Font Style</label>
+                <div class="select-with-preview">
+                  <div class="input-with-icon">
+                    <i class="fas fa-font input-icon"></i>
+                    <select id="font-selection" class="form-select">
+                      <option value="inter" style="font-family: 'Inter', sans-serif;">Inter (Modern Sans-Serif)</option>
+                      <option value="roboto" style="font-family: 'Roboto', sans-serif;">Roboto (Clean Sans-Serif)</option>
+                      <option value="poppins" style="font-family: 'Poppins', sans-serif;">Poppins (Geometric Sans-Serif)</option>
+                      <option value="montserrat" style="font-family: 'Montserrat', sans-serif;">Montserrat (Contemporary Sans-Serif)</option>
+                      <option value="playfair" style="font-family: 'Playfair Display', serif;">Playfair Display (Elegant Serif)</option>
+                      <option value="merriweather" style="font-family: 'Merriweather', serif;">Merriweather (Classic Serif)</option>
+                    </select>
+                  </div>
+                  <div class="font-preview" id="font-preview">
+                    <span class="font-preview-heading">Heading Example</span>
+                    <span class="font-preview-text">This is how your text will appear in the CV.</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Layout Options</label>
+                <div class="layout-options">
+                  <div class="layout-option">
+                    <input type="checkbox" id="compact-layout" class="layout-checkbox">
+                    <label for="compact-layout" class="layout-label">Compact Layout</label>
+                    <div class="layout-description">Reduces spacing to fit more content on a single page</div>
+                  </div>
+                  
+                  <div class="layout-option">
+                    <input type="checkbox" id="show-borders" class="layout-checkbox">
+                    <label for="show-borders" class="layout-label">Section Borders</label>
+                    <div class="layout-description">Adds subtle borders between sections for better readability</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-actions final-actions">
+                <button class="form-prev-btn" data-prev="skills-section">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button id="generate-cv-btn" class="btn-primary">
+                  <i class="fas fa-check-circle"></i> Finish & Download
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cv-preview-section glass">
+        <div class="preview-header">
+          <h3>CV Preview</h3>
+          <div class="preview-size-controls">
+            <button id="zoom-out-btn" class="zoom-btn" title="Zoom Out">
+              <i class="fas fa-search-minus"></i>
+            </button>
+            <span id="zoom-level">100%</span>
+            <button id="zoom-in-btn" class="zoom-btn" title="Zoom In">
+              <i class="fas fa-search-plus"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="cv-preview-container">
+          <div id="cv-preview" class="cv-preview">
+            <!-- CV content will be generated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cv-tips-section glass">
+      <h3><i class="fas fa-lightbulb"></i> CV Writing Tips</h3>
+      
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h4>Tailor Your CV</h4>
+          <p>Customize your CV for each job application to highlight relevant skills and experience.</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h4>Quantify Achievements</h4>
+          <p>Use numbers and metrics to demonstrate your impact (e.g., "Increased sales by 25%").</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h4>Use Action Verbs</h4>
+          <p>Start bullet points with strong action verbs like "Developed," "Implemented," or "Led."</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-cut"></i>
+          </div>
+          <h4>Keep It Concise</h4>
+          <p>Aim for a 1-2 page CV that focuses on your most relevant experience.</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h4>Proofread Carefully</h4>
+          <p>Eliminate spelling and grammar errors that could create a negative impression.</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h4>Use Simple Formatting</h4>
+          <p>Clean, consistent formatting makes your CV easy to read and professional.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="back-to-tools">
+      <a href="index.html" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Tools
+      </a>
+    </div>
+  </div>
+  
+  <!-- Templates for dynamic content -->
+  <!-- Education Item Template -->
+  <template id="education-item-template">
+    <div class="sortable-item education-item" data-id="edu-{id}">
+      <div class="sortable-handle">
+        <i class="fas fa-grip-lines"></i>
+      </div>
+      
+      <div class="form-group">
+        <label>Degree/Certificate <span class="required">*</span></label>
+        <div class="input-with-icon">
+          <i class="fas fa-graduation-cap input-icon"></i>
+          <input type="text" class="education-degree form-input required" placeholder="Bachelor of Science in Computer Science">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Institution <span class="required">*</span></label>
+        <div class="input-with-icon">
+          <i class="fas fa-university input-icon"></i>
+          <input type="text" class="education-institution form-input required" placeholder="University of Technology">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>From <span class="required">*</span></label>
+          <div class="input-with-icon">
+            <i class="fas fa-calendar-alt input-icon"></i>
+            <input type="text" class="education-from form-input required" placeholder="2016">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>To <span class="required">*</span></label>
+          <div class="input-with-icon">
+            <i class="fas fa-calendar-alt input-icon"></i>
+            <input type="text" class="education-to form-input required" placeholder="2020">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Location</label>
+        <div class="input-with-icon">
+          <i class="fas fa-map-marker-alt input-icon"></i>
+          <input type="text" class="education-location form-input" placeholder="New York, USA">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="education-description form-textarea" rows="3" placeholder="Notable achievements, relevant coursework, etc..."></textarea>
+      </div>
+      
+      <button class="remove-item-btn" data-target="edu-{id}">
+        <i class="fas fa-trash-alt"></i> Remove
+      </button>
+    </div>
+  </template>
+  
+  <!-- Experience Item Template -->
+  <template id="experience-item-template">
+    <div class="sortable-item experience-item" data-id="exp-{id}">
+      <div class="sortable-handle">
+        <i class="fas fa-grip-lines"></i>
+      </div>
+      
+      <div class="form-group">
+        <label>Job Title <span class="required">*</span></label>
+        <div class="input-with-icon">
+          <i class="fas fa-briefcase input-icon"></i>
+          <input type="text" class="experience-title form-input required" placeholder="Software Developer">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Company <span class="required">*</span></label>
+        <div class="input-with-icon">
+          <i class="fas fa-building input-icon"></i>
+          <input type="text" class="experience-company form-input required" placeholder="Tech Solutions Inc.">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>From <span class="required">*</span></label>
+          <div class="input-with-icon">
+            <i class="fas fa-calendar-alt input-icon"></i>
+            <input type="text" class="experience-from form-input required" placeholder="Jun 2020">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>To <span class="required">*</span></label>
+          <div class="input-with-icon">
+            <i class="fas fa-calendar-alt input-icon"></i>
+            <input type="text" class="experience-to form-input required" placeholder="Present">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Location</label>
+        <div class="input-with-icon">
+          <i class="fas fa-map-marker-alt input-icon"></i>
+          <input type="text" class="experience-location form-input" placeholder="New York, USA">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Responsibilities & Achievements <span class="required">*</span></label>
+        <textarea class="experience-description form-textarea required" rows="4" placeholder="• Developed and maintained web applications using React and Node.js
+• Improved application performance by 30% through code optimization
+• Collaborated with cross-functional teams to deliver features on time"></textarea>
+        <div class="form-hint">Use bullet points (•) for better readability.</div>
+      </div>
+      
+      <button class="remove-item-btn" data-target="exp-{id}">
+        <i class="fas fa-trash-alt"></i> Remove
+      </button>
+    </div>
+  </template>
+  
+  <!-- Load and Save Modal Template -->
+  <div id="data-modal" class="modal">
+    <div class="modal-content glass">
+      <div class="modal-header">
+        <h3 id="modal-title">Load Saved CV</h3>
+        <button id="close-modal-btn" class="close-modal-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div id="saved-cvs-container" class="saved-cvs-container">
+          <!-- Saved CVs will be listed here -->
+          <div class="no-saved-cvs">
+            <i class="fas fa-file-alt"></i>
+            <p>No saved CVs found.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal Template -->
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content glass small-modal">
+      <div class="modal-header">
+        <h3 id="confirm-title">Confirm Action</h3>
+        <button id="close-confirm-modal-btn" class="close-modal-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <p id="confirm-message">Are you sure you want to proceed?</p>
+        
+        <div class="modal-actions">
+          <button id="cancel-action-btn" class="btn-secondary">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button id="confirm-action-btn" class="btn-danger">
+            <i class="fas fa-check"></i> Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="cv-creator.js"></script>
+</body>
+</html>

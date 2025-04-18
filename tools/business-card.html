@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Business Card Creator | Muatasim Billah</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="business-card.css">
+  <!-- QR Code generation library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+  <!-- HTML2Canvas for image download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- FileSaver for downloading files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav class="glass">
+      <a href="../index.html" class="logo">
+        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+     
+      <div class="nav-links desktop-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link active">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <button class="mobile-close-btn" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../blog/index.html" class="nav-link">Blog</a>
+        <a href="index.html" class="nav-link">Tools</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="bc-container">
+    <h2 class="tool-title">Digital Business Card Creator</h2>
+    
+    <div class="bc-intro">
+      <p>Create a professional digital business card in minutes. Customize your design, add your information, and generate a QR code that links to your card.</p>
+      <div class="bc-features-pills">
+        <span class="feature-pill"><i class="fas fa-palette"></i> Multiple Templates</span>
+        <span class="feature-pill"><i class="fas fa-qrcode"></i> QR Code Generation</span>
+        <span class="feature-pill"><i class="fas fa-download"></i> Download as Image</span>
+        <span class="feature-pill"><i class="fas fa-save"></i> Save Designs</span>
+        <span class="feature-pill"><i class="fas fa-share-alt"></i> Easy Sharing</span>
+      </div>
+    </div>
+    
+    <div class="bc-actions-bar glass">
+      <div class="bc-global-actions">
+        <button id="save-design-btn" class="action-btn" title="Save Design">
+          <i class="fas fa-save"></i> Save
+        </button>
+        <button id="load-design-btn" class="action-btn" title="Load Saved Design">
+          <i class="fas fa-folder-open"></i> Load
+        </button>
+        <button id="reset-design-btn" class="action-btn danger" title="Reset Design">
+          <i class="fas fa-trash-alt"></i> Reset
+        </button>
+        <button id="download-card-btn" class="action-btn primary" title="Download Card">
+          <i class="fas fa-download"></i> Download
+        </button>
+      </div>
+    </div>
+    
+    <div class="bc-wrapper">
+      <div class="bc-design-section glass">
+        <div class="design-sidebar">
+          <div class="design-nav-container">
+            <nav class="design-nav">
+              <button class="nav-item active" data-section="info-section">
+                <i class="fas fa-user"></i>
+                <span>Info</span>
+              </button>
+              <button class="nav-item" data-section="social-section">
+                <i class="fas fa-hashtag"></i>
+                <span>Social</span>
+              </button>
+              <button class="nav-item" data-section="template-section">
+                <i class="fas fa-th-large"></i>
+                <span>Template</span>
+              </button>
+              <button class="nav-item" data-section="customize-section">
+                <i class="fas fa-paint-brush"></i>
+                <span>Style</span>
+              </button>
+              <button class="nav-item" data-section="qr-section">
+                <i class="fas fa-qrcode"></i>
+                <span>QR Code</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+        
+        <div class="design-content-container">
+          <div class="design-content">
+            <!-- Personal Information Section -->
+            <section id="info-section" class="design-section active">
+              <div class="section-header">
+                <h3><i class="fas fa-user"></i> Personal Information</h3>
+                <p class="section-description">Add your basic information for your business card.</p>
+              </div>
+              
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label for="full-name">Full Name <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="full-name" class="form-input required" placeholder="John Doe">
+                  </div>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="job-title">Job Title <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-briefcase input-icon"></i>
+                    <input type="text" id="job-title" class="form-input required" placeholder="Software Developer">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="company">Company/Organization</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-building input-icon"></i>
+                    <input type="text" id="company" class="form-input" placeholder="Acme Inc.">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" id="email" class="form-input required" placeholder="johndoe@example.com">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone">Phone Number <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-phone-alt input-icon"></i>
+                    <input type="tel" id="phone" class="form-input required" placeholder="+1 234 567 890">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="website">Website</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-globe input-icon"></i>
+                    <input type="text" id="website" class="form-input" placeholder="www.example.com">
+                  </div>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="address">Address</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-map-marker-alt input-icon"></i>
+                    <input type="text" id="address" class="form-input" placeholder="123 Business Street, City, Country">
+                  </div>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="bio">Short Bio/Tagline</label>
+                  <textarea id="bio" class="form-textarea" rows="2" placeholder="A short description or tagline for your business card"></textarea>
+                  <div class="char-count"><span id="bio-count">0</span>/100</div>
+                </div>
+                
+                <div class="form-group photo-upload-group">
+                  <label>Profile Photo or Logo</label>
+                  <div class="photo-upload-container">
+                    <div class="photo-preview" id="photo-preview">
+                      <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="photo-upload-btns">
+                      <label for="photo-input" class="photo-upload-btn">
+                        <i class="fas fa-upload"></i> Upload Image
+                      </label>
+                      <input type="file" id="photo-input" accept="image/*" hidden>
+                      <button type="button" id="remove-photo-btn" class="photo-remove-btn">
+                        <i class="fas fa-trash-alt"></i> Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-actions">
+                <button class="form-next-btn" data-next="social-section">
+                  Next: Social Media <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+            
+            <!-- Social Media Section -->
+            <section id="social-section" class="design-section">
+              <div class="section-header">
+                <h3><i class="fas fa-hashtag"></i> Social Media Profiles</h3>
+                <p class="section-description">Add your social media profiles to your business card.</p>
+              </div>
+              
+              <div class="social-links-container">
+                <div class="social-link-item">
+                  <div class="social-link-icon">
+                    <i class="fab fa-linkedin"></i>
+                  </div>
+                  <div class="social-link-input">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="text" id="linkedin" class="form-input" placeholder="linkedin.com/in/username">
+                  </div>
+                </div>
+                
+                <div class="social-link-item">
+                  <div class="social-link-icon">
+                    <i class="fab fa-twitter"></i>
+                  </div>
+                  <div class="social-link-input">
+                    <label for="twitter">Twitter</label>
+                    <input type="text" id="twitter" class="form-input" placeholder="twitter.com/username">
+                  </div>
+                </div>
+                
+                <div class="social-link-item">
+                  <div class="social-link-icon">
+                    <i class="fab fa-instagram"></i>
+                  </div>
+                  <div class="social-link-input">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" id="instagram" class="form-input" placeholder="instagram.com/username">
+                  </div>
+                </div>
+                
+                <div class="social-link-item">
+                  <div class="social-link-icon">
+                    <i class="fab fa-facebook"></i>
+                  </div>
+                  <div class="social-link-input">
+                    <label for="facebook">Facebook</label>
+                    <input type="text" id="facebook" class="form-input" placeholder="facebook.com/username">
+                  </div>
+                </div>
+                
+                <div class="social-link-item">
+                  <div class="social-link-icon">
+                    <i class="fab fa-github"></i>
+                  </div>
+                  <div class="social-link-input">
+                    <label for="github">GitHub</label>
+                    <input type="text" id="github" class="form-input" placeholder="github.com/username">
+                  </div>
+                </div>
+                
+                <div class="social-link-item">
+                  <div class="social-link-icon">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="social-link-input">
+                    <label for="youtube">YouTube</label>
+                    <input type="text" id="youtube" class="form-input" placeholder="youtube.com/channel/ID">
+                  </div>
+                </div>
+                
+                <div class="social-link-item">
+                  <div class="social-link-icon">
+                    <i class="fab fa-behance"></i>
+                  </div>
+                  <div class="social-link-input">
+                    <label for="behance">Behance</label>
+                    <input type="text" id="behance" class="form-input" placeholder="behance.net/username">
+                  </div>
+                </div>
+                
+                <div class="social-link-item">
+                  <div class="social-link-icon">
+                    <i class="fab fa-dribbble"></i>
+                  </div>
+                  <div class="social-link-input">
+                    <label for="dribbble">Dribbble</label>
+                    <input type="text" id="dribbble" class="form-input" placeholder="dribbble.com/username">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-actions">
+                <button class="form-prev-btn" data-prev="info-section">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="form-next-btn" data-next="template-section">
+                  Next: Template <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+            
+            <!-- Template Selection Section -->
+            <section id="template-section" class="design-section">
+              <div class="section-header">
+                <h3><i class="fas fa-th-large"></i> Choose Template</h3>
+                <p class="section-description">Select a template for your business card.</p>
+              </div>
+              
+              <div class="templates-grid">
+                <div class="template-option active" data-template="modern">
+                  <div class="template-preview modern-preview"></div>
+                  <div class="template-name">Modern</div>
+                  <div class="template-badge">Popular</div>
+                </div>
+                
+                <div class="template-option" data-template="elegant">
+                  <div class="template-preview elegant-preview"></div>
+                  <div class="template-name">Elegant</div>
+                </div>
+                
+                <div class="template-option" data-template="minimal">
+                  <div class="template-preview minimal-preview"></div>
+                  <div class="template-name">Minimal</div>
+                </div>
+                
+                <div class="template-option" data-template="bold">
+                  <div class="template-preview bold-preview"></div>
+                  <div class="template-name">Bold</div>
+                </div>
+                
+                <div class="template-option" data-template="creative">
+                  <div class="template-preview creative-preview"></div>
+                  <div class="template-name">Creative</div>
+                  <div class="template-badge">New</div>
+                </div>
+                
+                <div class="template-option" data-template="professional">
+                  <div class="template-preview professional-preview"></div>
+                  <div class="template-name">Professional</div>
+                </div>
+              </div>
+              
+              <div class="form-actions">
+                <button class="form-prev-btn" data-prev="social-section">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="form-next-btn" data-next="customize-section">
+                  Next: Customize <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+            
+            <!-- Customization Section -->
+            <section id="customize-section" class="design-section">
+              <div class="section-header">
+                <h3><i class="fas fa-paint-brush"></i> Customize Design</h3>
+                <p class="section-description">Personalize your business card with colors and fonts.</p>
+              </div>
+              
+              <div class="form-group">
+                <label>Primary Color</label>
+                <div class="color-options">
+                  <div class="color-option active" data-color="blue" style="background-color: #1976d2;"></div>
+                  <div class="color-option" data-color="purple" style="background-color: #7000ff;"></div>
+                  <div class="color-option" data-color="teal" style="background-color: #009688;"></div>
+                  <div class="color-option" data-color="green" style="background-color: #4caf50;"></div>
+                  <div class="color-option" data-color="orange" style="background-color: #ff6b00;"></div>
+                  <div class="color-option" data-color="red" style="background-color: #d32f2f;"></div>
+                  <div class="color-option" data-color="pink" style="background-color: #e91e63;"></div>
+                  <div class="color-option" data-color="gray" style="background-color: #607d8b;"></div>
+                  <div class="color-option custom">
+                    <input type="color" id="custom-color" value="#1976d2">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="font-selection">Font Style</label>
+                <div class="select-with-preview">
+                  <div class="input-with-icon">
+                    <i class="fas fa-font input-icon"></i>
+                    <select id="font-selection" class="form-select">
+                      <option value="inter" style="font-family: 'Inter', sans-serif;">Inter</option>
+                      <option value="roboto" style="font-family: 'Roboto', sans-serif;">Roboto</option>
+                      <option value="poppins" style="font-family: 'Poppins', sans-serif;">Poppins</option>
+                      <option value="montserrat" style="font-family: 'Montserrat', sans-serif;">Montserrat</option>
+                      <option value="open-sans" style="font-family: 'Open Sans', sans-serif;">Open Sans</option>
+                    </select>
+                  </div>
+                  <div class="font-preview" id="font-preview">
+                    <span class="font-preview-heading">John Doe</span>
+                    <span class="font-preview-text">Software Developer</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Card Orientation</label>
+                <div class="orientation-options">
+                  <div class="orientation-option active" data-orientation="landscape">
+                    <div class="orientation-preview landscape-preview"></div>
+                    <div class="orientation-name">Landscape</div>
+                  </div>
+                  <div class="orientation-option" data-orientation="portrait">
+                    <div class="orientation-preview portrait-preview"></div>
+                    <div class="orientation-name">Portrait</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Additional Options</label>
+                <div class="customization-options">
+                  <div class="custom-checkbox">
+                    <input type="checkbox" id="show-borders" checked>
+                    <label for="show-borders">Show borders</label>
+                  </div>
+                  
+                  <div class="custom-checkbox">
+                    <input type="checkbox" id="show-shadows" checked>
+                    <label for="show-shadows">Show shadows</label>
+                  </div>
+                  
+                  <div class="custom-checkbox">
+                    <input type="checkbox" id="show-icons" checked>
+                    <label for="show-icons">Show icons</label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-actions">
+                <button class="form-prev-btn" data-prev="template-section">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="form-next-btn" data-next="qr-section">
+                  Next: QR Code <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+            
+            <!-- QR Code Section -->
+            <section id="qr-section" class="design-section">
+              <div class="section-header">
+                <h3><i class="fas fa-qrcode"></i> QR Code Options</h3>
+                <p class="section-description">Configure the QR code that links to your digital business card.</p>
+              </div>
+              
+              <div class="qr-preview-container">
+                <div class="qr-preview" id="qr-preview">
+                  <!-- QR code will be generated here -->
+                </div>
+                
+                <div class="qr-options">
+                  <div class="form-group">
+                    <label for="qr-type">QR Code Type</label>
+                    <select id="qr-type" class="form-select">
+                      <option value="vcard">vCard (Contact Information)</option>
+                      <option value="url">URL (Web Link)</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group" id="qr-url-group" style="display: none;">
+                    <label for="qr-url">Custom URL</label>
+                    <div class="input-with-icon">
+                      <i class="fas fa-link input-icon"></i>
+                      <input type="text" id="qr-url" class="form-input" placeholder="https://example.com/my-card">
+                    </div>
+                    <div class="form-hint">Leave empty to use generated URL</div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="qr-foreground">QR Code Color</label>
+                    <input type="color" id="qr-foreground" value="#000000" class="color-picker">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="qr-size">QR Code Size</label>
+                    <input type="range" id="qr-size" min="100" max="300" value="150" class="range-slider">
+                    <div class="range-value"><span id="qr-size-value">150</span>px</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <button id="regenerate-qr-btn" class="btn-secondary">
+                  <i class="fas fa-sync-alt"></i> Regenerate QR Code
+                </button>
+                <button id="download-qr-btn" class="btn-primary">
+                  <i class="fas fa-download"></i> Download QR Code
+                </button>
+              </div>
+              
+              <div class="qr-info-box">
+                <i class="fas fa-info-circle"></i>
+                <p>This QR code contains your contact information. When scanned, it will allow people to save your details directly to their phone contacts or visit your digital business card online.</p>
+              </div>
+              
+              <div class="form-actions">
+                <button class="form-prev-btn" data-prev="customize-section">
+                  <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button id="finish-btn" class="btn-primary">
+                  <i class="fas fa-check-circle"></i> Finish & Download
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bc-preview-section glass">
+        <div class="preview-header">
+          <h3>Business Card Preview</h3>
+          <div class="preview-actions">
+            <button id="flip-card-btn" class="preview-btn" title="Flip Card">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+            <button id="preview-download-btn" class="preview-btn" title="Download">
+              <i class="fas fa-download"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="card-preview-container">
+          <div class="card-preview-wrapper" id="card-preview-wrapper">
+            <div class="card-preview-inner">
+              <div class="card-preview-front" id="card-preview-front">
+                <!-- Front of card will be generated here -->
+              </div>
+              <div class="card-preview-back" id="card-preview-back">
+                <!-- Back of card will be generated here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="preview-controls">
+          <div class="view-mode-switcher">
+            <button class="view-mode-btn active" data-view="front">Front</button>
+            <button class="view-mode-btn" data-view="back">Back</button>
+            <button class="view-mode-btn" data-view="both">Both Sides</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bc-tips-section glass">
+      <h3><i class="fas fa-lightbulb"></i> Business Card Tips</h3>
+      
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-info"></i>
+          </div>
+          <h4>Keep It Simple</h4>
+          <p>Include only essential information to avoid cluttering your business card.</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-font"></i>
+          </div>
+          <h4>Choose Readable Fonts</h4>
+          <p>Select professional fonts that are easy to read even at small sizes.</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h4>Color Psychology</h4>
+          <p>Blue suggests trustworthiness, green represents growth, and purple conveys creativity.</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-qrcode"></i>
+          </div>
+          <h4>QR Code Benefits</h4>
+          <p>QR codes make it easy for contacts to save your information with just a scan.</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-share-alt"></i>
+          </div>
+          <h4>Social Media Profiles</h4>
+          <p>Include only relevant social platforms where you maintain a professional presence.</p>
+        </div>
+        
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h4>Branding Consistency</h4>
+          <p>Keep colors and style consistent with your existing brand identity.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="back-to-tools">
+      <a href="index.html" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Tools
+      </a>
+    </div>
+  </div>
+  
+  <!-- Modals -->
+  <!-- Save Design Modal -->
+  <div id="save-modal" class="modal">
+    <div class="modal-content glass small-modal">
+      <div class="modal-header">
+        <h3>Save Design</h3>
+        <button id="close-save-modal-btn" class="close-modal-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="design-name">Design Name</label>
+          <input type="text" id="design-name" class="form-input" placeholder="My Business Card">
+        </div>
+        
+        <div class="modal-actions">
+          <button id="cancel-save-btn" class="btn-secondary">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button id="confirm-save-btn" class="btn-primary">
+            <i class="fas fa-save"></i> Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Load Design Modal -->
+  <div id="load-modal" class="modal">
+    <div class="modal-content glass">
+      <div class="modal-header">
+        <h3>Load Saved Design</h3>
+        <button id="close-load-modal-btn" class="close-modal-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div id="saved-designs-container" class="saved-designs-container">
+          <!-- Saved designs will be listed here -->
+          <div class="no-saved-designs">
+            <i class="fas fa-file-alt"></i>
+            <p>No saved designs found.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Download Options Modal -->
+  <div id="download-modal" class="modal">
+    <div class="modal-content glass small-modal">
+      <div class="modal-header">
+        <h3>Download Options</h3>
+        <button id="close-download-modal-btn" class="close-modal-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="download-options">
+          <button id="download-png-btn" class="download-option-btn">
+            <i class="fas fa-file-image"></i>
+            <span>PNG Image</span>
+            <small>High quality image format</small>
+          </button>
+          
+          <button id="download-jpg-btn" class="download-option-btn">
+            <i class="fas fa-file-image"></i>
+            <span>JPG Image</span>
+            <small>Standard image format</small>
+          </button>
+          
+          <button id="download-pdf-btn" class="download-option-btn">
+            <i class="fas fa-file-pdf"></i>
+            <span>PDF Document</span>
+            <small>Print-ready format</small>
+          </button>
+          
+          <button id="download-vcard-btn" class="download-option-btn">
+            <i class="fas fa-address-card"></i>
+            <span>vCard File</span>
+            <small>Contact information file</small>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal -->
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content glass small-modal">
+      <div class="modal-header">
+        <h3 id="confirm-title">Confirm Action</h3>
+        <button id="close-confirm-modal-btn" class="close-modal-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <p id="confirm-message">Are you sure you want to proceed?</p>
+        
+        <div class="modal-actions">
+          <button id="cancel-action-btn" class="btn-secondary">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button id="confirm-action-btn" class="btn-danger">
+            <i class="fas fa-check"></i> Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script defer src="favicon.js"></script>
+  <script src="business-card.js"></script>
+</body>
+</html>
