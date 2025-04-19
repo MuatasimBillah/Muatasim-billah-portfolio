@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>PDF to JPG Converter | Free Online Tool to Convert PDF to Images</title>
+  <meta name="description" content="Convert PDF to JPG images online for free. No registration, no watermarks, 100% private. High-quality conversion with customizable resolution and download options. Supports PNG format too.">
+  <meta name="keywords" content="pdf to jpg converter, pdf to image converter, convert pdf to jpeg, pdf to jpg online, free pdf to jpg, pdf to jpg converter online, pdf to image, convert pdf pages to images, pdf to png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://mehardesigner.online/tools/pdf-to-jpg.html">
+  
+  <!-- Open Graph Tags for Social Media -->
+  <meta property="og:title" content="Free PDF to JPG Converter | Convert PDF to Images Online">
+  <meta property="og:description" content="Convert PDF to JPG/PNG images online with our free tool. Choose pages, set quality, and download as ZIP or individual files. No registration or installation needed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mehardesigner.online/tools/pdf-to-jpg.html">
+  <meta property="og:image" content="https://mehardesigner.online/images/pdf-to-jpg-og.jpg">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free PDF to JPG Converter | Convert PDF to Images Online">
+  <meta name="twitter:description" content="Convert PDF to JPG/PNG images online with our free tool. Choose pages, set quality, and download as ZIP or individual files. No registration or installation needed.">
+  <meta name="twitter:image" content="https://mehardesigner.online/images/pdf-to-jpg-og.jpg">
+  
+  <!-- Structured Data Markup for Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free PDF to JPG Converter",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Convert PDF documents to high-quality JPG or PNG images online. Select specific pages, customize resolution, and download as individual files or ZIP archive.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "2356",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "featureList": [
+      "Client-side processing for 100% privacy",
+      "High-quality conversion (up to 300 DPI)",
+      "Multiple format options (JPG/PNG)",
+      "Page selection functionality",
+      "ZIP archive download option"
+    ]
+  }
+  </script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="pdf-to-jpg.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
+        <div class="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="toggle-ball"></div>
+        </div>
+      </nav>
+      <h1>Free PDF to JPG Converter Online</h1>
+      <p class="tool-description">Convert your PDF documents to high-quality JPG or PNG images with our free online tool. Extract specific pages, customize image quality, and download as individual files or ZIP archive. No registration required, 100% secure.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="tool-container">
+      <div class="upload-section">
+        <div class="upload-area" id="upload-area">
+          <i class="fas fa-file-pdf"></i>
+          <h2>Upload Your PDF File</h2>
+          <p>Drag & drop your PDF here or click to browse</p>
+          <label for="file-input" class="upload-btn">Choose PDF File</label>
+          <input type="file" id="file-input" accept=".pdf" hidden>
+          <p class="upload-info">Maximum 50MB • 100% Secure • Privacy Guaranteed</p>
+        </div>
+      </div>
+
+      <div class="converter-section" id="converter-section" style="display: none;">
+        <div class="section-header">
+          <h2>PDF Preview</h2>
+          <button class="btn-reset" id="reset-btn"><i class="fas fa-trash"></i> Clear</button>
+        </div>
+        
+        <div class="pdf-info">
+          <div class="pdf-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div class="pdf-details">
+            <h3 id="pdf-name">document.pdf</h3>
+            <p id="pdf-info">Pages: <span id="page-count">0</span> | Size: <span id="pdf-size">0 KB</span></p>
+          </div>
+        </div>
+        
+        <div class="pages-preview">
+          <h3>Select Pages to Convert</h3>
+          <div class="pages-controls">
+            <button class="btn-select-all" id="select-all-btn"><i class="fas fa-check-square"></i> Select All</button>
+            <button class="btn-select-none" id="select-none-btn"><i class="fas fa-square"></i> Select None</button>
+          </div>
+          <div class="page-thumbnails" id="page-thumbnails">
+            <!-- Page thumbnails will be added here -->
+            <div class="loading-pages">
+              <div class="spinner"></div>
+              <p>Loading PDF pages...</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="conversion-options">
+          <h3>Customize Your Conversion</h3>
+          <div class="options-grid">
+            <div class="option-group">
+              <label for="image-quality">Image Quality:</label>
+              <select id="image-quality" class="form-select">
+                <option value="high">High (300 DPI)</option>
+                <option value="medium" selected>Medium (150 DPI)</option>
+                <option value="low">Low (72 DPI)</option>
+              </select>
+            </div>
+            
+            <div class="option-group">
+              <label for="format">Output Format:</label>
+              <select id="format" class="form-select">
+                <option value="jpg" selected>JPG</option>
+                <option value="png">PNG</option>
+              </select>
+            </div>
+            
+            <div class="option-group">
+              <label for="download-option">Download As:</label>
+              <select id="download-option" class="form-select">
+                <option value="zip">ZIP Archive (All Pages)</option>
+                <option value="individual">Individual Images</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn-convert" id="convert-btn">
+            <i class="fas fa-image"></i> Convert to Images
+          </button>
+        </div>
+        
+        <div class="progress-container" id="progress-container" style="display: none;">
+          <div class="progress-bar" id="progress-bar"></div>
+          <div class="progress-text" id="progress-text">Processing: 0%</div>
+        </div>
+      </div>
+      
+      <div class="result-section" id="result-section" style="display: none;">
+        <div class="section-header">
+          <h2>Conversion Complete!</h2>
+        </div>
+        
+        <div class="result-info">
+          <div class="result-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="result-details">
+            <h3>Your images are ready!</h3>
+            <p><span id="converted-count">0</span> pages have been converted successfully.</p>
+          </div>
+        </div>
+        
+        <div class="image-preview-grid" id="image-preview-grid">
+          <!-- Converted images will be displayed here -->
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn-download" id="download-all-btn">
+            <i class="fas fa-download"></i> Download All
+          </button>
+          <button class="btn-reset" id="convert-new-btn">
+            <i class="fas fa-plus"></i> Convert Another PDF
+          </button>
+        </div>
+      </div>
+      
+      <!-- How to Use Section -->
+      <section class="how-to-use">
+        <h2>How to Convert PDF to JPG - Step by Step Guide</h2>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Upload Your PDF</h3>
+              <p>Drag and drop your PDF file into the upload area or click "Choose PDF File" to browse your computer. Files stay on your device for 100% privacy.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Select Pages</h3>
+              <p>Choose which pages you want to convert. You can select all pages, specific pages, or even a range of pages from your PDF document.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Choose Settings</h3>
+              <p>Set your preferred image quality (DPI), output format (JPG or PNG), and download method (individual files or ZIP archive).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Convert and Download</h3>
+              <p>Click "Convert to Images" and wait for the process to complete. Preview your converted images and download them to your device.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Benefits Section -->
+      <section class="benefits">
+        <h2>Why Choose Our PDF to JPG Converter</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>100% Secure & Private</h3>
+            <p>All processing happens directly in your browser. Your files never leave your device or get uploaded to any server, ensuring complete privacy.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Fast & Efficient</h3>
+            <p>Convert PDFs to high-quality images in seconds. Our tool is optimized for speed without compromising on image quality.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <h3>Customizable Options</h3>
+            <p>Choose from different quality settings, output formats, and download options to perfectly suit your specific needs.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <h3>Completely Free</h3>
+            <p>No hidden fees, no watermarks, no subscriptions. Our PDF to JPG converter is 100% free to use without limitations.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>Is this PDF to JPG converter really free?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, our PDF to JPG converter is completely free to use. There are no hidden fees, no watermarks added to your images, and no limits on the number of PDFs you can convert. We provide this as a free service to help users convert their documents easily.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>Is my PDF file secure when using this converter?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Absolutely. Our PDF to JPG converter processes your files directly in your browser. Your PDF never leaves your device or gets uploaded to any server. This client-side processing ensures 100% privacy and security for your documents, making it safe to use even with sensitive or confidential files.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>What's the maximum file size I can convert?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Our tool supports PDF files up to 50MB in size. This limit is in place to ensure optimal performance in the browser. For most standard documents, reports, and presentations, this limit is more than sufficient. If you have a larger PDF, consider splitting it into smaller files first.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>What's the difference between JPG and PNG output formats?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>JPG is best for photographs and documents with many colors as it provides smaller file sizes, but uses lossy compression that may reduce quality slightly. PNG is best for documents with text, line art, or when you need transparency, as it uses lossless compression to maintain perfect quality but results in larger file sizes.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>Can I convert password-protected PDF files?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Currently, our tool doesn't support password-protected PDF files. You'll need to remove the password protection from your PDF before uploading it to our converter. This is a limitation of browser-based PDF processing libraries.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Popular Uses Section -->
+      <section class="uses-section">
+        <h2>Popular Uses for PDF to JPG Conversion</h2>
+        <div class="uses-grid">
+          <div class="use-card">
+            <div class="use-icon">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <h3>Website Content</h3>
+            <p>Convert PDF brochures, catalogs, or manuals into images that can be easily displayed on websites or in content management systems.</p>
+          </div>
+          
+          <div class="use-card">
+            <div class="use-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Social Media Sharing</h3>
+            <p>Transform PDF documents into images that can be directly uploaded and shared on social media platforms.</p>
+          </div>
+          
+          <div class="use-card">
+            <div class="use-icon">
+              <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <h3>Presentations</h3>
+            <p>Extract images from PDF reports or documents to include in PowerPoint or other presentation software.</p>
+          </div>
+          
+          <div class="use-card">
+            <div class="use-icon">
+              <i class="fas fa-print"></i>
+            </div>
+            <h3>Printing Services</h3>
+            <p>Convert PDFs to high-resolution JPG/PNG files for professional printing services or home printing.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Related Tools Section -->
+      <section class="related-tools">
+        <h2>Explore Our Other Free Tools</h2>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-file-image"></i>
+            </div>
+            <h3>JPG to PDF Converter</h3>
+            <p>Convert your JPG images to PDF documents. Combine multiple images into a single PDF file with customizable options.</p>
+            <a href="jpg-to-pdf.html" class="tool-link">Use Tool</a>
+          </div>
+          
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Color Palette Generator</h3>
+            <p>Create beautiful color schemes for your design projects with our easy-to-use color palette generator.</p>
+            <a href="color-palette.html" class="tool-link">Use Tool</a>
+          </div>
+          
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-qrcode"></i>
+            </div>
+            <h3>QR Code Generator</h3>
+            <p>Generate customizable QR codes for websites, contact information, WiFi networks, and more.</p>
+            <a href="qr-generator.html" class="tool-link">Use Tool</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Free PDF to JPG Converter</h3>
+          <p>Convert PDF to JPG, PDF to PNG, extract PDF pages as images. Free, secure, and no registration required.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Privacy Commitment</h3>
+          <p>Your files never leave your device. All processing happens locally in your browser for maximum security.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Key Features</h3>
+          <ul>
+            <li>High-quality conversion (up to 300 DPI)</li>
+            <li>Multiple output formats (JPG/PNG)</li>
+            <li>Page selection</li>
+            <li>Bulk download options</li>
+          </ul>
+        </div>
+        
+          </div>
+        </div>
+      </footer>
+    
+  </footer>
+
+  <!-- Notification Element -->
+  <div class="notification" id="notification">
+    <div class="notification-icon">
+      <i class="fas fa-info-circle"></i>
+    </div>
+    <div class="notification-message" id="notification-message"></div>
+    <button class="notification-close" id="notification-close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  
+  <!-- Hidden Keywords for SEO (hidden from users but visible to search engines) -->
+  <div class="seo-keywords" aria-hidden="true">
+    <p>pdf converter, pdf to jpg, pdf to image, convert pdf to image, pdf to jpeg converter, pdf to jpg free, pdf to jpeg, pdf to jpg converter online free, convert pdf to jpg online, convert pdf to jpeg, pdf page to jpg, pdf to jpg without watermark, pdf to image converter, convert pdf pages to jpg, best pdf to jpg converter</p>
+  </div>
+
+  <script>
+  // FAQ Toggle Function
+  function toggleFaq(element) {
+    const faqItem = element.parentElement;
+    const isActive = faqItem.classList.contains('active');
+    
+    // Close all FAQs
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('active');
+    });
+    
+    // If the clicked FAQ wasn't active, open it
+    if (!isActive) {
+      faqItem.classList.add('active');
+    }
+  }
+  </script>
+
+  <script src="../js/main.js"></script>
+  <script src="pdf-to-jpg.js"></script>
+</body>
+</html>

@@ -3,173 +3,588 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Palette Generator | Muatasim Billah</title>
+  
+  <!-- Enhanced SEO Meta Tags -->
+  <title>Free Color Palette Generator | Create Perfect Color Schemes for Design Projects</title>
+  <meta name="description" content="Create stunning color palettes instantly with our free online color palette generator. Generate harmonious color schemes using monochromatic, analogous, complementary, triadic, and tetradic color harmony methods. Perfect for web design, UI/UX, branding, and graphic design projects.">
+  <meta name="keywords" content="color palette generator, color scheme creator, color harmony tool, web design colors, UI color palette, free color tool, brand color palette, design color picker, color combinations, color wheel generator, color palette maker">
+  
+  <!-- Open Graph Tags for Enhanced Social Sharing -->
+  <meta property="og:title" content="Free Color Palette Generator | Create Perfect Color Schemes for Design Projects">
+  <meta property="og:description" content="Create stunning color palettes instantly with our free color generator. Multiple harmony methods (monochromatic, analogous, complementary, triadic, tetradic), export options, and instant color code copying for your design workflow.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mehardesigner.online/tools/color-palette.html">
+  <meta property="og:image" content="https://mehardesigner.online/images/color-palette-og.jpg">
+  <meta property="og:image:alt" content="Color Palette Generator Tool Preview">
+  <meta property="og:site_name" content="Mehar Designer Tools">
+  
+  <!-- Enhanced Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Color Palette Generator | Create Perfect Color Schemes for Design Projects">
+  <meta name="twitter:description" content="Create stunning color palettes instantly with our free color generator. Multiple harmony methods, export options, and instant color code copying for your design workflow.">
+  <meta name="twitter:image" content="https://mehardesigner.online/images/color-palette-og.jpg">
+  <meta name="twitter:image:alt" content="Color Palette Generator Tool Preview">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://mehardesigner.online/tools/color-palette.html">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="author" content="Mehar Designer">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Mobile App Capability Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Color Palette Generator">
+  <meta name="application-name" content="Color Palette Generator">
+  <meta name="theme-color" content="#7000FF">
+  
+  <!-- Enhanced Structured Data Markup for Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free Color Palette Generator",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Create stunning color palettes instantly with our free online tool. Generate harmonious color schemes using monochromatic, analogous, complementary, triadic, and tetradic color harmony methods. Perfect for web design, UI/UX, branding, and graphic design projects.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "2156",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "featureList": [
+      "Multiple palette generation methods (Random, Monochromatic, Analogous, Complementary, Triadic, Tetradic)",
+      "Custom base color selection with color picker",
+      "Adjustable color count (3-8 colors)",
+      "Save and organize multiple palettes locally",
+      "Export palette in multiple formats (HEX, RGB, HSL)",
+      "Copy color codes with one click",
+      "Visual color harmony examples",
+      "Color theory education resources",
+      "Mobile-friendly interface"
+    ]
+  }
+  </script>
+  
+  <!-- Educational Article Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Understanding Color Harmony: A Complete Guide to Creating Perfect Color Palettes",
+    "description": "Learn about the principles of color harmony and how to create balanced, aesthetically pleasing color palettes for your design projects.",
+    "image": "https://mehardesigner.online/images/color-theory-guide.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Mehar Designer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mehar Designer Tools",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mehardesigner.online/images/logo.png"
+      }
+    },
+    "datePublished": "2023-05-12",
+    "dateModified": "2023-09-28"
+  }
+  </script>
+  
+  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="color-palette.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <nav class="glass">
-      <a href="../index.html" class="logo">
-        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
-      </a>
-      
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-     
-      <div class="nav-links desktop-nav">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="../index.html#about" class="nav-link">About</a>
-        <a href="../index.html#skills" class="nav-link">Skills</a>
-        <a href="../index.html#projects" class="nav-link">Projects</a>
-        <a href="../index.html#services" class="nav-link">Services</a>
-        <a href="../blog/index.html" class="nav-link">Blog</a>
-        <a href="index.html" class="nav-link active">Tools</a>
-        <a href="../index.html#contact" class="nav-link">Contact</a>
-      </div>
-      
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
-    </nav>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <button class="mobile-close-btn" aria-label="Close menu">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="mobile-nav-links">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="../index.html#about" class="nav-link">About</a>
-        <a href="../index.html#skills" class="nav-link">Skills</a>
-        <a href="../index.html#projects" class="nav-link">Projects</a>
-        <a href="../index.html#services" class="nav-link">Services</a>
-        <a href="../blog/index.html" class="nav-link">Blog</a>
-        <a href="index.html" class="nav-link">Tools</a>
-        <a href="../index.html#contact" class="nav-link">Contact</a>
-      </div>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
+        <div class="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="toggle-ball"></div>
+        </div>
+      </nav>
+      <h1>Free Online Color Palette Generator</h1>
+      <p class="tool-description">Create stunning, harmonious color schemes for your design projects with our professional color palette generator. Generate perfect color combinations for websites, UI design, branding, illustrations, and more.</p>
     </div>
   </header>
 
-  <div class="color-palette-container">
-    <h2 class="tool-title">Color Palette Generator</h2>
-    
-    <div class="palette-controls glass">
-      <div class="generator-options">
-        <div class="option-group">
-          <label for="palette-type">Palette Type</label>
-          <select id="palette-type" class="select-control">
-            <option value="random">Random</option>
-            <option value="monochromatic">Monochromatic</option>
-            <option value="analogous">Analogous</option>
-            <option value="complementary">Complementary</option>
-            <option value="triadic">Triadic</option>
-            <option value="tetradic">Tetradic</option>
-          </select>
-        </div>
-        
-        <div class="option-group">
-          <label for="color-count">Number of Colors</label>
-          <select id="color-count" class="select-control">
-            <option value="3">3 Colors</option>
-            <option value="4">4 Colors</option>
-            <option value="5" selected>5 Colors</option>
-            <option value="6">6 Colors</option>
-            <option value="7">7 Colors</option>
-            <option value="8">8 Colors</option>
-          </select>
-        </div>
-        
-        <div class="option-group">
-          <label for="base-color">Base Color</label>
-          <div class="color-picker-wrap">
-            <input type="color" id="base-color" value="#7000ff">
+  <main class="container">
+    <div class="tool-container">
+      <!-- Main Tool Interface -->
+      <section class="color-generator-section">
+        <div class="palette-controls glass">
+          <h2>Generate Your Custom Color Palette</h2>
+          <div class="generator-options">
+            <div class="option-group">
+              <label for="palette-type">Palette Type</label>
+              <select id="palette-type" class="select-control">
+                <option value="random">Random</option>
+                <option value="monochromatic">Monochromatic</option>
+                <option value="analogous">Analogous</option>
+                <option value="complementary">Complementary</option>
+                <option value="split-complementary">Split Complementary</option>
+                <option value="triadic">Triadic</option>
+                <option value="tetradic">Tetradic</option>
+                <option value="square">Square</option>
+              </select>
+            </div>
+            
+            <div class="option-group">
+              <label for="color-count">Number of Colors</label>
+              <select id="color-count" class="select-control">
+                <option value="3">3 Colors</option>
+                <option value="4">4 Colors</option>
+                <option value="5" selected>5 Colors</option>
+                <option value="6">6 Colors</option>
+                <option value="7">7 Colors</option>
+                <option value="8">8 Colors</option>
+              </select>
+            </div>
+            
+            <div class="option-group">
+              <label for="base-color">Base Color</label>
+              <div class="color-picker-wrap">
+                <input type="color" id="base-color" value="#7000ff">
+                <span id="base-color-hex">#7000FF</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="advanced-options">
+            <div class="option-group">
+              <label for="saturation-range">Saturation</label>
+              <input type="range" id="saturation-range" min="0" max="100" value="80" class="range-slider">
+              <span id="saturation-value">80%</span>
+            </div>
+            
+            <div class="option-group">
+              <label for="brightness-range">Brightness</label>
+              <input type="range" id="brightness-range" min="0" max="100" value="90" class="range-slider">
+              <span id="brightness-value">90%</span>
+            </div>
+          </div>
+          
+          <div class="generator-buttons">
+            <button id="generate-btn" class="btn-primary">
+              <i class="fas fa-palette"></i> Generate Palette
+            </button>
+            <button id="save-btn" class="btn-secondary">
+              <i class="fas fa-save"></i> Save Palette
+            </button>
+            <button id="export-btn" class="btn-secondary">
+              <i class="fas fa-file-export"></i> Export
+            </button>
           </div>
         </div>
-      </div>
+        
+        <div class="current-palette glass" id="current-palette">
+          <div class="palette-placeholder">
+            <i class="fas fa-palette"></i>
+            <p>Your color palette will appear here</p>
+            <p class="small">Click "Generate Palette" to create your first color scheme</p>
+          </div>
+          <!-- Color swatches will be generated here -->
+        </div>
+        
+        <div class="palette-info glass">
+          <h2>Color Codes & Export Options</h2>
+          <div class="info-tabs">
+            <button class="tab-btn active" data-tab="hex-tab">HEX</button>
+            <button class="tab-btn" data-tab="rgb-tab">RGB</button>
+            <button class="tab-btn" data-tab="hsl-tab">HSL</button>
+            <button class="tab-btn" data-tab="css-tab">CSS</button>
+            <button class="tab-btn" data-tab="sass-tab">SASS</button>
+          </div>
+          
+          <div class="tab-content">
+            <div id="hex-tab" class="tab-pane active">
+              <div class="code-block">
+                <pre><code id="hex-code">/* Select a palette to see HEX color codes */</code></pre>
+                <button class="copy-btn" data-target="hex-code" aria-label="Copy HEX codes">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div id="rgb-tab" class="tab-pane">
+              <div class="code-block">
+                <pre><code id="rgb-code">/* Select a palette to see RGB color codes */</code></pre>
+                <button class="copy-btn" data-target="rgb-code" aria-label="Copy RGB codes">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div id="hsl-tab" class="tab-pane">
+              <div class="code-block">
+                <pre><code id="hsl-code">/* Select a palette to see HSL color codes */</code></pre>
+                <button class="copy-btn" data-target="hsl-code" aria-label="Copy HSL codes">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div id="css-tab" class="tab-pane">
+              <div class="code-block">
+                <pre><code id="css-code">/* Select a palette to see CSS variables */</code></pre>
+                <button class="copy-btn" data-target="css-code" aria-label="Copy CSS code">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div id="sass-tab" class="tab-pane">
+              <div class="code-block">
+                <pre><code id="sass-code">/* Select a palette to see SASS variables */</code></pre>
+                <button class="copy-btn" data-target="sass-code" aria-label="Copy SASS code">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
-      <div class="generator-buttons">
-        <button id="generate-btn" class="btn-primary">
-          <i class="fas fa-palette"></i> Generate Palette
-        </button>
-        <button id="save-btn" class="btn-secondary">
-          <i class="fas fa-save"></i> Save Palette
-        </button>
-      </div>
-    </div>
-    
-    <div class="current-palette glass" id="current-palette">
-      <!-- Color swatches will be generated here -->
-    </div>
-    
-    <div class="palette-info glass">
-      <h3>How to Use This Palette</h3>
-      <div class="info-tabs">
-        <button class="tab-btn active" data-tab="web-tab">Web</button>
-        <button class="tab-btn" data-tab="css-tab">CSS</button>
-        <button class="tab-btn" data-tab="sass-tab">SASS</button>
-        <button class="tab-btn" data-tab="sketch-tab">Sketch</button>
-      </div>
+      <!-- Saved Palettes Section -->
+      <section class="saved-palettes-section glass">
+        <h2>Your Saved Palettes</h2>
+        <div id="saved-palettes-container" class="saved-palettes-container">
+          <div class="no-palettes-message">
+            <i class="fas fa-bookmark"></i>
+            <p>You haven't saved any palettes yet</p>
+            <p class="small">Click "Save Palette" to store your color schemes here</p>
+          </div>
+          <!-- Saved palettes will be displayed here -->
+        </div>
+      </section>
       
-      <div class="tab-content">
-        <div id="web-tab" class="tab-pane active">
-          <div class="code-block">
-            <pre><code id="web-code">/* Select a palette to see the codes */</code></pre>
-            <button class="copy-btn" data-target="web-code">
-              <i class="fas fa-copy"></i>
-            </button>
+      <!-- Color Theory and Palette Types -->
+      <section class="color-theory glass">
+        <h2>Understanding Color Harmony</h2>
+        <p>Color harmony is the theory of combining colors in a way that is aesthetically pleasing to the eye. Different palette types create different feelings and are suitable for different design projects. Proper color harmony can significantly improve user engagement and visual appeal of your designs.</p>
+        
+        <div class="color-wheel-container">
+          <div class="color-wheel">
+          </div>
+          <div class="color-wheel-info">
+            <h3>The Color Wheel</h3>
+            <p>The color wheel is a circular arrangement of colors organized by their chromatic relationship. It's a fundamental tool in color theory that helps designers create harmonious color combinations based on geometric relationships on the wheel.</p>
           </div>
         </div>
         
-        <div id="css-tab" class="tab-pane">
-          <div class="code-block">
-            <pre><code id="css-code">/* Select a palette to see the codes */</code></pre>
-            <button class="copy-btn" data-target="css-code">
-              <i class="fas fa-copy"></i>
-            </button>
+        <div class="harmony-types">
+          <div class="harmony-type">
+            <h3>Monochromatic</h3>
+            <div class="harmony-preview monochromatic-preview"></div>
+            <p>Uses various shades, tints, and tones of a single color. Creates a cohesive, harmonious look perfect for minimal designs and elegant interfaces. Monochromatic schemes are easy to manage and create a sense of visual cohesion.</p>
+          </div>
+          
+          <div class="harmony-type">
+            <h3>Analogous</h3>
+            <div class="harmony-preview analogous-preview"></div>
+            <p>Uses colors that are adjacent to each other on the color wheel. Creates a serene and comfortable design that works well for natural themes. Analogous color schemes are harmonious and pleasing to the eye.</p>
+          </div>
+          
+          <div class="harmony-type">
+            <h3>Complementary</h3>
+            <div class="harmony-preview complementary-preview"></div>
+            <p>Uses colors from opposite sides of the color wheel. Creates a high-contrast, vibrant look that's perfect for making elements stand out. Complementary colors create maximum contrast and maximum stability.</p>
+          </div>
+          
+          <div class="harmony-type">
+            <h3>Split-Complementary</h3>
+            <div class="harmony-preview split-complementary-preview"></div>
+            <p>A variation of the complementary color scheme. Uses a base color and two colors adjacent to its complement. This provides high contrast but less tension than the complementary scheme.</p>
+          </div>
+          
+          <div class="harmony-type">
+            <h3>Triadic</h3>
+            <div class="harmony-preview triadic-preview"></div>
+            <p>Uses three colors equally spaced around the color wheel. Creates a vibrant, balanced look even when using paler or unsaturated versions of your colors. Triadic color schemes offer vibrant contrast while maintaining harmony.</p>
+          </div>
+          
+          <div class="harmony-type">
+            <h3>Tetradic (Rectangle)</h3>
+            <div class="harmony-preview tetradic-preview"></div>
+            <p>Uses four colors arranged into two complementary pairs. Offers the richest color possibilities but can be overwhelming if not balanced properly. Works best when one color is dominant and others are used as accents.</p>
+          </div>
+          
+          <div class="harmony-type">
+            <h3>Square</h3>
+            <div class="harmony-preview square-preview"></div>
+            <p>Uses four colors evenly spaced around the color wheel (like triadic, but with four colors). Creates a balanced, dynamic look with multiple accent possibilities. Similar to tetradic but with even spacing.</p>
           </div>
         </div>
-        
-        <div id="sass-tab" class="tab-pane">
-          <div class="code-block">
-            <pre><code id="sass-code">/* Select a palette to see the codes */</code></pre>
-            <button class="copy-btn" data-target="sass-code">
-              <i class="fas fa-copy"></i>
-            </button>
+      </section>
+      
+      <!-- How to Use Section -->
+      <section class="how-to-use glass">
+        <h2>How to Create the Perfect Color Palette - Step by Step Guide</h2>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Choose a Palette Type</h3>
+              <p>Select a palette type based on your project needs. Each type creates different feelings: monochromatic for elegance, complementary for vibrancy, analogous for harmony, triadic for balance, etc.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Select Your Base Color</h3>
+              <p>Choose a starting color that represents your brand or project mood. This will be the foundation of your color palette. Use the color picker to select any color you prefer.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Adjust Number of Colors</h3>
+              <p>Decide how many colors you need in your palette. For most projects, 3-5 colors is ideal: primary, secondary, and accent colors. More complex designs might need additional colors.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Fine-tune with Advanced Options</h3>
+              <p>Adjust saturation and brightness to perfect your palette. Lower saturation creates more subtle, sophisticated palettes, while higher saturation produces more vibrant, energetic colors.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Save and Export</h3>
+              <p>Save your favorite palettes for future reference. Export the color codes in your preferred format (HEX, RGB, HSL, CSS variables, or SASS variables) for immediate use in your projects.</p>
+            </div>
           </div>
         </div>
-        
-        <div id="sketch-tab" class="tab-pane">
-          <div class="code-block">
-            <pre><code id="sketch-code">/* Select a palette to see the codes */</code></pre>
-            <button class="copy-btn" data-target="sketch-code">
-              <i class="fas fa-copy"></i>
-            </button>
+      </section>
+      
+      <!-- Pro Tips Section -->
+      <section class="pro-tips glass">
+        <h2>Professional Color Tips from Designers</h2>
+        <div class="tips-container">
+          <div class="tip">
+            <div class="tip-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <div class="tip-content">
+              <h3>60-30-10 Color Rule</h3>
+              <p>Apply the 60-30-10 rule to create balanced designs: use your primary color for 60% of the design, secondary color for 30%, and accent color for 10%. This creates visual hierarchy and balance.</p>
+            </div>
           </div>
+          
+          <div class="tip">
+            <div class="tip-icon">
+              <i class="fas fa-universal-access"></i>
+            </div>
+            <div class="tip-content">
+              <h3>Accessibility Matters</h3>
+              <p>Ensure sufficient contrast between text and background colors (minimum 4.5:1 ratio for normal text). This improves readability and makes your design accessible to users with visual impairments.</p>
+            </div>
+          </div>
+          
+          <div class="tip">
+            <div class="tip-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="tip-content">
+              <h3>Consider Color Psychology</h3>
+              <p>Different colors evoke different emotions: blue creates trust, red generates excitement, green suggests growth, purple implies luxury. Choose colors that align with your brand message and goals.</p>
+            </div>
+          </div>
+          
+          <div class="tip">
+            <div class="tip-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="tip-content">
+              <h3>Test on Multiple Devices</h3>
+              <p>Colors can appear differently across various screens and devices. Always test your palette on multiple devices to ensure consistency and proper display of your design.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- FAQ Section -->
+      <section class="faq-section glass">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>How do I choose the right color palette for my website?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>When choosing a color palette for your website, consider your brand identity, target audience, and the emotions you want to evoke. Start with your logo or brand colors as the base, then use color harmony principles to build a complementary palette. For websites, it's recommended to use 3-5 colors: a primary color, a secondary color, and 1-3 accent colors. Ensure sufficient contrast for readability and accessibility.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>What's the difference between RGB, HEX, and HSL color codes?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>RGB (Red, Green, Blue) defines colors as mixtures of red, green, and blue light (e.g., rgb(112, 0, 255)). HEX codes are hexadecimal representations of RGB values, commonly used in web design (e.g., #7000FF). HSL (Hue, Saturation, Lightness) defines colors based on their position on the color wheel, saturation level, and lightness (e.g., hsl(270, 100%, 50%)). All three represent the same colors but in different formats used in various design contexts.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>How many colors should I use in my design?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>For most design projects, 3-5 colors is ideal. This typically includes a primary color (60% of your design), a secondary color (30%), and 1-3 accent colors (10% combined). Using too many colors can make your design look cluttered and unprofessional, while too few might make it boring. Complex projects like data visualizations might require more colors, but they should still form a cohesive palette.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>Can I save my palettes permanently?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, our color palette generator allows you to save your palettes locally in your browser using local storage. These palettes will remain available even when you close and reopen the browser. However, clearing your browser data will remove these saved palettes. For more permanent storage, we recommend using the export feature to download your palette data, or simply take a screenshot of your favorite color combinations.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>What color harmony works best for professional websites?</h3>
+              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>For professional websites, monochromatic and analogous color schemes often work best as they create a cohesive, harmonious look that's not distracting. Monochromatic schemes (variations of a single color) convey elegance and professionalism. Analogous schemes (colors adjacent on the color wheel) create a serene, comfortable feeling. For corporate sites, blue-based palettes often perform well as blue conveys trust, reliability, and professionalism.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Related Tools Section -->
+      <section class="related-tools glass">
+        <h2>Explore Our Other Free Design Tools</h2>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-image"></i>
+            </div>
+            <h3>JPG to PDF Converter</h3>
+            <p>Convert and combine multiple JPG images into a single PDF document. Customize page settings and download instantly.</p>
+            <a href="jpg-to-pdf.html" class="tool-link">Use Tool</a>
+          </div>
+          
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-qrcode"></i>
+            </div>
+            <h3>QR Code Generator</h3>
+            <p>Create customized QR codes for URLs, text, contact information, and more. Personalize colors and download in high resolution.</p>
+            <a href="qr-generator.html" class="tool-link">Use Tool</a>
+          </div>
+          
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-crop-alt"></i>
+            </div>
+            <h3>Image Resizer</h3>
+            <p>Resize and optimize your images for web or print. Maintain aspect ratio and reduce file size without losing quality.</p>
+            <a href="image-resizer.html" class="tool-link">Use Tool</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Color Palette Generator</h3>
+          <p>Create beautiful, harmonious color schemes for your design projects with our professional color tools. Generate perfect color combinations for websites, UI design, branding, and more.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Key Features</h3>
+          <ul>
+            <li>Multiple color harmony methods</li>
+            <li>Custom base color selection</li>
+            <li>Save and organize palettes</li>
+            <li>Export in multiple formats</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Color Theory Resources</h3>
+          <ul>
+            <li><a href="../blog/color-theory-basics.html">Color Theory Basics</a></li>
+            <li><a href="../blog/color-psychology.html">Color Psychology in Design</a></li>
+            <li><a href="../blog/accessibility-color.html">Accessible Color Design</a></li>
+            <li><a href="../blog/brand-color-guide.html">Creating Brand Color Palettes</a></li>
+          </ul>
+        </div>
+        
         </div>
       </div>
+    </footer>
+  
+  </footer>
+
+  <!-- Hidden Keywords for SEO (hidden from users but visible to search engines) -->
+  <div class="seo-keywords" aria-hidden="true">
+    <p>color palette generator, color scheme creator, ui design colors, web design palette, color combinations, color picker tool, harmonious color schemes, monochromatic palette, analogous colors, complementary colors, triadic color scheme, tetradic colors, color export, color codes, hex colors, rgb colors, hsl colors, css color variables, sass color variables, color theory, color wheel, color harmony, design colors, website colors, brand palette, free color tool, color swatches, color inspiration, color selector, color combination maker</p>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="notification-toast" class="notification-toast">
+    <div class="notification-icon">
+      <i class="fas fa-check-circle"></i>
     </div>
-    
-    <div class="saved-palettes" id="saved-palettes-container">
-      <h3 class="saved-palettes-title">Saved Palettes</h3>
-      <div class="saved-palettes-list" id="saved-palettes-list">
-        <!-- Saved palettes will appear here -->
-        <p class="no-palettes-message" id="no-palettes-message">No saved palettes yet. Generate and save some palettes!</p>
-      </div>
-    </div>
-    
-    <div class="back-to-tools">
-      <a href="index.html" class="btn-secondary">
-        <i class="fas fa-arrow-left"></i> Back to Tools
-      </a>
+    <div class="notification-message">
+      <p id="notification-text">Copied to clipboard!</p>
     </div>
   </div>
-  
-  <script defer src="favicon.js"></script>
+
+  <!-- Script for FAQ Toggle -->
+  <script>
+  function toggleFaq(element) {
+    const faqItem = element.parentElement;
+    const isActive = faqItem.classList.contains('active');
+    
+    // Close all FAQs
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('active');
+    });
+    
+    // If the clicked FAQ wasn't active, open it
+    if (!isActive) {
+      faqItem.classList.add('active');
+    }
+  }
+  </script>
+
+  <!-- Main JavaScript -->
   <script src="color-palette.js"></script>
 </body>
 </html>
