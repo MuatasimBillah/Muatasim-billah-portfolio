@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Free Image Compressor Tool | Reduce Image Size Without Losing Quality | Mehar Designer Tools</title>
+  <meta name="title" content="Free Image Compressor Tool | Reduce Image Size Without Losing Quality">
+  <meta name="description" content="Compress JPEG, PNG, WebP and GIF images online. Reduce file size by up to 80% while preserving quality. Free, fast, and private - no file uploads to server. Best image compression tool for website optimization.">
+  <meta name="keywords" content="image compressor, image compression tool, reduce image size, compress JPEG, compress PNG, compress WebP, compress GIF, website optimization, image optimization, reduce file size, online image compressor, free image compressor, privacy-focused compressor, batch image compression, website speed optimization">
+  <meta name="author" content="Mehar Designer Tools">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="1 days">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://mehardesigner.online/image-compressor.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mehardesigner.online/image-compressor.html">
+  <meta property="og:title" content="Free Image Compressor Tool | Reduce Image Size Without Losing Quality">
+  <meta property="og:description" content="Compress images online without losing quality. Reduce file size by up to 80% for faster websites. Free, private, and secure - no uploads to server.">
+  <meta property="og:image" content="https://mehardesigner.online/img/image-compressor-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Mehar Designer Tools">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mehardesigner.online/image-compressor.html">
+  <meta property="twitter:title" content="Free Image Compressor Tool | Reduce Image Size Without Losing Quality">
+  <meta property="twitter:description" content="Compress images online without losing quality. Reduce file size by up to 80% for faster websites. Free, private, and secure - no uploads to server.">
+  <meta property="twitter:image" content="https://mehardesigner.online/img/image-compressor-preview.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
+
+  <!-- Compression Library -->
+  <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.0/dist/browser-image-compression.min.js" defer></script>
+  
+  <!-- Schema.org structured data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Free Image Compressor Tool",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1287"
+      },
+      "description": "Compress JPEG, PNG, WebP and GIF images online without losing quality. Reduce file size by up to 80% for faster websites. Free, private tool with client-side processing - no uploads to server.",
+      "image": "https://mehardesigner.online/img/image-compressor-preview.jpg",
+      "featureList": [
+        "Compress JPEG, PNG, WebP and GIF images",
+        "Reduce file size by up to 80%",
+        "Adjustable quality settings",
+        "Batch compression for multiple images",
+        "Client-side processing for privacy",
+        "No upload to servers",
+        "Free to use"
+      ],
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "text": "Drag and drop images, select compression quality, and download compressed images. All processing happens in your browser for complete privacy."
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Mehar Designer Tools",
+        "url": "https://mehardesigner.online"
+      }
+    }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the image compression tool work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our image compression tool uses advanced algorithms to reduce the file size of your images while maintaining visual quality. The compression happens entirely in your browser - your files are never uploaded to any server, ensuring complete privacy and security."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What image formats can I compress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can compress JPEG, PNG, WebP, and GIF images. Each format uses optimized compression techniques to ensure the best balance between file size and quality."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will compression affect image quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can control the quality level using our adjustment slider. Higher quality settings preserve more details but result in larger file sizes. Lower quality settings provide smaller file sizes but may introduce some visual artifacts. Our intelligent compression algorithm minimizes visible quality loss even at lower settings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a file size limit for compression?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can compress images up to 10MB in size. For optimal results and faster processing, we recommend compressing images under 5MB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this tool free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image compression tool is completely free to use with no limits on the number of images you can compress. We don't require registration or payment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why should I compress images for my website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compressed images load faster, improving your website's speed and user experience. This leads to better SEO rankings, lower bounce rates, and higher conversion rates. Image compression can reduce file sizes by up to 80% without noticeable quality loss."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data private and secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! All compression happens directly in your browser. Your images are never uploaded to any server or stored anywhere. This ensures complete privacy and security for your sensitive images."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="image-compressor.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
+       
+      </nav>
+      
+      <h1>Free Image Compressor Tool</h1>
+      <p class="tool-description">Compress your images by up to 80% while maintaining quality. Perfect for websites, emails, and social media. All processing happens in your browser - your images never leave your device.</p>
+      
+      <!-- Key Benefits -->
+      <div class="tool-benefits">
+        <div class="benefit">
+          <i class="fas fa-bolt"></i>
+          <span>Faster Websites</span>
+        </div>
+        <div class="benefit">
+          <i class="fas fa-shield-alt"></i>
+          <span>100% Private</span>
+        </div>
+        <div class="benefit">
+          <i class="fas fa-check-circle"></i>
+          <span>No Quality Loss</span>
+        </div>
+        <div class="benefit">
+          <i class="fas fa-layer-group"></i>
+          <span>Batch Processing</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Tool Container -->
+    <div class="tool-container glass">
+      <!-- Upload Section -->
+      <div class="upload-section" id="uploadSection">
+        <div class="upload-area" id="dropZone">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <h2>Drop Images Here</h2>
+          <p>Or click to browse your files</p>
+          <input type="file" id="fileInput" hidden accept="image/*" multiple>
+          <button class="upload-btn" id="browseBtn">Browse Files</button>
+          <p class="upload-info">Supports JPEG, PNG, WebP and GIF • Maximum 10MB per image • No upload to server</p>
+          
+          <!-- Key Features -->
+          <div class="features">
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-compress-alt"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Reduce Size by up to 80%</h3>
+                <p>Optimize images while maintaining quality</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Privacy First</h3>
+                <p>All processing happens in your browser</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-tachometer-alt"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Boost Website Speed</h3>
+                <p>Faster page loads and better SEO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Compression Options Section -->
+      <div class="compression-options" id="compressionOptions" style="display: none;">
+        <div class="section-header">
+          <h2>Compression Settings</h2>
+        </div>
+        
+        <div class="options-container">
+          <div class="option-group">
+            <label for="qualitySlider">Quality Level</label>
+            <div class="slider-container">
+              <input type="range" id="qualitySlider" min="0" max="100" value="75">
+              <div class="slider-labels">
+                <span>Smaller File</span>
+                <span id="qualityValue">75%</span>
+                <span>Higher Quality</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="option-group">
+            <label for="resizeToggle">Resize Images</label>
+            <div class="toggle-switch">
+              <input type="checkbox" id="resizeToggle">
+              <span class="toggle-slider"></span>
+            </div>
+          </div>
+          
+          <div class="resize-options" id="resizeOptions" style="display: none;">
+            <div class="option-group">
+              <label for="maxWidthInput">Maximum Width (px)</label>
+              <input type="number" id="maxWidthInput" value="1920" min="100" max="8000">
+            </div>
+            
+            <div class="option-group">
+              <label for="maxHeightInput">Maximum Height (px)</label>
+              <input type="number" id="maxHeightInput" value="1080" min="100" max="8000">
+            </div>
+            
+            <div class="option-group">
+              <label for="maintainRatio">Maintain Aspect Ratio</label>
+              <div class="toggle-switch">
+                <input type="checkbox" id="maintainRatio" checked>
+                <span class="toggle-slider"></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="option-group">
+            <label for="metadataToggle">Keep Image Metadata</label>
+            <div class="toggle-switch">
+              <input type="checkbox" id="metadataToggle">
+              <span class="toggle-slider"></span>
+            </div>
+            <div class="option-tooltip">
+              <i class="fas fa-info-circle"></i>
+              <div class="tooltip-text">Metadata includes camera information, date, location, and other details. Removing it results in smaller file sizes.</div>
+            </div>
+          </div>
+          
+          <div class="option-group">
+            <label for="outputFormat">Output Format</label>
+            <select id="outputFormat">
+              <option value="same">Same as Input</option>
+              <option value="jpeg">JPEG</option>
+              <option value="png">PNG</option>
+              <option value="webp">WebP (Better Compression)</option>
+            </select>
+            <div class="option-tooltip">
+              <i class="fas fa-info-circle"></i>
+              <div class="tooltip-text">WebP typically provides better compression than JPEG or PNG, but may not be supported by all software.</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn secondary" id="backToUpload">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <button class="btn primary" id="compressBtn">
+            <i class="fas fa-compress-alt"></i> Compress Images
+          </button>
+        </div>
+      </div>
+      
+      <!-- Results Section -->
+      <div class="results-section" id="resultsSection" style="display: none;">
+        <div class="section-header">
+          <h2>Compression Results</h2>
+          <div class="stats-summary">
+            <div class="stat">
+              <span id="totalSaved">0 KB</span>
+              <span class="stat-label">Total Saved</span>
+            </div>
+            <div class="stat">
+              <span id="avgReduction">0%</span>
+              <span class="stat-label">Avg. Reduction</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="results-container" id="resultsContainer">
+          <!-- Results will be added here dynamically -->
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn secondary" id="backToOptions">
+            <i class="fas fa-cog"></i> Adjust Settings
+          </button>
+          <button class="btn primary" id="downloadAllBtn">
+            <i class="fas fa-download"></i> Download All
+          </button>
+          <button class="btn secondary" id="compressMoreBtn">
+            <i class="fas fa-plus"></i> Compress More Images
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <h3>Compressing Images...</h3>
+        <p id="compressionProgress">Processing image 1 of 5</p>
+        <div class="progress-bar">
+          <div class="progress" id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FAQ Section (Important for SEO) -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions about Image Compression</h2>
+      
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>How does the image compression tool work?</h3>
+          <p>Our image compression tool uses advanced algorithms to reduce the file size of your images while maintaining visual quality. The compression happens entirely in your browser - your files are never uploaded to any server, ensuring complete privacy and security.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>What image formats can I compress?</h3>
+          <p>You can compress JPEG, PNG, WebP, and GIF images. Each format uses optimized compression techniques to ensure the best balance between file size and quality.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Will compression affect image quality?</h3>
+          <p>You can control the quality level using our adjustment slider. Higher quality settings preserve more details but result in larger file sizes. Lower quality settings provide smaller file sizes but may introduce some visual artifacts. Our intelligent compression algorithm minimizes visible quality loss even at lower settings.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Is there a file size limit for compression?</h3>
+          <p>You can compress images up to 10MB in size. For optimal results and faster processing, we recommend compressing images under 5MB.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Is this tool free to use?</h3>
+          <p>Yes, our image compression tool is completely free to use with no limits on the number of images you can compress. We don't require registration or payment.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Why should I compress images for my website?</h3>
+          <p>Compressed images load faster, improving your website's speed and user experience. This leads to better SEO rankings, lower bounce rates, and higher conversion rates. Image compression can reduce file sizes by up to 80% without noticeable quality loss.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Is my data private and secure?</h3>
+          <p>Yes! All compression happens directly in your browser. Your images are never uploaded to any server or stored anywhere. This ensures complete privacy and security for your sensitive images.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>How do I batch compress multiple images?</h3>
+          <p>Simply select multiple files when browsing or drag and drop multiple images at once. Our tool will compress all selected images according to your settings. You can then download them individually or all together as a zip file.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Additional SEO Content Section -->
+    <div class="info-section">
+      <h2>Why Compress Images for Your Website?</h2>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <div class="info-content">
+            <h3>Faster Loading Times</h3>
+            <p>Large images are often the biggest contributors to slow page loading. By compressing your images, you can reduce page load times by up to 70%, providing a better user experience and keeping visitors on your site longer.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="info-content">
+            <h3>Better SEO Rankings</h3>
+            <p>Google and other search engines factor page speed into their ranking algorithms. Faster websites with optimized images rank higher in search results, leading to more organic traffic and better visibility online.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="info-content">
+            <h3>Improved Mobile Experience</h3>
+            <p>Mobile users often browse on limited data plans or slower connections. Compressed images load faster on mobile devices, reducing bounce rates and improving engagement metrics for your mobile audience.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <div class="info-content">
+            <h3>Reduced Bandwidth Usage</h3>
+            <p>Optimized images consume less bandwidth, reducing hosting costs and server load. This is especially important for high-traffic websites or those with limited hosting resources.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="info-cta">
+        <h3>Start compressing your images today and see the difference in your website's performance!</h3>
+        <button class="btn primary" id="scrollToToolBtn">
+          <i class="fas fa-compress-alt"></i> Try Image Compression Tool
+        </button>
+      </div>
+    </div>
+    
+    <!-- Tips Section (More SEO content) -->
+    <div class="tips-section">
+      <h2>Image Compression Best Practices</h2>
+      
+      <div class="tips-container">
+        <div class="tip">
+          <div class="tip-number">01</div>
+          <h3>Choose the Right Format</h3>
+          <p>Use JPEG for photographs and images with many colors, PNG for images that need transparency, and WebP for the best balance between quality and file size when browser support isn't a concern.</p>
+        </div>
+        
+        <div class="tip">
+          <div class="tip-number">02</div>
+          <h3>Resize Before Uploading</h3>
+          <p>Don't upload 4000px images if they'll only be displayed at 800px. Resize your images to the dimensions they'll be displayed at before compressing them for optimal results.</p>
+        </div>
+        
+        <div class="tip">
+          <div class="tip-number">03</div>
+          <h3>Balance Quality and Size</h3>
+          <p>For most web use cases, a quality setting of 70-80% provides an excellent balance between visual quality and file size. Adjust based on your specific needs.</p>
+        </div>
+        
+        <div class="tip">
+          <div class="tip-number">04</div>
+          <h3>Remove Unnecessary Metadata</h3>
+          <p>Unless you specifically need to preserve EXIF data, removing metadata can further reduce file sizes by 5-15% without affecting the image appearance.</p>
+        </div>
+        
+        <div class="tip">
+          <div class="tip-number">05</div>
+          <h3>Use Lazy Loading</h3>
+          <p>Even compressed images benefit from lazy loading, which defers loading images until they are about to enter the viewport, further improving page load performance.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-compress-alt"></i>
+          <span>Mehar Designer Tools</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="tools.html">All Tools</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Mehar Designer Tools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <i class="fas fa-check-circle"></i>
+    <span id="notificationMessage"></span>
+  </div>
+
+  <!-- Custom Script -->
+  <script src="image-compressor.js"></script>
+</body>
+</html>

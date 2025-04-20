@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Advanced Image Effects Studio | Professional Photo Editor | Mehar Designer Tools</title>
+  <meta name="description" content="Transform your images with our free online Image Effects Studio. Apply professional filters, adjustments, and effects with real-time preview. No uploads to server - complete privacy guaranteed.">
+  <meta name="keywords" content="image editor, photo filters, image effects, online photo editor, privacy-focused editor, photo editing tools, free image editor, browser photo editor">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mehardesigner.online/image-effects.html">
+  <meta property="og:title" content="Advanced Image Effects Studio | Professional Photo Editor">
+  <meta property="og:description" content="Transform your images with professional-grade filters and effects - all processed in your browser with complete privacy.">
+  <meta property="og:image" content="https://mehardesigner.online/img/image-effects-preview.jpg">
+  
+  <!-- Canonical Link -->
+  <meta rel="canonical" href="https://mehardesigner.online/image-effects.html">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Advanced Image Effects Studio",
+      "url": "https://mehardesigner.online/image-effects.html",
+      "description": "Professional image editor with powerful filters and effects. All processing happens in your browser with no uploads required for complete privacy.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Professional-grade image adjustments",
+        "Multiple creative filters",
+        "Advanced color correction",
+        "Client-side processing for privacy",
+        "Instant downloads in multiple formats"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "Mehar Designer Tools",
+        "url": "https://mehardesigner.online"
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="image-effects.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
+        <div class="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="toggle-ball"></div>
+        </div>
+      </nav>
+      
+      <h1>Advanced Image Effects Studio</h1>
+      <p class="tool-description">Transform your images with professional filters and adjustments - all in your browser. Your data stays on your device for complete privacy.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Tool Container -->
+    <div class="tool-container">
+      <!-- Upload Section -->
+      <div class="upload-section" id="uploadSection">
+        <div class="upload-area" id="dropZone">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <h2>Drag & Drop Your Image</h2>
+          <p>Or click to browse your files</p>
+          <input type="file" id="fileInput" hidden accept="image/*">
+          <button class="upload-btn" id="browseBtn">Browse Files</button>
+          <p class="upload-info">Supports JPEG, PNG, WebP and GIF • Maximum 10MB • No upload to server</p>
+          
+          <!-- Key Features -->
+          <div class="features">
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="feature-text">
+                <h3>100% Private</h3>
+                <p>All processing happens in your browser</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Real-time Preview</h3>
+                <p>See changes instantly as you edit</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-magic"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Professional Effects</h3>
+                <p>Advanced filters and adjustments</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Editor Section -->
+      <div class="editor-container" id="editorSection" style="display: none;">
+        <div class="section-header">
+          <h2>Edit Your Image</h2>
+          <button class="back-to-upload" id="backToUpload">
+            <i class="fas fa-arrow-left"></i> New Image
+          </button>
+        </div>
+        
+        <!-- Image Info -->
+        <div class="image-info" id="imageInfo">
+          <div class="file-info">
+            <div class="image-icon">
+              <i class="fas fa-image"></i>
+            </div>
+            <div class="image-details">
+              <h3 id="imageName">image.jpg</h3>
+              <p id="imageSize">1920x1080 • 1.2MB</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Editor Workspace -->
+        <div class="editor-workspace">
+          <!-- Editor Tabs -->
+          <div class="editor-tabs">
+            <button class="tab-btn active" data-tab="adjustTab">
+              <i class="fas fa-sliders-h"></i> Adjustments
+            </button>
+            <button class="tab-btn" data-tab="filtersTab">
+              <i class="fas fa-magic"></i> Filters
+            </button>
+            <button class="tab-btn" data-tab="effectsTab">
+              <i class="fas fa-star"></i> Effects
+            </button>
+            <button class="tab-btn" data-tab="cropTab">
+              <i class="fas fa-crop-alt"></i> Crop
+            </button>
+          </div>
+          
+          <!-- Editor Content -->
+          <div class="editor-content">
+            <!-- Preview Area -->
+            <div class="preview-area">
+              <!-- Toolbar -->
+              <div class="preview-toolbar">
+                <div class="zoom-controls">
+                  <button id="zoomOut" class="tool-btn">
+                    <i class="fas fa-search-minus"></i>
+                  </button>
+                  <span id="zoomLevel">100%</span>
+                  <button id="zoomIn" class="tool-btn">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                </div>
+                
+                <div class="history-controls">
+                  <button id="undoBtn" class="tool-btn" disabled>
+                    <i class="fas fa-undo"></i>
+                  </button>
+                  <button id="redoBtn" class="tool-btn" disabled>
+                    <i class="fas fa-redo"></i>
+                  </button>
+                </div>
+                
+                <div class="comparison-toggle">
+                  <button id="compareBtn" class="tool-btn">
+                    <i class="fas fa-columns"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Image Preview -->
+              <div class="preview-wrapper" id="previewWrapper">
+                <img id="previewImage" src="" alt="Preview">
+                
+                <!-- Comparison Slider (hidden by default) -->
+                <div class="comparison-slider" id="comparisonSlider">
+                  <div class="comparison-divider"></div>
+                  <div class="comparison-handle"></div>
+                </div>
+              </div>
+              
+              <!-- Loading Indicator -->
+              <div class="loading-indicator" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Processing image...</p>
+              </div>
+            </div>
+            
+            <!-- Controls Area -->
+            <div class="controls-area">
+              <!-- Tabs Content -->
+              <div class="tab-content active" id="adjustTab">
+                <!-- Basic Adjustments -->
+                <div class="control-group">
+                  <h3><i class="fas fa-sliders-h"></i> Basic Adjustments</h3>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="brightnessSlider">Brightness</label>
+                      <span id="brightnessValue">0</span>
+                    </div>
+                    <input type="range" id="brightnessSlider" min="-100" max="100" value="0" data-control="brightness">
+                  </div>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="contrastSlider">Contrast</label>
+                      <span id="contrastValue">0</span>
+                    </div>
+                    <input type="range" id="contrastSlider" min="-100" max="100" value="0" data-control="contrast">
+                  </div>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="saturationSlider">Saturation</label>
+                      <span id="saturationValue">0</span>
+                    </div>
+                    <input type="range" id="saturationSlider" min="-100" max="100" value="0" data-control="saturation">
+                  </div>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="exposureSlider">Exposure</label>
+                      <span id="exposureValue">0</span>
+                    </div>
+                    <input type="range" id="exposureSlider" min="-100" max="100" value="0" data-control="exposure">
+                  </div>
+                </div>
+                
+                <!-- Color Adjustments -->
+                <div class="control-group">
+                  <h3><i class="fas fa-palette"></i> Color Adjustments</h3>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="temperatureSlider">Temperature</label>
+                      <span id="temperatureValue">0</span>
+                    </div>
+                    <input type="range" id="temperatureSlider" min="-100" max="100" value="0" data-control="temperature">
+                  </div>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="tintSlider">Tint</label>
+                      <span id="tintValue">0</span>
+                    </div>
+                    <input type="range" id="tintSlider" min="-100" max="100" value="0" data-control="tint">
+                  </div>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="vibranceSlider">Vibrance</label>
+                      <span id="vibranceValue">0</span>
+                    </div>
+                    <input type="range" id="vibranceSlider" min="-100" max="100" value="0" data-control="vibrance">
+                  </div>
+                </div>
+                
+                <!-- Detail Adjustments -->
+                <div class="control-group">
+                  <h3><i class="fas fa-tree"></i> Detail Adjustments</h3>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="claritySlider">Clarity</label>
+                      <span id="clarityValue">0</span>
+                    </div>
+                    <input type="range" id="claritySlider" min="-100" max="100" value="0" data-control="clarity">
+                  </div>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="sharpenSlider">Sharpen</label>
+                      <span id="sharpenValue">0</span>
+                    </div>
+                    <input type="range" id="sharpenSlider" min="0" max="100" value="0" data-control="sharpen">
+                  </div>
+                  
+                  <div class="slider-control">
+                    <div class="slider-header">
+                      <label for="noiseReduceSlider">Noise Reduction</label>
+                      <span id="noiseReduceValue">0</span>
+                    </div>
+                    <input type="range" id="noiseReduceSlider" min="0" max="100" value="0" data-control="noiseReduce">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Filters Tab -->
+              <div class="tab-content" id="filtersTab">
+                <div class="control-group">
+                  <h3><i class="fas fa-magic"></i> Preset Filters</h3>
+                  
+                  <div class="filter-grid">
+                    <div class="filter-item active" data-filter="none">
+                      <div class="filter-preview filter-none"></div>
+                      <span>Original</span>
+                    </div>
+                    <div class="filter-item" data-filter="grayscale">
+                      <div class="filter-preview filter-grayscale"></div>
+                      <span>B&W</span>
+                    </div>
+                    <div class="filter-item" data-filter="sepia">
+                      <div class="filter-preview filter-sepia"></div>
+                      <span>Sepia</span>
+                    </div>
+                    <div class="filter-item" data-filter="vintage">
+                      <div class="filter-preview filter-vintage"></div>
+                      <span>Vintage</span>
+                    </div>
+                    <div class="filter-item" data-filter="retro">
+                      <div class="filter-preview filter-retro"></div>
+                      <span>Retro</span>
+                    </div>
+                    <div class="filter-item" data-filter="warm">
+                      <div class="filter-preview filter-warm"></div>
+                      <span>Warm</span>
+                    </div>
+                    <div class="filter-item" data-filter="cool">
+                      <div class="filter-preview filter-cool"></div>
+                      <span>Cool</span>
+                    </div>
+                    <div class="filter-item" data-filter="dramatic">
+                      <div class="filter-preview filter-dramatic"></div>
+                      <span>Dramatic</span>
+                    </div>
+                    <div class="filter-item" data-filter="noir">
+                      <div class="filter-preview filter-noir"></div>
+                      <span>Noir</span>
+                    </div>
+                    <div class="filter-item" data-filter="clarity">
+                      <div class="filter-preview filter-clarity"></div>
+                      <span>Clarity</span>
+                    </div>
+                    <div class="filter-item" data-filter="fade">
+                      <div class="filter-preview filter-fade"></div>
+                      <span>Fade</span>
+                    </div>
+                    <div class="filter-item" data-filter="chrome">
+                      <div class="filter-preview filter-chrome"></div>
+                      <span>Chrome</span>
+                    </div>
+                    <div class="filter-item" data-filter="mono">
+                      <div class="filter-preview filter-mono"></div>
+                      <span>Mono</span>
+                    </div>
+                  </div>
+                  
+                  <div class="slider-control filter-intensity">
+                    <div class="slider-header">
+                      <label for="filterStrengthSlider">Filter Intensity</label>
+                      <span id="filterStrengthValue">100%</span>
+                    </div>
+                    <input type="range" id="filterStrengthSlider" min="0" max="100" value="100">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Effects Tab -->
+              <div class="tab-content" id="effectsTab">
+                <div class="control-group">
+                  <h3><i class="fas fa-star"></i> Special Effects</h3>
+                  
+                  <div class="effects-grid">
+                    <div class="effect-item active" data-effect="none">
+                      <div class="effect-icon">
+                        <i class="fas fa-ban"></i>
+                      </div>
+                      <span>None</span>
+                    </div>
+                    <div class="effect-item" data-effect="vignette">
+                      <div class="effect-icon">
+                        <i class="fas fa-circle-notch"></i>
+                      </div>
+                      <span>Vignette</span>
+                    </div>
+                    <div class="effect-item" data-effect="blur">
+                      <div class="effect-icon">
+                        <i class="fas fa-brush"></i>
+                      </div>
+                      <span>Blur</span>
+                    </div>
+                    <div class="effect-item" data-effect="blur-edges">
+                      <div class="effect-icon">
+                        <i class="fas fa-clone"></i>
+                      </div>
+                      <span>Blur Edges</span>
+                    </div>
+                    <div class="effect-item" data-effect="noise">
+                      <div class="effect-icon">
+                        <i class="fas fa-cloud"></i>
+                      </div>
+                      <span>Noise</span>
+                    </div>
+                    <div class="effect-item" data-effect="duotone">
+                      <div class="effect-icon">
+                        <i class="fas fa-adjust"></i>
+                      </div>
+                      <span>Duotone</span>
+                    </div>
+                    <div class="effect-item" data-effect="glitch">
+                      <div class="effect-icon">
+                        <i class="fas fa-bolt"></i>
+                      </div>
+                      <span>Glitch</span>
+                    </div>
+                    <div class="effect-item" data-effect="pixelate">
+                      <div class="effect-icon">
+                        <i class="fas fa-th"></i>
+                      </div>
+                      <span>Pixelate</span>
+                    </div>
+                  </div>
+                  
+                  <div class="effect-controls" id="effectControls">
+                    <!-- Vignette controls (hidden initially) -->
+                    <div class="effect-control" id="vignetteControls" style="display: none;">
+                      <div class="slider-control">
+                        <div class="slider-header">
+                          <label for="vignetteAmountSlider">Vignette Amount</label>
+                          <span id="vignetteAmountValue">50%</span>
+                        </div>
+                        <input type="range" id="vignetteAmountSlider" min="0" max="100" value="50">
+                      </div>
+                      
+                      <div class="slider-control">
+                        <div class="slider-header">
+                          <label for="vignetteSizeSlider">Vignette Size</label>
+                          <span id="vignetteSizeValue">50%</span>
+                        </div>
+                        <input type="range" id="vignetteSizeSlider" min="0" max="100" value="50">
+                      </div>
+                    </div>
+                    
+                    <!-- Blur controls (hidden initially) -->
+                    <div class="effect-control" id="blurControls" style="display: none;">
+                      <div class="slider-control">
+                        <div class="slider-header">
+                          <label for="blurAmountSlider">Blur Amount</label>
+                          <span id="blurAmountValue">5px</span>
+                        </div>
+                        <input type="range" id="blurAmountSlider" min="0" max="20" value="5">
+                      </div>
+                    </div>
+                    
+                    <!-- Blur Edges controls (hidden initially) -->
+                    <div class="effect-control" id="blurEdgesControls" style="display: none;">
+                      <div class="slider-control">
+                        <div class="slider-header">
+                          <label for="blurEdgesAmountSlider">Blur Amount</label>
+                          <span id="blurEdgesAmountValue">5px</span>
+                        </div>
+                        <input type="range" id="blurEdgesAmountSlider" min="0" max="20" value="5">
+                      </div>
+                      
+                      <div class="slider-control">
+                        <div class="slider-header">
+                          <label for="blurEdgesSizeSlider">Radius</label>
+                          <span id="blurEdgesSizeValue">30%</span>
+                        </div>
+                        <input type="range" id="blurEdgesSizeSlider" min="0" max="100" value="30">
+                      </div>
+                    </div>
+                    
+                    <!-- Noise controls (hidden initially) -->
+                    <div class="effect-control" id="noiseControls" style="display: none;">
+                      <div class="slider-control">
+                        <div class="slider-header">
+                          <label for="noiseAmountSlider">Noise Amount</label>
+                          <span id="noiseAmountValue">15%</span>
+                        </div>
+                        <input type="range" id="noiseAmountSlider" min="0" max="50" value="15">
+                      </div>
+                    </div>
+                    
+                    <!-- Duotone controls (hidden initially) -->
+                    <div class="effect-control" id="duotoneControls" style="display: none;">
+                      <div class="color-pickers">
+                        <div class="color-picker">
+                          <label for="duotoneColor1">Highlight Color</label>
+                          <input type="color" id="duotoneColor1" value="#7000ff">
+                        </div>
+                        <div class="color-picker">
+                          <label for="duotoneColor2">Shadow Color</label>
+                          <input type="color" id="duotoneColor2" value="#00d9ff">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Glitch controls (hidden initially) -->
+                    <div class="effect-control" id="glitchControls" style="display: none;">
+                      <div class="slider-control">
+                        <div class="slider-header">
+                          <label for="glitchAmountSlider">Glitch Intensity</label>
+                          <span id="glitchAmountValue">50%</span>
+                        </div>
+                        <input type="range" id="glitchAmountSlider" min="0" max="100" value="50">
+                      </div>
+                    </div>
+                    
+                    <!-- Pixelate controls (hidden initially) -->
+                    <div class="effect-control" id="pixelateControls" style="display: none;">
+                      <div class="slider-control">
+                        <div class="slider-header">
+                          <label for="pixelateAmountSlider">Pixel Size</label>
+                          <span id="pixelateAmountValue">10px</span>
+                        </div>
+                        <input type="range" id="pixelateAmountSlider" min="2" max="50" value="10">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Crop Tab -->
+              <div class="tab-content" id="cropTab">
+                <div class="control-group">
+                  <h3><i class="fas fa-crop-alt"></i> Crop Options</h3>
+                  
+                  <div class="aspect-ratio-options">
+                    <button class="aspect-btn active" data-ratio="free">Free</button>
+                    <button class="aspect-btn" data-ratio="1:1">1:1</button>
+                    <button class="aspect-btn" data-ratio="4:3">4:3</button>
+                    <button class="aspect-btn" data-ratio="16:9">16:9</button>
+                    <button class="aspect-btn" data-ratio="3:2">3:2</button>
+                    <button class="aspect-btn" data-ratio="2:3">2:3</button>
+                  </div>
+                  
+                  <div class="crop-actions">
+                    <button class="btn-action" id="applyCrop">Apply Crop</button>
+                    <button class="btn-action" id="cancelCrop">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn-action" id="resetBtn">
+            <i class="fas fa-undo"></i> Reset All
+          </button>
+          <button class="btn-action primary" id="downloadBtn">
+            <i class="fas fa-download"></i> Download
+          </button>
+          <div class="download-dropdown" id="downloadDropdown">
+            <button class="btn-action dropdown-toggle" id="downloadOptions">
+              <i class="fas fa-angle-down"></i>
+            </button>
+            <div class="dropdown-menu" id="downloadMenu">
+              <div class="dropdown-item" data-format="jpeg" data-quality="1.0">High Quality JPEG</div>
+              <div class="dropdown-item" data-format="jpeg" data-quality="0.8">Medium Quality JPEG</div>
+              <div class="dropdown-item" data-format="png">PNG</div>
+              <div class="dropdown-item" data-format="webp">WebP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Simple FAQ Section -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Is my data secure when using this tool?</h3>
+          <p>Yes, 100% secure. All image processing happens directly in your browser. Your photos never leave your device - we don't upload them to any server.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What file formats are supported?</h3>
+          <p>Our editor supports JPEG, PNG, WebP, and GIF formats. You can download your edited images in JPEG, PNG or WebP formats with customizable quality settings.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Are there any file size limits?</h3>
+          <p>For optimal performance, we recommend files under 10MB. Larger files may be processed slower depending on your device capabilities.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I save my edits and continue later?</h3>
+          <p>Currently, the editor doesn't support saving sessions. We recommend completing your edits before leaving the page.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-palette"></i>
+          <span>Mehar Designer Tools</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="tools.html">All Tools</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Muatasim Billah Tools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <i class="fas fa-check-circle"></i>
+    <span id="notificationMessage"></span>
+  </div>
+
+  <!-- JS file will be linked separately -->
+  <script src="image-effects.js"></script>
+</body>
+</html>
