@@ -31,13 +31,99 @@
   <link rel="stylesheet" href="tools.css">
   <link rel="stylesheet" href="../search.css">
   <link rel="stylesheet" href="../darkmood.css">
-  
+  <!-- PWA Support -->
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="MB Tools">
+<link rel="apple-touch-icon" href="icons/icon-152x152.png">
+<meta name="theme-color" content="#7000ff">
   <!-- JS files with defer attribute -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script defer src="../js/main.js"></script>
   <script defer src="favicon.js"></script>
   <script defer src="../js/chatbot.js"></script>
+  <!-- PWA Install Prompt -->
+<style>
+  .install-button {
+      background: linear-gradient(135deg, #7000ff, #5a00cc);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-top: 20px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(112, 0, 255, 0.3);
+      transition: all 0.3s;
+      display: none;
+  }
+  
+  .install-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(112, 0, 255, 0.4);
+  }
+  </style>
+  
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registered:', registration.scope);
+          })
+          .catch(error => {
+            console.log('ServiceWorker registration failed:', error);
+          });
+      });
+    }
+    
+    // Add install prompt
+    let deferredPrompt;
+    const installContainer = document.createElement('div');
+    installContainer.style.textAlign = 'center';
+    installContainer.style.marginTop = '30px';
+    
+    const installButton = document.createElement('button');
+    installButton.textContent = 'Install MB Tools App';
+    installButton.classList.add('install-button');
+    
+    // Find where to add the install button
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroContent = document.querySelector('.hero-content');
+      if (heroContent) {
+        installContainer.appendChild(installButton);
+        heroContent.appendChild(installContainer);
+      }
+    });
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67+ from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later
+      deferredPrompt = e;
+      // Show the install button
+      installButton.style.display = 'inline-block';
+    });
+    
+    installButton.addEventListener('click', (e) => {
+      // Hide the install button
+      installButton.style.display = 'none';
+      // Show the install prompt
+      deferredPrompt.prompt();
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- Custom Cursor (Desktop Only) -->
@@ -186,6 +272,15 @@
   <h3>PDF to Word Converter</h3>
   <p>Convert PDF documents to editable Word files online. Extract text with formatting intact. No uploads to server - 100% private and secure processing.</p>
   <a href="pdf-to-word.html" class="btn-tool">Use Tool</a>
+</div>
+<!-- Video to Audio Converter Tool Card -->
+<div class="tool-card glass">
+  <div class="tool-icon">
+    <i class="fas fa-music"></i>
+  </div>
+  <h3>Video to Audio Converter</h3>
+  <p>Extract high-quality audio from your videos with multiple format options. Convert MP4, AVI, MOV and other video formats to MP3, WAV, OGG and M4A without uploading to any server.</p>
+  <a href="video-to-audio.html" class="btn-tool">Use Tool</a>
 </div>
         <!-- Add more tools here as you create them -->
         
