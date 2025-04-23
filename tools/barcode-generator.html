@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Barcode Generator | Create & Download Barcodes | MB Tools</title>
+    <meta name="description" content="Generate professional barcodes online for free. Create UPC-A, EAN-13, Code128, and more barcode types. Download as PNG, SVG, or PDF without watermarks. No registration required.">
+    <meta name="keywords" content="barcode generator, free barcode maker, UPC-A generator, EAN-13 generator, Code128 barcode, create barcode, download barcode, online barcode tool, barcode creator">
+    <meta name="author" content="MB Tools">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Online Barcode Generator | MB Tools">
+    <meta property="og:description" content="Generate professional barcodes in multiple formats. Create UPC-A, EAN-13, Code128 barcodes for products, inventory, and more. Download as PNG, SVG, or PDF.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mbtools.com/barcode-generator.html">
+    <meta property="og:image" content="https://www.mbtools.com/images/barcode-generator-tool.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online Barcode Generator | MB Tools">
+    <meta name="twitter:description" content="Generate professional barcodes in multiple formats. Create UPC-A, EAN-13, Code128 barcodes for products, inventory, and more. Download as PNG, SVG, or PDF.">
+    <meta name="twitter:image" content="https://www.mbtools.com/images/barcode-generator-tool.png">
+    <link rel="canonical" href="https://www.mbtools.com/barcode-generator.html">
+    
+
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="barcode-generator.css">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "MB Barcode Generator",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online barcode generator that creates UPC-A, EAN-13, Code128, and other barcode types with customizable settings.",
+      "browserRequirements": "Requires JavaScript enabled",
+      "featureList": ["UPC-A generation", "EAN-13 generation", "Code128 generation", "Code39 generation", "ITF generation", "Download as PNG", "Download as SVG", "Download as PDF"]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Header and Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">MB Tools</span>
+                </a>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools.html" class="active">Tools</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content text-center">
+                    <h1>Free Online Barcode Generator</h1>
+                    <p class="hero-description">Create professional barcodes for products, inventory, shipping labels, and more. Generate UPC-A, EAN-13, Code128, and other formats for free with no watermarks.</p>
+                </div>
+            </section>
+
+            <!-- Tool Section -->
+            <section class="tool-section">
+                <div class="tool-container glass">
+                    <!-- Barcode Preview -->
+                    <div class="barcode-preview" id="barcodePreview">
+                        <p id="previewPlaceholder">Your barcode will appear here</p>
+                    </div>
+
+                    <!-- Settings and Controls -->
+                    <div class="control-section">
+                        <div class="control-group glass">
+                            <h3><i class="fas fa-cog"></i> Basic Settings</h3>
+                            <div class="form-group">
+                                <label for="barcodeType">Barcode Type</label>
+                                <select id="barcodeType" class="form-control">
+                                    <option value="code128">Code 128 (General purpose)</option>
+                                    <option value="ean13">EAN-13 (Products)</option>
+                                    <option value="upc">UPC-A (Retail products)</option>
+                                    <option value="code39">Code 39 (Industrial)</option>
+                                    <option value="itf14">ITF-14 (Packaging)</option>
+                                    <option value="ean8">EAN-8 (Small products)</option>
+                                    <option value="codabar">Codabar (Libraries, blood banks)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="barcodeValue">Barcode Value</label>
+                                <input type="text" id="barcodeValue" class="form-control" placeholder="Enter barcode value..." value="123456789012">
+                                <p id="valueHelp" class="help-text">Enter the data to encode in the barcode</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group glass">
+                            <h3><i class="fas fa-sliders-h"></i> Appearance Options</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="barcodeWidth">Width (px)</label>
+                                    <input type="number" id="barcodeWidth" class="form-control" value="2" min="1" max="10">
+                                </div>
+                                <div class="form-group">
+                                    <label for="barcodeHeight">Height (px)</label>
+                                    <input type="number" id="barcodeHeight" class="form-control" value="100" min="30" max="500">
+                                </div>
+                                <div class="form-group">
+                                    <label for="barcodeMargin">Margin (px)</label>
+                                    <input type="number" id="barcodeMargin" class="form-control" value="10" min="0" max="50">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="barcodeBgColor">Background Color</label>
+                                    <div class="color-picker">
+                                        <input type="color" id="barcodeBgColor" value="#FFFFFF">
+                                        <input type="text" id="barcodeBgColorText" value="#FFFFFF" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="barcodeFgColor">Barcode Color</label>
+                                    <div class="color-picker">
+                                        <input type="color" id="barcodeFgColor" value="#000000">
+                                        <input type="text" id="barcodeFgColorText" value="#000000" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group glass">
+                            <h3><i class="fas fa-font"></i> Text Options</h3>
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="displayText" checked>
+                                    <label for="displayText">Display text below barcode</label>
+                                </div>
+                            </div>
+                            <div class="form-row" id="textOptionsContainer">
+                                <div class="form-group">
+                                    <label for="textAlign">Text Alignment</label>
+                                    <select id="textAlign" class="form-control">
+                                        <option value="center">Center</option>
+                                        <option value="left">Left</option>
+                                        <option value="right">Right</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="textPosition">Text Position</label>
+                                    <select id="textPosition" class="form-control">
+                                        <option value="bottom">Bottom</option>
+                                        <option value="top">Top</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="textMargin">Text Margin (px)</label>
+                                    <input type="number" id="textMargin" class="form-control" value="5" min="0" max="20">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Error Messages -->
+                        <div id="errorContainer" class="message error-message" style="display:none;"></div>
+
+                        <!-- Action Buttons -->
+                        <div class="btn-group">
+                            <button id="generateBtn" class="btn btn-primary">
+                                <i class="fas fa-sync-alt"></i> Generate Barcode
+                            </button>
+                            <button id="downloadPng" class="btn btn-secondary">
+                                <i class="fas fa-file-image"></i> Download PNG
+                            </button>
+                            <button id="downloadSvg" class="btn btn-secondary">
+                                <i class="fas fa-file-code"></i> Download SVG
+                            </button>
+                            <button id="downloadPdf" class="btn btn-secondary">
+                                <i class="fas fa-file-pdf"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Information Section -->
+            <section class="info-section glass">
+                <h2>What is a Barcode?</h2>
+                <p>A barcode is a machine-readable representation of data, typically displayed as a series of parallel lines of varying widths (linear or 1D barcodes) or as patterns of squares, dots, or other geometric shapes (2D barcodes). Barcodes are used to quickly and accurately collect data, eliminating the need for manual data entry.</p>
+                
+                <div class="info-card glass">
+                    <h3>Common Uses of Barcodes</h3>
+                    <ul>
+                        <li>Product identification in retail stores</li>
+                        <li>Inventory management and asset tracking</li>
+                        <li>Shipping and logistics tracking</li>
+                        <li>Event and ticket management</li>
+                        <li>Patient identification in healthcare</li>
+                        <li>Library book management</li>
+                        <li>Manufacturing process control</li>
+                    </ul>
+                </div>
+
+                <h2>Types of Barcodes We Support</h2>
+                <div class="barcode-types-grid">
+                    <div class="info-card glass">
+                        <h3>UPC-A</h3>
+                        <p>Universal Product Code, used primarily in the United States and Canada for retail products. Contains 12 digits.</p>
+                        <p><strong>Example format:</strong> 12 numeric digits</p>
+                    </div>
+                    
+                    <div class="info-card glass">
+                        <h3>EAN-13</h3>
+                        <p>European Article Number, used worldwide for retail products. Contains 13 digits.</p>
+                        <p><strong>Example format:</strong> 13 numeric digits</p>
+                    </div>
+                    
+                    <div class="info-card glass">
+                        <h3>Code 128</h3>
+                        <p>High-density linear barcode that can encode all 128 ASCII characters. Used in logistics and transportation.</p>
+                        <p><strong>Example format:</strong> Any ASCII character</p>
+                    </div>
+                    
+                    <div class="info-card glass">
+                        <h3>Code 39</h3>
+                        <p>Used in non-retail environments such as industrial applications and government. Can encode uppercase letters, numbers, and some special characters.</p>
+                        <p><strong>Example format:</strong> A-Z, 0-9, -, ., $, /, +, %, and space</p>
+                    </div>
+                    
+                    <div class="info-card glass">
+                        <h3>ITF-14</h3>
+                        <p>Used for packaging levels in warehousing and distribution. Contains 14 digits.</p>
+                        <p><strong>Example format:</strong> 14 numeric digits</p>
+                    </div>
+                    
+                    <div class="info-card glass">
+                        <h3>EAN-8</h3>
+                        <p>Compact version of EAN-13, used for small retail items where space is limited. Contains 8 digits.</p>
+                        <p><strong>Example format:</strong> 8 numeric digits</p>
+                    </div>
+                </div>
+
+                <h2>Our Barcode Generator Features</h2>
+                <div class="features-grid">
+                    <div class="info-card glass">
+                        <div class="info-card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Privacy First</h3>
+                        <p>All barcode generation happens in your browser. Your data never leaves your device, providing 100% privacy. We don't store or transmit any of your barcode data to our servers.</p>
+                    </div>
+                    
+                    <div class="info-card glass">
+                        <div class="info-card-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>Free Downloads</h3>
+                        <p>Download your barcodes in various formats (PNG, SVG, PDF) without watermarks, subscription fees, or hidden costs. Our tool is completely free for personal and commercial use.</p>
+                    </div>
+                    
+                    <div class="info-card glass">
+                        <div class="info-card-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Customization Options</h3>
+                        <p>Customize your barcode's dimensions, colors, text display, and more to match your specific needs and design requirements.</p>
+                    </div>
+                    
+                    <div class="info-card glass">
+                        <div class="info-card-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Processing</h3>
+                        <p>Generate barcodes instantly with our optimized JavaScript code. No waiting for server processing or page refreshes.</p>
+                    </div>
+                </div>
+
+                <h2>How to Use Our Barcode Generator</h2>
+                <div class="steps-container glass">
+                    <ol class="steps-list">
+                        <li>
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Select Barcode Type</h3>
+                                <p>Choose your desired barcode type from the dropdown menu based on your specific need (UPC-A for retail products, Code128 for general purpose, etc.)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Enter Barcode Data</h3>
+                                <p>Type the data you want to encode in the barcode. Make sure it meets the format requirements for your selected barcode type.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Customize Settings</h3>
+                                <p>Adjust appearance options like width, height, colors, and text display according to your preferences.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Generate Barcode</h3>
+                                <p>Click the "Generate Barcode" button to create your barcode with the specified settings.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Download Your Barcode</h3>
+                                <p>Choose your preferred format (PNG, SVG, or PDF) and download your barcode for use in your projects.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="info-card glass tips-card">
+                    <h3><i class="fas fa-lightbulb"></i> Tips for Good Barcodes</h3>
+                    <ul>
+                        <li>Ensure adequate contrast between barcode and background (black on white works best)</li>
+                        <li>Make barcodes large enough to be scanned reliably (minimum height of 1 cm for most scanners)</li>
+                        <li>Include appropriate quiet zones (margins) around the barcode (minimum 10x the narrowest bar)</li>
+                        <li>Test your barcodes with the scanning devices that will be used</li>
+                        <li>For retail products, verify that you're using the correct barcode format for your region</li>
+                        <li>Print on non-reflective materials for better scanning</li>
+                        <li>Avoid resizing the barcode after generation as it may affect scannability</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FAQ Section with Toggle Functionality -->
+            <section class="faq-section glass">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is this barcode generator free to use?</h3>
+                            <div class="faq-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, our barcode generator is completely free to use with no hidden costs or watermarks. You can generate and download as many barcodes as you need for both personal and commercial use. We don't require registration, payment information, or subscriptions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Are the barcodes generated by this tool scannable?</h3>
+                            <div class="faq-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, all barcodes generated by our tool follow industry standards and should be scannable by standard barcode readers when printed correctly. Always test your barcodes with the specific scanning equipment you'll be using.</p>
+                            <p>To ensure scannability:</p>
+                            <ul>
+                                <li>Print at an appropriate size (not too small)</li>
+                                <li>Ensure good print quality without distortion</li>
+                                <li>Maintain high contrast (ideally black on white)</li>
+                                <li>Include quiet zones (margins) around the barcode</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Which barcode type should I use for my retail product?</h3>
+                            <div class="faq-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For retail products in the USA and Canada, UPC-A is commonly used. For global retail products, EAN-13 is the standard. If you need an official retail barcode, you should obtain one through GS1, the official global barcode issuing organization.</p>
+                            <p>Here's a quick guide:</p>
+                            <ul>
+                                <li><strong>UPC-A:</strong> Standard retail products in USA/Canada</li>
+                                <li><strong>EAN-13:</strong> Global retail products</li>
+                                <li><strong>EAN-8:</strong> Small retail items with limited space</li>
+                                <li><strong>Code 128:</strong> General purpose, non-retail applications</li>
+                                <li><strong>Code 39:</strong> Industrial and government applications</li>
+                                <li><strong>ITF-14:</strong> Packaging and shipping cartons</li>
+                            </ul>
+                            <p>Note: For official retail barcodes to be accepted by major retailers, you must register with GS1 to obtain a company prefix and unique product numbers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What's the difference between the download formats?</h3>
+                            <div class="faq-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>PNG:</strong> A raster image format best for web use, digital displays, and basic applications. PNG files have a fixed resolution, so they may become pixelated if enlarged too much.</p>
+                            <p><strong>SVG:</strong> A vector format that can be scaled to any size without losing quality. SVG is ideal for print materials, especially when the barcode needs to be resized. SVG files are also typically smaller in file size.</p>
+                            <p><strong>PDF:</strong> A document format that preserves formatting and is easy to print. PDFs are ideal for professional printing, documentation, and when you need to include additional information with your barcode.</p>
+                            <p>For most applications, we recommend using SVG for the highest quality and flexibility.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is my data safe when using this tool?</h3>
+                            <div class="faq-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! Our barcode generator processes everything locally in your browser. Your data never leaves your device and is not transmitted to our servers, ensuring complete privacy and security.</p>
+                            <p>Unlike many online barcode generators that send your data to servers for processing, our tool uses JavaScript to generate barcodes entirely within your browser. This means:</p>
+                            <ul>
+                                <li>Your sensitive data stays on your device</li>
+                                <li>No server logging or storage of your information</li>
+                                <li>Works even when you're offline (after the initial page load)</li>
+                                <li>Faster processing without server communication delays</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I create barcodes for inventory management systems?</h3>
+                            <div class="faq-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, our tool is perfect for creating barcodes for inventory management systems. Code 128 is typically the best choice for this purpose as it can encode all ASCII characters and is widely supported by inventory scanners.</p>
+                            <p>For inventory management, we recommend:</p>
+                            <ul>
+                                <li>Using consistent formatting for your inventory codes</li>
+                                <li>Including prefix/suffix characters to identify product categories</li>
+                                <li>Testing compatibility with your specific inventory software and scanners</li>
+                                <li>Printing labels with enough quiet zone space for reliable scanning</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I ensure my barcodes will scan properly when printed?</h3>
+                            <div class="faq-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To ensure your barcodes scan properly when printed:</p>
+                            <ol>
+                                <li><strong>Print Quality:</strong> Use a good quality printer with at least 300 DPI resolution</li>
+                                <li><strong>Size:</strong> Ensure the barcode height is at least 1 cm (0.4 inches) for most scanners</li>
+                                <li><strong>Contrast:</strong> Always print with high contrast, ideally black bars on a white background</li>
+                                <li><strong>Quiet Zones:</strong> Leave adequate white space (quiet zones) on both sides of the barcode</li>
+                                <li><strong>Materials:</strong> Print on non-glossy materials to reduce reflection</li>
+                                <li><strong>Test:</strong> Scan the printed barcode with the intended scanner to verify functionality</li>
+                                <li><strong>Avoid Distortion:</strong> Don't stretch or compress the barcode after generation</li>
+                            </ol>
+                            <p>For best results, download the SVG format and use it in your design software without resizing the proportions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can these barcodes be used for commercial products?</h3>
+                            <div class="faq-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can use our barcode generator for creating barcodes for commercial products, but with an important caveat:</p>
+                            <p>For <strong>internal</strong> commercial uses like inventory management, warehouse tracking, internal documents, and non-retail products, you can freely use any barcodes generated with our tool.</p>
+                            <p>For <strong>retail</strong> products sold in stores, particularly major retailers:</p>
+                            <ul>
+                                <li>You typically need to register with GS1 (www.gs1.org) to obtain legal, unique barcode numbers</li>
+                                <li>Major retailers usually require GS1-registered barcodes for their inventory systems</li>
+                                <li>Once you have your GS1 numbers, you can use our tool to generate the actual barcode images</li>
+                            </ul>
+                            <p>Our tool creates technically valid barcodes, but does not provide the registration or uniqueness guarantees required for retail distribution.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage Examples Section -->
+            <section class="examples-section glass">
+                <h2>Barcode Usage Examples</h2>
+                
+                <div class="example-cards">
+                    <div class="example-card glass">
+                        <div class="example-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Retail Products</h3>
+                        <p>Use UPC-A or EAN-13 barcodes for product packaging, price tags, and shelf labels in retail environments.</p>
+                        <div class="example-tips">
+                            <strong>Recommended:</strong> EAN-13, UPC-A
+                        </div>
+                    </div>
+                    
+                    <div class="example-card glass">
+                        <div class="example-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h3>Inventory Management</h3>
+                        <p>Track equipment, tools, and stock with barcode labels for fast and accurate inventory counts.</p>
+                        <div class="example-tips">
+                            <strong>Recommended:</strong> Code 128, Code 39
+                        </div>
+                    </div>
+                    
+                    <div class="example-card glass">
+                        <div class="example-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Shipping & Logistics</h3>
+                        <p>Create shipping labels, package tracking codes, and logistics documents with scannable barcodes.</p>
+                        <div class="example-tips">
+                            <strong>Recommended:</strong> Code 128, ITF-14
+                        </div>
+                    </div>
+                    
+                    <div class="example-card glass">
+                        <div class="example-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <h3>Event Tickets</h3>
+                        <p>Generate unique barcodes for event tickets, admission passes, and membership cards.</p>
+                        <div class="example-tips">
+                            <strong>Recommended:</strong> Code 128
+                        </div>
+                    </div>
+                    
+                    <div class="example-card glass">
+                        <div class="example-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Document Management</h3>
+                        <p>Organize and track documents, files, and records with barcodes for quick retrieval.</p>
+                        <div class="example-tips">
+                            <strong>Recommended:</strong> Code 39, Code 128
+                        </div>
+                    </div>
+                    
+                    <div class="example-card glass">
+                        <div class="example-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Healthcare</h3>
+                        <p>Create patient wristbands, medication labels, and equipment tags with scannable barcodes.</p>
+                        <div class="example-tips">
+                            <strong>Recommended:</strong> Codabar, Code 128
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Comparison with Other Barcode Types -->
+            <section class="comparison-section glass">
+                <h2>Comparison of Barcode Types</h2>
+                
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Barcode Type</th>
+                                <th>Character Set</th>
+                                <th>Length</th>
+                                <th>Common Uses</th>
+                                <th>Advantages</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>UPC-A</td>
+                                <td>Numeric only</td>
+                                <td>12 digits</td>
+                                <td>Retail products in US/Canada</td>
+                                <td>Widely accepted in North American retail</td>
+                            </tr>
+                            <tr>
+                                <td>EAN-13</td>
+                                <td>Numeric only</td>
+                                <td>13 digits</td>
+                                <td>Global retail products</td>
+                                <td>International standard for retail</td>
+                            </tr>
+                            <tr>
+                                <td>Code 128</td>
+                                <td>Full ASCII</td>
+                                <td>Variable</td>
+                                <td>Logistics, inventory, shipping</td>
+                                <td>High density, versatile character set</td>
+                            </tr>
+                            <tr>
+                                <td>Code 39</td>
+                                <td>A-Z, 0-9, some symbols</td>
+                                <td>Variable</td>
+                                <td>Industrial, government, non-retail</td>
+                                <td>Widely supported, self-checking</td>
+                            </tr>
+                            <tr>
+                                <td>ITF-14</td>
+                                <td>Numeric only</td>
+                                <td>14 digits</td>
+                                <td>Packaging, shipping cartons</td>
+                                <td>Prints well on corrugated cardboard</td>
+                            </tr>
+                            <tr>
+                                <td>EAN-8</td>
+                                <td>Numeric only</td>
+                                <td>8 digits</td>
+                                <td>Small retail items</td>
+                                <td>Compact size for limited space</td>
+                            </tr>
+                            <tr>
+                                <td>Codabar</td>
+                                <td>0-9, -, $, :, /, ., +</td>
+                                <td>Variable</td>
+                                <td>Libraries, blood banks, airbills</td>
+                                <td>Self-checking, easily printable</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <span class="logo-text">MB Tools</span>
+                    <p>Free online tools for everyday tasks</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-nav-group">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li><a href="pdf-to-word.html">PDF to Word</a></li>
+                            <li><a href="video-to-audio.html">Video to Audio</a></li>
+                            <li><a href="qr-generator.html">QR Code Generator</a></li>
+                            <li><a href="barcode-generator.html">Barcode Generator</a></li>
+                            <li><a href="tools.html">View All Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-group">
+                        <h3>Company</h3>
+                        <ul>
+                            <a href="../index.html#about" class="nav-link">About</a>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="term.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="../blog/index.html">blogs</a></li>
+                            <li><a href="index.html">Tools</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Muatasim billah Tools. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Mehardesigner/Meharportfolio" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://web.facebook.com/profile.php?id=100095466197402" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UCtg52ZzH02pfjfh31a7wA2Q" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="modernPreloader.js"></script>
+    
+    <!-- JsBarcode Library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- FileSaver Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="barcode-generator.js"></script>
+</body>
+</html>
