@@ -1,4 +1,4 @@
-// Portfolio Chatbot with Enhanced Knowledge Base and Advanced Conversation
+// Portfolio Chatbot with Enhanced Knowledge Base, Advanced Conversation, Emojis and Dark/Light Mode
 document.addEventListener('DOMContentLoaded', function() {
   // DOM Elements
   const chatbotToggle = document.getElementById('chatbot-toggle');
@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const userInput = document.getElementById('user-input');
   const sendButton = document.getElementById('send-button');
   const typingIndicator = document.getElementById('typing-indicator');
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
   
   // Portfolio URLs - FIXED with correct paths based on project folder structure
   const portfolioURLs = {
@@ -62,102 +64,108 @@ document.addEventListener('DOMContentLoaded', function() {
     greetedUser: false
   };
   
-  // Comprehensive Knowledge Base with Enhanced Personal Interactions
+  // Comprehensive Knowledge Base with Enhanced Personal Interactions & Emojis
   const knowledgeBase = {
     greeting: [
-      "Hello! I'm Muatasim's portfolio assistant. How can I help you today?",
-      "Hi there! Welcome to Muatasim Billah's portfolio. What would you like to know about my work?",
-      "Welcome! I'm here to tell you about Muatasim Billah's services and skills. What are you interested in?"
+      "👋 Hello! I'm Muatasim's portfolio assistant. How can I help you today?",
+      "👋 Hi there! Welcome to Muatasim Billah's portfolio. What would you like to know about my work?",
+      "🙌 Welcome! I'm here to tell you about Muatasim Billah's services and skills. What are you interested in?"
     ],
 
     // Personal interaction responses
     personal: [
-      "I'm an AI assistant created by Muatasim Billah to help you learn about his portfolio, services, and tools. How can I assist you today?",
-      "I was designed by Muatasim Billah to provide detailed information about his work and services. What would you like to know?"
+      "🤖 I'm an AI assistant created by Muatasim Billah to help you learn about his portfolio, services, and tools. How can I assist you today?",
+      "🚀 I was designed by Muatasim Billah to provide detailed information about his work and services. What would you like to know?"
     ],
     
     aboutCreator: [
-      "I was created by Muatasim Billah to help visitors like you explore his portfolio and services. He's a multidisciplinary professional specializing in web development, e-commerce, audio engineering, AI services, and graphic design.",
-      "Muatasim Billah built me to provide helpful information about his work and services. He's a skilled professional in various digital domains including web development, Shopify design, AI services, and more."
+      "👨‍💻 I was created by Muatasim Billah to help visitors like you explore his portfolio and services. He's a multidisciplinary professional specializing in web development, e-commerce, audio engineering, AI services, and graphic design.",
+      "🛠️ Muatasim Billah built me to provide helpful information about his work and services. He's a skilled professional in various digital domains including web development, Shopify design, AI services, and more."
     ],
     
     botIdentity: [
-      "I'm a specialized AI assistant for Muatasim Billah's portfolio. I can tell you about his services, tools, projects, and more. How can I help you today?",
-      "I'm a portfolio assistant designed to showcase Muatasim Billah's work and services. I'd be happy to answer questions about his expertise and offerings!"
+      "🤖 I'm a specialized AI assistant for Muatasim Billah's portfolio. I can tell you about his services, tools, projects, and more. How can I help you today?",
+      "💬 I'm a portfolio assistant designed to showcase Muatasim Billah's work and services. I'd be happy to answer questions about his expertise and offerings!"
     ],
 
     feeling: [
-      "I'm doing well, thanks for asking! I'm here and ready to help you learn about Muatasim Billah's services and portfolio. What can I help you with today?",
-      "I'm functioning perfectly! Ready to assist you with information about Muatasim's work. Is there something specific you'd like to know?",
-      "I'm great! Always happy to chat about Muatasim's portfolio and services. What brings you here today?"
+      "😊 I'm doing well, thanks for asking! I'm here and ready to help you learn about Muatasim Billah's services and portfolio. What can I help you with today?",
+      "⚡ I'm functioning perfectly! Ready to assist you with information about Muatasim's work. Is there something specific you'd like to know?",
+      "😎 I'm great! Always happy to chat about Muatasim's portfolio and services. What brings you here today?"
     ],
     
     thanks: [
-      "You're welcome! If you have any other questions about Muatasim's services or portfolio, I'm here to help.",
-      "Happy to help! Don't hesitate to ask if you need more information about anything else.",
-      "My pleasure! I'm here anytime you want to know more about Muatasim's work."
+      "🙏 You're welcome! If you have any other questions about Muatasim's services or portfolio, I'm here to help.",
+      "✨ Happy to help! Don't hesitate to ask if you need more information about anything else.",
+      "😊 My pleasure! I'm here anytime you want to know more about Muatasim's work."
     ],
     
     funny: [
-      "I don't tell jokes, but I can tell you about some amazing web development and AI services that might make you smile!",
-      "My humor circuit is still in development, but I'm excellent at providing information about Muatasim's portfolio. What would you like to know?",
-      "Instead of jokes, I specialize in providing detailed information about services that can help your business grow. Would you like to know more?"
+      "😄 I don't tell jokes, but I can tell you about some amazing web development and AI services that might make you smile!",
+      "🤔 My humor circuit is still in development, but I'm excellent at providing information about Muatasim's portfolio. What would you like to know?",
+      "😉 Instead of jokes, I specialize in providing detailed information about services that can help your business grow. Would you like to know more?"
     ],
     
     compliment: [
-      "Thank you for the kind words! I'm designed to provide the best information about Muatasim's services. Is there something specific you'd like to know?",
-      "That's very kind of you to say! I'm constantly learning to better assist with information about Muatasim's portfolio. How can I help you today?",
-      "You're too kind! I'm just doing my job to help you learn about Muatasim's work. What can I help you with?"
+      "☺️ Thank you for the kind words! I'm designed to provide the best information about Muatasim's services. Is there something specific you'd like to know?",
+      "🌟 That's very kind of you to say! I'm constantly learning to better assist with information about Muatasim's portfolio. How can I help you today?",
+      "💖 You're too kind! I'm just doing my job to help you learn about Muatasim's work. What can I help you with?"
     ],
     
     goodbye: [
-      "Goodbye! Feel free to come back if you have more questions about Muatasim's services or portfolio.",
-      "Take care! Don't hesitate to return when you need information about Muatasim's work.",
-      "Until next time! Remember, I'm always here to help with information about Muatasim's portfolio and services."
+      "👋 Goodbye! Feel free to come back if you have more questions about Muatasim's services or portfolio.",
+      "✌️ Take care! Don't hesitate to return when you need information about Muatasim's work.",
+      "👋 Until next time! Remember, I'm always here to help with information about Muatasim's portfolio and services."
     ],
     
     creatorPhoto: [
-      "<b>About Muatasim Billah</b><br><br>" +
+      "<b>About Muatasim Billah</b> 👨‍💻<br><br>" +
       "<img src='images/chatbot avatar.png' alt='Muatasim Billah' class='creator-photo'><br><br>" +
       "Muatasim Billah is a multidisciplinary professional with expertise in web development, e-commerce, audio engineering, AI services, and graphic design. With years of experience across multiple domains, he delivers creative solutions for businesses and individuals seeking to establish or enhance their digital presence.<br><br>" +
       "Learn more about Muatasim here: <a href='" + portfolioURLs.about + "' target='_blank'>About Muatasim</a>"
     ],
     
+    bossLook: [
+      "👑 Here's the boss! <br><br>" +
+      "<img src='images/chatbot avatar.png' alt='Muatasim Billah' class='creator-photo'><br><br>" +
+      "The one and only Muatasim Billah! 🌟 With superpowers in web development, e-commerce, audio engineering, and more! Think of him as the digital Swiss Army knife - multitalented and always ready to solve problems! 😎"
+    ],
+    
     about: [
-      "<b>About Muatasim Billah</b><br><br>" +
+      "<b>About Muatasim Billah</b> 👨‍💻<br><br>" +
       "Muatasim Billah is a multidisciplinary professional with expertise in:<br><br>" +
-      "• Web Development<br>" +
-      "• E-commerce & Shopify Design<br>" +
-      "• Audio Engineering<br>" +
-      "• AI Voice & Avatar Services<br>" +
-      "• Graphic Design<br><br>" +
+      "• Web Development 🌐<br>" +
+      "• E-commerce & Shopify Design 🛍️<br>" +
+      "• Audio Engineering 🎵<br>" +
+      "• AI Voice & Avatar Services 🤖<br>" +
+      "• Graphic Design 🎨<br><br>" +
       "With years of experience across multiple domains, Muatasim delivers creative solutions for businesses and individuals seeking to establish or enhance their digital presence.<br><br>" +
       "His approach combines technical expertise with aesthetic sensibility, ensuring each project not only functions flawlessly but also captures the unique identity of the client's brand.<br><br>" +
       "Learn more about Muatasim here: <a href='" + portfolioURLs.about + "' target='_blank'>About Muatasim</a>"
     ],
     
     services: [
-      "<b>Services Offered by Muatasim Billah</b><br><br>" +
+      "<b>Services Offered by Muatasim Billah</b> 🚀<br><br>" +
       "Muatasim provides a comprehensive range of digital services to help businesses and individuals establish a strong online presence:<br><br>" +
-      "• <a href='" + portfolioURLs.webDevelopment + "' target='_blank'>Web Development</a> - Custom websites with modern design and functionality<br><br>" +
-      "• <a href='" + portfolioURLs.shopify + "' target='_blank'>Shopify/E-commerce</a> - Online store creation and optimization<br><br>" +
-      "• <a href='" + portfolioURLs.audioEngineering + "' target='_blank'>Audio Engineering</a> - Professional sound design and music production<br><br>" +
-      "• <a href='" + portfolioURLs.aiVoice + "' target='_blank'>AI Voiceover</a> - Custom AI-generated voice content<br><br>" +
-      "• <a href='" + portfolioURLs.aiAvatar + "' target='_blank'>AI Avatar Creation</a> - Digital humans for videos and presentations<br><br>" +
-      "• <a href='" + portfolioURLs.graphicDesign + "' target='_blank'>Graphic Design</a> - Visual content for marketing and branding<br><br>" +
+      "• <a href='" + portfolioURLs.webDevelopment + "' target='_blank'>Web Development</a> 🌐 - Custom websites with modern design and functionality<br><br>" +
+      "• <a href='" + portfolioURLs.shopify + "' target='_blank'>Shopify/E-commerce</a> 🛍️ - Online store creation and optimization<br><br>" +
+      "• <a href='" + portfolioURLs.audioEngineering + "' target='_blank'>Audio Engineering</a> 🎵 - Professional sound design and music production<br><br>" +
+      "• <a href='" + portfolioURLs.aiVoice + "' target='_blank'>AI Voiceover</a> 🎤 - Custom AI-generated voice content<br><br>" +
+      "• <a href='" + portfolioURLs.aiAvatar + "' target='_blank'>AI Avatar Creation</a> 👤 - Digital humans for videos and presentations<br><br>" +
+      "• <a href='" + portfolioURLs.graphicDesign + "' target='_blank'>Graphic Design</a> 🎨 - Visual content for marketing and branding<br><br>" +
       "Each service is tailored to meet your specific needs and objectives. Which service would you like to know more about?"
     ],
     
     webDevelopment: [
-      "<b>Web Development Services</b><br><br>" +
+      "<b>Web Development Services</b> 🌐<br><br>" +
       "Muatasim provides expert web development services focused on creating responsive, modern, and engaging websites that deliver exceptional user experiences.<br><br>" +
       "<b>Services include:</b><br><br>" +
-      "• <b>Responsive Website Design</b> - Websites that look great on all devices<br>" +
-      "• <b>Interactive UI/UX</b> - Engaging user interfaces with smooth interactions<br>" +
-      "• <b>GSAP Animations</b> - Advanced animations for visual impact<br>" +
-      "• <b>Performance Optimization</b> - Fast-loading, efficient websites<br>" +
-      "• <b>SEO-Friendly Structure</b> - Sites built for better search engine rankings<br>" +
-      "• <b>Custom Web Applications</b> - Tailored functionality for specific needs<br><br>" +
+      "• <b>Responsive Website Design</b> 📱 - Websites that look great on all devices<br>" +
+      "• <b>Interactive UI/UX</b> ✨ - Engaging user interfaces with smooth interactions<br>" +
+      "• <b>GSAP Animations</b> 🎭 - Advanced animations for visual impact<br>" +
+      "• <b>Performance Optimization</b> ⚡ - Fast-loading, efficient websites<br>" +
+      "• <b>SEO-Friendly Structure</b> 🔍 - Sites built for better search engine rankings<br>" +
+      "• <b>Custom Web Applications</b> 🛠️ - Tailored functionality for specific needs<br><br>" +
       "<b>Technologies used:</b><br>" +
       "HTML5, CSS3, JavaScript, React, GSAP, Bootstrap, Tailwind CSS<br><br>" +
       "All websites are built with a mobile-first approach, ensuring they function perfectly across all devices and screen sizes.<br><br>" +
@@ -165,15 +173,15 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     shopify: [
-      "<b>Shopify & E-commerce Services</b><br><br>" +
+      "<b>Shopify & E-commerce Services</b> 🛍️<br><br>" +
       "Muatasim specializes in creating and optimizing Shopify stores that not only look professional but also convert visitors into customers.<br><br>" +
       "<b>Services include:</b><br><br>" +
-      "• <b>Custom Theme Development</b> - Unique store designs that stand out<br>" +
-      "• <b>Store Setup & Configuration</b> - Complete store setup from scratch<br>" +
-      "• <b>Performance Optimization</b> - Speed enhancements for better user experience<br>" +
-      "• <b>Conversion Rate Optimization</b> - Strategic improvements to increase sales<br>" +
-      "• <b>Product Page Enhancement</b> - Compelling product presentations<br>" +
-      "• <b>Payment Gateway Integration</b> - Secure, reliable payment processing<br><br>" +
+      "• <b>Custom Theme Development</b> 🎨 - Unique store designs that stand out<br>" +
+      "• <b>Store Setup & Configuration</b> 🔧 - Complete store setup from scratch<br>" +
+      "• <b>Performance Optimization</b> ⚡ - Speed enhancements for better user experience<br>" +
+      "• <b>Conversion Rate Optimization</b> 📈 - Strategic improvements to increase sales<br>" +
+      "• <b>Product Page Enhancement</b> 🖼️ - Compelling product presentations<br>" +
+      "• <b>Payment Gateway Integration</b> 💳 - Secure, reliable payment processing<br><br>" +
       "<b>E-commerce expertise extends to:</b><br>" +
       "• Product strategy<br>" +
       "• Visual merchandising<br>" +
@@ -184,15 +192,15 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     audioEngineering: [
-      "<b>Audio Engineering Services</b><br><br>" +
+      "<b>Audio Engineering Services</b> 🎵<br><br>" +
       "Muatasim offers professional audio engineering services that transform raw recordings into polished, broadcast-ready sound.<br><br>" +
       "<b>Services include:</b><br><br>" +
-      "• <b>Mixing & Mastering</b> - Professional balancing and enhancement of audio elements<br>" +
-      "• <b>Sound Design</b> - Custom sound creation for various media<br>" +
-      "• <b>Podcast Production</b> - Complete audio solutions for podcasters<br>" +
-      "• <b>Audio Restoration</b> - Cleaning and enhancing damaged or noisy recordings<br>" +
-      "• <b>Music Production</b> - Creating original compositions and beats<br>" +
-      "• <b>Voice Processing</b> - Vocal enhancement and character development<br><br>" +
+      "• <b>Mixing & Mastering</b> 🎚️ - Professional balancing and enhancement of audio elements<br>" +
+      "• <b>Sound Design</b> 🔊 - Custom sound creation for various media<br>" +
+      "• <b>Podcast Production</b> 🎙️ - Complete audio solutions for podcasters<br>" +
+      "• <b>Audio Restoration</b> 🧹 - Cleaning and enhancing damaged or noisy recordings<br>" +
+      "• <b>Music Production</b> 🎼 - Creating original compositions and beats<br>" +
+      "• <b>Voice Processing</b> 🗣️ - Vocal enhancement and character development<br><br>" +
       "<b>Equipment and techniques:</b><br>" +
       "• Professional DAWs (Pro Tools, Logic Pro, FL Studio)<br>" +
       "• High-quality plugins (Waves, Fab Filter, iZotope)<br>" +
@@ -202,15 +210,15 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     aiVoice: [
-      "<b>AI Voiceover Services</b><br><br>" +
+      "<b>AI Voiceover Services</b> 🎤<br><br>" +
       "Muatasim provides cutting-edge AI voiceover creation services, generating realistic human-like voices for various applications.<br><br>" +
       "<b>Services include:</b><br><br>" +
-      "• <b>Custom AI Voice Generation</b> - Tailored voices for your specific needs<br>" +
-      "• <b>Commercial Voiceovers</b> - Professional narration for advertisements<br>" +
-      "• <b>Explainer Videos</b> - Clear, engaging narration for instructional content<br>" +
-      "• <b>IVR Systems</b> - Voice prompts for phone systems<br>" +
-      "• <b>Audiobooks & Narration</b> - Long-form content with consistent delivery<br>" +
-      "• <b>Multi-language Options</b> - Voices available in multiple languages<br><br>" +
+      "• <b>Custom AI Voice Generation</b> 🤖 - Tailored voices for your specific needs<br>" +
+      "• <b>Commercial Voiceovers</b> 📢 - Professional narration for advertisements<br>" +
+      "• <b>Explainer Videos</b> 📹 - Clear, engaging narration for instructional content<br>" +
+      "• <b>IVR Systems</b> ☎️ - Voice prompts for phone systems<br>" +
+      "• <b>Audiobooks & Narration</b> 📚 - Long-form content with consistent delivery<br>" +
+      "• <b>Multi-language Options</b> 🌍 - Voices available in multiple languages<br><br>" +
       "<b>Benefits:</b><br>" +
       "• Cost-effective alternative to hiring voice talent<br>" +
       "• Quick turnaround times<br>" +
@@ -221,15 +229,15 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     aiAvatar: [
-      "<b>AI Talking Avatar Services</b><br><br>" +
+      "<b>AI Talking Avatar Services</b> 👤<br><br>" +
       "Muatasim creates lifelike digital humans that can represent your brand, deliver presentations, or enhance your video content.<br><br>" +
       "<b>Services include:</b><br><br>" +
-      "• <b>Digital Humans for Videos</b> - Realistic avatars for video content<br>" +
-      "• <b>Virtual Presenters</b> - Professional speakers for presentations<br>" +
-      "• <b>Marketing Materials</b> - Engaging spokespersons for promotions<br>" +
-      "• <b>Customized Avatar Appearances</b> - Personalized looks to match your brand<br>" +
-      "• <b>Multilingual Capabilities</b> - Avatars that speak multiple languages<br>" +
-      "• <b>Emotion Settings</b> - Various emotional expressions for different contexts<br><br>" +
+      "• <b>Digital Humans for Videos</b> 📹 - Realistic avatars for video content<br>" +
+      "• <b>Virtual Presenters</b> 👨‍💼 - Professional speakers for presentations<br>" +
+      "• <b>Marketing Materials</b> 📊 - Engaging spokespersons for promotions<br>" +
+      "• <b>Customized Avatar Appearances</b> 🎭 - Personalized looks to match your brand<br>" +
+      "• <b>Multilingual Capabilities</b> 🌐 - Avatars that speak multiple languages<br>" +
+      "• <b>Emotion Settings</b> 😀 - Various emotional expressions for different contexts<br><br>" +
       "<b>Applications:</b><br>" +
       "• Corporate training videos<br>" +
       "• Product demonstrations<br>" +
@@ -241,15 +249,15 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     graphicDesign: [
-      "<b>Graphic Design Services</b><br><br>" +
+      "<b>Graphic Design Services</b> 🎨<br><br>" +
       "Muatasim offers expert graphic design services with a specialization in Canva design for businesses and individuals.<br><br>" +
       "<b>Services include:</b><br><br>" +
-      "• <b>Social Media Graphics</b> - Eye-catching visuals for all platforms<br>" +
-      "• <b>Marketing Materials</b> - Promotional designs that convert<br>" +
-      "• <b>Presentations</b> - Professional slides that impress audiences<br>" +
-      "• <b>Branding Packages</b> - Consistent visual identity elements<br>" +
-      "• <b>Print Materials</b> - Designs optimized for physical production<br>" +
-      "• <b>Custom Templates</b> - Reusable designs for ongoing content<br><br>" +
+      "• <b>Social Media Graphics</b> 📱 - Eye-catching visuals for all platforms<br>" +
+      "• <b>Marketing Materials</b> 📑 - Promotional designs that convert<br>" +
+      "• <b>Presentations</b> 📊 - Professional slides that impress audiences<br>" +
+      "• <b>Branding Packages</b> 🏷️ - Consistent visual identity elements<br>" +
+      "• <b>Print Materials</b> 🖨️ - Designs optimized for physical production<br>" +
+      "• <b>Custom Templates</b> 📝 - Reusable designs for ongoing content<br><br>" +
       "<b>Design approach:</b><br>" +
       "• Focus on visual hierarchy<br>" +
       "• Strategic use of color psychology<br>" +
@@ -260,34 +268,34 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     tools: [
-      "<b>Free Online Tools</b><br><br>" +
+      "<b>Free Online Tools</b> 🛠️<br><br>" +
       "Muatasim offers a collection of powerful, free online tools designed for various tasks:<br><br>" +
-      "• <a href='" + portfolioURLs.pdfToWord + "' target='_blank'>PDF to Word Converter</a> - Transform PDFs into editable Word documents<br><br>" +
-      "• <a href='" + portfolioURLs.videoToAudio + "' target='_blank'>Video to Audio Converter</a> - Extract audio from video files easily<br><br>" +
-      "• <a href='" + portfolioURLs.barcodeGenerator + "' target='_blank'>Barcode Generator</a> - Create professional barcodes in multiple formats<br><br>" +
-      "• <a href='" + portfolioURLs.qrGenerator + "' target='_blank'>QR Code Generator</a> - Generate customizable QR codes for various purposes<br><br>" +
-      "• <a href='" + portfolioURLs.jpgToPdf + "' target='_blank'>JPG to PDF Converter</a> - Combine multiple images into a single PDF<br><br>" +
-      "• <a href='" + portfolioURLs.pdfToJpg + "' target='_blank'>PDF to JPG Converter</a> - Extract pages from PDFs as images<br><br>" +
-      "• <a href='" + portfolioURLs.imageCompressor + "' target='_blank'>Image Compressor</a> - Reduce image file sizes while maintaining quality<br><br>" +
-      "• <a href='" + portfolioURLs.voiceRecorder + "' target='_blank'>Voice Recorder</a> - Record audio directly in your browser<br><br>" +
-      "• <a href='" + portfolioURLs.colorPalette + "' target='_blank'>Color Palette Generator</a> - Create harmonious color schemes<br><br>" +
-      "• <a href='" + portfolioURLs.audioCutter + "' target='_blank'>Audio Cutter</a> - Trim and edit audio files<br><br>" +
-      "• <a href='" + portfolioURLs.slowReverb + "' target='_blank'>Slow & Reverb Generator</a> - Create atmospheric audio effects<br><br>" +
-      "• <a href='" + portfolioURLs.imageEffects + "' target='_blank'>Image Effects Studio</a> - Apply professional filters to images<br><br>" +
+      "• <a href='" + portfolioURLs.pdfToWord + "' target='_blank'>PDF to Word Converter</a> 📄 - Transform PDFs into editable Word documents<br><br>" +
+      "• <a href='" + portfolioURLs.videoToAudio + "' target='_blank'>Video to Audio Converter</a> 🎬 - Extract audio from video files easily<br><br>" +
+      "• <a href='" + portfolioURLs.barcodeGenerator + "' target='_blank'>Barcode Generator</a> 📊 - Create professional barcodes in multiple formats<br><br>" +
+      "• <a href='" + portfolioURLs.qrGenerator + "' target='_blank'>QR Code Generator</a> 📱 - Generate customizable QR codes for various purposes<br><br>" +
+      "• <a href='" + portfolioURLs.jpgToPdf + "' target='_blank'>JPG to PDF Converter</a> 🖼️ - Combine multiple images into a single PDF<br><br>" +
+      "• <a href='" + portfolioURLs.pdfToJpg + "' target='_blank'>PDF to JPG Converter</a> 📄 - Extract pages from PDFs as images<br><br>" +
+      "• <a href='" + portfolioURLs.imageCompressor + "' target='_blank'>Image Compressor</a> 🗜️ - Reduce image file sizes while maintaining quality<br><br>" +
+      "• <a href='" + portfolioURLs.voiceRecorder + "' target='_blank'>Voice Recorder</a> 🎙️ - Record audio directly in your browser<br><br>" +
+      "• <a href='" + portfolioURLs.colorPalette + "' target='_blank'>Color Palette Generator</a> 🎨 - Create harmonious color schemes<br><br>" +
+      "• <a href='" + portfolioURLs.audioCutter + "' target='_blank'>Audio Cutter</a> ✂️ - Trim and edit audio files<br><br>" +
+      "• <a href='" + portfolioURLs.slowReverb + "' target='_blank'>Slow & Reverb Generator</a> 🔊 - Create atmospheric audio effects<br><br>" +
+      "• <a href='" + portfolioURLs.imageEffects + "' target='_blank'>Image Effects Studio</a> 📸 - Apply professional filters to images<br><br>" +
       "All tools process data directly in your browser for complete privacy and security. No files are uploaded to any server.<br><br>" +
       "Explore all tools: <a href='" + portfolioURLs.tools + "' target='_blank'>Tools Collection</a>"
     ],
     
     pdfToWord: [
-      "<b>PDF to Word Converter Tool</b><br><br>" +
+      "<b>PDF to Word Converter Tool</b> 📄<br><br>" +
       "This free online tool allows you to convert PDF documents into editable Microsoft Word files with high accuracy.<br><br>" +
       "<b>Key features:</b><br><br>" +
-      "• <b>Client-side Processing</b> - Your files never leave your computer for complete privacy<br>" +
-      "• <b>Format Preservation</b> - Maintains text styling, images, and layout<br>" +
-      "• <b>No File Size Limits</b> - Convert documents of any size<br>" +
-      "• <b>No Registration Required</b> - Use immediately without creating an account<br>" +
-      "• <b>Multiple Output Options</b> - Save as DOCX or DOC format<br>" +
-      "• <b>Batch Processing</b> - Convert multiple PDFs at once<br><br>" +
+      "• <b>Client-side Processing</b> 🔒 - Your files never leave your computer for complete privacy<br>" +
+      "• <b>Format Preservation</b> 📊 - Maintains text styling, images, and layout<br>" +
+      "• <b>No File Size Limits</b> 📈 - Convert documents of any size<br>" +
+      "• <b>No Registration Required</b> 👤 - Use immediately without creating an account<br>" +
+      "• <b>Multiple Output Options</b> 📋 - Save as DOCX or DOC format<br>" +
+      "• <b>Batch Processing</b> 📚 - Convert multiple PDFs at once<br><br>" +
       "<b>How it works:</b><br>" +
       "1. Upload your PDF file(s)<br>" +
       "2. Wait for the conversion process to complete<br>" +
@@ -297,15 +305,15 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     videoToAudio: [
-      "<b>Video to Audio Converter Tool</b><br><br>" +
+      "<b>Video to Audio Converter Tool</b> 🎬<br><br>" +
       "Extract high-quality audio from any video file with this powerful free online tool.<br><br>" +
       "<b>Key features:</b><br><br>" +
-      "• <b>Multiple Output Formats</b> - MP3, WAV, OGG, and more<br>" +
-      "• <b>Quality Adjustment</b> - Select bitrate and audio quality<br>" +
-      "• <b>Waveform Visualization</b> - See your audio before downloading<br>" +
-      "• <b>Client-side Processing</b> - 100% private, no server uploads<br>" +
-      "• <b>Supports All Video Formats</b> - MP4, AVI, MOV, MKV, and more<br>" +
-      "• <b>Fast Processing</b> - Extract audio in seconds<br><br>" +
+      "• <b>Multiple Output Formats</b> 🎵 - MP3, WAV, OGG, and more<br>" +
+      "• <b>Quality Adjustment</b> 🎚️ - Select bitrate and audio quality<br>" +
+      "• <b>Waveform Visualization</b> 📊 - See your audio before downloading<br>" +
+      "• <b>Client-side Processing</b> 🔒 - 100% private, no server uploads<br>" +
+      "• <b>Supports All Video Formats</b> 📹 - MP4, AVI, MOV, MKV, and more<br>" +
+      "• <b>Fast Processing</b> ⚡ - Extract audio in seconds<br><br>" +
       "<b>Perfect for:</b><br>" +
       "• Creating podcasts from video interviews<br>" +
       "• Extracting music from videos<br>" +
@@ -319,16 +327,16 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     barcodeGenerator: [
-      "<b>Barcode Generator Tool</b><br><br>" +
+      "<b>Barcode Generator Tool</b> 📊<br><br>" +
       "Create professional barcodes for product labeling, inventory management, and retail applications with this free online tool.<br><br>" +
       "<b>Supported barcode formats:</b><br><br>" +
-      "• <b>UPC-A</b> - Standard retail product code (12 digits)<br>" +
-      "• <b>EAN-13</b> - International product code (13 digits)<br>" +
-      "• <b>Code 128</b> - High-density alphanumeric code<br>" +
-      "• <b>Code 39</b> - General-purpose code for various industries<br>" +
-      "• <b>ITF-14</b> - Shipping container code<br>" +
-      "• <b>EAN-8</b> - Compact retail product code (8 digits)<br>" +
-      "• <b>Codabar</b> - Libraries, blood banks, and shipping<br><br>" +
+      "• <b>UPC-A</b> 🛒 - Standard retail product code (12 digits)<br>" +
+      "• <b>EAN-13</b> 🏷️ - International product code (13 digits)<br>" +
+      "• <b>Code 128</b> 📦 - High-density alphanumeric code<br>" +
+      "• <b>Code 39</b> 📋 - General-purpose code for various industries<br>" +
+      "• <b>ITF-14</b> 📦 - Shipping container code<br>" +
+      "• <b>EAN-8</b> 🏪 - Compact retail product code (8 digits)<br>" +
+      "• <b>Codabar</b> 📚 - Libraries, blood banks, and shipping<br><br>" +
       "<b>Customization options:</b><br>" +
       "• Adjustable barcode dimensions<br>" +
       "• Show/hide text display<br>" +
@@ -343,17 +351,17 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     qrGenerator: [
-      "<b>QR Code Generator Tool</b><br><br>" +
+      "<b>QR Code Generator Tool</b> 📱<br><br>" +
       "Create customized QR codes for websites, contact information, WiFi networks, and more with this free online tool.<br><br>" +
       "<b>QR code types:</b><br><br>" +
-      "• <b>URL</b> - Link to any website or web page<br>" +
-      "• <b>Text</b> - Encode any text message<br>" +
-      "• <b>Email</b> - Open email client with address, subject, and body<br>" +
-      "• <b>Phone</b> - Dial a phone number when scanned<br>" +
-      "• <b>SMS</b> - Open messaging app with number and text<br>" +
-      "• <b>WiFi</b> - Connect to networks automatically<br>" +
-      "• <b>vCard</b> - Share contact information<br>" +
-      "• <b>Location</b> - Show coordinates on a map<br><br>" +
+      "• <b>URL</b> 🔗 - Link to any website or web page<br>" +
+      "• <b>Text</b> 📝 - Encode any text message<br>" +
+      "• <b>Email</b> 📧 - Open email client with address, subject, and body<br>" +
+      "• <b>Phone</b> 📞 - Dial a phone number when scanned<br>" +
+      "• <b>SMS</b> 💬 - Open messaging app with number and text<br>" +
+      "• <b>WiFi</b> 📶 - Connect to networks automatically<br>" +
+      "• <b>vCard</b> 👤 - Share contact information<br>" +
+      "• <b>Location</b> 📍 - Show coordinates on a map<br><br>" +
       "<b>Customization features:</b><br>" +
       "• Custom colors for QR code and background<br>" +
       "• Adjustable size and error correction level<br>" +
@@ -369,29 +377,29 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     skills: [
-      "<b>Skills & Expertise</b><br><br>" +
+      "<b>Skills & Expertise</b> 🚀<br><br>" +
       "Muatasim has a diverse skill set covering multiple disciplines in digital media and technology:<br><br>" +
-      "<b>Web Development</b><br>" +
+      "<b>Web Development</b> 🌐<br>" +
       "• HTML5, CSS3, JavaScript<br>" +
       "• React and modern frameworks<br>" +
       "• Responsive design<br>" +
       "• Performance optimization<br>" +
       "• Animation (GSAP)<br><br>" +
-      "<b>E-commerce & Shopify</b><br>" +
+      "<b>E-commerce & Shopify</b> 🛍️<br>" +
       "• Shopify theme development<br>" +
       "• E-commerce optimization<br>" +
       "• Payment gateway integration<br>" +
       "• Conversion rate optimization<br><br>" +
-      "<b>Audio Production</b><br>" +
+      "<b>Audio Production</b> 🎵<br>" +
       "• Professional mixing & mastering<br>" +
       "• Sound design<br>" +
       "• Music production<br>" +
       "• Voice processing<br><br>" +
-      "<b>AI Services</b><br>" +
+      "<b>AI Services</b> 🤖<br>" +
       "• AI voice generation<br>" +
       "• Digital human creation<br>" +
       "• AI-assisted content creation<br><br>" +
-      "<b>Graphic Design</b><br>" +
+      "<b>Graphic Design</b> 🎨<br>" +
       "• Canva expert<br>" +
       "• Brand identity design<br>" +
       "• Social media graphics<br>" +
@@ -401,12 +409,12 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     contact: [
-      "<b>Contact Information</b><br><br>" +
+      "<b>Contact Information</b> 📞<br><br>" +
       "You can get in touch with Muatasim through multiple channels for inquiries, quotes, or project discussions.<br><br>" +
       "<b>Contact methods:</b><br><br>" +
-      "• <b>Contact Form</b> - Fill out the contact form on the website<br>" +
-      "• <b>Email</b> - Send a detailed message about your project<br>" +
-      "• <b>Social Media</b> - Connect through LinkedIn, Twitter, or Instagram<br><br>" +
+      "• <b>Contact Form</b> 📝 - Fill out the contact form on the website<br>" +
+      "• <b>Email</b> 📧 - Send a detailed message about your project<br>" +
+      "• <b>Social Media</b> 📱 - Connect through LinkedIn, Twitter, or Instagram<br><br>" +
       "For the fastest response, please include:<br>" +
       "• Project type and scope<br>" +
       "• Timeframe requirements<br>" +
@@ -417,30 +425,30 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     
     help: [
-      "<b>How Can I Help You?</b><br><br>" +
+      "<b>How Can I Help You?</b> 💁‍♂️<br><br>" +
       "I can provide information about Muatasim Billah's services, tools, and expertise. Here's what I can tell you about:<br><br>" +
       "<b>Services:</b><br>" +
-      "• <a href='#' onclick='return false;' class='service-link' data-service='webDevelopment'>Web Development</a><br>" +
-      "• <a href='#' onclick='return false;' class='service-link' data-service='shopify'>Shopify & E-commerce</a><br>" +
-      "• <a href='#' onclick='return false;' class='service-link' data-service='audioEngineering'>Audio Engineering</a><br>" +
-      "• <a href='#' onclick='return false;' class='service-link' data-service='aiVoice'>AI Voiceover</a><br>" +
-      "• <a href='#' onclick='return false;' class='service-link' data-service='aiAvatar'>AI Avatar Creation</a><br>" +
-      "• <a href='#' onclick='return false;' class='service-link' data-service='graphicDesign'>Graphic Design</a><br><br>" +
+      "• <a href='#' onclick='return false;' class='service-link' data-service='webDevelopment'>Web Development</a> 🌐<br>" +
+      "• <a href='#' onclick='return false;' class='service-link' data-service='shopify'>Shopify & E-commerce</a> 🛍️<br>" +
+      "• <a href='#' onclick='return false;' class='service-link' data-service='audioEngineering'>Audio Engineering</a> 🎵<br>" +
+      "• <a href='#' onclick='return false;' class='service-link' data-service='aiVoice'>AI Voiceover</a> 🎤<br>" +
+      "• <a href='#' onclick='return false;' class='service-link' data-service='aiAvatar'>AI Avatar Creation</a> 👤<br>" +
+      "• <a href='#' onclick='return false;' class='service-link' data-service='graphicDesign'>Graphic Design</a> 🎨<br><br>" +
       "<b>Online Tools:</b><br>" +
-      "• <a href='#' onclick='return false;' class='tool-link' data-tool='tools'>All Tools</a><br>" +
+      "• <a href='#' onclick='return false;' class='tool-link' data-tool='tools'>All Tools</a> 🛠️<br>" +
       "• Converters (PDF, Video, Image)<br>" +
       "• Generators (QR, Barcode, Color Palette)<br><br>" +
       "<b>Other Information:</b><br>" +
-      "• <a href='#' onclick='return false;' class='info-link' data-info='skills'>Skills & Expertise</a><br>" +
-      "• <a href='#' onclick='return false;' class='info-link' data-info='pricing'>Pricing & Packages</a><br>" +
-      "• <a href='#' onclick='return false;' class='info-link' data-info='contact'>Contact Information</a><br><br>" +
+      "• <a href='#' onclick='return false;' class='info-link' data-info='skills'>Skills & Expertise</a> 🚀<br>" +
+      "• <a href='#' onclick='return false;' class='info-link' data-info='pricing'>Pricing & Packages</a> 💰<br>" +
+      "• <a href='#' onclick='return false;' class='info-link' data-info='contact'>Contact Information</a> 📞<br><br>" +
       "What would you like to know about?"
     ],
     
     fallback: [
-      "I'm still learning, but I'm here to provide information about Muatasim's services and portfolio. Could you perhaps ask about his web development, Shopify services, audio engineering, or AI services?",
-      "I don't have specific information about that yet, but I'd be happy to tell you about Muatasim's expertise in web development, e-commerce, audio engineering, or AI services. What would you like to know?",
-      "I'm not sure I understand your question completely. I can provide details about Muatasim's professional services, tools, or contact information. Which would interest you most?"
+      "🤔 I'm still learning, but I'm here to provide information about Muatasim's services and portfolio. Could you perhaps ask about his web development, Shopify services, audio engineering, or AI services?",
+      "🧐 I don't have specific information about that yet, but I'd be happy to tell you about Muatasim's expertise in web development, e-commerce, audio engineering, or AI services. What would you like to know?",
+      "😊 I'm not sure I understand your question completely. I can provide details about Muatasim's professional services, tools, or contact information. Which would interest you most?"
     ]
   };
   
@@ -459,8 +467,9 @@ document.addEventListener('DOMContentLoaded', function() {
     { intent: 'aboutCreator', patterns: [/who (created|made|built|developed|designed) you/i, /who is your (creator|maker|developer|designer|owner)/i, /your creator/i, /who['s|\ is] the (creator|owner|ceo)/i, /who owns you/i] },
     { intent: 'personal', patterns: [/what do you do/i, /your purpose/i, /why are you here/i, /what can you (do|help with)/i, /your function/i, /your goal/i, /how do you work/i, /can you help me/i] },
 
-    // Added photo pattern
+    // Added photo and boss patterns
     { intent: 'creatorPhoto', patterns: [/who is muatasim/i, /show me muatasim/i, /muatasim('s)? (picture|photo|image|face)/i, /what does muatasim look like/i, /how does muatasim look/i, /can i see muatasim/i, /picture of muatasim/i] },
+    { intent: 'bossLook', patterns: [/how (does|is) (my|the) boss look/i, /what does my boss look like/i, /show (me )?(my|the) boss/i, /boss photo/i, /boss pic/i] },
     
     // Main portfolio content
     { intent: 'about', patterns: [/about/i, /who is/i, /tell me about/i, /muatasim/i, /billah/i, /background/i, /experience/i, /portfolio owner/i] },
@@ -494,6 +503,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.key === 'Enter') sendMessage();
     });
     
+    // Add theme toggle functionality
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    // Check for saved theme preference or default to 'dark'
+    const savedTheme = localStorage.getItem('chatbotTheme') || 'dark';
+    setTheme(savedTheme);
+    
     // Add welcome message after a short delay
     setTimeout(() => {
       addBotMessage(getRandomResponse(knowledgeBase.greeting));
@@ -526,6 +542,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
+    
+    // Set up image error handling
+    const avatarImage = document.querySelector('.avatar-image');
+    if (avatarImage) {
+      avatarImage.addEventListener('error', function() {
+        this.classList.add('error');
+      });
+    }
+  }
+  
+  // Toggle theme function
+  function toggleTheme() {
+    const currentTheme = chatbotContainer.classList.contains('light-mode') ? 'light' : 'dark';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('chatbotTheme', newTheme);
+  }
+  
+  // Set theme function
+  function setTheme(theme) {
+    if (theme === 'light') {
+      chatbotContainer.classList.add('light-mode');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    } else {
+      chatbotContainer.classList.remove('light-mode');
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+    }
   }
   
   // Toggle chatbot visibility
@@ -568,7 +613,7 @@ document.addEventListener('DOMContentLoaded', function() {
           showTypingIndicator();
           setTimeout(() => {
             hideTypingIndicator();
-            addBotMessage("Is there anything else about Muatasim's services or portfolio you'd like to know? I'm here to help!");
+            addBotMessage("Is there anything else about Muatasim's services or portfolio you'd like to know? I'm here to help! 😊");
           }, 1000);
         }, 2000);
       }

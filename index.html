@@ -1176,39 +1176,44 @@
 
 <!-- Your existing website content goes here -->
 
-<!-- Chatbot Toggle Button - Fixed Version -->
+<!-- Chatbot Toggle Button -->
 <button id="chatbot-toggle" aria-label="Toggle chatbot">
   <div class="toggle-icon">
-    <i class="fas fa-comment-dots"></i>
+      <i class="fas fa-comment-dots"></i>
   </div>
 </button>
 
 <!-- Chatbot Interface -->
 <div id="chatbot-container" class="glass">
   <div class="chatbot-header">
-    <div class="chatbot-title">
-      <div class="chatbot-avatar">
-        <!-- Replace span with image but keep the text as fallback -->
-        <img src="images\chatbot avatar.png" alt="Muatasim Billah" class="avatar-image">
-        <span class="avatar-text" style="display:none;">MB</span>
+      <div class="chatbot-title">
+          <div class="chatbot-avatar">
+              <img src="images/chatbot avatar.png" alt="Muatasim Billah" class="avatar-image">
+              <span class="avatar-text" style="display:none;">MB</span>
+          </div>
+          <h3>Portfolio Assistant</h3>
       </div>
-      <h3>Portfolio Assistant</h3>
-    </div>
-    <button id="close-chatbot" aria-label="Close chatbot">
-      <i class="fas fa-times"></i>
-    </button>
+      <div class="chatbot-controls">
+          <button id="theme-toggle" aria-label="Toggle theme">
+              <i class="fas fa-moon" id="theme-icon"></i>
+          </button>
+          <button id="close-chatbot" aria-label="Close chatbot">
+              <i class="fas fa-times"></i>
+          </button>
+      </div>
   </div>
   
-  <!-- Rest of chatbot remains the same -->
   <div id="chatbot-messages"></div>
+  
   <div class="chatbot-typing-indicator" id="typing-indicator">
-    <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
   </div>
+  
   <div class="chatbot-input">
-    <input type="text" id="user-input" placeholder="Ask me about my services, skills, or tools..." autocomplete="off">
-    <button id="send-button" aria-label="Send message">
-      <i class="fas fa-paper-plane"></i>
-    </button>
+      <input type="text" id="user-input" placeholder="Ask me about my services, skills, or tools..." autocomplete="off">
+      <button id="send-button" aria-label="Send message">
+          <i class="fas fa-paper-plane"></i>
+      </button>
   </div>
 </div>
         <!-- Back to Top Button -->
