@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="search.css">
     <link rel="stylesheet" href="darkmood.css">
+    <link rel="stylesheet" href="chatbot.css">
     
     <!-- Google Analytics (non-critical, can load after CSS) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1502JK6E7V"></script>
@@ -1175,82 +1176,41 @@
 
 <!-- Your existing website content goes here -->
 
-<!-- Chatbot Container -->
-<div class="chatbot-container">
-  <!-- Chat Toggle Button -->
-  <button class="chat-toggle-btn">
-    <i class="fas fa-comment-alt"></i>
-  </button>
+<!-- Chatbot Toggle Button - Fixed Version -->
+<button id="chatbot-toggle" aria-label="Toggle chatbot">
+  <div class="toggle-icon">
+    <i class="fas fa-comment-dots"></i>
+  </div>
+</button>
+
+<!-- Chatbot Interface -->
+<div id="chatbot-container" class="glass">
+  <div class="chatbot-header">
+    <div class="chatbot-title">
+      <div class="chatbot-avatar">
+        <!-- Replace span with image but keep the text as fallback -->
+        <img src="images\chatbot avatar.png" alt="Muatasim Billah" class="avatar-image">
+        <span class="avatar-text" style="display:none;">MB</span>
+      </div>
+      <h3>Portfolio Assistant</h3>
+    </div>
+    <button id="close-chatbot" aria-label="Close chatbot">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
   
-  <!-- Chat Interface -->
-  <div class="chat-interface">
-    <!-- Chat Header -->
-    <div class="chat-header">
-      <div class="chat-header-user">
-        <div class="chat-avatar">
-          <i class="fas fa-robot"></i>
-        </div>
-        <div class="chat-user-info">
-          <h3 class="chat-user-name">Mehar Bot</h3>
-          <div class="chat-user-status">
-            <span class="status-indicator"></span>
-            <span class="status-text">Online</span>
-          </div>
-        </div>
-      </div>
-      <button class="chat-close-btn">
-        <i class="fas fa-minus"></i>
-      </button>
-    </div>
-    
-    <!-- Chat Messages Area -->
-    <div class="chat-messages">
-      <!-- Messages will be dynamically added here by JavaScript -->
-      
-      <!-- Examples of message structure:
-      <div class="chat-message bot-message">
-        <div class="message-avatar">
-          <i class="fas fa-robot"></i>
-        </div>
-        <div class="message-bubble">
-          <div class="message-text">
-            Hi there! I'm Muatasim's portfolio assistant. How can I help you today?
-          </div>
-        </div>
-      </div>
-      
-      <div class="chat-message user-message">
-        <div class="message-bubble">
-          <div class="message-text">
-            What services do you offer?
-          </div>
-        </div>
-        <div class="message-avatar">
-          <i class="fas fa-user"></i>
-        </div>
-      </div> -->
-    </div>
-    
-    <!-- Suggested Questions (shown after bot's first message) -->
-    <div class="suggested-questions">
-      <button class="suggested-question">What services do you offer?</button>
-      <button class="suggested-question">View portfolio</button>
-      <button class="suggested-question">Contact info</button>
-    </div>
-    
-    <!-- Chat Input Area -->
-    <div class="chat-input-area">
-      <form id="chat-form">
-        <input type="text" id="chat-input" placeholder="Type your message here..." autocomplete="off">
-        <button type="submit" class="chat-send-btn">
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </form>
-    </div>
+  <!-- Rest of chatbot remains the same -->
+  <div id="chatbot-messages"></div>
+  <div class="chatbot-typing-indicator" id="typing-indicator">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="chatbot-input">
+    <input type="text" id="user-input" placeholder="Ask me about my services, skills, or tools..." autocomplete="off">
+    <button id="send-button" aria-label="Send message">
+      <i class="fas fa-paper-plane"></i>
+    </button>
   </div>
 </div>
-        
-
         <!-- Back to Top Button -->
         <button id="back-to-top" aria-label="Back to top">
           <i class="fas fa-arrow-up"></i>
