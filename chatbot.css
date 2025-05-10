@@ -1,14 +1,3 @@
-/* Portfolio Chatbot Styles with Light/Dark Mode Support */
-
-/* CSS Variables for Theming */
-:root {
-    --primary-color: #7000ff;
-    --primary-light: #9a4eff;
-    --primary-dark: #5a00cc;
-    --secondary-color: #00d9ff;
-    --accent-color: #ff6b00;
-}
-
 /* Base Chatbot Styles */
 #chatbot-toggle {
     position: fixed;
@@ -40,12 +29,12 @@
 
 /* Dark Mode (Default) */
 #chatbot-container {
-    --bg-color: rgba(12, 12, 20, 0.8);
+    --bg-color: #0c0c14; /* Changed to solid color instead of rgba */
     --text-color: #ffffff;
     --user-msg-bg: #7000ff;
-    --bot-msg-bg: rgba(255, 255, 255, 0.1);
-    --input-bg: rgba(255, 255, 255, 0.1);
-    --border-color: rgba(255, 255, 255, 0.1);
+    --bot-msg-bg: #222230; /* Changed to solid color instead of rgba */
+    --input-bg: #222230; /* Changed to solid color instead of rgba */
+    --border-color: #2a2a3a; /* Changed to solid color instead of rgba */
     --shadow-color: rgba(0, 0, 0, 0.4);
     
     position: fixed;
@@ -56,7 +45,6 @@
     border-radius: 15px;
     background-color: var(--bg-color);
     box-shadow: 0 10px 30px var(--shadow-color);
-    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -70,20 +58,18 @@
 
 /* Light Mode */
 #chatbot-container.light-mode {
-    --bg-color: rgba(255, 255, 255, 0.9);
+    --bg-color: #f5f5f5; /* Changed to solid color instead of rgba */
     --text-color: #333333;
     --user-msg-bg: #9a4eff;
-    --bot-msg-bg: rgba(0, 0, 0, 0.05);
-    --input-bg: rgba(0, 0, 0, 0.05);
-    --border-color: rgba(0, 0, 0, 0.1);
+    --bot-msg-bg: #e5e5e5; /* Changed to solid color instead of rgba */
+    --input-bg: #e5e5e5; /* Changed to solid color instead of rgba */
+    --border-color: #cccccc; /* Changed to solid color instead of rgba */
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Glass effect */
-.glass {
+/* Changed from .glass to .chatbot-glass */
+.chatbot-glass {
     background: var(--bg-color);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
 }
 
@@ -329,120 +315,117 @@
         max-width: 150px;
     }
 }
-/* Add these styles to your existing chatbot.css file */
 
 /* Typing Suggestions Styling */
 .suggestion-box {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  width: 100%;
-  max-height: 200px;
-  overflow-y: auto;
-  background: rgba(25, 25, 35, 0.95);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(112, 0, 255, 0.2);
-  z-index: 100;
-  margin-bottom: 5px;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #191923; /* Changed to solid color instead of rgba */
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(112, 0, 255, 0.2);
+    z-index: 100;
+    margin-bottom: 5px;
 }
 
 .dark-theme .suggestion-box {
-  background: rgba(245, 245, 250, 0.95);
+    background: #f5f5fa; /* Changed to solid color instead of rgba */
 }
 
 .suggestion-item {
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-bottom: 1px solid rgba(112, 0, 255, 0.1);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(112, 0, 255, 0.1);
 }
 
 .suggestion-item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .suggestion-item:hover {
-  background: rgba(112, 0, 255, 0.2);
+    background: #3b1980; /* Changed to solid color instead of rgba */
 }
 
 .dark-theme .suggestion-item {
-  color: #333;
+    color: #333;
 }
 
 .dark-theme .suggestion-item:hover {
-  background: rgba(112, 0, 255, 0.1);
+    background: #dfd0ff; /* Changed to solid color instead of rgba */
 }
 
 /* Message Reactions Styling */
 .message-reactions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 8px;
-  gap: 6px;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    gap: 6px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
 .message-reactions:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .reaction-btn {
-  background: rgba(112, 0, 255, 0.1);
-  border: 1px solid rgba(112, 0, 255, 0.2);
-  border-radius: 16px;
-  padding: 4px 8px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: inherit;
+    background: #2d1980; /* Changed to solid color instead of rgba */
+    border: 1px solid rgba(112, 0, 255, 0.2);
+    border-radius: 16px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: inherit;
 }
 
 .dark-theme .reaction-btn {
-  background: rgba(112, 0, 255, 0.05);
-  color: #333;
+    background: #e8e0ff; /* Changed to solid color instead of rgba */
+    color: #333;
 }
 
 .reaction-btn:hover {
-  background: rgba(112, 0, 255, 0.2);
-  transform: translateY(-2px);
+    background: #3b1980; /* Changed to solid color instead of rgba */
+    transform: translateY(-2px);
 }
 
 .reaction-btn.selected {
-  background: rgba(112, 0, 255, 0.3);
-  border-color: rgba(112, 0, 255, 0.5);
-  font-weight: bold;
+    background: #4a2199; /* Changed to solid color instead of rgba */
+    border-color: rgba(112, 0, 255, 0.5);
+    font-weight: bold;
 }
 
 .reaction-thanks {
-  font-size: 12px;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  text-align: right;
-  margin-top: 4px;
-  color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    text-align: right;
+    margin-top: 4px;
+    color: #999999; /* Changed to solid color instead of rgba */
 }
 
 .dark-theme .reaction-thanks {
-  color: rgba(0, 0, 0, 0.6);
+    color: #666666; /* Changed to solid color instead of rgba */
 }
 
 /* Creator Photo */
 .creator-photo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 3px solid #7000ff;
-  object-fit: cover;
-  margin: 10px auto;
-  display: block;
-  box-shadow: 0 5px 15px rgba(112, 0, 255, 0.3);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #7000ff;
+    object-fit: cover;
+    margin: 10px auto;
+    display: block;
+    box-shadow: 0 5px 15px rgba(112, 0, 255, 0.3);
 }
 
 .dark-theme .creator-photo {
-  border-color: #9a4eff;
-  box-shadow: 0 5px 15px rgba(154, 78, 255, 0.3);
+    border-color: #9a4eff;
+    box-shadow: 0 5px 15px rgba(154, 78, 255, 0.3);
 }

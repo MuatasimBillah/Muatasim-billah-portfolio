@@ -1,117 +1,116 @@
-/* ===== CSS RESET & BASE STYLES ===== */
 :root {
-    /* Main Colors */
-    --primary: #7000ff;
-    --primary-light: #9a4eff;
-    --primary-dark: #5a00cc;
-    --secondary: #00d9ff;
-    --secondary-light: #6aeaff;
-    --secondary-dark: #00a3c1;
-    --accent: #ff6b00;
-    
-    /* Background Colors */
-    --bg-dark: #0c0c14;
-    --bg-dark-lighter: #12121f;
-    --card-dark: #16161f;
-    --card-dark-hover: #1a1a28;
-    
-    /* Text Colors */
-    --text-light: #ffffff;
-    --text-muted: #9e9eb3;
-    --text-dark: #0c0c14;
-    
-    /* Misc */
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    --border-radius: 12px;
-    --border-radius-sm: 8px;
-    --border-radius-lg: 24px;
-    --transition: 0.3s ease;
-    --backdrop-filter: blur(10px);
-  }
+  /* Main Colors */
+  --primary: #7000ff;
+  --primary-light: #9a4eff;
+  --primary-dark: #5a00cc;
+  --secondary: #00d9ff;
+  --secondary-light: #6aeaff;
+  --secondary-dark: #00a3c1;
+  --accent: #ff6b00;
   
-  /* Light Theme Variables (will be toggled via JavaScript) */
-  .light-theme {
-    --bg-dark: #f5f5fa;
-    --bg-dark-lighter: #ffffff;
-    --card-dark: #ffffff;
-    --card-dark-hover: #f0f0f8;
-    --text-light: #16161f;
-    --text-muted: #555567;
-    --text-dark: #f5f5fa;
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-  }
+  /* Background Colors */
+  --bg-dark: #0c0c14;
+  --bg-dark-lighter: #12121f;
+  --card-dark: #16161f;
+  --card-dark-hover: #1a1a28;
   
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  /* Text Colors */
+  --text-light: #ffffff;
+  --text-muted: #9e9eb3;
+  --text-dark: #0c0c14;
   
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-    overflow-x: hidden;
-    transition: background-color var(--transition);
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 1rem;
-  }
-  
-  p {
-    margin-bottom: 1.5rem;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-    transition: color var(--transition);
-  }
-  
-  button {
-    cursor: pointer;
-    font-family: inherit;
-    border: none;
-    background: none;
-  }
-  
-  ul, ol {
-    list-style-position: inside;
-  }
-  
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  section {
-    padding: 5rem 0;
-  }
-  
-  .section {
-    position: relative;
-  }
-  
-  .section:nth-child(even) {
-    background-color: var(--bg-dark-lighter);
-  }
+  /* Misc */
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 24px;
+  --transition: 0.3s ease;
+  --backdrop-filter: blur(10px);
+}
+
+/* Light Theme Variables (will be toggled via JavaScript) */
+.light-theme {
+  --bg-dark: #f5f5fa;
+  --bg-dark-lighter: #ffffff;
+  --card-dark: #ffffff;
+  --card-dark-hover: #f0f0f8;
+  --text-light: #16161f;
+  --text-muted: #555567;
+  --text-dark: #f5f5fa;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color var(--transition);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style-position: inside;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+.section {
+  position: relative;
+}
+
+.section:nth-child(even) {
+  background-color: var(--bg-dark-lighter);
+}
   
   /* ===== UTILITY CLASSES ===== */
   .primary-text {
@@ -119,7 +118,7 @@
   }
   
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(22, 22, 31, 0.95); /* More opaque background instead of rgba(255, 255, 255, 0.03) */
     backdrop-filter: var(--backdrop-filter);
     -webkit-backdrop-filter: var(--backdrop-filter);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -127,7 +126,6 @@
     box-shadow: var(--shadow);
     transition: all var(--transition);
   }
-  
   .btn-primary {
     display: inline-block;
     background: linear-gradient(to right, var(--primary), var(--primary-dark));
@@ -2834,6 +2832,7 @@
     padding: 80px 0;
     position: relative;
     overflow: hidden;
+    background-color: var(--bg-dark-lighter); /* Website ke background ke hisaab se */
 }
 
 .contact-section::before {
@@ -2891,9 +2890,7 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    background: rgba(30, 30, 40, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: var(--card-dark); /* Solid background instead of transparent */
     border: 1px solid rgba(128, 0, 255, 0.3);
     border-radius: 15px;
     padding: 30px;
@@ -2901,7 +2898,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    box-shadow: var(--shadow);
     text-align: center;
     overflow: hidden;
 }
@@ -2922,7 +2919,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(128, 0, 255, 0.2);
+    background-color: #2d1980; /* Solid color instead of rgba */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2938,7 +2935,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(128, 0, 255, 0.5), transparent);
+    background: linear-gradient(45deg, #4a2199, transparent); /* Solid colors */
     z-index: -1;
 }
 
@@ -2968,7 +2965,7 @@
 }
 
 .copy-btn, .whatsapp-btn, .calendar-btn {
-    background: rgba(128, 0, 255, 0.3);
+    background-color: #3b1980; /* Solid color instead of rgba */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -2984,7 +2981,7 @@
 }
 
 .copy-btn:hover, .whatsapp-btn:hover, .calendar-btn:hover {
-    background: rgba(128, 0, 255, 0.5);
+    background-color: #4a2199; /* Solid color instead of rgba */
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(128, 0, 255, 0.4);
 }
@@ -2999,7 +2996,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(128, 0, 255, 0.2);
+    background-color: #2d1980; /* Solid color instead of rgba */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3009,7 +3006,7 @@
 }
 
 .social-icons a:hover {
-    background: rgba(128, 0, 255, 0.5);
+    background-color: #4a2199; /* Solid color instead of rgba */
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(128, 0, 255, 0.4);
 }
@@ -3018,9 +3015,7 @@
     text-align: center;
     margin-top: 30px;
     padding: 20px;
-    background: rgba(30, 30, 40, 0.5);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background-color: var(--card-dark); /* Solid color instead of rgba */
     border-radius: 15px;
     max-width: 500px;
     margin-left: auto;
@@ -3073,7 +3068,7 @@
 }
 
 .contact-card:hover .icon-container {
-    background: rgba(128, 0, 255, 0.3);
+    background-color: #3b1980; /* Solid color instead of rgba */
 }
 
 /* Adding glow effect on hover */

@@ -7,8 +7,8 @@
   <!-- Primary Meta Tags -->
   <title>Slowed & Reverb Creator | Make Chill Aesthetic Music for TikTok & Reels | MB Tools</title>
   <meta name="title" content="Slowed & Reverb Creator | Make Chill Aesthetic Music for TikTok & Reels">
-  <meta name="description" content="Create professional slowed and reverb versions of any song with advanced controls. Perfect for TikTok, Instagram, and YouTube content. Free, no account needed, private browser-based processing.">
-  <meta name="keywords" content="slowed and reverb, slow reverb generator, audio effects online, slow down music, reverb effect, tiktok music maker, lofi converter, chopped and screwed, vaporwave creator, aesthetic music maker">
+  <meta name="description" content="Create professional slowed and reverb versions of any song with advanced controls and file compression. Perfect for TikTok, Instagram, and YouTube content. Free, no account needed, private browser-based processing.">
+  <meta name="keywords" content="slowed and reverb, slow reverb generator, audio effects online, slow down music, reverb effect, tiktok music maker, lofi converter, chopped and screwed, vaporwave creator, aesthetic music maker, file compression">
   <meta name="author" content="MB Tools">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
@@ -21,7 +21,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mehardesigner.online/slowed-reverb.html">
   <meta property="og:title" content="Slowed & Reverb Creator | Make Chill Aesthetic Music for TikTok & Reels">
-  <meta property="og:description" content="Create professional slowed and reverb versions of any song with advanced controls. Perfect for TikTok, Instagram, and YouTube content. Free, no account needed, private browser-based processing.">
+  <meta property="og:description" content="Create professional slowed and reverb versions of any song with advanced controls and efficient file compression. Perfect for TikTok, Instagram, and YouTube content. Free, no account needed, private browser-based processing.">
   <meta property="og:image" content="https://mehardesigner.online/img/slowed-reverb-preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -31,7 +31,7 @@
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://mehardesigner.online/slowed-reverb.html">
   <meta property="twitter:title" content="Slowed & Reverb Creator | Make Chill Aesthetic Music for TikTok & Reels">
-  <meta property="twitter:description" content="Create professional slowed and reverb versions of any song with advanced controls. Perfect for TikTok, Instagram, and YouTube content.">
+  <meta property="twitter:description" content="Create professional slowed and reverb versions of any song with advanced controls and file compression. Perfect for TikTok, Instagram, and YouTube content.">
   <meta property="twitter:image" content="https://mehardesigner.online/img/slowed-reverb-preview.jpg">
   
   <!-- Google Analytics -->
@@ -62,12 +62,18 @@
   <!-- Tone.js for audio processing -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
   
+  <!-- LAME.js for optimized MP3 encoding -->
+  <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="slowed-reverb.css">
+  
   <!-- Schema.org structured data (JSON-LD) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Slowed & Reverb Creator",
+      "name": "Slowed & Reverb Creator with File Compression",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "Any",
       "offers": {
@@ -80,11 +86,12 @@
         "ratingValue": "4.9",
         "ratingCount": "1578"
       },
-      "description": "Create professional slowed and reverb versions of any song with advanced controls. Perfect for TikTok, Instagram, and YouTube content. Free, no account needed, private browser-based processing.",
+      "description": "Create professional slowed and reverb versions of any song with advanced controls and efficient file compression. Perfect for TikTok, Instagram, and YouTube content. Free, no account needed, private browser-based processing.",
       "image": "https://mehardesigner.online/img/slowed-reverb-preview.jpg",
       "featureList": [
         "Customizable slowed playback speed with pitch preservation",
         "Professional-grade reverb effects with room size and decay controls",
+        "Advanced file compression (3MB input ≈ 5MB output)",
         "Preset combinations for quick results (Dreamy, Underwater, Lo-Fi)",
         "Real-time audio preview with waveform visualization",
         "Suggested optimal settings based on genre",
@@ -93,7 +100,7 @@
       ],
       "softwareHelp": {
         "@type": "CreativeWork",
-        "text": "Upload your audio file, customize settings or choose a preset, preview the result, and download your slowed & reverb masterpiece."
+        "text": "Upload your audio file, customize settings or choose a preset, preview the result, and download your slowed & reverb masterpiece with optimized file size."
       },
       "author": {
         "@type": "Organization",
@@ -115,6 +122,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Slowed & reverb is an audio effect technique that reduces playback speed and adds spatial reverb to create a dreamy, atmospheric sound. It became viral on platforms like TikTok and YouTube because it transforms familiar songs into emotionally evocative experiences, perfect for aesthetic videos and relaxation content. The effect creates a sense of nostalgia and depth that enhances the emotional impact of the music."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is file compression important for slowed & reverb tracks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "File compression is crucial for slowed & reverb audio because the effect naturally extends the duration of tracks, which can dramatically increase file size. Our tool implements advanced compression algorithms that keep output files small (around 5MB for a 3MB input) while preserving audio quality, making your creations perfect for sharing on social media, messaging apps, and websites without quality loss."
           }
         },
         {
@@ -156,14 +171,6 @@
             "@type": "Answer",
             "text": "While our tool enables you to create slowed & reverb versions, please remember that the original copyright of songs remains with the artists and rightsholders. For personal use, there are typically no issues. For commercial or monetized content, you should obtain proper licenses for the original music. Many creators use these effects for personal content on platforms like TikTok, Instagram Reels, and YouTube Shorts."
           }
-        },
-        {
-          "@type": "Question",
-          "name": "Why do some songs sound better with slowed & reverb than others?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Songs with clear vocals, emotional lyrics, and simpler instrumentation often yield the best results with slowed & reverb effects. Tracks with strong melodies, defined bass lines, and atmospheric elements enhance the dreamy quality. Dense, already-processed tracks with heavy compression may not transform as dramatically. Our tool's genre recommendations help you find the sweet spot for any track."
-          }
         }
       ]
     }
@@ -174,14 +181,14 @@
     {
       "@context": "https://schema.org",
       "@type": "HowTo",
-      "name": "How to Create Perfect Slowed & Reverb Effects",
-      "description": "Create professional-quality slowed and reverb audio with customized settings for any genre",
+      "name": "How to Create Perfect Slowed & Reverb Effects with Optimized File Size",
+      "description": "Create professional-quality slowed and reverb audio with customized settings for any genre and optimized file compression",
       "totalTime": "PT5M",
       "step": [
         {
           "@type": "HowToStep",
           "name": "Upload Your Audio",
-          "text": "Click the upload button or drag and drop your audio file. We support MP3, WAV, OGG, and M4A formats.",
+          "text": "Click the upload button or drag and drop your audio file. We support MP3, WAV, OGG, and M4A formats up to 50MB.",
           "image": "https://mehardesigner.online/img/upload-step.jpg",
           "url": "https://mehardesigner.online/slowed-reverb.html#upload"
         },
@@ -202,7 +209,7 @@
         {
           "@type": "HowToStep",
           "name": "Process and Download",
-          "text": "Apply the effects, select your preferred output format and quality, then download your slowed & reverb masterpiece.",
+          "text": "Apply the effects, select your preferred output format and quality, then download your slowed & reverb masterpiece with optimized file size.",
           "image": "https://mehardesigner.online/img/download-step.jpg",
           "url": "https://mehardesigner.online/slowed-reverb.html#download"
         }
@@ -219,459 +226,399 @@
       ]
     }
   </script>
-
-  <!-- Breadcrumb Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://mehardesigner.online/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Tools",
-          "item": "https://mehardesigner.online/tools.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Slowed & Reverb Creator",
-          "item": "https://mehardesigner.online/slowed-reverb.html"
-        }
-      ]
-    }
-  </script>
-
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="slowed-reverb.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMLWBD38"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMLWBD38" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  <!-- Header Section -->
   <header>
     <div class="container">
       <nav>
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
-        <div class="logo">MB Tools</div>
+        <a href="index.html" class="logo">MB Tools</a>
       </nav>
       
       <h1>Slowed & Reverb Creator</h1>
+      
       <div class="sub-heading">
-        <span class="badge free">100% Free</span>
+        <span class="badge free">Free Tool</span>
         <span class="badge no-watermark">No Watermark</span>
         <span class="badge privacy">Privacy First</span>
-        <span class="badge new">New & Improved</span>
+        <span class="badge new">Advanced Compression</span>
       </div>
-      <p class="tool-description">Transform any audio into professional slowed & reverb masterpieces with advanced controls. Get genre-specific recommendations for the perfect sound. Perfect for TikTok, Instagram Reels, and aesthetic content.</p>
       
-      <!-- Key Benefits -->
+      <p class="tool-description">Create professional slowed and reverb versions of any song with optimized file compression. Transform your favorite tracks into dreamy, atmospheric masterpieces perfect for TikTok, Instagram, and YouTube content.</p>
+      
       <div class="tool-benefits">
         <div class="benefit">
-          <i class="fas fa-sliders-h"></i>
-          <span>Advanced Controls</span>
-        </div>
-        <div class="benefit">
-          <i class="fas fa-lightbulb"></i>
-          <span>Smart Suggestions</span>
+          <i class="fas fa-bolt"></i>
+          <span>Browser-Based</span>
         </div>
         <div class="benefit">
           <i class="fas fa-shield-alt"></i>
           <span>100% Private</span>
         </div>
         <div class="benefit">
-          <i class="fas fa-volume-up"></i>
-          <span>Premium Sound</span>
+          <i class="fas fa-compress-arrows-alt"></i>
+          <span>Optimized File Size</span>
+        </div>
+        <div class="benefit">
+          <i class="fas fa-magic"></i>
+          <span>Pro-Quality Effects</span>
         </div>
       </div>
       
       <button id="scrollToToolBtn" class="scroll-btn">Get Started <i class="fas fa-chevron-down"></i></button>
     </div>
   </header>
+  
+  <!-- Main Tool Container -->
+  <div class="tool-container glass">
+    <!-- Upload Section -->
+    <section id="uploadSection" class="upload-section">
+      <div class="upload-area" id="dropZone">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h2>Upload Your Audio File</h2>
+        <p>Drag & drop your file here or</p>
+        <button id="browseBtn" class="upload-btn">Choose File</button>
+        <input type="file" id="audioFileInput" accept="audio/*" style="display: none;">
+        <p class="upload-info">Supported formats: MP3, WAV, OGG, M4A • Max file size: 50MB</p>
+      </div>
+      
+      <div class="genre-recommendations">
+        <h3>Get the Perfect Sound for Your Genre</h3>
+        <p>Different music genres work best with specific settings. Check our recommendations below to get started:</p>
+        
+        <div class="genre-grid">
+          <div class="genre-card">
+            <div class="genre-icon">
+              <i class="fas fa-music"></i>
+            </div>
+            <h4>Pop & R&B</h4>
+            <ul>
+              <li>Speed: 75-80%</li>
+              <li>Reverb: 50-60%</li>
+              <li>Bass: +2-3dB</li>
+            </ul>
+          </div>
+          
+          <div class="genre-card">
+            <div class="genre-icon">
+              <i class="fas fa-microphone"></i>
+            </div>
+            <h4>Hip-Hop & Rap</h4>
+            <ul>
+              <li>Speed: 70-75%</li>
+              <li>Reverb: 60-70%</li>
+              <li>Bass: +3-5dB</li>
+            </ul>
+          </div>
+          
+          <div class="genre-card">
+            <div class="genre-icon">
+              <i class="fas fa-headphones"></i>
+            </div>
+            <h4>Electronic</h4>
+            <ul>
+              <li>Speed: 80-85%</li>
+              <li>Reverb: 55-65%</li>
+              <li>Bass: +3dB</li>
+            </ul>
+          </div>
+          
+          <div class="genre-card">
+            <div class="genre-icon">
+              <i class="fas fa-guitar"></i>
+            </div>
+            <h4>Acoustic</h4>
+            <ul>
+              <li>Speed: 75%</li>
+              <li>Reverb: 40-50%</li>
+              <li>Bass: +1-2dB</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <main class="container">
-    <!-- Tool Container -->
-    <div class="tool-container glass" id="tool">
-      <!-- Upload Section -->
-      <div class="upload-section" id="uploadSection">
-        <div class="upload-area" id="dropZone">
-          <i class="fas fa-music"></i>
-          <h2>Create Professional Slowed & Reverb Effects</h2>
-          <p>Upload an audio file to transform</p>
-          <input type="file" id="audioFileInput" hidden accept="audio/*">
-          <button class="upload-btn" id="browseBtn">Upload Audio</button>
-          <p class="upload-info">Supports MP3, WAV, OGG, M4A • Max 20 minutes • 100% Private</p>
+    <!-- Editor Section (initially hidden) -->
+    <section id="editorSection" class="editor-section">
+      <div class="editor-header">
+        <div class="file-info">
+          <div class="file-name" id="fileName">filename.mp3</div>
+          <div class="file-meta">
+            <span id="fileDuration">00:00</span> • <span id="fileSize">0 MB</span>
+          </div>
         </div>
-        
-        <!-- Genre Recommendation Panel -->
-        <div class="genre-recommendations">
-          <h3>Recommended Settings by Genre</h3>
-          <p>Different music styles need different settings for optimal results</p>
-          
-          <div class="genre-grid">
-            <div class="genre-card">
-              <div class="genre-icon"><i class="fas fa-music"></i></div>
-              <h4>Pop & R&B</h4>
-              <p>Speed: 75-80%</p>
-              <p>Reverb: 50-60%</p>
-              <p>Decay: 3-4s</p>
-            </div>
-            
-            <div class="genre-card">
-              <div class="genre-icon"><i class="fas fa-headphones"></i></div>
-              <h4>Hip-Hop & Rap</h4>
-              <p>Speed: 70-75%</p>
-              <p>Reverb: 60-70%</p>
-              <p>Decay: 4-5s</p>
-            </div>
-            
-            <div class="genre-card">
-              <div class="genre-icon"><i class="fas fa-guitar"></i></div>
-              <h4>Rock & Indie</h4>
-              <p>Speed: 80-85%</p>
-              <p>Reverb: 45-55%</p>
-              <p>Decay: 2-3s</p>
-            </div>
-            
-            <div class="genre-card">
-              <div class="genre-icon"><i class="fas fa-drum"></i></div>
-              <h4>Electronic</h4>
-              <p>Speed: 80-85%</p>
-              <p>Reverb: 55-65%</p>
-              <p>Decay: 5-7s</p>
-            </div>
+        <button id="backToUpload" class="back-btn"><i class="fas fa-arrow-left"></i> Upload Different File</button>
+      </div>
+      
+      <div class="waveform-container" id="waveform"></div>
+      
+      <div class="audio-controls">
+        <button id="playPauseBtn" class="play-btn"><i class="fas fa-play"></i></button>
+        <div class="time-display">
+          <span id="currentTime">00:00</span> / <span id="totalTime">00:00</span>
+        </div>
+        <div class="volume-control">
+          <i class="fas fa-volume-up"></i>
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+        </div>
+        <div class="preview-toggle">
+          <button id="originalAudioBtn" class="preview-btn active">Original</button>
+          <button id="effectAudioBtn" class="preview-btn">Preview Effect</button>
+        </div>
+      </div>
+      
+      <div class="effect-controls">
+        <div class="presets">
+          <h3>Effect Presets</h3>
+          <div class="preset-buttons">
+            <button class="preset-btn active" data-preset="classic">Classic</button>
+            <button class="preset-btn" data-preset="dreamy">Dreamy</button>
+            <button class="preset-btn" data-preset="underwater">Underwater</button>
+            <button class="preset-btn" data-preset="lofi">Lo-Fi</button>
+            <button class="preset-btn" data-preset="tiktok">TikTok Viral</button>
           </div>
         </div>
         
-        <!-- Example Results -->
-        <div class="example-results">
-          <h3>Hear The Difference</h3>
-          <p>Experience how slowed & reverb effects transform different genres</p>
+        <div class="sliders-container">
+          <div class="effect-slider">
+            <label>Speed <span id="tempoValue">75</span>%</label>
+            <input type="range" id="tempoSlider" min="50" max="90" value="75">
+          </div>
           
-          <div class="example-grid">
-            <div class="example-item">
-              <div class="audio-example">
-                <div class="example-icon">
-                  <i class="fas fa-play-circle"></i>
-                </div>
-                <div class="example-details">
-                  <h4>Pop Transformation</h4>
-                  <p>Before & After Example</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="example-item">
-              <div class="audio-example">
-                <div class="example-icon">
-                  <i class="fas fa-play-circle"></i>
-                </div>
-                <div class="example-details">
-                  <h4>Hip-Hop Magic</h4>
-                  <p>Before & After Example</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="example-item">
-              <div class="audio-example">
-                <div class="example-icon">
-                  <i class="fas fa-play-circle"></i>
-                </div>
-                <div class="example-details">
-                  <h4>Dreamy Acoustic</h4>
-                  <p>Before & After Example</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="example-item">
-              <div class="audio-example">
-                <div class="example-icon">
-                  <i class="fas fa-play-circle"></i>
-                </div>
-                <div class="example-details">
-                  <h4>TikTok Viral Style</h4>
-                  <p>Before & After Example</p>
-                </div>
-              </div>
+          <div class="effect-slider">
+            <label>Reverb <span id="reverbValue">60</span>%</label>
+            <input type="range" id="reverbSlider" min="0" max="100" value="60">
+          </div>
+          
+          <div class="effect-slider">
+            <label>Decay <span id="decayValue">4</span>s</label>
+            <input type="range" id="decaySlider" min="1" max="10" value="4">
+          </div>
+          
+          <div class="effect-slider">
+            <label>Bass Boost <span id="bassValue">3</span>dB</label>
+            <input type="range" id="bassSlider" min="0" max="10" value="3">
+          </div>
+          
+          <div class="effect-slider">
+            <label>Pitch <span id="pitchValue">-2</span></label>
+            <input type="range" id="pitchSlider" min="-12" max="12" value="-2">
+          </div>
+          
+          <div class="effect-actions">
+            <button id="resetEffectsBtn" class="reset-btn"><i class="fas fa-undo"></i> Reset Effects</button>
+            <button id="applyEffectsBtn" class="apply-btn"><i class="fas fa-magic"></i> Apply Effects</button>
+          </div>
+        </div>
+        
+        <div class="output-options">
+          <h3>Output Options</h3>
+          <div class="option-group">
+            <label for="outputFormat">Format:</label>
+            <select id="outputFormat">
+              <option value="mp3">MP3</option>
+              <option value="wav">WAV</option>
+              <option value="ogg">OGG</option>
+            </select>
+          </div>
+          
+          <div class="option-group">
+            <label>Compression Quality: <span id="qualityValue">5</span></label>
+            <input type="range" id="qualitySlider" min="1" max="10" value="5">
+            <small>Higher quality = slightly larger file size</small>
+          </div>
+          
+          <div class="option-info">
+            <div class="file-size-info">
+              <i class="fas fa-info-circle"></i>
+              <span>File compression enabled: Your output file will be optimized to keep size under control (approx. 4-5MB for a 3MB input).</span>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Editor Section (Initially Hidden) -->
-      <div class="editor-section" id="editorSection">
-        <div class="section-header">
-          <h2>Audio Editor</h2>
-          <div class="header-actions">
-            <button id="backToUpload" class="secondary-btn"><i class="fas fa-arrow-left"></i> Start Over</button>
-          </div>
-        </div>
-        
-        <div class="editor-container">
-          <!-- Audio Preview Side -->
-          <div class="audio-preview-container">
-            <div class="preview-header">
-              <h3>Audio Preview</h3>
-              <div class="preview-toggle">
-                <button id="originalAudioBtn" class="toggle-btn active">Original</button>
-                <button id="effectAudioBtn" class="toggle-btn">With Effects</button>
-              </div>
-            </div>
-            
-            <div class="waveform-wrapper">
-              <div id="waveform"></div>
-              <div class="playback-controls">
-                <button id="playPauseBtn" class="playback-btn"><i class="fas fa-play"></i></button>
-                <div class="time-display">
-                  <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
-                </div>
-                <div class="volume-control">
-                  <i class="fas fa-volume-up"></i>
-                  <input type="range" id="volumeSlider" min="0" max="100" value="100">
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Controls Side -->
-          <div class="effect-controls-container">
-            <div class="preset-selector">
-              <h3>Effect Presets</h3>
-              <div class="preset-buttons">
-                <button data-preset="classic" class="preset-btn active">
-                  <i class="fas fa-star"></i> Classic
-                </button>
-                <button data-preset="dreamy" class="preset-btn">
-                  <i class="fas fa-moon"></i> Dreamy
-                </button>
-                <button data-preset="underwater" class="preset-btn">
-                  <i class="fas fa-water"></i> Underwater
-                </button>
-                <button data-preset="lofi" class="preset-btn">
-                  <i class="fas fa-headphones"></i> Lo-Fi
-                </button>
-                <button data-preset="tiktok" class="preset-btn">
-                  <i class="fab fa-tiktok"></i> TikTok Viral
-                </button>
-                <button data-preset="custom" class="preset-btn">
-                  <i class="fas fa-sliders-h"></i> Custom
-                </button>
-              </div>
-            </div>
-            
-            <div class="effect-parameters">
-              <h3>Adjust Parameters</h3>
-              
-              <div class="parameter-group">
-                <label for="tempoSlider">Playback Speed</label>
-                <div class="parameter-control">
-                  <input type="range" id="tempoSlider" min="50" max="90" step="1" value="75">
-                  <span class="parameter-value"><span id="tempoValue">75</span>%</span>
-                </div>
-                <div class="parameter-hint">Slower values create a more dramatic effect</div>
-              </div>
-              
-              <div class="parameter-group">
-                <label for="reverbSlider">Reverb Amount</label>
-                <div class="parameter-control">
-                  <input type="range" id="reverbSlider" min="0" max="100" step="1" value="60">
-                  <span class="parameter-value"><span id="reverbValue">60</span>%</span>
-                </div>
-                <div class="parameter-hint">Controls the wetness of the reverb effect</div>
-              </div>
-              
-              <div class="parameter-group">
-                <label for="decaySlider">Reverb Decay</label>
-                <div class="parameter-control">
-                  <input type="range" id="decaySlider" min="1" max="10" step="1" value="4">
-                  <span class="parameter-value"><span id="decayValue">4</span>s</span>
-                </div>
-                <div class="parameter-hint">Higher values create longer reverb tails</div>
-              </div>
-              
-              <div class="parameter-group">
-                <label for="bassSlider">Bass Boost</label>
-                <div class="parameter-control">
-                  <input type="range" id="bassSlider" min="0" max="10" step="1" value="3">
-                  <span class="parameter-value">+<span id="bassValue">3</span>dB</span>
-                </div>
-                <div class="parameter-hint">Enhances low frequencies for more impact</div>
-              </div>
-              
-              <div class="parameter-group">
-                <label for="pitchSlider">Pitch Shift</label>
-                <div class="parameter-control">
-                  <input type="range" id="pitchSlider" min="-12" max="12" step="1" value="-2">
-                  <span class="parameter-value"><span id="pitchValue">-2</span> semitones</span>
-                </div>
-                <div class="parameter-hint">Negative values create deeper sound</div>
-              </div>
-              
-              <div class="parameter-actions">
-                <button id="resetEffectsBtn" class="secondary-btn"><i class="fas fa-undo"></i> Reset</button>
-                <button id="applyEffectsBtn" class="primary-btn"><i class="fas fa-magic"></i> Apply Effects</button>
-              </div>
-            </div>
-            
-            <div class="output-options">
-              <h3>Output Options</h3>
-              
-              <div class="option-group">
-                <label for="outputFormat">Format</label>
-                <select id="outputFormat" class="select-control">
-                  <option value="mp3">MP3</option>
-                  <option value="wav">WAV (Lossless)</option>
-                  <option value="ogg">OGG</option>
-                </select>
-              </div>
-              
-              <div class="option-group">
-                <label for="qualitySlider">Quality</label>
-                <div class="parameter-control">
-                  <input type="range" id="qualitySlider" min="128" max="320" step="32" value="192">
-                  <span class="parameter-value"><span id="qualityValue">192</span> kbps</span>
-                </div>
-              </div>
-              
-              <div class="option-actions">
-                <button id="resetAllBtn" class="secondary-btn"><i class="fas fa-times"></i> Cancel</button>
-                <button id="downloadBtn" class="download-btn" disabled><i class="fas fa-download"></i> Download</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="action-bar">
+        <button id="resetAllBtn" class="secondary-btn"><i class="fas fa-times"></i> Cancel</button>
+        <button id="downloadBtn" class="primary-btn" disabled><i class="fas fa-download"></i> Download</button>
       </div>
-      
-      <!-- Loading Overlay -->
-      <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-content">
-          <h3 id="loadingText">Processing Audio</h3>
-          <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
-          </div>
-          <p id="loadingInfo">Please wait while we apply your effects...</p>
+    </section>
+    
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <h3 id="loadingText">Processing your audio...</h3>
+        <div class="progress-container">
+          <div id="progressBar" class="progress-bar"></div>
         </div>
-      </div>
-      
-      <!-- Notification -->
-      <div class="notification" id="notification">
-        <div class="notification-content">
-          <span id="notificationMessage">Notification message</span>
-        </div>
+        <p id="loadingInfo">This may take a moment depending on the length of your audio file.</p>
       </div>
     </div>
     
-    <!-- How It Works Section -->
-    <div class="how-it-works-section">
-      <h2 class="section-title">How It Works</h2>
+    <!-- Notification -->
+    <div id="notification" class="notification">
+      <div class="notification-content">
+        <span id="notificationMessage">This is a notification</span>
+        <button class="notification-close"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- How It Works Section -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <h2>How Our Slowed & Reverb Creator Works</h2>
       
       <div class="steps-container">
-        <div class="step">
+        <div class="step-card">
           <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Upload Your Audio</h3>
-            <p>Start by uploading your MP3, WAV, or other audio file. Our tool processes everything directly in your browser, so your files remain private and secure.</p>
+          <div class="step-icon">
+            <i class="fas fa-file-upload"></i>
           </div>
+          <h3>Upload Audio</h3>
+          <p>Upload your audio file in any supported format (MP3, WAV, OGG, M4A).</p>
         </div>
         
-        <div class="step">
+        <div class="step-card">
           <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Choose Settings or Preset</h3>
-            <p>Select from our optimized presets for different vibes, or customize each parameter for complete control. Use our genre recommendations for best results.</p>
+          <div class="step-icon">
+            <i class="fas fa-sliders-h"></i>
           </div>
+          <h3>Adjust Effects</h3>
+          <p>Choose a preset or customize the effect parameters to your liking.</p>
         </div>
         
-        <div class="step">
+        <div class="step-card">
           <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Preview and Compare</h3>
-            <p>Listen to your transformed audio and compare it with the original. Make adjustments until you achieve your desired sound.</p>
+          <div class="step-icon">
+            <i class="fas fa-headphones"></i>
           </div>
+          <h3>Preview</h3>
+          <p>Listen to a preview of your slowed and reverb track before processing.</p>
         </div>
         
-        <div class="step">
+        <div class="step-card">
           <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Process and Download</h3>
-            <p>Apply the effects, select your output format and quality, then download your perfectly slowed & reverb masterpiece.</p>
+          <div class="step-icon">
+            <i class="fas fa-magic"></i>
           </div>
+          <h3>Process</h3>
+          <p>Apply the effects with our advanced audio engine and file compression technology.</p>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <div class="step-icon">
+            <i class="fas fa-download"></i>
+          </div>
+          <h3>Download</h3>
+          <p>Download your perfectly slowed and reverb masterpiece with optimized file size.</p>
         </div>
       </div>
     </div>
-    
-    <!-- Best Practices Section -->
-    <div class="best-practices-section">
-      <h2 class="section-title">Pro Tips for Perfect Results</h2>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2>Advanced Features</h2>
       
-      <div class="tips-container">
-        <div class="tip-card">
-          <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
-          <h3>Choose the Right Speed</h3>
-          <p>Different genres require different slow-down rates. Pop and R&B usually sound best between 75-80%, while hip-hop works better at 70-75%. Use our genre recommendations for guidance.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-compress-arrows-alt"></i>
+          </div>
+          <h3>Optimized File Size</h3>
+          <p>Our advanced compression algorithms ensure your processed audio files stay small without compromising quality. A 3MB input will typically generate a 4-5MB output file, perfect for sharing on social media.</p>
         </div>
         
-        <div class="tip-card">
-          <div class="tip-icon"><i class="fas fa-wave-square"></i></div>
-          <h3>Balance Your Reverb</h3>
-          <p>Too much reverb can muddy the vocals, while too little won't create that atmospheric effect. For most tracks, 60-70% reverb creates the perfect balance of clarity and dreaminess.</p>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3>Precise Speed Control</h3>
+          <p>Fine-tune the playback speed from 50% to 90% to achieve the perfect slowed effect while maintaining audio clarity and quality.</p>
         </div>
         
-        <div class="tip-card">
-          <div class="tip-icon"><i class="fas fa-guitar"></i></div>
-          <h3>Pick the Right Songs</h3>
-          <p>Songs with clear vocals, emotional melodies, and defined bass lines transform best with slowed & reverb. Tracks that are already heavily processed or very dense may not yield dramatic results.</p>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-wave-square"></i>
+          </div>
+          <h3>Professional Reverb</h3>
+          <p>Our reverb algorithm simulates real acoustic spaces with adjustable room size and decay time for that perfect atmospheric sound.</p>
         </div>
         
-        <div class="tip-card">
-          <div class="tip-icon"><i class="fas fa-headphones-alt"></i></div>
-          <h3>Use Bass Boost Wisely</h3>
-          <p>A slight bass boost (2-4dB) enhances the dreamy quality, but too much can cause distortion. For tracks with heavy bass already, consider using less boost or none at all.</p>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3>Customizable Bass</h3>
+          <p>Enhance the low-end frequencies with our dedicated bass boost control to add depth and warmth to your slowed tracks.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>100% Private</h3>
+          <p>All processing happens directly in your browser. Your audio files are never uploaded to any server, ensuring complete privacy and security.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-music"></i>
+          </div>
+          <h3>Genre-Optimized Presets</h3>
+          <p>Choose from expert-crafted presets designed specifically for different music genres to get professional results with a single click.</p>
         </div>
       </div>
     </div>
-    
-    <!-- FAQ Section -->
-    <div class="faq-section">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
       
       <div class="faq-container">
         <div class="faq-item">
           <div class="faq-question">
             <h3>What is slowed & reverb and why is it popular?</h3>
-            <i class="fas fa-chevron-down"></i>
+            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
           </div>
           <div class="faq-answer">
-            <p>Slowed & reverb is an audio effect technique that reduces playback speed and adds spatial reverb to create a dreamy, atmospheric sound. It became viral on platforms like TikTok and YouTube because it transforms familiar songs into emotionally evocative experiences, perfect for aesthetic videos and relaxation content.</p>
-            <p>The effect creates a sense of nostalgia and depth that enhances the emotional impact of the music, making it ideal for short-form content that aims to create a specific mood or vibe.</p>
+            <p>Slowed & reverb is an audio effect technique that reduces playback speed and adds spatial reverb to create a dreamy, atmospheric sound. It became viral on platforms like TikTok and YouTube because it transforms familiar songs into emotionally evocative experiences, perfect for aesthetic videos and relaxation content. The effect creates a sense of nostalgia and depth that enhances the emotional impact of the music.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Why is file compression important for slowed & reverb tracks?</h3>
+            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="faq-answer">
+            <p>File compression is crucial for slowed & reverb audio because the effect naturally extends the duration of tracks, which can dramatically increase file size. Our tool implements advanced compression algorithms that keep output files small (around 5MB for a 3MB input) while preserving audio quality, making your creations perfect for sharing on social media, messaging apps, and websites without quality loss.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
             <h3>What settings work best for different music genres?</h3>
-            <i class="fas fa-chevron-down"></i>
+            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
           </div>
           <div class="faq-answer">
-            <p>For pop and R&B tracks, we recommend 75-80% speed with medium reverb (50-60%). Hip-hop and rap usually benefit from 70-75% speed with heavier reverb (60-70%). Electronic music works well at 80-85% with moderate reverb and longer decay.</p>
-            <p>For acoustic and instrumental tracks, try 75% speed with subtle reverb (40-50%) to preserve clarity. Our tool offers genre-specific recommendations to help you achieve the best results.</p>
+            <p>For pop and R&B tracks, we recommend 75-80% speed with medium reverb (50-60%). Hip-hop and rap usually benefit from 70-75% speed with heavier reverb (60-70%). Electronic music works well at 80-85% with moderate reverb and longer decay. For acoustic and instrumental tracks, try 75% speed with subtle reverb (40-50%) to preserve clarity. Our tool offers genre-specific recommendations to help you achieve the best results.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
             <h3>Is this tool completely free to use?</h3>
-            <i class="fas fa-chevron-down"></i>
+            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
           </div>
           <div class="faq-answer">
             <p>Yes, our Slowed & Reverb Creator is completely free to use with no hidden fees, account requirements, watermarks, or time limitations. We believe in providing high-quality audio tools that are accessible to everyone.</p>
@@ -681,7 +628,7 @@
         <div class="faq-item">
           <div class="faq-question">
             <h3>How is my privacy protected when using this tool?</h3>
-            <i class="fas fa-chevron-down"></i>
+            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
           </div>
           <div class="faq-answer">
             <p>Your privacy is our top priority. All audio processing happens directly in your browser using Web Audio API technology. Your audio files are never uploaded to any server, stored, or shared. Everything processes locally on your device, ensuring complete security and privacy.</p>
@@ -691,141 +638,84 @@
         <div class="faq-item">
           <div class="faq-question">
             <h3>What are the optimal settings for viral TikTok slowed & reverb effects?</h3>
-            <i class="fas fa-chevron-down"></i>
+            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
           </div>
           <div class="faq-answer">
-            <p>For TikTok-ready slowed & reverb effects that tend to go viral, we recommend using 75% speed, 65% reverb, 3-4 seconds decay, and a slight bass boost (+3dB). These settings create the perfect balance of dreaminess and clarity that performs well on social media.</p>
-            <p>Our 'TikTok Viral' preset automatically applies these optimized settings for you.</p>
+            <p>For TikTok-ready slowed & reverb effects that tend to go viral, we recommend using 75% speed, 65% reverb, 3-4 seconds decay, and a slight bass boost (+3dB). These settings create the perfect balance of dreaminess and clarity that performs well on social media. Our 'TikTok Viral' preset automatically applies these optimized settings for you.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
             <h3>Can I use the processed audio in my social media content?</h3>
-            <i class="fas fa-chevron-down"></i>
+            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
           </div>
           <div class="faq-answer">
-            <p>While our tool enables you to create slowed & reverb versions, please remember that the original copyright of songs remains with the artists and rightsholders. For personal use, there are typically no issues.</p>
-            <p>For commercial or monetized content, you should obtain proper licenses for the original music. Many creators use these effects for personal content on platforms like TikTok, Instagram Reels, and YouTube Shorts.</p>
+            <p>While our tool enables you to create slowed & reverb versions, please remember that the original copyright of songs remains with the artists and rightsholders. For personal use, there are typically no issues. For commercial or monetized content, you should obtain proper licenses for the original music. Many creators use these effects for personal content on platforms like TikTok, Instagram Reels, and YouTube Shorts.</p>
           </div>
         </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <h3>Why do some songs sound better with slowed & reverb than others?</h3>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Songs with clear vocals, emotional lyrics, and simpler instrumentation often yield the best results with slowed & reverb effects. Tracks with strong melodies, defined bass lines, and atmospheric elements enhance the dreamy quality.</p>
-            <p>Dense, already-processed tracks with heavy compression may not transform as dramatically. Our tool's genre recommendations help you find the sweet spot for any track.</p>
-          </div>
+      </div>
+    </div>
+  </section>
+ <!-- Footer Section -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column footer-about">
+        <a href="index.html" class="footer-logo">MB Tools</a>
+        <p>Free online tools for everyday tasks</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Tools</h4>
+        <div class="footer-links">
+          <ul>
+            <li><a href="pdf-to-word.html">PDF to Word</a></li>
+            <li><a href="video-to-audio.html">Video to Audio</a></li>
+            <li><a href="qr-code-generator.html">QR Code Generator</a></li>
+            <li><a href="barcode-generator.html">Barcode Generator</a></li>
+            <li><a href="tools.html">View All Tools</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Company</h4>
+        <div class="footer-links">
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <div class="footer-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="tools.html">Tools</a></li>
+          </ul>
         </div>
       </div>
     </div>
     
-    <!-- Social Proof Section -->
-    <div class="social-proof-section">
-      <h2 class="section-title">What People Are Creating</h2>
-      
-      <div class="testimonials-container">
-        <div class="testimonial">
-          <div class="quote">
-            <i class="fas fa-quote-left"></i>
-            <p>This tool helped me create the perfect slowed track for my TikTok that got over 500K views. The genre recommendations were spot on!</p>
-          </div>
-          <div class="author">
-            <img src="img/avatar-1.jpg" alt="@musiccreator" class="avatar">
-            <div class="author-info">
-              <h4>@musiccreator</h4>
-              <span>TikTok Content Creator</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial">
-          <div class="quote">
-            <i class="fas fa-quote-left"></i>
-            <p>I've tried many slowed & reverb tools but this one gives the cleanest sound quality. The customization options let me get exactly the vibe I want.</p>
-          </div>
-          <div class="author">
-            <img src="img/avatar-2.jpg" alt="@ambient_vibes" class="avatar">
-            <div class="author-info">
-              <h4>@ambient_vibes</h4>
-              <span>YouTube Creator</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial">
-          <div class="quote">
-            <i class="fas fa-quote-left"></i>
-            <p>As a small streamer, I love using this for my stream intros and outros. The fact that it's free and private makes it perfect for creators on a budget.</p>
-          </div>
-          <div class="author">
-            <img src="img/avatar-3.jpg" alt="@stream_queen" class="avatar">
-            <div class="author-info">
-              <h4>@stream_queen</h4>
-              <span>Twitch Streamer</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="copyright">
+      <p>© 2025 Muatasim billah Tools. All rights reserved.</p>
     </div>
-  </main>
+  </div>
+</footer>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <h3>MB Tools</h3>
-          <p>Free online tools for creators and professionals. No account needed, 100% free, and privacy-first.</p>
-          <div class="social-links">
-            <a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Check our Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Subscribe to our YouTube channel"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Tools</h3>
-          <ul>
-            <li><a href="video-compressor.html">Video Compressor</a></li>
-            <li><a href="image-resize.html">Image Resizer</a></li>
-            <li><a href="pdf-tools.html">PDF Tools</a></li>
-            <li><a href="text-to-speech.html">Text to Speech</a></li>
-            <li><a href="tools.html">View All Tools</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Blogs</h3>
-          <ul>
-            <li><a href="../blog/slow-reverb-guide.html">How to Create TikTok-Ready Slow & Reverb Effects</a></li>
-            <li><a href="../blog/music-production-tips.html">5 Ways to Use Slow & Reverb in Music Production</a></li>
-            <li><a href="../blog/lofi-creation.html">Creating Lo-Fi Beats: The Complete Guide</a></li>
-            <li><a href="../blog/bedroom-producer-tips.html">Bedroom Producer: Creating Professional Sound</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2023 MB Tools. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Main JS -->
+  <!-- JavaScript -->
   <script src="slowed-reverb.js"></script>
 </body>
 </html>

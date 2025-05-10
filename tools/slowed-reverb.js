@@ -1,106 +1,118 @@
 /**
  * Slowed & Reverb Creator - Main JavaScript
  * MB Tools
+ * With Advanced Compression
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // ==================== ELEMENT SELECTION ====================
-    // Main sections
-    const uploadSection = document.getElementById('uploadSection');
-    const editorSection = document.getElementById('editorSection');
-    const loadingOverlay = document.getElementById('loadingOverlay');
-    const progressBar = document.getElementById('progressBar');
-    const loadingText = document.getElementById('loadingText');
-    const loadingInfo = document.getElementById('loadingInfo');
-    const notification = document.getElementById('notification');
-    const notificationMessage = document.getElementById('notificationMessage');
-    
-    // Upload elements
-    const audioFileInput = document.getElementById('audioFileInput');
-    const dropZone = document.getElementById('dropZone');
-    const browseBtn = document.getElementById('browseBtn');
-    
-    // Audio preview controls
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const currentTimeDisplay = document.getElementById('currentTime');
-    const totalTimeDisplay = document.getElementById('totalTime');
-    const volumeSlider = document.getElementById('volumeSlider');
-    const waveformContainer = document.getElementById('waveform');
-    const originalAudioBtn = document.getElementById('originalAudioBtn');
-    const effectAudioBtn = document.getElementById('effectAudioBtn');
-    
-    // Effect controls
-    const presetBtns = document.querySelectorAll('.preset-btn');
-    const tempoSlider = document.getElementById('tempoSlider');
-    const tempoValue = document.getElementById('tempoValue');
-    const reverbSlider = document.getElementById('reverbSlider');
-    const reverbValue = document.getElementById('reverbValue');
-    const decaySlider = document.getElementById('decaySlider');
-    const decayValue = document.getElementById('decayValue');
-    const bassSlider = document.getElementById('bassSlider');
-    const bassValue = document.getElementById('bassValue');
-    const pitchSlider = document.getElementById('pitchSlider');
-    const pitchValue = document.getElementById('pitchValue');
-    
-    // Action buttons
-    const resetEffectsBtn = document.getElementById('resetEffectsBtn');
-    const applyEffectsBtn = document.getElementById('applyEffectsBtn');
-    const backToUpload = document.getElementById('backToUpload');
-    const resetAllBtn = document.getElementById('resetAllBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    
-    // Output controls
-    const outputFormat = document.getElementById('outputFormat');
-    const qualitySlider = document.getElementById('qualitySlider');
-    const qualityValue = document.getElementById('qualityValue');
-    
-    // Navigation elements
-    const scrollToToolBtn = document.getElementById('scrollToToolBtn');
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    // ==================== STATE VARIABLES ====================
-    let audioContext = null;
-    let originalAudioFile = null;
-    let originalBuffer = null;
-    let processedBuffer = null;
-    let waveform = null;
-    let isAudioPlaying = false;
-    let isPreviewingEffect = false;
-    let lastNotificationTimeout = null;
-    let processingPromise = null;
-    
-    // Effect parameters with default values
-    let effectParams = {
-      tempo: 75,      // percentage of original speed (50-90%)
-      reverb: 60,     // percentage 0-100
-      decay: 4,       // seconds (1-10)
-      bassBoost: 3,   // dB (0-10)
-      pitch: -2       // semitones (-12 to 12)
-    };
-    
-    // Preset configurations
-    const presets = {
-      classic: { tempo: 75, reverb: 60, decay: 4, bassBoost: 3, pitch: -2 },
-      dreamy: { tempo: 70, reverb: 80, decay: 6, bassBoost: 2, pitch: -3 },
-      underwater: { tempo: 65, reverb: 90, decay: 8, bassBoost: 4, pitch: -4 },
-      lofi: { tempo: 85, reverb: 40, decay: 2, bassBoost: 3, pitch: -1 }, // Fixed lofi preset
-      tiktok: { tempo: 75, reverb: 65, decay: 3, bassBoost: 4, pitch: -2 },
-      custom: { tempo: 75, reverb: 60, decay: 4, bassBoost: 3, pitch: -2 }
-    };
-    
-    // ==================== INITIALIZATION ====================
-    function init() {
+  // ==================== ELEMENT SELECTION ====================
+  // Main sections
+  const uploadSection = document.getElementById('uploadSection');
+  const editorSection = document.getElementById('editorSection');
+  const loadingOverlay = document.getElementById('loadingOverlay');
+  const progressBar = document.getElementById('progressBar');
+  const loadingText = document.getElementById('loadingText');
+  const loadingInfo = document.getElementById('loadingInfo');
+  const notification = document.getElementById('notification');
+  const notificationMessage = document.getElementById('notificationMessage');
+  
+  // Upload elements
+  const audioFileInput = document.getElementById('audioFileInput');
+  const dropZone = document.getElementById('dropZone');
+  const browseBtn = document.getElementById('browseBtn');
+  
+  // Audio preview controls
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const currentTimeDisplay = document.getElementById('currentTime');
+  const totalTimeDisplay = document.getElementById('totalTime');
+  const volumeSlider = document.getElementById('volumeSlider');
+  const waveformContainer = document.getElementById('waveform');
+  const originalAudioBtn = document.getElementById('originalAudioBtn');
+  const effectAudioBtn = document.getElementById('effectAudioBtn');
+  
+  // Effect controls
+  const presetBtns = document.querySelectorAll('.preset-btn');
+  const tempoSlider = document.getElementById('tempoSlider');
+  const tempoValue = document.getElementById('tempoValue');
+  const reverbSlider = document.getElementById('reverbSlider');
+  const reverbValue = document.getElementById('reverbValue');
+  const decaySlider = document.getElementById('decaySlider');
+  const decayValue = document.getElementById('decayValue');
+  const bassSlider = document.getElementById('bassSlider');
+  const bassValue = document.getElementById('bassValue');
+  const pitchSlider = document.getElementById('pitchSlider');
+  const pitchValue = document.getElementById('pitchValue');
+  
+  // Action buttons
+  const resetEffectsBtn = document.getElementById('resetEffectsBtn');
+  const applyEffectsBtn = document.getElementById('applyEffectsBtn');
+  const backToUpload = document.getElementById('backToUpload');
+  const resetAllBtn = document.getElementById('resetAllBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  
+  // Output controls
+  const outputFormat = document.getElementById('outputFormat');
+  const qualitySlider = document.getElementById('qualitySlider');
+  const qualityValue = document.getElementById('qualityValue');
+  
+  // Navigation elements
+  const scrollToToolBtn = document.getElementById('scrollToToolBtn');
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  // Notification close button
+  const notificationClose = document.querySelector('.notification-close');
+  if (notificationClose) {
+      notificationClose.addEventListener('click', function() {
+          notification.classList.remove('active');
+      });
+  }
+  
+  // ==================== STATE VARIABLES ====================
+  let audioContext = null;
+  let originalAudioFile = null;
+  let originalBuffer = null;
+  let processedBuffer = null;
+  let currentAudioSource = null;
+  let waveform = null;
+  let isAudioPlaying = false;
+  let isPreviewingEffect = false;
+  let lastNotificationTimeout = null;
+  let processingPromise = null;
+  let compressionTimeout = null;
+  
+  // Effect parameters with default values
+  let effectParams = {
+    tempo: 75,      // percentage of original speed (50-90%)
+    reverb: 60,     // percentage 0-100
+    decay: 4,       // seconds (1-10)
+    bassBoost: 3,   // dB (0-10)
+    pitch: -2       // semitones (-12 to 12)
+  };
+  
+  // Preset configurations
+  const presets = {
+    classic: { tempo: 75, reverb: 60, decay: 4, bassBoost: 3, pitch: -2 },
+    dreamy: { tempo: 70, reverb: 80, decay: 6, bassBoost: 2, pitch: -3 },
+    underwater: { tempo: 65, reverb: 90, decay: 8, bassBoost: 4, pitch: -4 },
+    lofi: { tempo: 85, reverb: 40, decay: 2, bassBoost: 3, pitch: -1 },
+    tiktok: { tempo: 75, reverb: 65, decay: 3, bassBoost: 4, pitch: -2 },
+    custom: { tempo: 75, reverb: 60, decay: 4, bassBoost: 3, pitch: -2 }
+  };
+  
+  // ==================== INITIALIZATION ====================
+  function init() {
       // Initialize Web Audio API
       try {
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        audioContext = new AudioContext();
+          window.AudioContext = window.AudioContext || window.webkitAudioContext;
+          audioContext = new AudioContext();
       } catch (e) {
-        showNotification('Your browser does not support the Web Audio API. Please use a modern browser.', 5000);
-        console.error('AudioContext initialization failed:', e);
+          showNotification('Your browser does not support the Web Audio API. Please use a modern browser.', 5000);
+          console.error('AudioContext initialization failed:', e);
       }
       
       // Initialize UI state
       editorSection.style.display = 'none';
+      loadingOverlay.style.display = 'none';
       downloadBtn.disabled = true;
       
       // Setup all event listeners
@@ -108,245 +120,246 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Initialize WaveSurfer (if loaded)
       if (typeof WaveSurfer !== 'undefined') {
-        initializeWaveform();
+          initializeWaveform();
       } else {
-        console.warn('WaveSurfer not loaded yet, will try again when page fully loads');
-        window.addEventListener('load', function() {
-          if (typeof WaveSurfer !== 'undefined') {
-            initializeWaveform();
-          } else {
-            console.error('WaveSurfer.js is not available. Please check if the library is properly included.');
-            showNotification('Could not load audio visualization. Some features may be limited.', 3000);
-          }
-        });
+          console.warn('WaveSurfer not loaded yet, will try again when page fully loads');
+          window.addEventListener('load', function() {
+              if (typeof WaveSurfer !== 'undefined') {
+                  initializeWaveform();
+              } else {
+                  console.error('WaveSurfer.js is not available. Please check if the library is properly included.');
+                  showNotification('Could not load audio visualization. Some features may be limited.', 3000);
+              }
+          });
       }
       
       // Initialize FAQ accordions
       initializeFAQ();
-    }
-    
-    // Initialize waveform visualization
-    function initializeWaveform() {
+  }
+  
+  // Initialize waveform visualization
+  function initializeWaveform() {
       try {
-        waveform = WaveSurfer.create({
-          container: waveformContainer,
-          waveColor: 'rgba(158, 158, 179, 0.4)',
-          progressColor: '#7000ff',
-          cursorColor: '#00d9ff',
-          barWidth: 2,
-          barGap: 1,
-          barRadius: 2,
-          height: 140,
-          responsive: true,
-          normalize: true,
-          partialRender: true
-        });
-        
-        // Set up waveform events
-        waveform.on('ready', function() {
-          updateTimeDisplay(0, waveform.getDuration());
-        });
-        
-        waveform.on('audioprocess', function(time) {
-          updateTimeDisplay(time, waveform.getDuration());
-        });
-        
-        waveform.on('seek', function(progress) {
-          updateTimeDisplay(progress * waveform.getDuration(), waveform.getDuration());
-        });
-        
-        waveform.on('finish', function() {
-          playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-          isAudioPlaying = false;
-        });
-        
-        waveform.on('error', function(error) {
-          console.error('Waveform error:', error);
-          showNotification('Error visualizing audio. Please try again.', 3000);
-        });
+          waveform = WaveSurfer.create({
+              container: waveformContainer,
+              waveColor: 'rgba(158, 158, 179, 0.4)',
+              progressColor: '#7000ff',
+              cursorColor: '#00d9ff',
+              barWidth: 2,
+              barGap: 1,
+              barRadius: 2,
+              height: 140,
+              responsive: true,
+              normalize: true,
+              partialRender: true
+          });
+          
+          // Set up waveform events
+          waveform.on('ready', function() {
+              updateTimeDisplay(0, waveform.getDuration());
+              totalTimeDisplay.textContent = formatTime(waveform.getDuration());
+          });
+          
+          waveform.on('audioprocess', function(time) {
+              updateTimeDisplay(time, waveform.getDuration());
+          });
+          
+          waveform.on('seek', function(progress) {
+              updateTimeDisplay(progress * waveform.getDuration(), waveform.getDuration());
+          });
+          
+          waveform.on('finish', function() {
+              playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+              isAudioPlaying = false;
+          });
+          
+          waveform.on('error', function(error) {
+              console.error('Waveform error:', error);
+              showNotification('Error visualizing audio. Please try again.', 3000);
+          });
       } catch (e) {
-        console.error('Error initializing WaveSurfer:', e);
+          console.error('Error initializing WaveSurfer:', e);
       }
-    }
-    
-    // Set up all event listeners
-    function setupEventListeners() {
+  }
+  
+  // Set up all event listeners
+  function setupEventListeners() {
       // File upload events
       if (browseBtn) {
-        browseBtn.addEventListener('click', function() {
-          audioFileInput.click();
-        });
+          browseBtn.addEventListener('click', function() {
+              audioFileInput.click();
+          });
       }
       
       if (audioFileInput) {
-        audioFileInput.addEventListener('change', handleFileSelect);
+          audioFileInput.addEventListener('change', handleFileSelect);
       }
       
       // Drag and drop events
       if (dropZone) {
-        dropZone.addEventListener('dragover', handleDragOver);
-        dropZone.addEventListener('dragleave', handleDragLeave);
-        dropZone.addEventListener('drop', handleFileDrop);
-        dropZone.addEventListener('click', function() {
-          audioFileInput.click();
-        });
+          dropZone.addEventListener('dragover', handleDragOver);
+          dropZone.addEventListener('dragleave', handleDragLeave);
+          dropZone.addEventListener('drop', handleFileDrop);
+          dropZone.addEventListener('click', function() {
+              audioFileInput.click();
+          });
       }
       
       // Audio player controls
       if (playPauseBtn) {
-        playPauseBtn.addEventListener('click', togglePlayPause);
+          playPauseBtn.addEventListener('click', togglePlayPause);
       }
       
       if (volumeSlider) {
-        volumeSlider.addEventListener('input', adjustVolume);
+          volumeSlider.addEventListener('input', adjustVolume);
       }
       
       // Audio preview toggle
       if (originalAudioBtn) {
-        originalAudioBtn.addEventListener('click', function() {
-          setActiveButton([originalAudioBtn, effectAudioBtn], this);
-          switchAudioSource('original');
-        });
+          originalAudioBtn.addEventListener('click', function() {
+              setActiveButton([originalAudioBtn, effectAudioBtn], this);
+              switchAudioSource('original');
+          });
       }
       
       if (effectAudioBtn) {
-        effectAudioBtn.addEventListener('click', function() {
-          setActiveButton([originalAudioBtn, effectAudioBtn], this);
-          switchAudioSource('effect');
-        });
+          effectAudioBtn.addEventListener('click', function() {
+              setActiveButton([originalAudioBtn, effectAudioBtn], this);
+              switchAudioSource('effect');
+          });
       }
       
       // Effect preset buttons
       presetBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          const preset = this.dataset.preset;
-          setActiveButton(presetBtns, this);
-          applyPreset(preset);
-        });
+          btn.addEventListener('click', function() {
+              const preset = this.dataset.preset;
+              setActiveButton(presetBtns, this);
+              applyPreset(preset);
+          });
       });
       
       // Effect parameter sliders
       if (tempoSlider) {
-        tempoSlider.addEventListener('input', function() {
-          effectParams.tempo = parseInt(this.value);
-          tempoValue.textContent = this.value;
-          updateCustomPreset();
-        });
+          tempoSlider.addEventListener('input', function() {
+              effectParams.tempo = parseInt(this.value);
+              tempoValue.textContent = this.value;
+              updateCustomPreset();
+          });
       }
       
       if (reverbSlider) {
-        reverbSlider.addEventListener('input', function() {
-          effectParams.reverb = parseInt(this.value);
-          reverbValue.textContent = this.value;
-          updateCustomPreset();
-        });
+          reverbSlider.addEventListener('input', function() {
+              effectParams.reverb = parseInt(this.value);
+              reverbValue.textContent = this.value;
+              updateCustomPreset();
+          });
       }
       
       if (decaySlider) {
-        decaySlider.addEventListener('input', function() {
-          effectParams.decay = parseInt(this.value);
-          decayValue.textContent = this.value;
-          updateCustomPreset();
-        });
+          decaySlider.addEventListener('input', function() {
+              effectParams.decay = parseInt(this.value);
+              decayValue.textContent = this.value;
+              updateCustomPreset();
+          });
       }
       
       if (bassSlider) {
-        bassSlider.addEventListener('input', function() {
-          effectParams.bassBoost = parseInt(this.value);
-          bassValue.textContent = this.value;
-          updateCustomPreset();
-        });
+          bassSlider.addEventListener('input', function() {
+              effectParams.bassBoost = parseInt(this.value);
+              bassValue.textContent = this.value;
+              updateCustomPreset();
+          });
       }
       
       if (pitchSlider) {
-        pitchSlider.addEventListener('input', function() {
-          effectParams.pitch = parseInt(this.value);
-          pitchValue.textContent = this.value;
-          updateCustomPreset();
-        });
+          pitchSlider.addEventListener('input', function() {
+              effectParams.pitch = parseInt(this.value);
+              pitchValue.textContent = this.value;
+              updateCustomPreset();
+          });
       }
       
       // Output options
       if (qualitySlider) {
-        qualitySlider.addEventListener('input', function() {
-          qualityValue.textContent = this.value;
-        });
+          qualitySlider.addEventListener('input', function() {
+              qualityValue.textContent = this.value;
+          });
       }
       
       // Action buttons
       if (resetEffectsBtn) {
-        resetEffectsBtn.addEventListener('click', resetEffects);
+          resetEffectsBtn.addEventListener('click', resetEffects);
       }
       
       if (applyEffectsBtn) {
-        applyEffectsBtn.addEventListener('click', processAudio);
+          applyEffectsBtn.addEventListener('click', processAudio);
       }
       
-      if (backToUpload || resetAllBtn) {
-        backToUpload.addEventListener('click', resetTool);
-        resetAllBtn.addEventListener('click', resetTool);
+      if (backToUpload && resetAllBtn) {
+          backToUpload.addEventListener('click', resetTool);
+          resetAllBtn.addEventListener('click', resetTool);
       }
       
       if (downloadBtn) {
-        downloadBtn.addEventListener('click', downloadProcessedAudio);
+          downloadBtn.addEventListener('click', downloadProcessedAudio);
       }
       
       // Scroll to tool button
       if (scrollToToolBtn) {
-        scrollToToolBtn.addEventListener('click', function() {
-          document.querySelector('.tool-container').scrollIntoView({
-            behavior: 'smooth'
+          scrollToToolBtn.addEventListener('click', function() {
+              document.querySelector('.tool-container').scrollIntoView({
+                  behavior: 'smooth'
+              });
           });
-        });
       }
-    }
-    
-    // Initialize FAQ accordions
-    function initializeFAQ() {
+  }
+  
+  // Initialize FAQ accordions
+  function initializeFAQ() {
       faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', function() {
-          const isActive = item.classList.contains('active');
+          const question = item.querySelector('.faq-question');
           
-          // Close all other FAQs
-          faqItems.forEach(faq => {
-            faq.classList.remove('active');
+          question.addEventListener('click', function() {
+              const isActive = item.classList.contains('active');
+              
+              // Close all other FAQs
+              faqItems.forEach(faq => {
+                  faq.classList.remove('active');
+              });
+              
+              // Toggle current FAQ
+              if (!isActive) {
+                  item.classList.add('active');
+              }
           });
-          
-          // Toggle current FAQ
-          if (!isActive) {
-            item.classList.add('active');
-          }
-        });
       });
-    }
-    
-    // ==================== FILE HANDLING ====================
-    // Handle file selection from input
-    function handleFileSelect(event) {
+  }
+  
+  // ==================== FILE HANDLING ====================
+  // Handle file selection from input
+  function handleFileSelect(event) {
       const file = event.target.files[0];
       if (file) {
-        processUploadedFile(file);
+          processUploadedFile(file);
       }
-    }
-    
-    // Handle drag over
-    function handleDragOver(event) {
+  }
+  
+  // Handle drag over
+  function handleDragOver(event) {
       event.preventDefault();
       event.stopPropagation();
       dropZone.classList.add('dragover');
-    }
-    
-    // Handle drag leave
-    function handleDragLeave(event) {
+  }
+  
+  // Handle drag leave
+  function handleDragLeave(event) {
       event.preventDefault();
       event.stopPropagation();
       dropZone.classList.remove('dragover');
-    }
-    
-    // Handle file drop
-    function handleFileDrop(event) {
+  }
+  
+  // Handle file drop
+  function handleFileDrop(event) {
       event.preventDefault();
       event.stopPropagation();
       
@@ -354,730 +367,893 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const file = event.dataTransfer.files[0];
       if (file) {
-        processUploadedFile(file);
+          processUploadedFile(file);
       }
-    }
-    
-    // Process uploaded file
-    function processUploadedFile(file) {
-      // Validate file type
-      if (!isValidAudioFile(file)) {
-        showNotification('Please upload a valid audio file (MP3, WAV, OGG, M4A).', 3000);
-        return;
+  }
+  
+  // Process uploaded file
+  function processUploadedFile(file) {
+      // Check if file is an audio file
+      if (!file.type.startsWith('audio/')) {
+          showNotification('Please upload an audio file (MP3, WAV, etc.)', 3000);
+          return;
       }
       
-      // Size check (limit to 50MB to prevent browser crashes)
+      // Check file size (max 50MB)
       if (file.size > 50 * 1024 * 1024) {
-        showNotification('File is too large. Please upload audio less than 50MB.', 3000);
-        return;
+          showNotification('File size exceeds the 50MB limit. Please upload a smaller file.', 3000);
+          return;
       }
       
-      // Store original file and load it
+      // Store the original file
       originalAudioFile = file;
-      loadAudioFile(file);
-    }
-    
-    // Check if file is a valid audio file
-    function isValidAudioFile(file) {
-      const acceptedTypes = ['audio/mpeg', 'audio/mp3', 'audio/wav', 'audio/wave', 'audio/ogg', 'audio/mp4', 'audio/x-m4a'];
       
-      // Check MIME type
-      if (acceptedTypes.includes(file.type)) {
-        return true;
-      }
+      // Show loading overlay
+      loadingOverlay.style.display = 'flex';
+      loadingText.textContent = 'Loading audio...';
+      progressBar.style.width = '0%';
       
-      // Fallback to extension check if MIME type is not recognized
-      const fileName = file.name.toLowerCase();
-      return (
-        fileName.endsWith('.mp3') ||
-        fileName.endsWith('.wav') ||
-        fileName.endsWith('.ogg') ||
-        fileName.endsWith('.m4a')
-      );
-    }
-    
-    // Load audio file
-    function loadAudioFile(file) {
-      showLoading('Loading Audio', 'Preparing your audio file...');
-      
+      // Read file as ArrayBuffer
       const reader = new FileReader();
       
-      reader.onload = function(event) {
-        const arrayBuffer = event.target.result;
-        
-        // Resume AudioContext if suspended (needed for autoplay policy)
-        if (audioContext.state === 'suspended') {
-          audioContext.resume();
-        }
-        
-        // Decode the audio data
-        audioContext.decodeAudioData(arrayBuffer)
-          .then(function(decodedBuffer) {
-            // Store the original buffer
-            originalBuffer = decodedBuffer;
-            
-            // Load the waveform
-            if (waveform) {
-              waveform.loadDecodedBuffer(decodedBuffer);
-            }
-            
-            // Show editor section
-            uploadSection.style.display = 'none';
-            editorSection.style.display = 'block';
-            
-            // Reset and initialize controls
-            resetEffects();
-            setActiveButton([originalAudioBtn, effectAudioBtn], originalAudioBtn);
-            isPreviewingEffect = false;
-            downloadBtn.disabled = true;
-            
-            // Hide loading overlay
-            hideLoading();
-            showNotification('Audio loaded successfully! Adjust effects and preview.', 3000);
-          })
-          .catch(function(error) {
-            console.error('Error decoding audio data:', error);
-            hideLoading();
-            showNotification('Could not decode audio file. Please try another file.', 4000);
-          });
-      };
-      
-      reader.onerror = function(error) {
-        console.error('Error reading file:', error);
-        hideLoading();
-        showNotification('Error reading file. Please try again.', 3000);
-      };
-      
-      // Read the file as ArrayBuffer
-      reader.readAsArrayBuffer(file);
-    }
-    
-    // ==================== AUDIO PLAYBACK CONTROLS ====================
-    // Toggle play/pause
-    function togglePlayPause() {
-      if (!waveform) return;
-      
-      if (isAudioPlaying) {
-        waveform.pause();
-        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-        isAudioPlaying = false;
-      } else {
-        // Resume AudioContext if suspended
-        if (audioContext.state === 'suspended') {
-          audioContext.resume();
-        }
-        
-        waveform.play();
-        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        isAudioPlaying = true;
-      }
-    }
-    
-    // Adjust volume
-    function adjustVolume() {
-      if (!waveform) return;
-      
-      const volume = parseFloat(volumeSlider.value) / 100;
-      waveform.setVolume(volume);
-    }
-    
-    // Switch between original and effect audio
-    function switchAudioSource(source) {
-      if (!waveform || !originalBuffer) return;
-      
-      // Stop current playback
-      const wasPlaying = isAudioPlaying;
-      if (isAudioPlaying) {
-        waveform.pause();
-        isAudioPlaying = false;
-        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-      }
-      
-      if (source === 'original') {
-        waveform.loadDecodedBuffer(originalBuffer);
-        waveform.setWaveColor('rgba(158, 158, 179, 0.4)');
-        waveform.setProgressColor('#7000ff');
-        isPreviewingEffect = false;
-        
-        // Resume playback if it was playing
-        if (wasPlaying) {
-          setTimeout(() => {
-            waveform.play();
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            isAudioPlaying = true;
-          }, 100);
-        }
-      } else if (source === 'effect') {
-        // If processed buffer exists, use it
-        if (processedBuffer) {
-          waveform.loadDecodedBuffer(processedBuffer);
-          waveform.setWaveColor('rgba(0, 217, 255, 0.4)');
-          waveform.setProgressColor('#00d9ff');
-          isPreviewingEffect = true;
-          
-          // Resume playback if it was playing
-          if (wasPlaying) {
-            setTimeout(() => {
-              waveform.play();
-              playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-              isAudioPlaying = true;
-            }, 100);
+      reader.onprogress = function(event) {
+          if (event.lengthComputable) {
+              const percentComplete = (event.loaded / event.total) * 100;
+              progressBar.style.width = percentComplete + '%';
           }
-        } else {
-          // Need to create a preview
-          showNotification('Creating effect preview...', 2000);
-          
-          showLoading('Creating Preview', 'Applying effects...');
-          
-          // Process the audio with current effects
-          processAudioWithEffects(originalBuffer)
-            .then(function(buffer) {
-              processedBuffer = buffer;
-              
-              waveform.loadDecodedBuffer(buffer);
-              waveform.setWaveColor('rgba(0, 217, 255, 0.4)');
-              waveform.setProgressColor('#00d9ff');
-              isPreviewingEffect = true;
-              hideLoading();
-              
-              // Resume playback if it was playing
-              if (wasPlaying) {
-                setTimeout(() => {
-                  waveform.play();
-                  playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                  isAudioPlaying = true;
-                }, 100);
-              }
-            })
-            .catch(function(error) {
-              console.error('Error creating preview:', error);
-              hideLoading();
-              showNotification('Error creating preview. Please try again.', 3000);
-              
-              // Switch back to original
-              setActiveButton([originalAudioBtn, effectAudioBtn], originalAudioBtn);
-              waveform.loadDecodedBuffer(originalBuffer);
-              isPreviewingEffect = false;
-            });
-        }
-      }
-    }
-    
-    // Update time display
-    function updateTimeDisplay(currentTime, totalTime) {
-      if (isNaN(currentTime)) currentTime = 0;
-      if (isNaN(totalTime)) totalTime = 0;
+      };
       
-      currentTimeDisplay.textContent = formatTime(currentTime);
-      totalTimeDisplay.textContent = formatTime(totalTime);
-    }
-    
-    // Format time in MM:SS format
-    function formatTime(seconds) {
+      reader.onload = function(event) {
+          // Decode audio data
+          const arrayBuffer = event.target.result;
+          
+          if (audioContext.state === 'suspended') {
+              audioContext.resume().then(decodeAudio);
+          } else {
+              decodeAudio();
+          }
+          
+          function decodeAudio() {
+              audioContext.decodeAudioData(arrayBuffer)
+                  .then(function(decodedData) {
+                      // Store original buffer
+                      originalBuffer = decodedData;
+                      
+                      // Hide loading overlay
+                      loadingOverlay.style.display = 'none';
+                      
+                      // Switch to editor section
+                      uploadSection.style.display = 'none';
+                      editorSection.style.display = 'block';
+                      
+                      // Update file info
+                      const fileName = document.getElementById('fileName');
+                      const fileSize = document.getElementById('fileSize');
+                      const fileDuration = document.getElementById('fileDuration');
+                      
+                      fileName.textContent = originalAudioFile.name;
+                      fileSize.textContent = formatFileSize(originalAudioFile.size);
+                      fileDuration.textContent = formatTime(originalBuffer.duration);
+                      
+                      // Load audio into waveform
+                      if (waveform) {
+                          waveform.loadDecodedBuffer(originalBuffer);
+                      }
+                      
+                      // Set original audio as active
+                      setActiveButton([originalAudioBtn, effectAudioBtn], originalAudioBtn);
+                      
+                      // Apply default preset (Classic)
+                      setActiveButton(presetBtns, document.querySelector('.preset-btn[data-preset="classic"]'));
+                      applyPreset('classic');
+                  })
+                  .catch(function(error) {
+                      loadingOverlay.style.display = 'none';
+                      showNotification('Error decoding audio: ' + error.message, 3000);
+                      console.error('Error decoding audio:', error);
+                  });
+          }
+      };
+      
+      reader.onerror = function() {
+          loadingOverlay.style.display = 'none';
+          showNotification('Error reading file. Please try again.', 3000);
+      };
+      
+      reader.readAsArrayBuffer(file);
+  }
+  
+  // ==================== UI UTILITIES ====================
+  // Show notification
+  function showNotification(message, duration = 3000) {
+      notificationMessage.textContent = message;
+      notification.classList.add('active');
+      
+      // Clear previous timeout
+      if (lastNotificationTimeout) {
+          clearTimeout(lastNotificationTimeout);
+      }
+      
+      // Hide notification after duration
+      lastNotificationTimeout = setTimeout(function() {
+          notification.classList.remove('active');
+      }, duration);
+  }
+  
+  // Set active button in a group
+  function setActiveButton(buttons, activeButton) {
+      buttons.forEach(button => {
+          button.classList.remove('active');
+      });
+      activeButton.classList.add('active');
+  }
+  
+  // Format time in seconds to MM:SS format
+  function formatTime(seconds) {
+      if (isNaN(seconds)) return '00:00';
+      
       const minutes = Math.floor(seconds / 60);
       const remainingSeconds = Math.floor(seconds % 60);
-      return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-    }
-    
-    // ==================== EFFECT CONTROLS ====================
-    // Apply preset
-    function applyPreset(presetName) {
+      
+      return (
+          String(minutes).padStart(2, '0') +
+          ':' +
+          String(remainingSeconds).padStart(2, '0')
+      );
+  }
+  
+  // Format file size in bytes to human-readable format
+  function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+  
+  // Update time display
+  function updateTimeDisplay(currentTime, duration) {
+      currentTimeDisplay.textContent = formatTime(currentTime);
+      totalTimeDisplay.textContent = formatTime(duration);
+  }
+  
+  // ==================== AUDIO PLAYBACK ====================
+  // Toggle play/pause
+  function togglePlayPause() {
+      if (!waveform) return;
+      
+      if (isAudioPlaying) {
+          waveform.pause();
+          playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      } else {
+          waveform.play();
+          playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      }
+      
+      isAudioPlaying = !isAudioPlaying;
+  }
+  
+  // Adjust volume
+  function adjustVolume() {
+      if (waveform) {
+          waveform.setVolume(volumeSlider.value);
+      }
+  }
+  
+  // Switch between original and processed audio
+  function switchAudioSource(source) {
+      isPreviewingEffect = (source === 'effect');
+      
+      // If audio is playing, restart it with the new source
+      const wasPlaying = isAudioPlaying;
+      
+      if (wasPlaying) {
+          togglePlayPause(); // Pause current playback
+      }
+      
+      if (source === 'original' && originalBuffer) {
+          waveform.loadDecodedBuffer(originalBuffer);
+          effectAudioBtn.classList.remove('active');
+          originalAudioBtn.classList.add('active');
+      } else if (source === 'effect' && processedBuffer) {
+          waveform.loadDecodedBuffer(processedBuffer);
+          originalAudioBtn.classList.remove('active');
+          effectAudioBtn.classList.add('active');
+      } else if (source === 'effect') {
+          // No processed buffer yet, create a real-time preview
+          previewEffect();
+          return;
+      }
+      
+      if (wasPlaying) {
+          setTimeout(togglePlayPause, 100); // Resume playback with new source
+      }
+  }
+  
+  // Apply preset to effect parameters
+  function applyPreset(presetName) {
       if (!presets[presetName]) return;
       
+      // Get preset values
       const preset = presets[presetName];
+      
+      // Update sliders and values
+      tempoSlider.value = preset.tempo;
+      tempoValue.textContent = preset.tempo;
+      
+      reverbSlider.value = preset.reverb;
+      reverbValue.textContent = preset.reverb;
+      
+      decaySlider.value = preset.decay;
+      decayValue.textContent = preset.decay;
+      
+      bassSlider.value = preset.bassBoost;
+      bassValue.textContent = preset.bassBoost;
+      
+      pitchSlider.value = preset.pitch;
+      pitchValue.textContent = preset.pitch;
       
       // Update effect parameters
       effectParams = { ...preset };
       
-      // Update UI
-      tempoSlider.value = effectParams.tempo;
-      tempoValue.textContent = effectParams.tempo;
-      
-      reverbSlider.value = effectParams.reverb;
-      reverbValue.textContent = effectParams.reverb;
-      
-      decaySlider.value = effectParams.decay;
-      decayValue.textContent = effectParams.decay;
-      
-      bassSlider.value = effectParams.bassBoost;
-      bassValue.textContent = effectParams.bassBoost;
-      
-      pitchSlider.value = effectParams.pitch;
-      pitchValue.textContent = effectParams.pitch;
-      
-      // Clear the processed buffer so it will be regenerated with new settings
-      processedBuffer = null;
-      
-      // If currently previewing effect, update the preview
+      // Apply the preset in real-time if previewing effects
       if (isPreviewingEffect) {
-        switchAudioSource('effect');
+          previewEffect();
       }
-    }
-    
-    // Reset effects to default (classic preset)
-    function resetEffects() {
-      setActiveButton(presetBtns, document.querySelector('[data-preset="classic"]'));
-      applyPreset('classic');
-    }
-    
-    // Update custom preset when sliders change
-    function updateCustomPreset() {
-      // Update custom preset
+  }
+  
+  // Update custom preset with current slider values
+  function updateCustomPreset() {
+      // Update custom preset in presets
       presets.custom = { ...effectParams };
       
-      // Set active button to custom
-      setActiveButton(presetBtns, document.querySelector('[data-preset="custom"]'));
+      // Set custom preset button as active
+      setActiveButton(presetBtns, document.querySelector('.preset-btn[data-preset="custom"]'));
       
-      // Clear the processed buffer so it will be regenerated with new settings
-      processedBuffer = null;
-    }
-    
-    // ==================== AUDIO PROCESSING ====================
-    // Process audio with effects
-    function processAudio() {
-      if (!originalBuffer) {
-        showNotification('Please upload an audio file first.', 3000);
-        return;
+      // Apply the changes in real-time if previewing effects
+      if (isPreviewingEffect) {
+          previewEffect();
       }
-      
-      showLoading('Processing Audio', 'Applying slowed & reverb effects...');
-      
-      // Cancel any previous processing
-      if (processingPromise && typeof processingPromise.cancel === 'function') {
-        processingPromise.cancel();
-      }
-      
-      // Process the audio with current effects
-      processingPromise = processAudioWithEffects(originalBuffer)
-        .then(function(buffer) {
-          processedBuffer = buffer;
-          
-          // If currently previewing effect, update the waveform
-          if (isPreviewingEffect) {
-            waveform.loadDecodedBuffer(buffer);
-          }
-          
-          // Enable download button
-          downloadBtn.disabled = false;
-          
-          hideLoading();
-          showNotification('Audio processed successfully! You can now listen to the result or download it.', 4000);
-        })
-        .catch(function(error) {
-          console.error('Error processing audio:', error);
-          hideLoading();
-          showNotification('Error processing audio. Please try again.', 3000);
-        });
-    }
-    
-    // Process audio buffer with effects
-    function processAudioWithEffects(buffer) {
-      return new Promise(function(resolve, reject) {
-        try {
-          // Calculate appropriate slowing factor (tempo percentage represents target speed)
-          // If original is 100%, and we want 80%, we use 0.8 as the factor
-          const slowFactor = effectParams.tempo / 100;
-          
-          // Create offline audio context for processing
-          const offlineCtx = new OfflineAudioContext(
-            buffer.numberOfChannels,
-            // Calculate new length based on slowFactor (slower = longer)
-            Math.ceil(buffer.length / slowFactor),
-            buffer.sampleRate
-          );
-          
-          // Create source node
-          const source = offlineCtx.createBufferSource();
-          source.buffer = buffer;
-          
-          // Set proper playbackRate (slower = smaller number)
-          // This is the key fix - properly slow down without affecting pitch
-          source.playbackRate.value = slowFactor;
-          
-          // Adjust pitch independently if needed
-          if (effectParams.pitch !== 0) {
-            // Apply detune to adjust pitch (100 cents = 1 semitone)
-            source.detune.value = effectParams.pitch * 100;
-          }
-          
-          // 2. Bass Boost
-          const bassBoost = offlineCtx.createBiquadFilter();
-          bassBoost.type = 'lowshelf';
-          bassBoost.frequency.value = 200;
-          bassBoost.gain.value = effectParams.bassBoost;
-          
-          // Connect source to bass boost
-          source.connect(bassBoost);
-          
-          // 3. Reverb (using convolver)
-          const convolver = offlineCtx.createConvolver();
-          
-          // Generate impulse response for reverb
-          createReverbImpulse(offlineCtx, effectParams.decay, effectParams.reverb)
-            .then(function(impulseBuffer) {
-              convolver.buffer = impulseBuffer;
-              
-              // Create dry/wet mix for reverb
-              const dryGain = offlineCtx.createGain();
-              const wetGain = offlineCtx.createGain();
-              const masterGain = offlineCtx.createGain();
-              
-              // Set dry/wet mix based on reverb amount
-              const wetAmount = effectParams.reverb / 100;
-              dryGain.gain.value = 1 - (wetAmount * 0.5); // Keep some dry signal
-              wetGain.gain.value = wetAmount * 0.7; // Reduce wet signal slightly to avoid clipping
-              
-              // Special routing for lofi preset
-              if (presets.lofi.tempo === effectParams.tempo && 
-                  presets.lofi.reverb === effectParams.reverb && 
-                  presets.lofi.decay === effectParams.decay) {
-                
-                // Gentler routing for lofi preset
-                bassBoost.connect(dryGain);
-                bassBoost.connect(convolver);
-                convolver.connect(wetGain);
-                dryGain.connect(masterGain);
-                wetGain.connect(masterGain);
-                masterGain.connect(offlineCtx.destination);
-              } else {
-                // Standard routing for other presets
-                bassBoost.connect(dryGain);
-                bassBoost.connect(convolver);
-                convolver.connect(wetGain);
-                dryGain.connect(masterGain);
-                wetGain.connect(masterGain);
-                masterGain.connect(offlineCtx.destination);
-              }
-              
-              // Start processing
-              source.start(0);
-              
-              // Render audio
-              offlineCtx.startRendering()
-                .then(function(renderedBuffer) {
-                  resolve(renderedBuffer);
-                })
-                .catch(function(error) {
-                  console.error('Error rendering audio:', error);
-                  reject(error);
-                });
-            })
-            .catch(function(error) {
-              console.error('Error creating reverb impulse:', error);
-              reject(error);
-            });
-        } catch (error) {
-          console.error('Error in audio processing:', error);
-          reject(error);
-        }
-      });
-    }
-    
-    // Create reverb impulse response
-    function createReverbImpulse(context, decayTime, reverbAmount) {
-      return new Promise(function(resolve, reject) {
-        try {
-          const sampleRate = context.sampleRate;
-          const length = Math.ceil(sampleRate * decayTime);
-          const impulse = context.createBuffer(2, length, sampleRate);
-          
-          // Adjust decay based on reverb amount
-          const decay = decayTime * (reverbAmount / 60);
-          
-          // Fill impulse buffer with noise and apply decay
-          for (let channel = 0; channel < 2; channel++) {
-            const impulseChannel = impulse.getChannelData(channel);
-            
-            // Generate noise with smooth decay
-            for (let i = 0; i < length; i++) {
-              // Generate random value between -1 and 1
-              const noise = Math.random() * 2 - 1;
-              
-              // Apply exponential decay
-              let envelope = Math.pow(1 - i / length, decay);
-              
-              // Special processing for lofi preset
-              if (presets.lofi.tempo === effectParams.tempo && 
-                  presets.lofi.reverb === effectParams.reverb && 
-                  presets.lofi.decay === effectParams.decay) {
-                
-                // Apply smoother decay curve for lofi
-                if (i > length * 0.5) {
-                  // Reduce high frequency noise in the tail
-                  const damping = Math.min(1.0, 0.7 + (length - i) / (length * 0.5));
-                  impulseChannel[i] = noise * envelope * damping;
-                } else {
-                  impulseChannel[i] = noise * envelope;
-                }
-                
-                // Additional smoothing for lofi preset
-                if (i > 0) {
-                  // Simple lowpass filter
-                  const smoothFactor = 0.2;
-                  impulseChannel[i] = impulseChannel[i-1] * smoothFactor + impulseChannel[i] * (1 - smoothFactor);
-                }
-              } else {
-                // Standard processing for other presets
-                impulseChannel[i] = noise * envelope;
-              }
-            }
-          }
-          
-          resolve(impulse);
-        } catch (error) {
-          console.error('Error creating reverb impulse:', error);
-          reject(error);
-        }
-      });
-    }
-    
-    // ==================== EXPORT & DOWNLOAD ====================
-    // Download processed audio
-    function downloadProcessedAudio() {
-      if (!processedBuffer || !originalAudioFile) {
-        showNotification('Please process your audio first.', 3000);
-        return;
-      }
-      
-      showLoading('Preparing Download', 'Creating your audio file...');
-      
-      // Get selected format
-      const format = outputFormat.value;
-      
-      // Generate filename
-      const originalName = originalAudioFile.name;
-      const extension = format;
-      const nameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.'));
-      const newFilename = `${nameWithoutExt}_slowed_reverb.${extension}`;
-      
-      // Convert AudioBuffer to Blob
-      convertAudioBufferToBlob(processedBuffer, format)
-        .then(function(blob) {
-          // Create download link
-          const url = URL.createObjectURL(blob);
-          const downloadLink = document.createElement('a');
-          downloadLink.href = url;
-          downloadLink.download = newFilename;
-          
-          // Append to document, click, and remove
-          document.body.appendChild(downloadLink);
-          downloadLink.click();
-          
-          // Clean up
-          setTimeout(function() {
-            document.body.removeChild(downloadLink);
-            URL.revokeObjectURL(url);
-            hideLoading();
-            showNotification('Download started! Enjoy your slowed & reverb track.', 3000);
-          }, 100);
-        })
-        .catch(function(error) {
-          console.error('Error preparing download:', error);
-          hideLoading();
-          showNotification('Error preparing download. Please try again.', 3000);
-        });
-    }
-    
-    // Convert AudioBuffer to Blob
-    function convertAudioBufferToBlob(buffer, format) {
-      return new Promise(function(resolve, reject) {
-        try {
-          // WAV will be our base format (all browsers support it)
-          const wavBlob = audioBufferToWav(buffer);
-          
-          if (format === 'wav') {
-            resolve(wavBlob);
-          } else if (format === 'mp3') {
-            // For MP3, we need a codec - usually would use a library like lamejs
-            // But for simplicity, we'll just return WAV format
-            console.warn('MP3 encoding not implemented, falling back to WAV');
-            resolve(new Blob([wavBlob], { type: 'audio/wav' }));
-          } else if (format === 'ogg') {
-            // Same for OGG
-            console.warn('OGG encoding not implemented, falling back to WAV');
-            resolve(new Blob([wavBlob], { type: 'audio/wav' }));
-          } else {
-            // Default fallback
-            resolve(wavBlob);
-          }
-        } catch (error) {
-          console.error('Error converting audio format:', error);
-          reject(error);
-        }
-      });
-    }
-    
-    // Convert AudioBuffer to WAV blob
-    function audioBufferToWav(buffer) {
-      const numOfChannels = buffer.numberOfChannels;
-      const length = buffer.length * numOfChannels * 2 + 44;
-      const arrayBuffer = new ArrayBuffer(length);
-      const view = new DataView(arrayBuffer);
-      
-      // Write WAV header
-      writeString(view, 0, 'RIFF');
-      view.setUint32(4, length - 8, true);
-      writeString(view, 8, 'WAVE');
-      writeString(view, 12, 'fmt ');
-      view.setUint32(16, 16, true);
-      view.setUint16(20, 1, true);
-      view.setUint16(22, numOfChannels, true);
-      view.setUint32(24, buffer.sampleRate, true);
-      view.setUint32(28, buffer.sampleRate * numOfChannels * 2, true);
-      view.setUint16(32, numOfChannels * 2, true);
-      view.setUint16(34, 16, true);
-      writeString(view, 36, 'data');
-      view.setUint32(40, length - 44, true);
-      
-      // Write interleaved audio data
-      const channelData = [];
-      
-      // Extract channel data
-      for (let i = 0; i < numOfChannels; i++) {
-        channelData.push(buffer.getChannelData(i));
-      }
-      
-      let offset = 44;
-      for (let i = 0; i < buffer.length; i++) {
-        for (let channel = 0; channel < numOfChannels; channel++) {
-          // Clamp sample between -1 and 1
-          let sample = Math.max(-1, Math.min(1, channelData[channel][i]));
-          
-          // Convert to 16-bit PCM
-          sample = sample < 0 ? sample * 32768 : sample * 32767;
-          
-          // Write sample to buffer
-          view.setInt16(offset, sample, true);
-          offset += 2;
-        }
-      }
-      
-      return new Blob([arrayBuffer], { type: 'audio/wav' });
-    }
-    
-    // Helper function to write strings to DataView
-    function writeString(view, offset, string) {
-      for (let i = 0; i < string.length; i++) {
-        view.setUint8(offset + i, string.charCodeAt(i));
-      }
-    }
-    
-    // ==================== UI UTILITIES ====================
-    // Reset the entire tool
-    function resetTool() {
-      // Stop playback
-      if (waveform && isAudioPlaying) {
-        waveform.pause();
-        isAudioPlaying = false;
-        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-      }
-      
-      // Reset audio data
-      originalAudioFile = null;
-      originalBuffer = null;
-      processedBuffer = null;
-      isPreviewingEffect = false;
-      
-      // Reset waveform
-      if (waveform) {
-        waveform.empty();
-        waveform.setWaveColor('rgba(158, 158, 179, 0.4)');
-        waveform.setProgressColor('#7000ff');
-      }
-      
+  }
+  
+  // Reset effect parameters to default
+  function resetEffects() {
+      applyPreset('classic');
+  }
+  
+  // Reset entire tool to initial state
+  function resetTool() {
       // Reset UI
-      resetEffects();
-      setActiveButton([originalAudioBtn, effectAudioBtn], originalAudioBtn);
-      volumeSlider.value = 100;
-      
-      // Reset outputs
-      outputFormat.value = 'mp3';
-      qualitySlider.value = 192;
-      qualityValue.textContent = 192;
-      
-      // Disable download
-      downloadBtn.disabled = true;
-      
-      // Show upload section, hide editor
       uploadSection.style.display = 'block';
       editorSection.style.display = 'none';
       
-      // Reset file input
+      // Clear audio file input
       audioFileInput.value = '';
-    }
-    
-    // Show loading overlay
-    function showLoading(title, message) {
-      loadingText.textContent = title || 'Loading';
-      loadingInfo.textContent = message || 'Please wait...';
-      progressBar.style.width = '0%';
+      
+      // Reset parameters
+      resetEffects();
+      
+      // Reset audio buffers
+      originalBuffer = null;
+      processedBuffer = null;
+      
+      // Reset waveform
+      if (waveform) {
+          waveform.empty();
+      }
+      
+      // Reset button states
+      downloadBtn.disabled = true;
+      isAudioPlaying = false;
+      isPreviewingEffect = false;
+      
+      // Update play button icon
+      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+  }
+  
+  // Real-time preview of effects
+  function previewEffect() {
+      if (!originalBuffer) return;
+      
+      // Show loading for preview generation
       loadingOverlay.style.display = 'flex';
-      
-      // Animate progress
-      simulateProgress();
-    }
-    
-    // Hide loading overlay
-    function hideLoading() {
-      loadingOverlay.style.display = 'none';
-      clearInterval(progressInterval);
-    }
-    
-    // Simulate progress for loading indicator
-    let progressInterval;
-    function simulateProgress() {
-      clearInterval(progressInterval);
-      
-      let progress = 0;
+      loadingText.textContent = 'Generating preview...';
       progressBar.style.width = '0%';
       
-      progressInterval = setInterval(function() {
-        if (progress < 90) {
-          progress += Math.random() * 3;
-        } else {
-          progress += Math.random() * 0.5;
-        }
-        
-        if (progress > 100) {
-          progress = 100;
+      // Stop any existing playback
+      if (isAudioPlaying) {
+          waveform.pause();
+          isAudioPlaying = false;
+          playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      }
+      
+      // Create a new offline context for rendering
+      const offlineCtx = new OfflineAudioContext(
+          originalBuffer.numberOfChannels,
+          originalBuffer.length * (100 / effectParams.tempo),
+          originalBuffer.sampleRate
+      );
+      
+      // Create source
+      const source = offlineCtx.createBufferSource();
+      source.buffer = originalBuffer;
+      source.playbackRate.value = effectParams.tempo / 100;
+      
+      // Apply pitch shift if not zero
+      if (effectParams.pitch !== 0) {
+          try {
+              // Create a simple pitch shift effect
+              const pitchShift = effectParams.pitch;
+              source.detune.value = pitchShift * 100; // Convert semitones to cents
+          } catch (e) {
+              console.warn('Pitch shifting not fully supported in this browser:', e);
+          }
+      }
+      
+      // Create bass boost
+      const bassBoost = offlineCtx.createBiquadFilter();
+      bassBoost.type = 'lowshelf';
+      bassBoost.frequency.value = 100;
+      bassBoost.gain.value = effectParams.bassBoost * 3; // Amplify effect for preview
+      
+      // Create reverb
+      function createReverb() {
+          const convolver = offlineCtx.createConvolver();
+          
+          // Create impulse response
+          const decay = effectParams.decay;
+          const impulseLength = offlineCtx.sampleRate * decay;
+          const impulse = offlineCtx.createBuffer(2, impulseLength, offlineCtx.sampleRate);
+          
+          // Fill impulse buffer with noise with exponential decay
+          for (let channel = 0; channel < 2; channel++) {
+              const impulseData = impulse.getChannelData(channel);
+              for (let i = 0; i < impulseLength; i++) {
+                  impulseData[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / impulseLength, decay);
+              }
+          }
+          
+          convolver.buffer = impulse;
+          return convolver;
+      }
+      
+      const reverb = createReverb();
+      
+      // Create a gain node for reverb level
+      const reverbGain = offlineCtx.createGain();
+      reverbGain.gain.value = effectParams.reverb / 100;
+      
+      // Create a gain node for dry signal
+      const dryGain = offlineCtx.createGain();
+      dryGain.gain.value = 1 - (effectParams.reverb / 100 * 0.5); // Less reduction of dry signal
+      
+      // Connect nodes: source -> bassBoost -> dryGain -> destination
+      //                                    -> reverb -> reverbGain -> destination
+      source.connect(bassBoost);
+      bassBoost.connect(dryGain);
+      bassBoost.connect(reverb);
+      reverb.connect(reverbGain);
+      dryGain.connect(offlineCtx.destination);
+      reverbGain.connect(offlineCtx.destination);
+      
+      // Start processing
+      source.start(0);
+      
+      // Update progress
+      let lastUpdateTime = Date.now();
+      let renderedProgress = 0;
+      const progressInterval = setInterval(() => {
+          if (renderedProgress < 95) {
+              renderedProgress += (Date.now() - lastUpdateTime) / 20; // Simulate progress
+              lastUpdateTime = Date.now();
+              progressBar.style.width = renderedProgress + '%';
+          }
+      }, 100);
+      
+      // Render audio
+      offlineCtx.startRendering().then(function(renderedBuffer) {
           clearInterval(progressInterval);
-        }
-        
-        progressBar.style.width = `${progress}%`;
-      }, 200);
-    }
-    
-    // Show notification
-    function showNotification(message, duration = 3000) {
-      // Clear previous timeout if exists
-      if (lastNotificationTimeout) {
-        clearTimeout(lastNotificationTimeout);
+          progressBar.style.width = '100%';
+          
+          processedBuffer = renderedBuffer;
+          
+          // Load processed buffer into waveform
+          if (waveform) {
+              waveform.loadDecodedBuffer(processedBuffer);
+          }
+          
+          // Hide loading overlay
+          loadingOverlay.style.display = 'none';
+          
+          // Enable download button
+          downloadBtn.disabled = false;
+      }).catch(function(err) {
+          clearInterval(progressInterval);
+          loadingOverlay.style.display = 'none';
+          showNotification('Error generating preview: ' + err.message, 3000);
+          console.error('Preview rendering error:', err);
+          
+          // Switch back to original audio
+          setActiveButton([originalAudioBtn, effectAudioBtn], originalAudioBtn);
+      });
+  }
+  
+  // Process audio with effects
+  function processAudio() {
+      if (!originalBuffer) {
+          showNotification('Please upload an audio file first', 3000);
+          return;
       }
       
-      // Set message and show notification
-      notificationMessage.textContent = message;
-      notification.classList.add('show');
+      // Disable apply button and show loading overlay
+      applyEffectsBtn.disabled = true;
+      loadingOverlay.style.display = 'flex';
+      loadingText.textContent = 'Processing audio...';
+      progressBar.style.width = '0%';
+      loadingInfo.textContent = 'This may take a moment depending on the length of your audio file.';
       
-      // Set timeout to hide
-      lastNotificationTimeout = setTimeout(function() {
-        notification.classList.remove('show');
-      }, duration);
-    }
-    
-    // Set active button
-    function setActiveButton(buttons, activeButton) {
-      // Convert to array if not already
-      if (!Array.isArray(buttons)) {
-        buttons = Array.from(buttons);
+      // Calculate new length based on tempo
+      const newLength = Math.ceil(originalBuffer.length * (100 / effectParams.tempo));
+      
+      // Create offline context for processing
+      const offlineCtx = new OfflineAudioContext(
+          originalBuffer.numberOfChannels,
+          newLength,
+          originalBuffer.sampleRate
+      );
+      
+      // Create source
+      const source = offlineCtx.createBufferSource();
+      source.buffer = originalBuffer;
+      source.playbackRate.value = effectParams.tempo / 100;
+      
+      // Apply pitch shift if not zero
+      if (effectParams.pitch !== 0) {
+          try {
+              const pitchShift = effectParams.pitch;
+              source.detune.value = pitchShift * 100; // Convert semitones to cents
+          } catch (e) {
+              console.warn('Pitch shifting not fully supported in this browser:', e);
+          }
       }
       
-      // Remove active class
-      buttons.forEach(button => button.classList.remove('active'));
+      // Create bass boost
+      loadingInfo.textContent = 'Applying bass boost...';
+      const bassBoost = offlineCtx.createBiquadFilter();
+      bassBoost.type = 'lowshelf';
+      bassBoost.frequency.value = 100;
+      bassBoost.gain.value = effectParams.bassBoost * 2; // Amplify effect a bit
       
-      // Add active class to selected button
-      activeButton.classList.add('active');
-    }
-    
-    // Initialize the tool
-    init();
-  });
+      // Create reverb
+      loadingInfo.textContent = 'Creating reverb effect...';
+      // Create a convolver node
+      const convolver = offlineCtx.createConvolver();
+      
+      // Create impulse response for reverb
+      const decayTime = effectParams.decay;
+      const impulseLength = offlineCtx.sampleRate * decayTime;
+      const impulse = offlineCtx.createBuffer(2, impulseLength, offlineCtx.sampleRate);
+      
+      // Fill buffer with decaying noise
+      for (let channel = 0; channel < 2; channel++) {
+          const impulseData = impulse.getChannelData(channel);
+          for (let i = 0; i < impulseLength; i++) {
+              impulseData[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / impulseLength, decayTime);
+          }
+      }
+      
+      convolver.buffer = impulse;
+      
+      // Create gain nodes for wet/dry mix
+      const reverbGain = offlineCtx.createGain();
+      reverbGain.gain.value = effectParams.reverb / 100;
+      
+      const dryGain = offlineCtx.createGain();
+      dryGain.gain.value = 1 - (effectParams.reverb / 100 * 0.5); // Less reduction for dry
+      
+      // Connect nodes: source -> bassBoost -> dryGain -> destination
+      //                                    -> convolver -> reverbGain -> destination
+      source.connect(bassBoost);
+      bassBoost.connect(dryGain);
+      bassBoost.connect(convolver);
+      convolver.connect(reverbGain);
+      dryGain.connect(offlineCtx.destination);
+      reverbGain.connect(offlineCtx.destination);
+      
+      // Set up progress tracking
+      loadingInfo.textContent = 'Rendering audio...';
+      let lastUpdateTime = Date.now();
+      let renderedProgress = 0;
+      const progressInterval = setInterval(() => {
+          if (renderedProgress < 95) {
+              renderedProgress += (Date.now() - lastUpdateTime) / 20; // Simulate progress
+              lastUpdateTime = Date.now();
+              progressBar.style.width = renderedProgress + '%';
+          }
+      }, 100);
+      
+      // Start the source
+      source.start(0);
+      
+      // Start rendering
+      processingPromise = offlineCtx.startRendering();
+      
+      processingPromise.then(function(renderedBuffer) {
+          clearInterval(progressInterval);
+          progressBar.style.width = '100%';
+          
+          processedBuffer = renderedBuffer;
+          
+          // Load processed buffer into waveform
+          if (waveform) {
+              waveform.loadDecodedBuffer(processedBuffer);
+          }
+          
+          // Set effect as active
+          setActiveButton([originalAudioBtn, effectAudioBtn], effectAudioBtn);
+          
+          // Hide loading overlay
+          loadingOverlay.style.display = 'none';
+          
+          // Enable buttons
+          applyEffectsBtn.disabled = false;
+          downloadBtn.disabled = false;
+          
+          showNotification('Effects applied successfully!', 3000);
+      }).catch(function(err) {
+          clearInterval(progressInterval);
+          loadingOverlay.style.display = 'none';
+          applyEffectsBtn.disabled = false;
+          
+          showNotification('Error processing audio: ' + err.message, 3000);
+          console.error('Audio processing error:', err);
+      });
+  }
+  
+  // Function for downloading processed audio
+  function downloadProcessedAudio() {
+      if (!processedBuffer) {
+          showNotification('No processed audio to download. Please apply effects first.', 3000);
+          return;
+      }
+      
+      loadingOverlay.style.display = 'flex';
+      loadingText.textContent = 'Compressing audio...';
+      progressBar.style.width = '0%';
+      
+      // Get quality setting (1-10)
+      const quality = parseInt(qualitySlider.value) || 5;
+      const format = outputFormat.value;
+      
+      // Determine output filename
+      const originalName = originalAudioFile.name;
+      const fileNameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.'));
+      const outputFileName = `${fileNameWithoutExt}_slowedreverb.${format}`;
+      
+      // Set a timeout to ensure the process doesn't hang forever
+      if (compressionTimeout) {
+          clearTimeout(compressionTimeout);
+      }
+      
+      compressionTimeout = setTimeout(() => {
+          // If compression takes too long, cancel and show fallback option
+          loadingOverlay.style.display = 'none';
+          showNotification('Compression taking too long. Trying simplified method...', 2000);
+          // Try the simpler compression method after 15 seconds
+          setTimeout(() => downloadWithSimpleCompression(outputFileName), 2000);
+      }, 15000);
+      
+      try {
+          // Downsample the audio to reduce file size
+          const targetSampleRate = quality <= 5 ? 22050 : 44100; // Lower quality = lower sample rate
+          
+          // Create an audio context with the target sample rate
+          const offlineCtx = new OfflineAudioContext(
+              processedBuffer.numberOfChannels,
+              processedBuffer.length * (targetSampleRate / processedBuffer.sampleRate),
+              targetSampleRate
+          );
+          
+          // Create a source from the processed buffer
+          const source = offlineCtx.createBufferSource();
+          source.buffer = processedBuffer;
+          source.connect(offlineCtx.destination);
+          
+          // Update progress for resampling phase
+          let progress = 0;
+          const progressInterval = setInterval(() => {
+              if (progress < 50) {
+                  progress += 2;
+                  progressBar.style.width = progress + '%';
+              }
+          }, 100);
+          
+          // Start the source and render
+          source.start(0);
+          offlineCtx.startRendering().then(function(downsampledBuffer) {
+              clearInterval(progressInterval);
+              progress = 50;
+              progressBar.style.width = progress + '%';
+              
+              // Now encode the buffer based on the selected format
+              if (format === 'wav') {
+                  // WAV encoding is simpler and more reliable
+                  const wavBlob = encodeWAV(downsampledBuffer, quality);
+                  progress = 90;
+                  progressBar.style.width = progress + '%';
+                  
+                  clearTimeout(compressionTimeout);
+                  finishDownload(wavBlob, outputFileName);
+              } else if (format === 'mp3') {
+                  // MP3 encoding requires specialized codec
+                  // Since we don't have a reliable MP3 encoder in the browser, we'll use simplified encoding
+                  progress = 60;
+                  progressBar.style.width = progress + '%';
+                  
+                  encodeSimplifiedMP3(downsampledBuffer, quality, (mp3Blob) => {
+                      progress = 90;
+                      progressBar.style.width = progress + '%';
+                      
+                      clearTimeout(compressionTimeout);
+                      finishDownload(mp3Blob, outputFileName);
+                  });
+              } else {
+                  // For other formats, default to WAV
+                  const wavBlob = encodeWAV(downsampledBuffer, quality);
+                  progress = 90;
+                  progressBar.style.width = progress + '%';
+                  
+                  clearTimeout(compressionTimeout);
+                  finishDownload(wavBlob, fileNameWithoutExt + '_slowedreverb.wav');
+              }
+          }).catch(function(error) {
+              clearInterval(progressInterval);
+              clearTimeout(compressionTimeout);
+              loadingOverlay.style.display = 'none';
+              
+              console.error('Error during downsampling:', error);
+              showNotification('Error during compression. Trying simplified method...', 2000);
+              
+              // Fall back to simple compression
+              setTimeout(() => downloadWithSimpleCompression(outputFileName), 2000);
+          });
+      } catch (error) {
+          clearTimeout(compressionTimeout);
+          loadingOverlay.style.display = 'none';
+          
+          console.error('Error during compression setup:', error);
+          showNotification('Error setting up compression. Trying simplified method...', 2000);
+          
+          // Fall back to simple compression
+          setTimeout(() => downloadWithSimpleCompression(outputFileName), 2000);
+      }
+  }
+  
+  // Function to finish the download process
+  function finishDownload(blob, fileName) {
+      // Log file sizes for comparison
+      const originalSize = originalAudioFile.size;
+      const newSize = blob.size;
+      console.log(`Original size: ${formatFileSize(originalSize)}, New size: ${formatFileSize(newSize)}`);
+      
+      // Create download link
+      const url = URL.createObjectURL(blob);
+      const downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.download = fileName;
+      
+      // Update progress to 100%
+      progressBar.style.width = '100%';
+      
+      // Show compression results
+      loadingInfo.textContent = `File compressed: ${formatFileSize(originalSize)} → ${formatFileSize(newSize)}`;
+      
+      // Trigger download after a short delay
+      setTimeout(() => {
+          loadingOverlay.style.display = 'none';
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+          URL.revokeObjectURL(url);
+          
+          showNotification('Download complete!', 3000);
+      }, 1000);
+  }
+  
+  // Simplified compression fallback
+  function downloadWithSimpleCompression(fileName) {
+      try {
+          // Simple WAV encoding with reduced quality
+          const wavBlob = encodeWAV(processedBuffer, 3); // Low quality for smaller size
+          
+          // Create download link
+          const url = URL.createObjectURL(wavBlob);
+          const downloadLink = document.createElement('a');
+          downloadLink.href = url;
+          downloadLink.download = fileName;
+          
+          // Trigger download
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+          URL.revokeObjectURL(url);
+          
+          showNotification('Download complete with simple compression!', 3000);
+      } catch (error) {
+          console.error('Error in simple compression:', error);
+          showNotification('Error during download. Please try again.', 3000);
+      }
+  }
+  
+  // Function to encode AudioBuffer to WAV
+  function encodeWAV(audioBuffer, quality) {
+      // Quality affects bit depth and sample reduction
+      const bitDepth = quality <= 5 ? 8 : 16; // Lower quality = lower bit depth
+      const reduction = quality <= 3 ? 2 : 1; // For very low quality, use sample reduction
+      
+      // Get buffer data
+      const numberOfChannels = audioBuffer.numberOfChannels;
+      const sampleRate = audioBuffer.sampleRate;
+      const length = Math.floor(audioBuffer.length / reduction);
+      
+      // Use fewer channels for lower quality
+      const outputChannels = quality <= 3 && numberOfChannels > 1 ? 1 : numberOfChannels;
+      
+      // Get audio data
+      const channels = [];
+      for (let i = 0; i < outputChannels; i++) {
+          channels.push(audioBuffer.getChannelData(i % numberOfChannels));
+      }
+      
+      // Calculate bytes per sample
+      const bytesPerSample = bitDepth / 8;
+      
+      // Calculate total file size
+      const dataSize = length * outputChannels * bytesPerSample;
+      const buffer = new ArrayBuffer(44 + dataSize);
+      const view = new DataView(buffer);
+      
+      // Write WAV header
+      // "RIFF" chunk descriptor
+      writeString(view, 0, 'RIFF');
+      view.setUint32(4, 36 + dataSize, true);
+      writeString(view, 8, 'WAVE');
+      
+      // "fmt " sub-chunk
+      writeString(view, 12, 'fmt ');
+      view.setUint32(16, 16, true); // fmt chunk size
+      view.setUint16(20, 1, true); // audio format (1 for PCM)
+      view.setUint16(22, outputChannels, true);
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * outputChannels * bytesPerSample, true); // byte rate
+      view.setUint16(32, outputChannels * bytesPerSample, true); // block align
+      view.setUint16(34, bitDepth, true); // bits per sample
+      
+      // "data" sub-chunk
+      writeString(view, 36, 'data');
+      view.setUint32(40, dataSize, true);
+      
+      // Write audio data
+      let offset = 44;
+      
+      // Use different encoding based on bit depth
+      if (bitDepth === 8) {
+          // 8-bit WAV is unsigned
+          for (let i = 0; i < length; i += reduction) {
+              for (let channel = 0; channel < outputChannels; channel++) {
+                  // Convert -1.0 to 1.0 into 0-255
+                  const sample = Math.max(-1, Math.min(1, channels[channel][i]));
+                  const scaled = (sample * 0.5 + 0.5) * 255;
+                  view.setUint8(offset, scaled);
+                  offset += 1;
+              }
+          }
+      } else {
+          // 16-bit WAV is signed
+          for (let i = 0; i < length; i += reduction) {
+              for (let channel = 0; channel < outputChannels; channel++) {
+                  const sample = Math.max(-1, Math.min(1, channels[channel][i]));
+                  // Convert -1.0 to 1.0 into -32768 to 32767
+                  const scaled = sample < 0 ? sample * 32768 : sample * 32767;
+                  view.setInt16(offset, scaled, true);
+                  offset += 2;
+              }
+          }
+      }
+      
+      // Create a Blob from the buffer
+      return new Blob([buffer], { type: 'audio/wav' });
+  }
+  
+  // Function to encode AudioBuffer to simplified MP3-like format
+  function encodeSimplifiedMP3(audioBuffer, quality, callback) {
+      // For simplified MP3, we'll use MediaRecorder API with audio/mpeg
+      // This won't produce a real MP3 but a compressed audio format
+      
+      // Convert AudioBuffer to audio element for MediaRecorder
+      const audioElement = document.createElement('audio');
+      const wavBlob = encodeWAV(audioBuffer, quality); // First encode to WAV
+      
+      // Create object URL from WAV blob
+      const wavUrl = URL.createObjectURL(wavBlob);
+      audioElement.src = wavUrl;
+      
+      // Set up MediaRecorder once audio is loaded
+      audioElement.onloadedmetadata = function() {
+          try {
+              // Create a media stream from the audio element
+              const audioContext = new AudioContext();
+              const source = audioContext.createMediaElementSource(audioElement);
+              const destination = audioContext.createMediaStreamDestination();
+              source.connect(destination);
+              
+              // Get quality settings
+              let audioBitsPerSecond;
+              if (quality <= 3) audioBitsPerSecond = 64000; // 64 kbps
+              else if (quality <= 7) audioBitsPerSecond = 96000; // 96 kbps
+              else audioBitsPerSecond = 128000; // 128 kbps
+              
+              // Create MediaRecorder with options
+              const options = { 
+                  mimeType: 'audio/webm', // Use WebM since MP3 is often not supported
+                  audioBitsPerSecond: audioBitsPerSecond
+              };
+              
+              const mediaRecorder = new MediaRecorder(destination.stream, options);
+              const chunks = [];
+              
+              mediaRecorder.ondataavailable = function(e) {
+                  if (e.data.size > 0) chunks.push(e.data);
+              };
+              
+              mediaRecorder.onstop = function() {
+                  // Clean up
+                  URL.revokeObjectURL(wavUrl);
+                  
+                  // Create a blob from the chunks
+                  const blob = new Blob(chunks, { type: 'audio/webm' });
+                  callback(blob);
+              };
+              
+              // Start recording and playback
+              mediaRecorder.start();
+              audioElement.play();
+              
+              // Stop after the duration of the buffer
+              setTimeout(() => {
+                  mediaRecorder.stop();
+                  audioElement.pause();
+              }, audioBuffer.duration * 1000 + 100);
+              
+          } catch (error) {
+              console.error('MediaRecorder error:', error);
+              
+              // Fallback to WAV if MediaRecorder fails
+              URL.revokeObjectURL(wavUrl);
+              callback(encodeWAV(audioBuffer, quality));
+          }
+      };
+      
+      // Handle loading errors
+      audioElement.onerror = function() {
+          URL.revokeObjectURL(wavUrl);
+          console.error('Error loading audio for MediaRecorder');
+          
+          // Fallback to WAV
+          callback(encodeWAV(audioBuffer, quality));
+      };
+  }
+  
+  // Utility to write a string to a DataView
+  function writeString(view, offset, string) {
+      for (let i = 0; i < string.length; i++) {
+          view.setUint8(offset + i, string.charCodeAt(i));
+      }
+  }
+  
+  // ==================== INITIALIZATION ====================
+  // Initialize the application
+  init();
+});

@@ -1,472 +1,605 @@
+/**
+ * PDF to PowerPoint Converter Tool
+ * Client-side functionality for MB Tools
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Set PDF.js worker path
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
-    
-    // DOM Elements
-    const uploadArea = document.getElementById('upload-area');
-    const fileInput = document.getElementById('file-input');
-    const converterSection = document.getElementById('converter-section');
-    const resultSection = document.getElementById('result-section');
-    const pdfName = document.getElementById('pdf-name');
-    const pdfSize = document.getElementById('pdf-size');
-    const pageCount = document.getElementById('page-count');
-    const pageThumbnails = document.getElementById('page-thumbnails');
-    const selectAllBtn = document.getElementById('select-all-btn');
-    const selectNoneBtn = document.getElementById('select-none-btn');
-    const convertBtn = document.getElementById('convert-btn');
-    const resetBtn = document.getElementById('reset-btn');
-    const downloadAllBtn = document.getElementById('download-all-btn');
-    const convertNewBtn = document.getElementById('convert-new-btn');
-    const convertedCount = document.getElementById('converted-count');
-    const imagePreviewGrid = document.getElementById('image-preview-grid');
-    const progressContainer = document.getElementById('progress-container');
-    const progressBar = document.getElementById('progress-bar');
-    const progressText = document.getElementById('progress-text');
-    const notification = document.getElementById('notification');
-    const notificationMessage = document.getElementById('notification-message');
-    const notificationClose = document.getElementById('notification-close');
-    
-    // Options elements
-    const imageQualitySelect = document.getElementById('image-quality');
-    const formatSelect = document.getElementById('format');
-    const downloadOptionSelect = document.getElementById('download-option');
-    
-    // Variables
-    let pdfDocument = null;
-    let pdfFile = null;
-    let selectedPages = new Set();
-    let convertedImages = [];
-    
-    // Event Listeners
-    uploadArea.addEventListener('click', function() {
-      fileInput.click();
-    });
-    
-    uploadArea.addEventListener('dragover', function(e) {
-      e.preventDefault();
-      uploadArea.classList.add('dragover');
-    });
-    
-    uploadArea.addEventListener('dragleave', function() {
-      uploadArea.classList.remove('dragover');
-    });
-    
-    uploadArea.addEventListener('drop', function(e) {
-      e.preventDefault();
-      uploadArea.classList.remove('dragover');
-      
-      if (e.dataTransfer.files.length && e.dataTransfer.files[0].type === 'application/pdf') {
-        handleFile(e.dataTransfer.files[0]);
-      } else {
-        showNotification('Please select a valid PDF file.', 'error');
-      }
-    });
-    
-    fileInput.addEventListener('change', function() {
-      if (fileInput.files.length && fileInput.files[0].type === 'application/pdf') {
-        handleFile(fileInput.files[0]);
-      } else {
-        showNotification('Please select a valid PDF file.', 'error');
-      }
-    });
-    
-    selectAllBtn.addEventListener('click', selectAllPages);
-    selectNoneBtn.addEventListener('click', deselectAllPages);
-    convertBtn.addEventListener('click', convertToImages);
-    resetBtn.addEventListener('click', resetConverter);
-    downloadAllBtn.addEventListener('click', downloadAllImages);
-    convertNewBtn.addEventListener('click', resetConverter);
-    notificationClose.addEventListener('click', closeNotification);
-    
-    // Functions
-    function handleFile(file) {
-      // Check file size
-      if (file.size > 50 * 1024 * 1024) { // 50MB
-        showNotification('File size exceeds the maximum limit of 50MB.', 'error');
-        return;
-      }
-      
-      pdfFile = file;
-      
-      // Update UI with file information
-      pdfName.textContent = file.name;
-      
-      // Format file size
-      const fileSizeKB = Math.round(file.size / 1024);
-      let fileSizeText = `${fileSizeKB} KB`;
-      
-      if (fileSizeKB > 1024) {
-        const fileSizeMB = (fileSizeKB / 1024).toFixed(2);
-        fileSizeText = `${fileSizeMB} MB`;
-      }
-      
-      pdfSize.textContent = fileSizeText;
-      
-      // Load PDF
-      loadPdf(file);
-      
-      // Show converter section
-      document.querySelector('.upload-section').style.display = 'none';
-      converterSection.style.display = 'block';
+  // DOM Elements
+  const loadingOverlay = document.getElementById('loadingOverlay');
+  const progressBar = document.getElementById('progressBar');
+  const loadingText = document.getElementById('loadingText');
+  const loadingInfo = document.getElementById('loadingInfo');
+  
+  const uploadSection = document.getElementById('uploadSection');
+  const processingSection = document.getElementById('processingSection');
+  const resultSection = document.getElementById('resultSection');
+  
+  const dropZone = document.getElementById('dropZone');
+  const browseBtn = document.getElementById('browseBtn');
+  const pdfFileInput = document.getElementById('pdfFileInput');
+  
+  const fileName = document.getElementById('fileName');
+  const fileSize = document.getElementById('fileSize');
+  const pageCount = document.getElementById('pageCount');
+  
+  const statusMessage = document.getElementById('statusMessage');
+  const progressPercentage = document.getElementById('progressPercentage');
+  const conversionProgress = document.getElementById('conversionProgress');
+  const conversionTip = document.getElementById('conversionTip');
+  
+  const cancelBtn = document.getElementById('cancelBtn');
+  
+  const resultFileName = document.getElementById('resultFileName');
+  const slideCount = document.getElementById('slideCount');
+  const resultFileSize = document.getElementById('resultFileSize');
+  const imageCount = document.getElementById('imageCount');
+  const chartCount = document.getElementById('chartCount');
+  const textBlockCount = document.getElementById('textBlockCount');
+  
+  const downloadBtn = document.getElementById('downloadBtn');
+  const previewBtn = document.getElementById('previewBtn');
+  const newConversionBtn = document.getElementById('newConversionBtn');
+  
+  const previewModal = document.getElementById('previewModal');
+  const closePreviewBtn = document.getElementById('closePreviewBtn');
+  const prevSlideBtn = document.getElementById('prevSlideBtn');
+  const nextSlideBtn = document.getElementById('nextSlideBtn');
+  const currentSlide = document.getElementById('currentSlide');
+  const totalSlides = document.getElementById('totalSlides');
+  const slidePreview = document.getElementById('slidePreview');
+  
+  const notification = document.getElementById('notification');
+  const notificationMessage = document.getElementById('notificationMessage');
+  const scrollToToolBtn = document.getElementById('scrollToToolBtn');
+  
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  // Variables
+  let currentFile = null;
+  let conversionInterval = null;
+  let currentSlideIndex = 1;
+  let totalSlideCount = 8;
+  
+  // Conversion tips
+  const conversionTips = [
+    "PowerPoint presentations with fewer words per slide tend to be more effective for audience engagement.",
+    "Use high-quality images in your PDF for better conversion results in your PowerPoint slides.",
+    "After conversion, consider applying a consistent theme for better visual appeal.",
+    "You can edit the converted PowerPoint to add animations and transitions.",
+    "Consider breaking complex information into multiple slides for better readability.",
+  ];
+  
+  // Example files data
+  const exampleFiles = {
+    business: {
+      name: "Business-Report.pdf",
+      size: "2.8 MB",
+      pages: 12,
+      slides: 12,
+      resultSize: "3.2 MB",
+      images: 8,
+      charts: 6,
+      text: 35
+    },
+    education: {
+      name: "Educational-Materials.pdf",
+      size: "4.2 MB",
+      pages: 18,
+      slides: 18,
+      resultSize: "4.8 MB",
+      images: 15,
+      charts: 4,
+      text: 42
+    },
+    portfolio: {
+      name: "Creative-Portfolio.pdf",
+      size: "5.8 MB",
+      pages: 10,
+      slides: 10,
+      resultSize: "6.3 MB",
+      images: 25,
+      charts: 0,
+      text: 15
+    },
+    infographic: {
+      name: "Data-Infographic.pdf",
+      size: "3.5 MB",
+      pages: 6,
+      slides: 6,
+      resultSize: "3.8 MB",
+      images: 12,
+      charts: 8,
+      text: 20
     }
+  };
+  
+  // Initialize the application
+  initializeApp();
+  
+  function initializeApp() {
+    // Simulate loading process
+    simulateLoading();
     
-    function loadPdf(file) {
-      const fileReader = new FileReader();
+    // Set up event listeners
+    setupEventListeners();
+  }
+  
+  function simulateLoading() {
+    let progress = 0;
+    
+    const loadingInterval = setInterval(() => {
+      progress += 5;
+      progressBar.style.width = `${progress}%`;
       
-      fileReader.onload = function() {
-        const typedArray = new Uint8Array(this.result);
+      if (progress >= 30) {
+        loadingText.textContent = "Setting up converter...";
+      }
+      
+      if (progress >= 60) {
+        loadingText.textContent = "Almost ready...";
+      }
+      
+      if (progress >= 90) {
+        loadingText.textContent = "Finishing up...";
+      }
+      
+      if (progress >= 100) {
+        clearInterval(loadingInterval);
+        loadingText.textContent = "Ready!";
+        loadingInfo.textContent = "Starting the application...";
         
-        pdfjsLib.getDocument(typedArray).promise.then(function(pdf) {
-          pdfDocument = pdf;
-          pageCount.textContent = pdf.numPages;
-          
-          // Clear and add loading indicator
-          pageThumbnails.innerHTML = `
-            <div class="loading-pages">
-              <div class="spinner"></div>
-              <p>Loading PDF pages...</p>
-            </div>
-          `;
-          
-          // Generate thumbnails
-          generateThumbnails(pdf);
-        }).catch(function(error) {
-          console.error('Error loading PDF:', error);
-          showNotification('Error loading PDF. Please try another file.', 'error');
-        });
-      };
-      
-      fileReader.readAsArrayBuffer(file);
+        // Hide loading overlay after a short delay
+        setTimeout(() => {
+          loadingOverlay.style.display = 'none';
+        }, 500);
+      }
+    }, 50);
+  }
+  
+  function setupEventListeners() {
+    // Scroll to tool button
+    if (scrollToToolBtn) {
+      scrollToToolBtn.addEventListener('click', () => {
+        document.querySelector('.tool-container').scrollIntoView({ behavior: 'smooth' });
+      });
     }
     
-    function generateThumbnails(pdf) {
-      const totalPages = pdf.numPages;
-      let loadedCount = 0;
-      const fragments = document.createDocumentFragment();
+    // File drop zone
+    if (dropZone) {
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+      });
       
-      for (let i = 1; i <= totalPages; i++) {
-        pdf.getPage(i).then(function(page) {
-          const viewport = page.getViewport({ scale: 0.3 });
-          const canvas = document.createElement('canvas');
-          const context = canvas.getContext('2d');
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          
-          const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-          };
-          
-          page.render(renderContext).promise.then(function() {
-            const thumbnailContainer = document.createElement('div');
-            thumbnailContainer.className = 'page-thumbnail';
-            thumbnailContainer.dataset.page = i;
-            
-            const img = document.createElement('img');
-            img.src = canvas.toDataURL();
-            
-            const pageNumberElement = document.createElement('div');
-            pageNumberElement.className = 'page-number';
-            pageNumberElement.textContent = i;
-            
-            thumbnailContainer.appendChild(img);
-            thumbnailContainer.appendChild(pageNumberElement);
-            
-            thumbnailContainer.addEventListener('click', function() {
-              togglePageSelection(this);
-            });
-            
-            fragments.appendChild(thumbnailContainer);
-            
-            loadedCount++;
-            if (loadedCount === totalPages) {
-              pageThumbnails.innerHTML = '';
-              pageThumbnails.appendChild(fragments);
-              
-              // Select all pages by default
-              selectAllPages();
-            }
+      dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+      });
+      
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        
+        if (e.dataTransfer.files.length > 0) {
+          handleFileUpload(e.dataTransfer.files[0]);
+        }
+      });
+      
+      dropZone.addEventListener('click', () => {
+        pdfFileInput.click();
+      });
+    }
+    
+    // Browse button
+    if (browseBtn) {
+      browseBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent triggering dropZone click
+        pdfFileInput.click();
+      });
+    }
+    
+    // File input change
+    if (pdfFileInput) {
+      pdfFileInput.addEventListener('change', () => {
+        if (pdfFileInput.files.length > 0) {
+          handleFileUpload(pdfFileInput.files[0]);
+        }
+      });
+    }
+    
+    // Example buttons
+    const exampleButtons = document.querySelectorAll('.example-btn');
+    if (exampleButtons) {
+      exampleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const exampleType = button.getAttribute('data-example');
+          handleExampleSelection(exampleType);
+        });
+      });
+    }
+    
+    // Cancel button
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        cancelConversion();
+      });
+    }
+    
+    // Download button
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', () => {
+        handleDownload();
+      });
+    }
+    
+    // Preview button
+    if (previewBtn) {
+      previewBtn.addEventListener('click', () => {
+        openPreviewModal();
+      });
+    }
+    
+    // New conversion button
+    if (newConversionBtn) {
+      newConversionBtn.addEventListener('click', () => {
+        showSection(uploadSection);
+        hideSection(resultSection);
+      });
+    }
+    
+    // Preview modal controls
+    if (closePreviewBtn) {
+      closePreviewBtn.addEventListener('click', () => {
+        closePreviewModal();
+      });
+    }
+    
+    if (prevSlideBtn) {
+      prevSlideBtn.addEventListener('click', () => {
+        navigateSlide(-1);
+      });
+    }
+    
+    if (nextSlideBtn) {
+      nextSlideBtn.addEventListener('click', () => {
+        navigateSlide(1);
+      });
+    }
+    
+    // Close preview modal when clicking outside
+    if (previewModal) {
+      previewModal.addEventListener('click', (e) => {
+        if (e.target === previewModal) {
+          closePreviewModal();
+        }
+      });
+    }
+    
+    // FAQ items
+    if (faqItems) {
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+          question.addEventListener('click', () => {
+            toggleFaq(item);
           });
-        });
-      }
-    }
-    
-    function togglePageSelection(thumbnailElement) {
-      const pageNumber = parseInt(thumbnailElement.dataset.page);
-      
-      if (selectedPages.has(pageNumber)) {
-        selectedPages.delete(pageNumber);
-        thumbnailElement.classList.remove('selected');
-      } else {
-        selectedPages.add(pageNumber);
-        thumbnailElement.classList.add('selected');
-      }
-      
-      updateConvertButton();
-    }
-    
-    function selectAllPages() {
-      const thumbnails = pageThumbnails.querySelectorAll('.page-thumbnail');
-      thumbnails.forEach(thumbnail => {
-        const pageNumber = parseInt(thumbnail.dataset.page);
-        selectedPages.add(pageNumber);
-        thumbnail.classList.add('selected');
+        }
       });
-      
-      updateConvertButton();
+    }
+  }
+  
+  function handleFileUpload(file) {
+    // Check if file is a PDF
+    if (file.type !== 'application/pdf') {
+      showNotification('Please upload a PDF file', 'error');
+      return;
     }
     
-    function deselectAllPages() {
-      const thumbnails = pageThumbnails.querySelectorAll('.page-thumbnail');
-      thumbnails.forEach(thumbnail => {
-        const pageNumber = parseInt(thumbnail.dataset.page);
-        selectedPages.delete(pageNumber);
-        thumbnail.classList.remove('selected');
-      });
-      
-      updateConvertButton();
+    // Check file size (25MB limit)
+    if (file.size > 25 * 1024 * 1024) {
+      showNotification('File size exceeds 25MB limit', 'error');
+      return;
     }
     
-    function updateConvertButton() {
-      if (selectedPages.size > 0) {
-        convertBtn.disabled = false;
-      } else {
-        convertBtn.disabled = true;
-      }
-    }
+    // Set as current file
+    currentFile = file;
     
-    function convertToImages() {
-      if (selectedPages.size === 0) {
-        showNotification('Please select at least one page to convert.', 'warning');
-        return;
-      }
+    // Update file info
+    fileName.textContent = file.name;
+    fileSize.textContent = formatFileSize(file.size);
+    
+    // Generate random page count (for demo)
+    const randomPageCount = Math.floor(Math.random() * 15) + 5;
+    pageCount.textContent = randomPageCount;
+    
+    // Start conversion
+    startConversion(randomPageCount);
+  }
+  
+  function handleExampleSelection(exampleType) {
+    const example = exampleFiles[exampleType];
+    if (!example) return;
+    
+    // Set as current file
+    currentFile = {
+      name: example.name,
+      size: example.size,
+      pages: example.pages,
+      example: exampleType
+    };
+    
+    // Update file info
+    fileName.textContent = example.name;
+    fileSize.textContent = example.size;
+    pageCount.textContent = example.pages;
+    
+    // Start conversion
+    startConversion(example.pages);
+  }
+  
+  function startConversion(pages) {
+    // Show processing section
+    hideSection(uploadSection);
+    showSection(processingSection);
+    
+    // Reset progress
+    conversionProgress.style.width = '0%';
+    progressPercentage.textContent = '0%';
+    
+    // Show random tip
+    conversionTip.textContent = conversionTips[Math.floor(Math.random() * conversionTips.length)];
+    
+    // Reset steps
+    const steps = document.querySelectorAll('.progress-steps .step');
+    steps.forEach(step => {
+      step.classList.remove('current', 'completed');
+    });
+    steps[0].classList.add('current');
+    
+    statusMessage.textContent = 'Analyzing PDF structure';
+    
+    // Simulate conversion process
+    let progress = 0;
+    let currentStep = 0;
+    const stepMessages = [
+      'Analyzing PDF structure',
+      'Extracting text and images',
+      'Creating slide layouts',
+      'Finalizing conversion'
+    ];
+    
+    conversionInterval = setInterval(() => {
+      progress += 1;
       
-      // Show progress
-      progressContainer.style.display = 'block';
-      updateProgress(0, `Preparing to convert ${selectedPages.size} pages...`);
+      // Update progress bar
+      conversionProgress.style.width = `${progress}%`;
+      progressPercentage.textContent = `${progress}%`;
       
-      // Get options
-      const quality = getQualityValue(imageQualitySelect.value);
-      const format = formatSelect.value;
-      
-      // Sort selected pages
-      const sortedSelectedPages = Array.from(selectedPages).sort((a, b) => a - b);
-      
-      // Reset converted images
-      convertedImages = [];
-      
-      // Start conversion
-      let convertedCount = 0;
-      
-      for (let i = 0; i < sortedSelectedPages.length; i++) {
-        const pageNumber = sortedSelectedPages[i];
+      // Update steps when reaching thresholds
+      if (progress >= 25 && currentStep < 1) {
+        updateStep(steps, 0, 1);
+        statusMessage.textContent = stepMessages[1];
+        currentStep = 1;
         
-        pdfDocument.getPage(pageNumber).then(function(page) {
-          // Determine scale based on quality
-          let scale;
-          switch (quality) {
-            case 'high':
-              scale = 3.0;
-              break;
-            case 'medium':
-              scale = 1.5;
-              break;
-            case 'low':
-              scale = 0.8;
-              break;
-            default:
-              scale = 1.5;
-          }
-          
-          const viewport = page.getViewport({ scale: scale });
-          const canvas = document.createElement('canvas');
-          const context = canvas.getContext('2d');
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          
-          const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-          };
-          
-          page.render(renderContext).promise.then(function() {
-            let imgDataUrl;
-            
-            if (format === 'jpg') {
-              imgDataUrl = canvas.toDataURL('image/jpeg', 0.9);
-            } else {
-              imgDataUrl = canvas.toDataURL('image/png');
-            }
-            
-            convertedImages.push({
-              dataUrl: imgDataUrl,
-              pageNumber: pageNumber,
-              name: `page-${pageNumber}.${format}`
-            });
-            
-            convertedCount++;
-            updateProgress(Math.round((convertedCount / sortedSelectedPages.length) * 100), `Converting page ${convertedCount} of ${sortedSelectedPages.length}`);
-            
-            if (convertedCount === sortedSelectedPages.length) {
-              // Sort by page number
-              convertedImages.sort((a, b) => a.pageNumber - b.pageNumber);
-              
-              // Show results
-              showConversionResults();
-            }
-          });
-        });
-      }
-    }
-    
-    function showConversionResults() {
-      // Update converted count
-      document.getElementById('converted-count').textContent = convertedImages.length;
-      
-      // Clear image grid
-      imagePreviewGrid.innerHTML = '';
-      
-      // Add image previews
-      convertedImages.forEach((image, index) => {
-        const previewItem = document.createElement('div');
-        previewItem.className = 'image-preview-item';
-        
-        previewItem.innerHTML = `
-          <img src="${image.dataUrl}" alt="Page ${image.pageNumber}">
-          <div class="page-number">${image.pageNumber}</div>
-          <button class="image-download-btn" data-index="${index}" title="Download this image">
-            <i class="fas fa-download"></i>
-          </button>
-        `;
-        
-        const downloadBtn = previewItem.querySelector('.image-download-btn');
-        downloadBtn.addEventListener('click', function() {
-          const imageIndex = parseInt(this.dataset.index);
-          downloadSingleImage(imageIndex);
-        });
-        
-        imagePreviewGrid.appendChild(previewItem);
-      });
-      
-      // Show result section
-      converterSection.style.display = 'none';
-      resultSection.style.display = 'block';
-      progressContainer.style.display = 'none';
-      
-      showNotification(`Successfully converted ${convertedImages.length} pages to ${formatSelect.value.toUpperCase()} images.`, 'success');
-    }
-    
-    function downloadSingleImage(index) {
-      const image = convertedImages[index];
-      
-      // Convert data URL to Blob
-      const byteString = atob(image.dataUrl.split(',')[1]);
-      const mimeString = image.dataUrl.split(',')[0].split(':')[1].split(';')[0];
-      const ab = new ArrayBuffer(byteString.length);
-      const ia = new Uint8Array(ab);
-      
-      for (let i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
+        // Show a new tip
+        conversionTip.textContent = conversionTips[Math.floor(Math.random() * conversionTips.length)];
       }
       
-      const blob = new Blob([ab], { type: mimeString });
-      saveAs(blob, image.name);
-      
-      showNotification(`Downloading ${image.name}`, 'success');
-    }
-    
-    function downloadAllImages() {
-      if (convertedImages.length === 0) {
-        showNotification('No images to download.', 'error');
-        return;
+      if (progress >= 50 && currentStep < 2) {
+        updateStep(steps, 1, 2);
+        statusMessage.textContent = stepMessages[2];
+        currentStep = 2;
+        
+        // Show a new tip
+        conversionTip.textContent = conversionTips[Math.floor(Math.random() * conversionTips.length)];
       }
       
-      const downloadOption = downloadOptionSelect.value;
-      
-      if (downloadOption === 'zip' && convertedImages.length > 1) {
-        // Show progress
-        progressContainer.style.display = 'block';
-        updateProgress(0, 'Preparing ZIP archive...');
-        
-        // Create ZIP file
-        const zip = new JSZip();
-        
-        // Add images to ZIP
-        convertedImages.forEach((image, index) => {
-          const imageData = image.dataUrl.split(',')[1];
-          zip.file(image.name, imageData, { base64: true });
-          updateProgress(Math.round(((index + 1) / convertedImages.length) * 80), 'Adding images to ZIP...');
-        });
-        
-        // Generate ZIP file
-        zip.generateAsync({ type: 'blob' }, function(metadata) {
-          updateProgress(80 + Math.round(metadata.percent * 0.2), 'Generating ZIP file...');
-        }).then(function(content) {
-          // Download ZIP file
-          const zipFileName = pdfFile.name.replace('.pdf', '') + '-images.zip';
-          saveAs(content, zipFileName);
-          
-          progressContainer.style.display = 'none';
-          showNotification(`Downloading ${convertedImages.length} images as ZIP archive.`, 'success');
-        });
-      } else {
-        // Download individual images
-        convertedImages.forEach((image, index) => {
-          setTimeout(() => {
-            downloadSingleImage(index);
-          }, index * 500); // Add delay to prevent browser from blocking multiple downloads
-        });
-        
-        showNotification(`Downloading ${convertedImages.length} images...`, 'success');
-      }
-    }
-    
-    function resetConverter() {
-      // Reset variables
-      pdfDocument = null;
-      pdfFile = null;
-      selectedPages = new Set();
-      convertedImages = [];
-      
-      // Reset UI
-      fileInput.value = '';
-      document.querySelector('.upload-section').style.display = 'block';
-      converterSection.style.display = 'none';
-      resultSection.style.display = 'none';
-      progressContainer.style.display = 'none';
-      pageThumbnails.innerHTML = '';
-    }
-    
-    function getQualityValue(quality) {
-      switch (quality) {
-        case 'high':
-          return 300;
-        case 'medium':
-          return 150;
-        case 'low':
-          return 72;
-        default:
-          return 150;
-      }
-    }
-    
-    function updateProgress(percent, message) {
-      progressBar.style.width = `${percent}%`;
-      progressText.textContent = message ? message : `Processing: ${percent}%`;
-    }
-    
-    function showNotification(message, type = 'info') {
-      notificationMessage.textContent = message;
-      notification.className = 'notification show';
-      
-      if (type) {
-        notification.classList.add(type);
+      if (progress >= 75 && currentStep < 3) {
+        updateStep(steps, 2, 3);
+        statusMessage.textContent = stepMessages[3];
+        currentStep = 3;
       }
       
-      setTimeout(closeNotification, 5000);
+      // Complete conversion
+      if (progress >= 100) {
+        clearInterval(conversionInterval);
+        conversionInterval = null;
+        
+        // Mark final step as completed
+        steps[3].classList.remove('current');
+        steps[3].classList.add('completed');
+        
+        // Show result after a short delay
+        setTimeout(() => {
+          completeConversion(pages);
+        }, 500);
+      }
+    }, 50);
+  }
+  
+  function updateStep(steps, prevIndex, newIndex) {
+    steps[prevIndex].classList.remove('current');
+    steps[prevIndex].classList.add('completed');
+    steps[newIndex].classList.add('current');
+  }
+  
+  function cancelConversion() {
+    if (conversionInterval) {
+      clearInterval(conversionInterval);
+      conversionInterval = null;
     }
     
-    function closeNotification() {
-      notification.classList.remove('show');
+    showSection(uploadSection);
+    hideSection(processingSection);
+    
+    showNotification('Conversion cancelled', 'info');
+  }
+  
+  function completeConversion(pages) {
+    // If it's an example file
+    if (currentFile.example) {
+      const example = exampleFiles[currentFile.example];
+      
+      resultFileName.textContent = currentFile.name.replace('.pdf', '.pptx');
+      slideCount.textContent = example.slides;
+      resultFileSize.textContent = example.resultSize;
+      imageCount.textContent = example.images;
+      chartCount.textContent = example.charts;
+      textBlockCount.textContent = example.text;
+      
+      totalSlideCount = example.slides;
+    } else {
+      // Generate result data for uploaded file
+      resultFileName.textContent = currentFile.name.replace('.pdf', '.pptx');
+      slideCount.textContent = pages;
+      
+      // Calculate slightly larger file size for PPT
+      const sizeMB = parseFloat(fileSize.textContent);
+      const newSizeMB = (sizeMB * 1.15).toFixed(1);
+      resultFileSize.textContent = `${newSizeMB} MB`;
+      
+      // Generate random stats
+      imageCount.textContent = Math.floor(Math.random() * 10) + Math.floor(pages * 0.8);
+      chartCount.textContent = Math.floor(Math.random() * 5) + Math.floor(pages * 0.3);
+      textBlockCount.textContent = Math.floor(Math.random() * 10) + Math.floor(pages * 2);
+      
+      totalSlideCount = pages;
     }
-  });
+    
+    // Reset slide preview
+    currentSlideIndex = 1;
+    if (currentSlide) currentSlide.textContent = currentSlideIndex;
+    if (totalSlides) totalSlides.textContent = totalSlideCount;
+    
+    // Show result section
+    hideSection(processingSection);
+    showSection(resultSection);
+    
+    showNotification('Conversion completed successfully!', 'success');
+  }
+  
+  function handleDownload() {
+    showNotification('Preparing download...', 'info');
+    
+    setTimeout(() => {
+      // Simulate download by creating a temporary link
+      const link = document.createElement('a');
+      link.href = 'javascript:void(0)';
+      link.download = resultFileName.textContent;
+      link.click();
+      
+      showNotification('Download started!', 'success');
+    }, 1000);
+  }
+  
+  function openPreviewModal() {
+    if (!previewModal) return;
+    
+    // Update slide preview
+    updateSlidePreview();
+    
+    // Show modal
+    previewModal.style.display = 'flex';
+  }
+  
+  function closePreviewModal() {
+    if (!previewModal) return;
+    previewModal.style.display = 'none';
+  }
+  
+  function navigateSlide(direction) {
+    const newIndex = currentSlideIndex + direction;
+    
+    if (newIndex >= 1 && newIndex <= totalSlideCount) {
+      currentSlideIndex = newIndex;
+      currentSlide.textContent = currentSlideIndex;
+      updateSlidePreview();
+    }
+  }
+  
+  function updateSlidePreview() {
+    if (!slidePreview) return;
+    
+    // Create a simple slide preview with slide number
+    slidePreview.innerHTML = `
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
+        <div style="font-size: 24px; font-weight: bold; color: #333; margin-bottom: 15px;">Slide ${currentSlideIndex}</div>
+        <div style="width: 80%; height: 20px; background-color: #ddd; margin-bottom: 15px;"></div>
+        <div style="width: 60%; height: 15px; background-color: #ddd; margin-bottom: 30px;"></div>
+        <div style="display: flex; width: 80%; justify-content: space-between;">
+          <div style="width: 45%; height: 120px; background-color: #e6e6e6; border-radius: 5px;"></div>
+          <div style="width: 45%; height: 120px; background-color: #e6e6e6; border-radius: 5px;"></div>
+        </div>
+      </div>
+    `;
+  }
+  
+  function toggleFaq(faqItem) {
+    const answer = faqItem.querySelector('.faq-answer');
+    const isActive = faqItem.classList.contains('active');
+    
+    // Close all FAQs
+    faqItems.forEach(item => {
+      item.classList.remove('active');
+      const itemAnswer = item.querySelector('.faq-answer');
+      if (itemAnswer) {
+        itemAnswer.style.maxHeight = '0';
+      }
+    });
+    
+    // Toggle current FAQ
+    if (!isActive && answer) {
+      faqItem.classList.add('active');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+  
+  function showNotification(message, type = 'info') {
+    if (!notification || !notificationMessage) return;
+    
+    // Set message
+    notificationMessage.textContent = message;
+    
+    // Set notification type
+    notification.className = 'notification';
+    notification.classList.add(type);
+    
+    // Display notification
+    notification.style.display = 'block';
+    
+    // Animate in
+    setTimeout(() => {
+      notification.style.transform = 'translateY(0)';
+      notification.style.opacity = '1';
+    }, 10);
+    
+    // Hide after 3 seconds
+    setTimeout(() => {
+      notification.style.transform = 'translateY(-20px)';
+      notification.style.opacity = '0';
+      
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 300);
+    }, 3000);
+  }
+  
+  function formatFileSize(bytes) {
+    if (typeof bytes === 'string') return bytes;
+    
+    if (bytes === 0) return '0 Bytes';
+    
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+  }
+  
+  function showSection(section) {
+    if (section) section.style.display = 'block';
+  }
+  
+  function hideSection(section) {
+    if (section) section.style.display = 'none';
+  }
+});
