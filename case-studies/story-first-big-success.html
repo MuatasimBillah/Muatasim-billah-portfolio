@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Under Construction</title>
+    <style>
+        :root {
+            /* Your existing color variables */
+            --primary: #7000ff;
+            --primary-light: #9a4eff;
+            --primary-dark: #5a00cc;
+            --secondary: #00d9ff;
+            --secondary-light: #6aeaff;
+            --secondary-dark: #00a3c1;
+            --accent: #ff6b00;
+            --bg-dark: #0c0c14;
+            --bg-dark-lighter: #12121f;
+            --card-dark: #16161f;
+            --card-dark-hover: #1a1a28;
+            --text-light: #ffffff;
+            --text-muted: #9e9eb3;
+            --text-dark: #0c0c14;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --border-radius-lg: 24px;
+            --transition: 0.3s ease;
+            --backdrop-filter: blur(10px);
+        }
+
+        .construction-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark-lighter);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .construction-icon {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .construction-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .construction-message {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .construction-progress {
+            width: 100%;
+            max-width: 400px;
+            height: 8px;
+            background-color: var(--card-dark);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .construction-progress-bar {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: var(--border-radius-lg);
+            animation: progress-animation 2s infinite ease-in-out;
+        }
+
+        .construction-button {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: var(--text-light);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            text-decoration: none;
+        }
+
+        .construction-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(112, 0, 255, 0.3);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes progress-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+    <!-- Add this in your head if not already present -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="construction-container">
+        <i class="construction-icon fas fa-tools"></i>
+        <h1 class="construction-title">Under Construction</h1>
+        <p class="construction-message">This page is currently being developed with the latest technologies. I'm working hard to deliver an amazing experience. Thank you for your patience!</p>
+        
+        <div class="construction-progress">
+            <div class="construction-progress-bar"></div>
+        </div>
+        
+        <a href="Case-study.html" class="construction-button">Return Home</a>
+    </div>
+    
+    <!-- Your existing page content would be here (hidden behind this overlay) -->
+</body>
+</html>
