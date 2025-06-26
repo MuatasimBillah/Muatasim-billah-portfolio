@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Engineering Services - Professional Mixing & Mastering | Muatasim Billah</title>
+    <meta name="description"
+        content="Professional audio engineering services including mixing, mastering, podcast editing, and audio restoration. High-quality results with fast delivery.">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #7000ff;
+            --primary-light: #9a4eff;
+            --primary-dark: #5000cc;
+            --bg-dark: #0a0a0f;
+            --bg-dark-lighter: #121218;
+            --card-dark: #1a1a24;
+            --text-light: #ffffff;
+            --text-muted: #b0b3c1;
+            --border-color: #2a2a3a;
+            --gradient-primary: linear-gradient(135deg, #7000ff, #9a4eff);
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --transition: all 0.3s ease;
+            --glass-bg: rgba(26, 26, 36, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-primary: 0 8px 32px rgba(112, 0, 255, 0.15);
+            --shadow-hover: 0 20px 40px rgba(112, 0, 255, 0.25);
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Glass Effect */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Back Button */
+        .back-section {
+            padding: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--card-dark);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        /* Main Content Layout */
+        .gig-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+        }
+
+        /* Left Column - Main Content */
+        .gig-main {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Enhanced Thumbnail Carousel */
+        .thumbnail-carousel-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .thumbnail-carousel {
+            position: relative;
+            height: 400px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .thumbnail-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateX(100%);
+        }
+
+        .thumbnail-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .thumbnail-slide.prev {
+            transform: translateX(-100%);
+        }
+
+        .thumbnail-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition);
+        }
+
+        .thumbnail-carousel:hover .thumbnail-slide.active img {
+            transform: scale(1.05);
+        }
+
+        .gig-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+        }
+
+        /* Navigation Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 20;
+            color: white;
+            font-size: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-arrow:hover {
+            background: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .carousel-arrow-left {
+            left: 20px;
+        }
+
+        .carousel-arrow-right {
+            right: 20px;
+        }
+
+        /* Thumbnail Indicators */
+        .thumbnail-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .indicator {
+            background: var(--card-dark);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 0.75rem 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .indicator.active {
+            background: var(--gradient-primary);
+            border-color: var(--primary);
+            color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .indicator:hover:not(.active) {
+            background: rgba(112, 0, 255, 0.1);
+            border-color: var(--primary);
+            color: var(--text-light);
+        }
+
+        /* Gig Header */
+        .gig-header {
+            padding: 2rem 0;
+        }
+
+        .gig-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2;
+        }
+
+        .primary-text {
+            color: var(--primary);
+        }
+
+        .gig-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .gig-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1rem;
+        }
+
+        .rating-text {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .gig-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .stat-item i {
+            color: var(--primary);
+        }
+
+        .gig-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .gig-tag {
+            background: rgba(112, 0, 255, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(112, 0, 255, 0.2);
+        }
+
+        /* Gig Description */
+        .gig-description {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .description-content p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li i {
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced Audio Samples */
+        .audio-samples {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .audio-player {
+            background: var(--bg-dark-lighter);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .audio-player:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .audio-player:last-child {
+            margin-bottom: 0;
+        }
+
+        .audio-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .audio-title {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .audio-duration {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--card-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .play-btn {
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .audio-waveform {
+            flex: 1;
+            height: 50px;
+            background: var(--border-color);
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .waveform-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 30%;
+            transition: width 0.3s ease;
+            border-radius: var(--border-radius);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-dark-lighter);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+            background: rgba(112, 0, 255, 0.1);
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            line-height: 1.6;
+            display: none;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .review-item {
+            background: var(--bg-dark-lighter);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .review-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .review-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .reviewer-info h4 {
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .reviewer-info .reviewer-meta {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .review-rating {
+            margin-left: auto;
+            color: #fbbf24;
+        }
+
+        .review-text {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Right Column - Pricing */
+        .gig-sidebar {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .pricing-card {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .pricing-tabs {
+            display: flex;
+            background: var(--bg-dark-lighter);
+        }
+
+        .pricing-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+        }
+
+        .pricing-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: var(--card-dark);
+        }
+
+        .pricing-tab:hover:not(.active) {
+            color: var(--text-light);
+            background: rgba(112, 0, 255, 0.1);
+        }
+
+        .pricing-content {
+            padding: 2rem;
+        }
+
+        .package-content {
+            display: none;
+        }
+
+        .package-content.active {
+            display: block;
+        }
+
+        .package-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .package-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-duration {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .package-features li i {
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+
+        .package-features li.disabled {
+            opacity: 0.5;
+        }
+
+        .package-features li.disabled i {
+            color: var(--text-muted);
+        }
+
+        .order-btn {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .order-btn:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+        }
+
+        .contact-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .contact-btn:hover {
+            background: var(--primary);
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .gig-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gig-title {
+                font-size: 2rem;
+            }
+
+            .gig-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .carousel-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-arrow-left {
+                left: 10px;
+            }
+
+            .carousel-arrow-right {
+                right: 10px;
+            }
+
+            .thumbnail-indicators {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .reviewer-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 0.8s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: rgba(112, 0, 255, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <section class="back-section">
+        <div class="container">
+            <a href="../services.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Services
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="gig-content">
+            <!-- Left Column -->
+            <div class="gig-main">
+                <!-- Enhanced Thumbnail Carousel -->
+                <div class="thumbnail-carousel-container">
+                    <div class="thumbnail-carousel">
+                        <!-- Carousel Slides -->
+                        <div class="thumbnail-slide active" data-service="mixing">
+                            <img src="../images/Audio engineering gig image by muatasim billah.jpg"
+                                alt="Professional Audio Mixing">
+                            <div class="gig-badge">Pro</div>
+                        </div>
+
+                        <div class="thumbnail-slide" data-service="mastering">
+                            <img src="../images/Audiobook gig image by muatasim billah.jpg"
+                                alt="Audio Mastering Studio">
+                            <div class="gig-badge">Pro</div>
+                        </div>
+
+                        <div class="thumbnail-slide" data-service="podcast">
+                            <img src="../images/Podcast editing gig image by muatasim billah.jpg"
+                                alt="Podcast Production">
+                            <div class="gig-badge">Pro</div>
+                        </div>
+
+                        <!-- Navigation Arrows -->
+                        <button class="carousel-arrow carousel-arrow-left">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow carousel-arrow-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Thumbnail Indicators -->
+                    <div class="thumbnail-indicators">
+                        <button class="indicator active" data-slide="0">Editing</button>
+                        <button class="indicator" data-slide="1">Mastering</button>
+                        <button class="indicator" data-slide="2">Podcast</button>
+                    </div>
+                </div>
+
+                <!-- Gig Header -->
+                <div class="gig-header">
+                    <h1 class="gig-title">Professional <span class="primary-text" id="service-title">Audio Mixing</span>
+                        Services</h1>
+
+                    <div class="gig-meta">
+                        <div class="gig-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-text">5.0 (2 reviews)</span>
+                        </div>
+
+                        <div class="gig-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-clock"></i>
+                                <span>2-3 days delivery</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-redo"></i>
+                                <span>3 revisions</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-music"></i>
+                                <span>Pro Studio Quality</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gig-tags">
+                        <span class="gig-tag">Audio Editing</span>
+                        <span class="gig-tag">Mastering</span>
+                        <span class="gig-tag">Professional</span>
+                        <span class="gig-tag">Fast Delivery</span>
+                        <span class="gig-tag">Podcast Editing</span>
+                        <span class="gig-tag">Audio Restoration</span>
+                    </div>
+                </div>
+
+                <!-- Gig Description -->
+                <div class="gig-description">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        About This Gig
+                    </h2>
+
+                    <div class="description-content" id="service-description">
+                        <p>Transform your raw recordings into professional, polished tracks that compete with industry
+                            standards. With over 5+ years of experience in audio engineering, I specialize in delivering
+                            exceptional quality that makes your audio stand out.</p>
+
+                        <div class="highlight-box">
+                            <h3><i class="fas fa-trophy"></i> Why Choose My Services?</h3>
+                            <p>I use professional-grade equipment and industry-standard plugins from Waves, FabFilter,
+                                and Universal Audio to ensure your audio meets commercial standards and sounds amazing
+                                on all playback systems.</p>
+                        </div>
+
+                        <h3 style="color: var(--text-light); margin: 2rem 0 1rem;">What You'll Get:</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i>Professional EQ and frequency balancing</li>
+                            <li><i class="fas fa-check"></i>Dynamic range optimization with compression</li>
+                            <li><i class="fas fa-check"></i>Stereo imaging and spatial enhancement</li>
+                            <li><i class="fas fa-check"></i>Creative effects and processing</li>
+                            <li><i class="fas fa-check"></i>Noise reduction and audio cleanup</li>
+                            <li><i class="fas fa-check"></i>Multiple format delivery (WAV, MP3, FLAC)</li>
+                        </ul>
+
+                        <h3 style="color: var(--text-light); margin: 2rem 0 1rem;">Perfect For:</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-music"></i>Musicians, bands, and solo artists</li>
+                            <li><i class="fas fa-microphone"></i>Podcasters and content creators</li>
+                            <li><i class="fas fa-video"></i>Video producers and filmmakers</li>
+                            <li><i class="fas fa-headphones"></i>Audiobook narrators and voice artists</li>
+                            <li><i class="fas fa-broadcast-tower"></i>Radio shows and streaming content</li>
+                        </ul>
+
+                        <p><strong>My Process:</strong> I work closely with each client to understand their vision and
+                            deliver results that exceed expectations. Every project gets personalized attention, and I
+                            provide unlimited revisions until you're completely satisfied.</p>
+                    </div>
+                </div>
+
+                <!-- Enhanced Audio Samples -->
+                <div class="audio-samples">
+                    <h2 class="section-title">
+                        <i class="fas fa-headphones"></i>
+                        Audio Samples
+                    </h2>
+
+                    <div class="audio-player">
+                        <div class="audio-info">
+                            <span class="audio-title">Before & After - Music Mix</span>
+                            <span class="audio-duration">2:30</span>
+                        </div>
+                        <div class="audio-controls">
+                            <button class="play-btn" onclick="toggleAudio(this, 'audio1.mp3')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="audio-waveform">
+                                <div class="waveform-progress"></div>
+                            </div>
+                        </div>
+                        <audio style="display: none;" preload="metadata">
+                            <source src="../Audio/audiobook befoore and after compersion for audiobook editiing.MP3"
+                                type="audio/mpeg">
+                            <source src="audio1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="audio-player">
+                        <div class="audio-info">
+                            <span class="audio-title">Podcast Enhancement Example</span>
+                            <span class="audio-duration">1:45</span>
+                        </div>
+                        <div class="audio-controls">
+                            <button class="play-btn" onclick="toggleAudio(this, 'podcast_sample.mp3')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="audio-waveform">
+                                <div class="waveform-progress"></div>
+                            </div>
+                        </div>
+                        <audio style="display: none;" preload="metadata">
+                            <source src="podcast_sample.mp3" type="audio/mpeg">
+                            <source src="podcast_sample.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="audio-player">
+                        <div class="audio-info">
+                            <span class="audio-title">Mastered Track Sample</span>
+                            <span class="audio-duration">3:15</span>
+                        </div>
+                        <div class="audio-controls">
+                            <button class="play-btn" onclick="toggleAudio(this, 'mastered_track.mp3')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="audio-waveform">
+                                <div class="waveform-progress"></div>
+                            </div>
+                        </div>
+                        <audio style="display: none;" preload="metadata">
+                            <source src="mastered_track.mp3" type="audio/mpeg">
+                            <source src="mastered_track.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="faq-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-question-circle"></i>
+                        Frequently Asked Questions
+                    </h2>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            What audio formats do you accept?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            I accept all major audio formats including WAV, AIFF, MP3, FLAC, and even stems/multitrack
+                            sessions from any DAW. For best results, please provide uncompressed audio files (WAV/AIFF)
+                            at the highest resolution you have (24-bit/48kHz or higher).
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            How many revisions are included?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Basic package includes 2 revisions, Standard includes 5 revisions, and Premium includes
+                            unlimited revisions. I want you to be completely satisfied with the final result, so we'll
+                            work together until it's perfect.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            Do you provide mixing and mastering separately?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! You can order mixing only, mastering only, or both services together. For the best
+                            results and value, I recommend combining both services, but I can work with your specific
+                            needs and budget.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            What's your turnaround time?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Standard delivery is 2-3 days for most projects. Rush delivery options are available for an
+                            additional fee. Complex projects with many tracks may require additional time, which will be
+                            discussed before starting.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            Can you work with reference tracks?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Absolutely! Please provide 2-3 reference tracks that represent the sound you're aiming for.
+                            This helps me understand your vision and deliver results that match your expectations and
+                            artistic direction.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Section -->
+                <div class="reviews-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-star"></i>
+                        What My Clients Say
+                    </h2>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">O</div>
+                            <div class="reviewer-info">
+                                <h4>ocgirl</h4>
+                                <div class="reviewer-meta">Fiveer Pro Cleint • 2 Days ago</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-text">
+                            Absolutely exceptional! Muatasim saved my interview. I came to him in full panic mode — I
+                            had a 50-minute interview where I could barely hear the interviewer's voice. I'd already
+                            tried Fireflies, Whisper, Adobe Enhance, Audacity, even FFmpeg… nothing worked. The audio
+                            was a disaster, and I was desperate. I couldn’t even make out the questions being asked,
+                            which made it impossible to know how I did in the interview — and I was running out of time.
+                            Muatasim stepped in with calm, professionalism, and a serious can-do attitude. Not only did
+                            he listen carefully and understand exactly what I needed, he refused to give up — even when
+                            the audio quality made the task nearly impossible. He went above and beyond by: Trying
+                            multiple restoration techniques using Filmora, Audacity, Adobe Audition, iZotope, and more.
+                            Isolating the interviewer's voice (the hardest part). Transcribing the entire 52-minute
+                            interview by hand when automation failed. Checking in often with clear communication,
+                            kindness, and a genuine desire to help. The final transcript he delivered was leagues better
+                            than what AI tools produced — and I was finally able to review my answers properly, prep
+                            follow-ups, and walk away feeling good about the interview. He truly cared about the
+                            outcome, and it shows in everything he delivered. I’d give 10 stars if I could. Hire him —
+                            especially if you’ve got tricky audio, urgent needs, or just want someone who takes their
+                            craft (and your success) seriously. THANK YOU Muatasim! You’re a lifesaver. 🙏."
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">P</div>
+                            <div class="reviewer-info">
+                                <h4>
+                                    phlebotomynow</h4>
+                                <div class="reviewer-meta">United States• 1 month ago</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-text">
+                            "So great to work with, really cares, we will be working with him on the rest of our
+                            projects."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Pricing -->
+            <div class="gig-sidebar">
+                <div class="pricing-card">
+                    <div class="pricing-tabs">
+                        <button class="pricing-tab active" data-package="basic">Basic</button>
+                        <button class="pricing-tab" data-package="standard">Standard</button>
+                        <button class="pricing-tab" data-package="premium">Premium</button>
+                    </div>
+
+                    <div class="pricing-content">
+                        <!-- Basic Package -->
+                        <div class="package-content active" data-package="basic">
+                            <div class="package-header">
+                                <h3 class="package-title">Basic Mix</h3>
+                                <div class="package-price">$5</div>
+                                <div class="package-duration">3 days delivery</div>
+                            </div>
+
+                            <ul class="package-features">
+                                <li><i class="fas fa-check"></i>Up to 1 tracks</li>
+                                <li><i class="fas fa-check"></i>Basic EQ and compression</li>
+                                <li><i class="fas fa-check"></i>Stereo mix delivery</li>
+                                <li><i class="fas fa-check"></i>2 revisions included</li>
+                                <li class="disabled"><i class="fas fa-times"></i>Vocal tuning</li>
+                                <li class="disabled"><i class="fas fa-times"></i>Advanced effects</li>
+                                <li class="disabled"><i class="fas fa-times"></i>Stem delivery</li>
+                            </ul>
+
+                            <button class="order-btn" onclick="orderNow('basic')">
+                                <i class="fas fa-shopping-cart"></i>
+                                Continue ($5)
+                            </button>
+                            <button class="contact-btn" onclick="contactMe()">
+                                Contact Me
+                            </button>
+                        </div>
+
+                        <!-- Standard Package -->
+                        <div class="package-content" data-package="standard">
+                            <div class="package-header">
+                                <h3 class="package-title">Standard Mix</h3>
+                                <div class="package-price">$15</div>
+                                <div class="package-duration">2 days delivery</div>
+                            </div>
+
+                            <ul class="package-features">
+                                <li><i class="fas fa-check"></i>Up to 5 tracks</li>
+                                <li><i class="fas fa-check"></i>Professional EQ and compression</li>
+                                <li><i class="fas fa-check"></i>Stereo mix delivery</li>
+                                <li><i class="fas fa-check"></i>5 revisions included</li>
+                                <li><i class="fas fa-check"></i>Basic vocal tuning</li>
+                                <li><i class="fas fa-check"></i>Noise reduction</li>
+                                <li class="disabled"><i class="fas fa-times"></i>Stem delivery</li>
+                            </ul>
+
+                            <button class="order-btn" onclick="orderNow('standard')">
+                                <i class="fas fa-shopping-cart"></i>
+                                Continue ($15)
+                            </button>
+                            <button class="contact-btn" onclick="contactMe()">
+                                Contact Me
+                            </button>
+                        </div>
+
+                        <!-- Premium Package -->
+                        <div class="package-content" data-package="premium">
+                            <div class="package-header">
+                                <h3 class="package-title">Premium Mix & Master</h3>
+                                <div class="package-price">$30</div>
+                                <div class="package-duration">1 day delivery</div>
+                            </div>
+
+                            <ul class="package-features">
+                                <li><i class="fas fa-check"></i>Unlimited tracks</li>
+                                <li><i class="fas fa-check"></i>Professional mixing & mastering</li>
+                                <li><i class="fas fa-check"></i>Stereo mix + stems delivery</li>
+                                <li><i class="fas fa-check"></i>Unlimited revisions</li>
+                                <li><i class="fas fa-check"></i>Professional vocal tuning</li>
+                                <li><i class="fas fa-check"></i>Advanced effects & automation</li>
+                                <li><i class="fas fa-check"></i>Multiple format delivery</li>
+                            </ul>
+
+                            <button class="order-btn" onclick="orderNow('premium')">
+                                <i class="fas fa-shopping-cart"></i>
+                                Continue ($30)
+                            </button>
+                            <button class="contact-btn" onclick="contactMe()">
+                                Contact Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Service data for dynamic content
+        const services = {
+            mixing: {
+                title: 'Audio Mixing',
+                description: `
+                    <p>Transform your raw recordings into professional, polished tracks that compete with industry standards. With over 5+ years of experience in audio engineering, I specialize in delivering exceptional quality that makes your audio stand out.</p>
+
+                    <div class="highlight-box">
+                        <h3><i class="fas fa-trophy"></i> Why Choose My Mixing Services?</h3>
+                        <p>I use professional-grade equipment and industry-standard plugins from Waves, FabFilter, and Universal Audio to ensure your music meets commercial standards and sounds amazing on all playback systems.</p>
+                    </div>
+                    
+                    <h3 style="color: var(--text-light); margin: 2rem 0 1rem;">What You'll Get:</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Professional EQ and frequency balancing</li>
+                        <li><i class="fas fa-check"></i>Dynamic range optimization with compression</li>
+                        <li><i class="fas fa-check"></i>Stereo imaging and spatial enhancement</li>
+                        <li><i class="fas fa-check"></i>Creative effects and processing</li>
+                        <li><i class="fas fa-check"></i>Multiple revision rounds</li>
+                        <li><i class="fas fa-check"></i>Professional studio monitoring</li>
+                    </ul>
+
+                    <p><strong>My Mixing Process:</strong> I work closely with each client to understand their vision and deliver results that exceed expectations. Every project gets personalized attention with detailed feedback and unlimited revisions until you're completely satisfied.</p>
+                `
+            },
+            mastering: {
+                title: 'Audio Mastering',
+                description: `
+                    <p>Final polish and optimization for all playback systems with industry-standard mastering techniques. My mastering services ensure your tracks translate perfectly across all streaming platforms, radio, and playback systems.</p>
+
+                    <div class="highlight-box">
+                        <h3><i class="fas fa-trophy"></i> Professional Mastering Standards</h3>
+                        <p>I use high-end analog and digital processors to achieve commercial loudness standards while preserving the dynamics and musicality of your mix.</p>
+                    </div>
+                    
+                    <h3 style="color: var(--text-light); margin: 2rem 0 1rem;">What You'll Get:</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Loudness optimization and LUFS compliance</li>
+                        <li><i class="fas fa-check"></i>Frequency spectrum analysis and correction</li>
+                        <li><i class="fas fa-check"></i>Stereo enhancement and imaging</li>
+                        <li><i class="fas fa-check"></i>Format conversion and delivery</li>
+                        <li><i class="fas fa-check"></i>Quality assurance across all platforms</li>
+                        <li><i class="fas fa-check"></i>Streaming platform optimization</li>
+                    </ul>
+
+                    <p><strong>Mastering Excellence:</strong> Professional mastering is the final crucial step that makes your music competitive in today's market. I ensure your tracks sound consistent, powerful, and professional across all listening environments.</p>
+                `
+            },
+            podcast: {
+                title: 'Podcast Editing',
+                description: `
+                    <p>Complete podcast production and post-processing for professional-quality audio content. Transform your raw podcast recordings into engaging, polished content that keeps your audience coming back for more.</p>
+
+                    <div class="highlight-box">
+                        <h3><i class="fas fa-trophy"></i> Podcast Production Expertise</h3>
+                        <p>I specialize in creating broadcast-quality podcasts with professional editing, noise reduction, and audio enhancement that rivals major podcast networks.</p>
+                    </div>
+                    
+                    <h3 style="color: var(--text-light); margin: 2rem 0 1rem;">What You'll Get:</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Noise reduction and audio cleanup</li>
+                        <li><i class="fas fa-check"></i>Voice enhancement and leveling</li>
+                        <li><i class="fas fa-check"></i>Music and sound effect integration</li>
+                        <li><i class="fas fa-check"></i>Chapter markers and metadata</li>
+                        <li><i class="fas fa-check"></i>Multi-format delivery for all platforms</li>
+                        <li><i class="fas fa-check"></i>Professional intro/outro production</li>
+                    </ul>
+
+                    <p><strong>Podcast Success:</strong> Great content deserves great audio quality. I help podcasters deliver their message clearly and professionally, ensuring every episode sounds polished and engaging for maximum listener retention.</p>
+                `
+            }
+        };
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.thumbnail-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const leftArrow = document.querySelector('.carousel-arrow-left');
+        const rightArrow = document.querySelector('.carousel-arrow-right');
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev');
+                if (i < index) slide.classList.add('prev');
+            });
+
+            // Remove active from all indicators
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            // Show current slide and indicator
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+
+            // Update service content
+            const serviceType = slides[index].dataset.service;
+            const serviceTitle = document.getElementById('service-title');
+            const serviceDescription = document.getElementById('service-description');
+
+            serviceTitle.textContent = services[serviceType].title;
+            serviceDescription.innerHTML = services[serviceType].description;
+
+            currentSlide = index;
+        }
+
+        // Arrow navigation
+        leftArrow.addEventListener('click', () => {
+            const newIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
+            showSlide(newIndex);
+        });
+
+        rightArrow.addEventListener('click', () => {
+            const newIndex = currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
+            showSlide(newIndex);
+        });
+
+        // Indicator navigation
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => showSlide(index));
+        });
+
+        // Auto-advance carousel every 6 seconds
+        setInterval(() => {
+            const newIndex = currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
+            showSlide(newIndex);
+        }, 6000);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') leftArrow.click();
+            if (e.key === 'ArrowRight') rightArrow.click();
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            const threshold = 50;
+
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) rightArrow.click();
+                else leftArrow.click();
+            }
+        });
+
+        // Enhanced Audio player functionality with real file support
+        let currentlyPlaying = null;
+
+        function toggleAudio(button, filename) {
+            const icon = button.querySelector('i');
+            const waveform = button.parentElement.querySelector('.waveform-progress');
+            const audioElement = button.parentElement.parentElement.querySelector('audio');
+
+            // Stop any currently playing audio
+            if (currentlyPlaying && currentlyPlaying !== audioElement) {
+                currentlyPlaying.pause();
+                currentlyPlaying.currentTime = 0;
+                // Reset the UI of the previously playing audio
+                const prevButton = currentlyPlaying.parentElement.querySelector('.play-btn');
+                const prevIcon = prevButton.querySelector('i');
+                const prevWaveform = currentlyPlaying.parentElement.querySelector('.waveform-progress');
+                prevIcon.className = 'fas fa-play';
+                prevButton.style.background = 'var(--gradient-primary)';
+                prevWaveform.style.width = '30%';
+            }
+
+            if (audioElement.paused) {
+                // Start playing
+                audioElement.play().then(() => {
+                    currentlyPlaying = audioElement;
+                    icon.className = 'fas fa-pause';
+                    button.style.background = 'var(--success)';
+
+                    // Update progress as audio plays
+                    const updateProgress = () => {
+                        if (!audioElement.paused) {
+                            const progress = (audioElement.currentTime / audioElement.duration) * 100;
+                            waveform.style.width = Math.max(30, progress) + '%';
+                            requestAnimationFrame(updateProgress);
+                        }
+                    };
+                    updateProgress();
+                }).catch(error => {
+                    console.log('Audio play failed:', error);
+                    // Fallback to visual simulation if file doesn't exist
+                    simulateAudioProgress(button, waveform, icon);
+                });
+
+                // Handle audio end
+                audioElement.onended = () => {
+                    icon.className = 'fas fa-play';
+                    button.style.background = 'var(--gradient-primary)';
+                    waveform.style.width = '30%';
+                    currentlyPlaying = null;
+                };
+            } else {
+                // Pause playing
+                audioElement.pause();
+                icon.className = 'fas fa-play';
+                button.style.background = 'var(--gradient-primary)';
+                currentlyPlaying = null;
+            }
+        }
+
+        // Fallback simulation for when audio files don't exist
+        function simulateAudioProgress(button, waveform, icon) {
+            icon.className = 'fas fa-pause';
+            button.style.background = 'var(--success)';
+
+            let progress = 30;
+            const interval = setInterval(() => {
+                progress += 2;
+                waveform.style.width = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    icon.className = 'fas fa-play';
+                    button.style.background = 'var(--gradient-primary)';
+                    waveform.style.width = '30%';
+                }
+            }, 100);
+        }
+
+        // Pricing tabs functionality
+        const pricingTabs = document.querySelectorAll('.pricing-tab');
+        const packageContents = document.querySelectorAll('.package-content');
+
+        pricingTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const packageType = tab.dataset.package;
+
+                // Remove active from all tabs and contents
+                pricingTabs.forEach(t => t.classList.remove('active'));
+                packageContents.forEach(content => content.classList.remove('active'));
+
+                // Add active to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.querySelector(`[data-package="${packageType}"].package-content`).classList.add('active');
+            });
+        });
+
+        // FAQ toggle functionality
+        function toggleFaq(faqItem) {
+            const icon = faqItem.querySelector('i');
+
+            if (faqItem.classList.contains('active')) {
+                faqItem.classList.remove('active');
+                icon.className = 'fas fa-chevron-down';
+            } else {
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('i').className = 'fas fa-chevron-down';
+                });
+
+                // Open clicked FAQ
+                faqItem.classList.add('active');
+                icon.className = 'fas fa-chevron-up';
+            }
+        }
+
+        // Order functionality with processing animation and Fiverr redirect
+        function orderNow(packageType) {
+            const button = event.target;
+            const originalText = button.innerHTML;
+
+            // Add loading state with processing animation
+            button.innerHTML = '<div class="loading"></div> Processing...';
+            button.disabled = true;
+            button.style.opacity = '0.8';
+
+            // Your Fiverr profile URLs - UPDATE THESE WITH YOUR ACTUAL FIVERR LINKS
+            const fiverrUrls = {
+                'basic': 'https://www.fiverr.com/mehar_ai_studio/be-your-voice-engineer-enhance-clean-mix-and-fix-your-audio',
+                'standard': 'https://www.fiverr.com/mehar_ai_studio/be-your-voice-engineer-enhance-clean-mix-and-fix-your-audio',
+                'premium': 'https://www.fiverr.com/mehar_ai_studio/be-your-voice-engineer-enhance-clean-mix-and-fix-your-audio'
+            };
+
+            // Simulate processing time and redirect to Fiverr
+            setTimeout(() => {
+                // Open Fiverr profile in new tab
+                window.open(fiverrUrls[packageType] || 'https://www.fiverr.com/@mehar_ai_studio', '_blank');
+
+                // Reset button after redirect
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.style.opacity = '1';
+                }, 500);
+            }, 1500); // 1.5 second processing time
+        }
+
+        // Contact functionality with WhatsApp redirect
+        function contactMe() {
+            // UPDATE THIS WITH YOUR ACTUAL WHATSAPP NUMBER (include country code without + symbol)
+            const whatsappNumber = '+923088754565'; // Replace with your WhatsApp number
+            const message = encodeURIComponent('Hi! I am interested in your audio engineering services. Can we discuss my project?');
+            const whatsappUrl = `https://wa.me/${+923088754565}?text=${message}`;
+
+            // Open WhatsApp in new tab/window
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Initialize page animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation to elements
+            const elements = document.querySelectorAll('.thumbnail-carousel-container, .gig-header, .gig-description, .audio-samples, .faq-section, .reviews-section, .pricing-card');
+
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+
+                setTimeout(() => {
+                    element.style.transition = 'all 0.6s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+
+</html>

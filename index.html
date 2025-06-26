@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="darkmood.css">
     <link rel="stylesheet" href="chatbot.css">
     <link rel="stylesheet" href="/css-Case-studies/case-study.css">
+    <link rel="stylesheet" href="/css-Gigs/gigs.css">
     
     <!-- Google Analytics (non-critical, can load after CSS) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1502JK6E7V"></script>
@@ -84,7 +85,6 @@
       <div class="nav-links desktop-nav">
         <a href="#home" class="nav-link">Home</a>
         <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="blog/index.html" class="nav-link">Blog</a>
         <a href="tools\index.html" class="nav-link">Tools</a>
@@ -295,108 +295,77 @@
     </div>
   </div>
 </section>
-  <!-- Skills Section -->
-  <section id="skills" class="section skills-section section-reveal">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">My <span class="primary-text">Skills</span></h2>
-        <p class="section-subtitle">What I'm good at</p>
-        <div class="section-underline"></div>
-      </div>
-      
-      <div class="skills-grid">
-        <div class="skill-card glass">
-          <div class="skill-icon skill-icon-shopify">
-            <i class="fas fa-shopping-cart"></i>
-          </div>
+ <!-- Services Preview Section -->
+<section id="services" class="section services-section section-reveal">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My <span class="primary-text">Services</span></h2>
+      <p class="section-subtitle">Professional digital solutions to transform your business</p>
+      <div class="section-underline"></div>
+    </div>
+    
+    <div class="services-grid">
+      <!-- Service Card 1: Shopify Store Designing -->
+      <div class="service-card glass" onclick="openServiceModal('shopify')">
+        <div class="service-thumbnail">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Shopify Store Design">
+          <div class="service-badge">Featured</div>
+        </div>
+        <div class="service-content">
           <h3>Shopify Store Designing</h3>
-          <p>Building and customizing e-commerce stores on Shopify to maximize sales and conversions.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Theme Dev</span>
-            <span class="skill-tag">Apps</span>
-            <span class="skill-tag">Liquid</span>
-            <span class="skill-tag">Optimization</span>
+          <p>Professional e-commerce design with conversion optimization</p>
+          <div class="service-rating">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <span>(127 reviews)</span>
           </div>
-          <a href="https://www.fiverr.com/mehar_ai_studio?public_mode=true" class="fiverr-order-btn" target="_blank">Order on Fiverr</a>
+          <div class="service-price">Starting at <span>$199</span></div>
         </div>
-        
-        <div class="skill-card glass">
-          <div class="skill-icon skill-icon-frontend">
-            <i class="fas fa-code"></i>
-          </div>
+      </div>
+
+      <!-- Service Card 2: Frontend Website Designing -->
+      <div class="service-card glass" onclick="openServiceModal('frontend')">
+        <div class="service-thumbnail">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Frontend Development">
+          <div class="service-badge">Popular</div>
+        </div>
+        <div class="service-content">
           <h3>Frontend Website Designing</h3>
-          <p>Creating stunning, responsive websites with a focus on user experience and modern design trends.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">UI/UX</span>
+          <p>Modern responsive websites with cutting-edge technology</p>
+          <div class="service-rating">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <span>(89 reviews)</span>
           </div>
-          <a href="https://www.fiverr.com/mehar_ai_studio?public_mode=true" class="fiverr-order-btn" target="_blank">Order on Fiverr</a>
+          <div class="service-price">Starting at <span>$299</span></div>
         </div>
-        
-        <div class="skill-card glass">
-          <div class="skill-icon skill-icon-ai">
-            <i class="fas fa-robot"></i>
-          </div>
+      </div>
+
+      <!-- Service Card 3: AI Talking Avatars -->
+      <div class="service-card glass" onclick="openServiceModal('ai-avatar')">
+        <div class="service-thumbnail">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="AI Talking Avatars">
+          <div class="service-badge">Trending</div>
+        </div>
+        <div class="service-content">
           <h3>AI Talking Avatars</h3>
-          <p>Creating lifelike AI avatars that can interact, speak, and deliver content in a natural way.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">D-ID</span>
-            <span class="skill-tag">HeyGen</span>
-            <span class="skill-tag">Synthesia</span>
-            <span class="skill-tag">Personality</span>
+          <p>Interactive AI-powered avatars for engaging presentations</p>
+          <div class="service-rating">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <span>(234 reviews)</span>
           </div>
-          <a href="https://www.fiverr.com/s/P2WPz8E" class="fiverr-order-btn" target="_blank">Order on Fiverr</a>
-        </div>
-        
-        <div class="skill-card glass">
-          <div class="skill-icon skill-icon-canva">
-            <i class="fas fa-palette"></i>
-          </div>
-          <h3>Canva Expert</h3>
-          <p>Designing eye-catching graphics, presentations, and marketing materials using Canva.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Templates</span>
-            <span class="skill-tag">Brand Kits</span>
-            <span class="skill-tag">Social Media</span>
-            <span class="skill-tag">Presentations</span>
-          </div>
-          <a href="https://www.fiverr.com/mehar_ai_studio?public_mode=true" class="fiverr-order-btn" target="_blank">Order on Fiverr</a>
-        </div>
-        
-        <div class="skill-card glass">
-          <div class="skill-icon skill-icon-voice">
-            <i class="fas fa-microphone"></i>
-          </div>
-          <h3>AI Voice Over</h3>
-          <p>Generating professional-quality voice overs using cutting-edge AI voice synthesis technology.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">ElevenLabs</span>
-            <span class="skill-tag">Play.ht</span>
-            <span class="skill-tag">Voice Cloning</span>
-            <span class="skill-tag">Multilingual</span>
-          </div>
-          <a href="https://www.fiverr.com/s/dD2mKjG" class="fiverr-order-btn" target="_blank">Order on Fiverr</a>
-        </div>
-        
-        <div class="skill-card glass">
-          <div class="skill-icon skill-icon-audio">
-            <i class="fas fa-headphones"></i>
-          </div>
-          <h3>Audio Engineering</h3>
-          <p>Professional audio editing, mixing, and mastering for various media projects and productions.</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Editing</span>
-            <span class="skill-tag">Mixing</span>
-            <span class="skill-tag">Sound Design</span>
-            <span class="skill-tag">Restoration</span>
-          </div>
-          <a href="https://www.fiverr.com/s/gDXR7Aa" class="fiverr-order-btn" target="_blank">Order on Fiverr</a>
+          <div class="service-price">Starting at <span>$149</span></div>
         </div>
       </div>
-      </div>
-      </section>
+    </div>
+
+    <!-- See All Gigs Button -->
+    <div class="services-cta">
+      <a href="services.html" class="btn-primary services-btn">
+        <span>See All Gigs</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
 <!-- Projects Section -->
 <section id="projects" class="section projects-section section-reveal">
   <div class="container">

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Muatasim Billah | Under Development</title>
+    <meta name="description" content="This page is currently under development. Thank you for your patience as we work to bring you an amazing experience.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables - Matching your portfolio theme */
+        :root {
+            --primary: #7000ff;
+            --primary-light: #9a4eff;
+            --primary-dark: #5000cc;
+            --secondary: #00d4ff;
+            --bg-dark: #0a0a0f;
+            --bg-dark-lighter: #121218;
+            --card-dark: #1a1a24;
+            --text-light: #ffffff;
+            --text-muted: #b0b3c1;
+            --border-color: #2a2a3a;
+            --gradient-primary: linear-gradient(135deg, #7000ff, #9a4eff);
+            --gradient-secondary: linear-gradient(135deg, #00d4ff, #7000ff);
+            --gradient-bg: linear-gradient(135deg, #0a0a0f 0%, #1a1a24 50%, #2a1a3f 100%);
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --transition: all 0.3s ease;
+            --glass-bg: rgba(26, 26, 36, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-primary: 0 8px 32px rgba(112, 0, 255, 0.15);
+            --shadow-hover: 0 20px 40px rgba(112, 0, 255, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gradient-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 25s linear infinite reverse;
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .particle:nth-child(odd) {
+            animation-delay: -2s;
+            background: var(--secondary);
+        }
+
+        .particle:nth-child(3n) {
+            animation-delay: -4s;
+            animation-duration: 8s;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1.5rem;
+        }
+
+        /* Coming Soon Card - Much smaller for 100% zoom */
+        .coming-soon-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: var(--shadow-primary);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            animation: progressBar 3s ease-in-out infinite;
+        }
+
+        /* Brand Logo/Icon - Smaller */
+        .brand-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.25rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Typography - Smaller sizes */
+        .main-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+        }
+
+        .message {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.75rem;
+            line-height: 1.5;
+        }
+
+        /* Loading Animation - Smaller */
+        .loading-container {
+            margin: 1.25rem 0;
+        }
+
+        .loading-spinner {
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--border-color);
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 0.75rem;
+        }
+
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: bounce 1.4s ease-in-out infinite both;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+            background: var(--primary-light);
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+            background: var(--secondary);
+        }
+
+        /* Progress Bar - Smaller */
+        .progress-container {
+            width: 100%;
+            height: 3px;
+            background: var(--border-color);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 1.25rem 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            animation: progress 4s ease-in-out infinite;
+        }
+
+        /* Social Links - Smaller */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+        }
+
+        /* Footer - Smaller */
+        .footer-text {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .coming-soon-card {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+                max-width: 90%;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .message {
+                font-size: 0.85rem;
+            }
+
+            .brand-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .social-links {
+                gap: 0.6rem;
+            }
+
+            .social-link {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coming-soon-card {
+                padding: 1.5rem 1.25rem;
+                max-width: 95%;
+            }
+
+            .main-title {
+                font-size: 1.6rem;
+            }
+
+            .particle {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(112, 0, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(112, 0, 255, 0.8), 0 0 40px rgba(112, 0, 255, 0.3);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0%;
+            }
+            50% {
+                width: 70%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes progressBar {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(400%);
+            }
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+
+    <!-- Floating Particles -->
+    <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="top: 60%; left: 20%; animation-delay: -1s;"></div>
+    <div class="particle" style="top: 30%; right: 15%; animation-delay: -2s;"></div>
+    <div class="particle" style="top: 70%; right: 25%; animation-delay: -3s;"></div>
+    <div class="particle" style="top: 45%; left: 60%; animation-delay: -4s;"></div>
+    <div class="particle" style="top: 80%; left: 70%; animation-delay: -5s;"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="coming-soon-card">
+            <!-- Brand Icon -->
+            <div class="brand-icon">
+                <i class="fas fa-code"></i>
+            </div>
+
+            <!-- Main Content -->
+            <h1 class="main-title">Coming Soon</h1>
+            <p class="subtitle">Something Amazing is Being Built</p>
+            
+            <p class="message">
+                This page is currently under development. We're working hard to bring you an incredible experience. 
+                <strong>Thank you for your patience!</strong>
+            </p>
+
+            <!-- Loading Animation -->
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                
+                <div class="loading-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://mehardesigner.online/" class="social-link" title="Portfolio">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muatasim-billah-b62a60357/" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/MuatasimBillah/Muatasim-billah-portfolio" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-text">
+        © 2025 Muatasim Billah. All rights reserved.
+    </div>
+
+    <script>
+        // Add random particles dynamically
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            
+            document.body.appendChild(particle);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 8000);
+        }
+
+        // Create particles periodically
+        if (window.innerWidth > 768) {
+            setInterval(createParticle, 3000);
+        }
+
+        // Add interactive hover effects
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 768) {
+                const cards = document.querySelectorAll('.coming-soon-card');
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    card.style.setProperty('--mouse-x', x + 'px');
+                    card.style.setProperty('--mouse-y', y + 'px');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
