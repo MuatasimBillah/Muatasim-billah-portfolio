@@ -1,159 +1,244 @@
-/* ===== SERVICES SECTION ===== */
+/* Services Section Only - No Conflicts */
+
+/* Services Section Specific Styles */
 .services-section {
-  padding: 5rem 0;
-  background: var(--bg-dark-lighter);
+    padding: 5rem 0;
+    background: #121218;
 }
 
+.services-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Services Grid */
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
+/* Service Cards */
 .service-card {
-  background: var(--card-dark);
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-  transition: all var(--transition);
-  cursor: pointer;
-  position: relative;
-  transform: translateY(0);
+    background: #1a1a24;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(0);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(112, 0, 255, 0.2);
-  border-color: var(--primary);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(112, 0, 255, 0.2);
+    border-color: #7000ff;
 }
 
+/* Service Thumbnail - YouTube Ratio */
 .service-thumbnail {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #0a0a0f;
+    border-radius: 16px 16px 0 0;
 }
 
 .service-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
 }
 
 .service-card:hover .service-thumbnail img {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
+/* Service Badge */
 .service-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: var(--text-light);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #7000ff, #9a4eff);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
 }
 
+/* Service Content */
 .service-content {
-  padding: 1.5rem;
+    padding: 1.5rem 1.25rem;
 }
 
 .service-content h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: #ffffff;
+    line-height: 1.3;
 }
 
 .service-content p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+    color: #b0b3c1;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
 }
 
+/* Service Rating */
 .service-rating {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
 }
 
-.stars {
-  color: #fbbf24;
-  font-size: 0.8rem;
+.service-rating .stars {
+    color: #fbbf24;
+    font-size: 0.85rem;
 }
 
 .service-rating span {
-  color: var(--text-muted);
+    color: #b0b3c1;
+    font-weight: 500;
 }
 
+/* Service Price */
 .service-price {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+    font-size: 1rem;
+    color: #b0b3c1;
+    font-weight: 500;
 }
 
 .service-price span {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #7000ff;
+    margin-left: 0.3rem;
 }
 
+/* Services CTA */
 .services-cta {
-  text-align: center;
-  margin-top: 3rem;
+    text-align: center;
+    margin-top: 4rem;
 }
 
 .services-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.1rem;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  transition: all var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #7000ff, #9a4eff);
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(112, 0, 255, 0.3);
 }
 
 .services-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(112, 0, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(112, 0, 255, 0.4);
 }
 
 .services-btn i {
-  transition: transform var(--transition);
+    transition: transform 0.3s ease;
 }
 
 .services-btn:hover i {
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
 
-/* Mobile Responsive */
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    .service-content {
+        padding: 1rem 0.8rem;
+    }
+    
+    .service-content h3 {
+        font-size: 0.95rem;
+    }
+    
+    .service-content p {
+        font-size: 0.75rem;
+    }
+    
+    .service-rating {
+        font-size: 0.7rem;
+    }
+}
+
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .service-card {
-    margin: 0 1rem;
-  }
-  
-  .services-section {
-    padding: 3rem 0;
-  }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .services-section .container {
+        padding: 0 1rem;
+    }
+    
+    .services-section {
+        padding: 3rem 0;
+    }
+    
+    .service-content {
+        padding: 1.5rem;
+    }
+    
+    .service-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .service-content p {
+        font-size: 0.9rem;
+    }
+    
+    .service-thumbnail {
+        min-height: 200px;
+    }
 }
 
 @media (max-width: 480px) {
-  .service-content {
-    padding: 1rem;
-  }
-  
-  .service-thumbnail {
-    height: 180px;
-  }
+    .services-section .container {
+        padding: 0 1rem;
+    }
+    
+    .service-content {
+        padding: 1.25rem;
+    }
+    
+    .service-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .services-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .service-thumbnail {
+        min-height: 180px;
+    }
 }
