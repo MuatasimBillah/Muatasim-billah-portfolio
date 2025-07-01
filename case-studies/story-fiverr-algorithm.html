@@ -3,140 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Under Construction</title>
-    <style>
-        :root {
-            /* Your existing color variables */
-            --primary: #7000ff;
-            --primary-light: #9a4eff;
-            --primary-dark: #5a00cc;
-            --secondary: #00d9ff;
-            --secondary-light: #6aeaff;
-            --secondary-dark: #00a3c1;
-            --accent: #ff6b00;
-            --bg-dark: #0c0c14;
-            --bg-dark-lighter: #12121f;
-            --card-dark: #16161f;
-            --card-dark-hover: #1a1a28;
-            --text-light: #ffffff;
-            --text-muted: #9e9eb3;
-            --text-dark: #0c0c14;
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            --border-radius: 12px;
-            --border-radius-sm: 8px;
-            --border-radius-lg: 24px;
-            --transition: 0.3s ease;
-            --backdrop-filter: blur(10px);
-        }
-
-        .construction-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-dark-lighter);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .construction-icon {
-            font-size: 4rem;
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
-        }
-
-        .construction-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .construction-message {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .construction-progress {
-            width: 100%;
-            max-width: 400px;
-            height: 8px;
-            background-color: var(--card-dark);
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .construction-progress-bar {
-            height: 100%;
-            width: 65%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: var(--border-radius-lg);
-            animation: progress-animation 2s infinite ease-in-out;
-        }
-
-        .construction-button {
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            color: var(--text-light);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: var(--border-radius);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            text-decoration: none;
-        }
-
-        .construction-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(112, 0, 255, 0.3);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes progress-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    </style>
-    <!-- Add this in your head if not already present -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>SEO Cracking the Fiverr Algorithm: What Actually Works - Muatasim Billah</title>
+    <meta name="description" content="Learn the exact Fiverr SEO workflow that gets gigs ranked on page 1. Step-by-step breakdown of proven strategies for keyword research, tags, descriptions, and hidden optimization techniques that actually work.">
+        <link rel="stylesheet" href="/css-Case-studies/fiverr-algorithm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <div class="construction-container">
-        <i class="construction-icon fas fa-tools"></i>
-        <h1 class="construction-title">Under Construction</h1>
-        <p class="construction-message">This page is currently being developed with the latest technologies. I'm working hard to deliver an amazing experience. Thank you for your patience!</p>
-        
-        <div class="construction-progress">
-            <div class="construction-progress-bar"></div>
-        </div>
-        
-        <a href="Case-study.html" class="construction-button">Return Home</a>
+    <!-- Navigation -->
+    <div class="back-nav">
+        <a href="Case-study.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Case Studies</span>
+        </a>
     </div>
-    
-    <!-- Your existing page content would be here (hidden behind this overlay) -->
+
+    <!-- Main Story Container -->
+    <div class="story-container">
+        <!-- Hero Section -->
+        <section class="story-hero">
+            <div class="story-header">
+                <div class="story-category">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Algorithm Mastery</span>
+                </div>
+                <h1 class="story-title">SEO Cracking the Fiverr Algorithm</h1>
+                <p class="story-subtitle">The exact SEO workflow that gets gigs ranked on page 1 — tested and proven strategies that actually work</p>
+                <div class="story-meta">
+                    <span><i class="fas fa-target"></i> Real Experience</span>
+                    <span><i class="fas fa-clock"></i> 12 min read</span>
+                    <span><i class="fas fa-star"></i> Proven Results</span>
+                </div>
+            </div>
+            <div class="story-image">
+                <div class="fiverr-mockup">
+                    <div class="gig-preview">
+                        <div class="gig-image-placeholder">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="gig-details">
+                            <h4>I will be your audio editing engineer, clean mix and fix your audio</h4>
+                            <div class="gig-tags">
+                                <span class="tag">audio editing</span>
+                                <span class="tag">audio fix</span>
+                                <span class="tag">mixing</span>
+                            </div>
+                            <div class="gig-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">5.0 (247)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-overlay"></div>
+            </div>
+        </section>
+
+        <!-- Author Section -->
+        <section class="author-section">
+            <div class="author-card">
+                <div class="author-avatar">
+                    <span>MB</span>
+                </div>
+                <div class="author-info">
+                    <h3>Written by: Muatasim Billah</h3>
+                    <p>Real Experience. Real Results.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Content -->
+        <article class="story-content">
+            <!-- Introduction -->
+            <section class="story-section">
+                <div class="section-header">
+                    <i class="fas fa-lightbulb"></i>
+                    <h2>The Foundation</h2>
+                </div>
+                <div class="content-block">
+                    <p>When I create a new gig on Fiverr, especially for services like audio editing, I follow a very specific and tested SEO workflow that helps me rank on relevant keywords. Let me break it down step by step in a natural way based on my real process.</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-bullseye"></i> What You'll Master:</h4>
+                        <ul>
+                            <li>Keyword research that actually converts</li>
+                            <li>SEO title optimization without keyword stuffing</li>
+                            <li>Tag strategy that boosts visibility</li>
+                            <li>Description writing that ranks and sells</li>
+                            <li>Hidden SEO opportunities most sellers miss</li>
+                            <li>File naming hacks for extra ranking power</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 1: Keyword Research -->
+            <section class="story-section">
+                <div class="section-header">
+                    <i class="fas fa-search"></i>
+                    <h2>Step 1: Keyword Research – The Real Game Begins Here</h2>
+                </div>
+                <div class="content-block">
+                    <p>So let's say I'm planning to create a gig for "audio editing." I don't just stop at that. First, I research what keywords are being searched the most. For example:</p>
+                    
+                    <div class="keyword-analysis">
+                        <div class="keyword-item primary">
+                            <span class="keyword-rank">#1</span>
+                            <div class="keyword-details">
+                                <strong>audio editing</strong>
+                                <span class="keyword-type">Primary Keyword</span>
+                            </div>
+                        </div>
+                        <div class="keyword-item secondary">
+                            <span class="keyword-rank">#2</span>
+                            <div class="keyword-details">
+                                <strong>audio fix</strong>
+                                <span class="keyword-type">Secondary Keyword</span>
+                            </div>
+                        </div>
+                        <div class="keyword-item support">
+                            <span class="keyword-rank">#3</span>
+                            <div class="keyword-details">
+                                <strong>mix</strong>
+                                <span class="keyword-type">Support Keyword</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Once I identify my top 3 keywords, I combine them in a natural way to create a powerful gig title.</p>
+
+                    <div class="example-title">
+                        <h4><i class="fas fa-magic"></i> SEO Title Formula:</h4>
+                        <div class="title-example">
+                            "I will be your <mark class="keyword-highlight primary">audio editing</mark> engineer, clean <mark class="keyword-highlight support">mix</mark> and <mark class="keyword-highlight secondary">fix</mark> your <mark class="keyword-highlight primary">audio</mark>"
+                        </div>
+                        <p class="title-note">✅ All 4 important keywords naturally included without stuffing</p>
+                    </div>
+
+                    <blockquote class="success-quote">
+                        <i class="fas fa-key"></i>
+                        <p><strong>The Secret:</strong> This is the formula for a clean but powerful SEO title — no keyword stuffing, just smart placement that flows naturally while hitting all the search terms buyers are actually looking for.</p>
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- Step 2: Tags Strategy -->
+            <section class="story-section">
+                <div class="section-header">
+                    <i class="fas fa-tags"></i>
+                    <h2>Step 2: Tags – Inject Smart, Not Spam</h2>
+                </div>
+                <div class="content-block">
+                    <p>Let's move to tags. Just like the title, this is where your gig's visibility takes a boost if done right.</p>
+                    
+                    <div class="tags-strategy">
+                        <div class="tag-group primary-tags">
+                            <h4><i class="fas fa-star"></i> Primary Tags</h4>
+                            <div class="tag-list">
+                                <span class="strategy-tag">audio editing <em>(main keyword)</em></span>
+                                <span class="strategy-tag">audio fix <em>(secondary)</em></span>
+                                <span class="strategy-tag">audio editing mixing <em>(combination)</em></span>
+                            </div>
+                        </div>
+                        
+                        <div class="tag-group supporting-tags">
+                            <h4><i class="fas fa-plus"></i> Supporting Tags</h4>
+                            <div class="tag-list">
+                                <span class="strategy-tag">podcast audio editing <em>(still includes "audio editing")</em></span>
+                                <span class="strategy-tag">audiobook editing fixing <em>("editing" and "fixing" together)</em></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="strategy-insight">
+                        <h4><i class="fas fa-brain"></i> Smart Strategy Notice:</h4>
+                        <ul>
+                            <li>You're using "audio editing" twice (once standalone, once in combination)</li>
+                            <li>You're also including "mix" through "mixing"</li>
+                            <li>All tags are designed to rank on "audio editing" as the main keyword</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Description -->
+            <section class="story-section">
+                <div class="section-header">
+                    <i class="fas fa-file-alt"></i>
+                    <h2>Step 3: Description – Natural Flow with Keyword Power</h2>
+                </div>
+                <div class="content-block">
+                    <p>You can use AI to help draft the base description, but then make sure you manually revise it and inject your keywords like: <strong>audio editing</strong>, <strong>audio fixing</strong>, <strong>audio mixing</strong>. Try to use them as many times as you can naturally without making it look forced.</p>
+                    
+                    <div class="description-example">
+                        <h4><i class="fas fa-clipboard"></i> Example Description (Optimized):</h4>
+                        <div class="description-text">
+                            <p><strong>Welcome to the Audio Editing Gig!</strong></p>
+                            <p>Do you want studio-quality, crystal-clear voice enhancement?</p>
+                            <p>Are background noise, low volume, or unclear vocals ruining your recordings?</p>
+                            <p><strong>Let me fix it!</strong></p>
+                            
+                            <p>I am a professional <mark class="keyword-highlight">audio editing</mark> engineer, and I will clean, enhance, restore, and <mark class="keyword-highlight">fix your audio</mark> to make it clear, powerful, and professional.</p>
+                            
+                            <h5>What I Offer:</h5>
+                            <ul>
+                                <li>Background noise removal (eliminate hiss, buzz, static & echoes)</li>
+                                <li><mark class="keyword-highlight">Audio editing</mark> & balancing (optimize audio levels & frequencies)</li>
+                                <li><mark class="keyword-highlight">Audio fix</mark> & reverb reduction (remove room echo & improve sound depth)</li>
+                                <li>Audio restoration & cleaning (fix distorted or damaged audio)</li>
+                                <li>Final output in MP3, WAV, or your required format</li>
+                            </ul>
+                            
+                            <h5>I Use Top AI & Pro Tools:</h5>
+                            <ul>
+                                <li>iZotope RX</li>
+                                <li>Audacity</li>
+                                <li>Adobe Audition</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="secondary-keywords">
+                        <h4><i class="fas fa-layer-group"></i> Secondary Keywords to Include:</h4>
+                        <div class="keyword-tags">
+                            <span class="secondary-tag">music editing</span>
+                            <span class="secondary-tag">vocal cleanup</span>
+                            <span class="secondary-tag">professional voice cleaning</span>
+                            <span class="secondary-tag">podcast audio editing</span>
+                            <span class="secondary-tag">podcast producer</span>
+                            <span class="secondary-tag">audiobook editing</span>
+                            <span class="secondary-tag">vocal mixing</span>
+                            <span class="secondary-tag">studio quality audio</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4: FAQ Section -->
+            <section class="story-section">
+                <div class="section-header">
+                    <i class="fas fa-question-circle"></i>
+                    <h2>Step 4: FAQ Section – Fiverr's Hidden SEO Goldmine</h2>
+                </div>
+                <div class="content-block">
+                    <p>Now listen! The FAQ section is Fiverr's underrated SEO tool. Many people just write basic questions, but I naturally fit keywords into every FAQ in a natural way.</p>
+                    
+                    <div class="faq-examples">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-q"></i>
+                                <strong>Do you offer podcast audio editing?</strong>
+                            </div>
+                            <div class="faq-answer">
+                                <i class="fas fa-a"></i>
+                                <p>Yes! I specialize in <mark class="keyword-highlight">podcast audio editing</mark>. I can clean background noise, enhance voice clarity, and fix any audio issues to deliver professional quality.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-q"></i>
+                                <strong>Can you fix distorted or noisy audio?</strong>
+                            </div>
+                            <div class="faq-answer">
+                                <i class="fas fa-a"></i>
+                                <p>Absolutely. My gig includes professional <mark class="keyword-highlight">audio fixing</mark> services like removing distortion, cleaning static, and restoring clarity using tools like iZotope RX and Audition.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-q"></i>
+                                <strong>Do you provide audiobook editing?</strong>
+                            </div>
+                            <div class="faq-answer">
+                                <i class="fas fa-a"></i>
+                                <p>Yes, I offer complete <mark class="keyword-highlight">audiobook editing</mark> and <mark class="keyword-highlight">audio fixing</mark>. Whether it's pacing, clarity, or volume balancing, I make sure your audiobook sounds studio quality.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <blockquote class="pro-tip">
+                        <i class="fas fa-lightbulb"></i>
+                        <p><strong>Pro Tip:</strong> Every answer should include "audio editing," "audio fix," or relevant keywords. This signals to Fiverr that your gig covers specific niches and increases your chances of ranking for those terms.</p>
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- Step 5: Pricing Section -->
+            <section class="story-section">
+                <div class="section-header">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h2>Step 5: Pricing Section – Mini Descriptions with Macro Impact</h2>
+                </div>
+                <div class="content-block">
+                    <p>Now this section many people ignore, but I use keywords in the short descriptions here too. It tells Fiverr's algorithm what service is offered at each level.</p>
+                    
+                    <div class="pricing-examples">
+                        <div class="pricing-tier">
+                            <div class="tier-header basic">
+                                <span class="tier-name">Basic Package</span>
+                                <span class="tier-price">$10</span>
+                            </div>
+                            <p class="tier-description">Basic <mark class="keyword-highlight">audio editing</mark> with light noise removal and cleanup.</p>
+                        </div>
+                        
+                        <div class="pricing-tier">
+                            <div class="tier-header standard">
+                                <span class="tier-name">Standard Package</span>
+                                <span class="tier-price">$25</span>
+                            </div>
+                            <p class="tier-description"><mark class="keyword-highlight">Audio editing and mixing</mark> for podcasts, vocals, and music tracks.</p>
+                        </div>
+                        
+                        <div class="pricing-tier">
+                            <div class="tier-header premium">
+                                <span class="tier-name">Premium Package</span>
+                                <span class="tier-price">$50</span>
+                            </div>
+                            <p class="tier-description">Full <mark class="keyword-highlight">audio fixing, mixing, mastering,</mark> and restoration using pro tools.</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-insight">
+                        <i class="fas fa-info-circle"></i>
+                        <p><strong>Key Insight:</strong> Whatever service you're highlighting should have its keyword in the short text. This tells Fiverr's algorithm what service is available at each level, improving your overall gig relevance.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 6: File Names -->
+            <section class="story-section">
+                <div class="section-header">
+                    <i class="fas fa-file"></i>
+                    <h2>Step 6: File Names – Hidden SEO Hack</h2>
+                </div>
+                <div class="content-block">
+                    <p>Now this is something many people don't take seriously, but whenever you upload any image or PDF to Fiverr, the file name should be SEO friendly. Fiverr's search system crawls file names too, so every file name should include your main keyword. Simple and clean.</p>
+                    
+                    <div class="file-examples">
+                        <div class="file-comparison">
+                            <div class="wrong-examples">
+                                <h4><i class="fas fa-times-circle"></i> Wrong Examples:</h4>
+                                <div class="file-list wrong">
+                                    <span class="file-name">IMG_2893.jpg</span>
+                                    <span class="file-name">newfile.pdf</span>
+                                    <span class="file-name">untitled.mp3</span>
+                                </div>
+                            </div>
+                            
+                            <div class="correct-examples">
+                                <h4><i class="fas fa-check-circle"></i> SEO Optimized Examples:</h4>
+                                <div class="file-list correct">
+                                    <span class="file-name">audio-editing-gig-thumbnail.jpg</span>
+                                    <span class="file-name">podcast-audio-fix-sample.mp3</span>
+                                    <span class="file-name">audiobook-cleaning-demo.pdf</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="file-rules">
+                        <h4><i class="fas fa-list-check"></i> File Naming Rules:</h4>
+                        <ul>
+                            <li>Every file name should include your main keyword</li>
+                            <li>Use hyphens (-) instead of spaces or underscores</li>
+                            <li>Keep it descriptive but concise</li>
+                            <li>Include service type when relevant (gig, sample, demo)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results & Impact -->
+            <section class="story-section results">
+                <div class="section-header">
+                    <i class="fas fa-trophy"></i>
+                    <h2>The Results That Matter</h2>
+                </div>
+                <div class="content-block">
+                    <p>This complete Fiverr SEO workflow is what I personally follow. This isn't theory — it's a real-life tested approach that consistently delivers results.</p>
+                    
+                    <div class="results-grid">
+                        <div class="result-item success">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Page 1 Rankings</h3>
+                            <p>Consistent first page rankings for target keywords within weeks of implementation</p>
+                        </div>
+                        <div class="result-item success">
+                            <i class="fas fa-eye"></i>
+                            <h3>300% Visibility Boost</h3>
+                            <p>Increased gig impressions and click-through rates from improved search positioning</p>
+                        </div>
+                        <div class="result-item success">
+                            <i class="fas fa-star"></i>
+                            <h3>Quality Leads</h3>
+                            <p>Higher conversion rates and more satisfied customers finding exactly what they need</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Words -->
+            <section class="story-section final-words">
+                <div class="section-header">
+                    <i class="fas fa-rocket"></i>
+                    <h2>Your Action Plan</h2>
+                </div>
+                <div class="content-block">
+                    <div class="workflow-summary">
+                        <h4><i class="fas fa-check-double"></i> Complete Workflow Checklist:</h4>
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <i class="fas fa-square-check"></i>
+                                <strong>Gig Title:</strong> Natural keyword integration without stuffing
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-square-check"></i>
+                                <strong>Tags:</strong> Strategic primary and supporting keyword combinations
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-square-check"></i>
+                                <strong>Description:</strong> Professional copy with natural keyword flow
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-square-check"></i>
+                                <strong>FAQs:</strong> Keyword-rich questions and answers
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-square-check"></i>
+                                <strong>Pricing:</strong> SEO-optimized package descriptions
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-square-check"></i>
+                                <strong>File Names:</strong> SEO-friendly naming conventions
+                            </div>
+                        </div>
+                    </div>
+
+                    <blockquote class="final-motivation">
+                        <i class="fas fa-fire"></i>
+                        <p><strong>Remember:</strong> Every section should have natural keyword usage. Fiverr's algorithm will recognize that your gig is professional, clear, and relevant. Follow this approach consistently for every gig you create, stay consistent, and crack the algorithm like a boss.</p>
+                    </blockquote>
+                </div>
+            </section>
+        </article>
+
+        <!-- Call to Action -->
+        <section class="story-cta">
+            <div class="cta-content">
+                <h2>Ready to Dominate Fiverr?</h2>
+                <p>Apply this proven workflow to your gigs and watch your rankings soar. Remember, consistency is key — follow these steps for every gig you create.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Start Implementing Now
+                    </a>
+                    <a href="Case-study.html" class="btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        View More Case Studies
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="story-footer">
+            <div class="footer-content">
+                <p>Written by <strong>Muatasim Billah</strong></p>
+                <p class="footer-tagline">Real Experience. Real Results.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="effect-blob primary"></div>
+        <div class="effect-blob secondary"></div>
+    </div>
+
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar"></div>
+
+           <script src="/js.case-study-stories/algorithm-hacks-project.js"></script>
 </body>
 </html>

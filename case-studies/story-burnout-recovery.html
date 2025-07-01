@@ -3,140 +3,941 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Under Construction</title>
+    <title>Coming Soon - Portfolio Website Under Construction</title>
+    <meta name="description" content="Exciting new portfolio website is being built with amazing features. Coming soon with case studies, projects, and more!">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Coming Soon - Portfolio Website Under Construction">
+    <meta property="og:description" content="Exciting new portfolio website is being built with amazing features. Coming soon!">
+    <meta property="og:type" content="website">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* Root Variables */
         :root {
-            /* Your existing color variables */
             --primary: #7000ff;
             --primary-light: #9a4eff;
-            --primary-dark: #5a00cc;
-            --secondary: #00d9ff;
-            --secondary-light: #6aeaff;
-            --secondary-dark: #00a3c1;
-            --accent: #ff6b00;
-            --bg-dark: #0c0c14;
-            --bg-dark-lighter: #12121f;
-            --card-dark: #16161f;
-            --card-dark-hover: #1a1a28;
-            --text-light: #ffffff;
-            --text-muted: #9e9eb3;
-            --text-dark: #0c0c14;
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            --border-radius: 12px;
-            --border-radius-sm: 8px;
-            --border-radius-lg: 24px;
-            --transition: 0.3s ease;
-            --backdrop-filter: blur(10px);
+            --primary-dark: #5500cc;
+            --secondary: #ff6b35;
+            --background: #0a0a0f;
+            --background-light: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #b8bcc8;
+            --text-muted: #8b949e;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
         }
 
-        .construction-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-dark-lighter);
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--background) 0%, var(--background-light) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            z-index: 9999;
-            padding: 2rem;
+            justify-content: center;
+        }
+
+        /* Background Effects */
+        .background-effects {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .effect-blob {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            filter: blur(60px);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .effect-blob:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .effect-blob:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            top: 60%;
+            right: 10%;
+            animation-delay: -7s;
+        }
+
+        .effect-blob:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            background: var(--success);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -14s;
+        }
+
+        .effect-blob:nth-child(4) {
+            width: 350px;
+            height: 350px;
+            background: var(--warning);
+            top: 30%;
+            right: 30%;
+            animation-delay: -21s;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg) scale(1); 
+            }
+            25% { 
+                transform: translate(50px, -30px) rotate(90deg) scale(1.1); 
+            }
+            50% { 
+                transform: translate(-30px, 50px) rotate(180deg) scale(0.9); 
+            }
+            75% { 
+                transform: translate(-50px, -20px) rotate(270deg) scale(1.05); 
+            }
+        }
+
+        /* Particle System */
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particleFloat 15s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .coming-soon-container {
             text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .construction-icon {
-            font-size: 4rem;
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
+        /* Logo Animation */
+        .logo-container {
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
         }
 
-        .construction-title {
-            font-family: 'Poppins', sans-serif;
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
             font-size: 2.5rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .construction-message {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .construction-progress {
-            width: 100%;
-            max-width: 400px;
-            height: 8px;
-            background-color: var(--card-dark);
-            border-radius: var(--border-radius-lg);
+            font-weight: bold;
+            color: white;
+            position: relative;
             overflow: hidden;
-            margin-bottom: 2rem;
+            animation: logoSpin 10s linear infinite;
         }
 
-        .construction-progress-bar {
-            height: 100%;
-            width: 65%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: var(--border-radius-lg);
-            animation: progress-animation 2s infinite ease-in-out;
+        .logo::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+            border-radius: 50%;
+            z-index: -1;
+            animation: logoGlow 3s ease-in-out infinite alternate;
         }
 
-        .construction-button {
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            color: var(--text-light);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: var(--border-radius);
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes logoGlow {
+            0% { filter: blur(0px); }
+            100% { filter: blur(10px); }
+        }
+
+        /* Main Heading */
+        .main-heading {
             font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+            position: relative;
+        }
+
+        .main-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+            animation: lineExpand 1s ease-out 1.5s forwards;
+            transform-origin: center;
+            scale: 0;
+        }
+
+        @keyframes lineExpand {
+            to { scale: 1; }
+        }
+
+        /* Subtitle */
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.1s forwards;
+        }
+
+        /* Description */
+        .description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.4s forwards;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.7s forwards;
+        }
+
+        .progress-title {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .progress-bar-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 8px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 50px;
+            width: 0%;
+            animation: progressFill 3s ease-out 2s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            animation: progressShine 2s ease-in-out 2.5s infinite;
+        }
+
+        @keyframes progressFill {
+            to { width: 75%; }
+        }
+
+        @keyframes progressShine {
+            to { transform: translateX(100%); }
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+
+        /* Features Preview */
+        .features-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2s forwards;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0s; }
+        .feature-card:nth-child(2) { animation-delay: 2s; }
+        .feature-card:nth-child(3) { animation-delay: 4s; }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(112, 0, 255, 0.3);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Countdown Timer */
+        .countdown-section {
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2.3s forwards;
+        }
+
+        .countdown-title {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 1.5rem 1rem;
+            min-width: 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .time-unit::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(112, 0, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: unitShine 3s linear infinite;
+        }
+
+        @keyframes unitShine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .time-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .time-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2.6s forwards;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto 2rem;
+            flex-wrap: wrap;
+        }
+
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .email-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .email-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+        }
+
+        .notify-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .construction-button:hover {
+        .notify-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .notify-btn:hover::before {
+            opacity: 1;
+        }
+
+        .notify-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(112, 0, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(112, 0, 255, 0.4);
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        .notify-btn span {
+            position: relative;
+            z-index: 1;
         }
 
-        @keyframes progress-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-timer {
+                gap: 1rem;
+            }
+            
+            .time-unit {
+                min-width: 60px;
+                padding: 1rem 0.5rem;
+            }
+            
+            .time-number {
+                font-size: 1.5rem;
+            }
+            
+            .notify-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .email-input {
+                min-width: 100%;
+            }
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typing Effect */
+        .typing-text {
+            border-right: 2px solid var(--primary);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--primary); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--glass-border);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
-    <!-- Add this in your head if not already present -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="construction-container">
-        <i class="construction-icon fas fa-tools"></i>
-        <h1 class="construction-title">Under Construction</h1>
-        <p class="construction-message">This page is currently being developed with the latest technologies. I'm working hard to deliver an amazing experience. Thank you for your patience!</p>
-        
-        <div class="construction-progress">
-            <div class="construction-progress-bar"></div>
-        </div>
-        
-        <a href="Case-study.html" class="construction-button">Return Home</a>
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="effect-blob"></div>
+        <div class="effect-blob"></div>
+        <div class="effect-blob"></div>
+        <div class="effect-blob"></div>
     </div>
-    
-    <!-- Your existing page content would be here (hidden behind this overlay) -->
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main Container -->
+    <div class="coming-soon-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <div class="logo">
+                MB
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="main-heading typing-text" id="main-heading">Coming Soon</h1>
+
+        <!-- Subtitle -->
+        <p class="subtitle">Something Amazing is Being Built</p>
+
+        <!-- Description -->
+        <p class="description">
+            We're crafting an exceptional portfolio experience with cutting-edge design, 
+            interactive case studies, and innovative features that will showcase real-world 
+            projects and insights like never before.
+        </p>
+
+        <!-- Progress Section -->
+        <div class="progress-section">
+            <h3 class="progress-title">Development Progress</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="progress-text">
+                <span>Building...</span>
+                <span id="progress-percentage">75%</span>
+            </div>
+        </div>
+
+        <!-- Features Preview -->
+        <div class="features-preview">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h4 class="feature-title">Case Studies</h4>
+                <p class="feature-description">Real project breakdowns with detailed insights</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h4 class="feature-title">Interactive Design</h4>
+                <p class="feature-description">Smooth animations and engaging interactions</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h4 class="feature-title">Responsive</h4>
+                <p class="feature-description">Perfect experience on all devices</p>
+            </div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-section">
+            <h3 class="countdown-title">Estimated Launch</h3>
+            <div class="countdown-timer">
+                <div class="time-unit">
+                    <span class="time-number" id="days">07</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-number" id="hours">15</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-number" id="minutes">42</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-number" id="seconds">33</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <form class="notify-form" id="notify-form">
+                <input type="email" class="email-input" placeholder="Enter your email for updates" required>
+                <button type="submit" class="notify-btn">
+                    <span>Notify Me</span>
+                </button>
+            </form>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://github.com/MuatasimBillah/Muatasim-billah-portfolio" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://web.facebook.com/rk.billah.2025" class="social-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://youtube.com/@RainToneVibes" class="social-link" title="youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://meharmahalcoll@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeParticles();
+            initializeCountdown();
+            initializeTypingEffect();
+            initializeNotificationForm();
+            initializeProgressAnimation();
+        });
+
+        // Create floating particles
+        function initializeParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random positioning and timing
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                // Random colors
+                const colors = ['#7000ff', '#9a4eff', '#ff6b35', '#22c55e', '#f59e0b'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Countdown timer
+        function initializeCountdown() {
+            const countdownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // 7 days from now
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (distance < 0) {
+                    document.querySelector('.countdown-section').innerHTML = 
+                        '<h3 class="countdown-title">🎉 Launched!</h3>';
+                }
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        // Typing effect for main heading
+        function initializeTypingEffect() {
+            const heading = document.getElementById('main-heading');
+            const text = 'Coming Soon';
+            let index = 0;
+            
+            heading.textContent = '';
+            
+            function typeCharacter() {
+                if (index < text.length) {
+                    heading.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeCharacter, 150);
+                } else {
+                    // Keep blinking cursor
+                    setTimeout(() => {
+                        heading.classList.add('typing-text');
+                    }, 500);
+                }
+            }
+            
+            setTimeout(typeCharacter, 1000);
+        }
+
+        // Notification form
+        function initializeNotificationForm() {
+            const form = document.getElementById('notify-form');
+            const button = form.querySelector('.notify-btn');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = form.querySelector('.email-input').value;
+                const originalText = button.innerHTML;
+                
+                // Show loading state
+                button.innerHTML = '<span>Subscribing...</span><div class="loading-spinner"></div>';
+                button.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    button.innerHTML = '<span>✓ Subscribed!</span>';
+                    button.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+                    
+                    // Reset after 3 seconds
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.style.background = '';
+                        button.disabled = false;
+                        form.reset();
+                    }, 3000);
+                }, 2000);
+            });
+        }
+
+        // Progress animation
+        function initializeProgressAnimation() {
+            const progressText = document.getElementById('progress-percentage');
+            let progress = 0;
+            const target = 75;
+            
+            setTimeout(() => {
+                const interval = setInterval(() => {
+                    progress += 1;
+                    progressText.textContent = progress + '%';
+                    
+                    if (progress >= target) {
+                        clearInterval(interval);
+                    }
+                }, 40);
+            }, 2000);
+        }
+
+        // Mouse move parallax effect
+        document.addEventListener('mousemove', function(e) {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            document.querySelectorAll('.effect-blob').forEach((blob, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = mouseX * speed * 50;
+                const y = mouseY * speed * 50;
+                
+                blob.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Add click ripple effect to interactive elements
+        document.querySelectorAll('button, .social-link, .feature-card').forEach(element => {
+            element.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const ripple = document.createElement('div');
+                
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
