@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's New - Portfolio Updates</title>
+    <meta name="description" content="Discover the latest updates and new features added to the portfolio">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Root Variables - Your Portfolio Color Scheme */
+        :root {
+            --primary: #7000ff;
+            --primary-light: #9a4eff;
+            --primary-dark: #5a00cc;
+            --secondary: #00d9ff;
+            --secondary-light: #6aeaff;
+            --secondary-dark: #00a3c1;
+            --accent: #ff6b00;
+            
+            --bg-dark: #0c0c14;
+            --bg-dark-lighter: #12121f;
+            --card-dark: #16161f;
+            --card-dark-hover: #1a1a28;
+            
+            --text-light: #ffffff;
+            --text-muted: #9e9eb3;
+            --text-dark: #0c0c14;
+            
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            --glass-bg: rgba(22, 22, 31, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --backdrop-filter: blur(10px);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-lighter) 100%);
+        }
+
+        .bg-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, var(--primary) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--secondary) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, var(--accent) 0%, transparent 50%);
+            opacity: 0.1;
+            filter: blur(60px);
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* Envelope Stage */
+        .envelope-stage {
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .envelope-stage.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        /* Envelope */
+        .envelope {
+            position: relative;
+            width: 350px;
+            height: 240px;
+            cursor: pointer;
+            transition: var(--transition);
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+        }
+
+        .envelope:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .envelope-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+        }
+
+        .envelope-front {
+            position: absolute;
+            width: 100%;
+            height: 55%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+            bottom: 0;
+            border-radius: 0 0 12px 12px;
+            transform-origin: top center;
+            transition: transform 0.8s ease;
+            z-index: 3;
+        }
+
+        .envelope.opening .envelope-front {
+            transform: rotateX(-180deg);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            top: 0;
+            border-radius: 12px 12px 0 0;
+            transform-origin: bottom center;
+            transition: transform 0.8s ease 0.3s;
+            z-index: 4;
+        }
+
+        .envelope.opening .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-seal {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8c42 100%);
+            border-radius: 50%;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        .envelope.opening .envelope-seal {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+        }
+
+        .envelope-content {
+            position: absolute;
+            width: 85%;
+            height: 75%;
+            background: var(--card-dark);
+            top: 12%;
+            left: 7.5%;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px) scale(0.8);
+            opacity: 0;
+            transition: all 0.6s ease 0.8s;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .envelope.opening .envelope-content {
+            transform: translateY(-10px) scale(1);
+            opacity: 1;
+        }
+
+        .envelope-content .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Click Instruction */
+        .click-instruction {
+            position: absolute;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-muted);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: var(--backdrop-filter);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+        .click-instruction i {
+            color: var(--primary-light);
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Paper Document */
+        .paper-document {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            background: var(--card-dark);
+            color: var(--text-light);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+
+        .paper-document.visible {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .paper-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            padding: 2.5rem 2rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .paper-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .paper-content {
+            padding: 2rem;
+            max-height: 50vh;
+            overflow-y: auto;
+            background: var(--card-dark);
+        }
+
+        .paper-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .paper-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .paper-content::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        /* Update Items */
+        .update-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .update-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .update-item:nth-child(2) { border-left-color: var(--secondary); }
+        .update-item:nth-child(3) { border-left-color: var(--accent); }
+        .update-item:nth-child(4) { border-left-color: var(--primary-light); }
+
+        .update-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .update-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .update-info h3 {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .update-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .update-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .update-features {
+            background: rgba(112, 0, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(112, 0, 255, 0.2);
+        }
+
+        .update-features h4 {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .feature-item i {
+            color: var(--primary);
+            width: 16px;
+        }
+
+        /* Continue Section */
+        .continue-section {
+            background: linear-gradient(135deg, rgba(112, 0, 255, 0.1), rgba(0, 217, 255, 0.05));
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(112, 0, 255, 0.2);
+        }
+
+        .continue-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .continue-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .continue-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(112, 0, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(112, 0, 255, 0.4);
+        }
+
+        .continue-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .continue-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Close Button - Fixed Position */
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: var(--backdrop-filter);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            border: none;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Back to Portfolio Button */
+        .back-portfolio-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .back-portfolio-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .envelope {
+                width: 280px;
+                height: 192px;
+            }
+            
+            .paper-title {
+                font-size: 2.2rem;
+            }
+            
+            .paper-header,
+            .paper-content,
+            .continue-section {
+                padding: 1.5rem;
+            }
+            
+            .update-item {
+                padding: 1rem;
+            }
+            
+            .update-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .update-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .close-btn {
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-gradient"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Envelope Stage -->
+        <div class="envelope-stage" id="envelope-stage">
+            <div class="envelope" id="envelope">
+                <div class="envelope-back"></div>
+                <div class="envelope-front"></div>
+                <div class="envelope-flap"></div>
+                <div class="envelope-seal">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="envelope-content">
+                    <i class="fas fa-gift icon"></i>
+                    <div>What's New!</div>
+                </div>
+            </div>
+            
+            <div class="click-instruction">
+                <i class="fas fa-hand-pointer"></i>
+                <span>Click to discover updates</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper Document -->
+    <div class="paper-document" id="paper-document">
+        <button class="close-btn" id="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#" class="continue-btn" id="continue-btn">
+                <span>Continue with New Experience</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        <div class="paper-header">
+            <h1 class="paper-title">Update 0.1</h1>
+            <p class="paper-subtitle">What's New</p>
+        </div>
+
+        <div class="paper-content">
+            <!-- Update Item 1 -->
+            <div class="update-item">
+                <div class="update-header">
+                    <div class="update-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="update-info">
+                        <h3>Fiverr Journey Case Study</h3>
+                        <div class="update-date">july 1 2025</div>
+                    </div>
+                </div>
+                <div class="update-description">
+                    Added an in-depth case study documenting my journey with 45+ Fiverr accounts, including failures, breakthroughs, and valuable lessons learned. This real-world experience provides actionable insights for freelancers.
+                </div>
+                <div class="update-features">
+                    <h4><i class="fas fa-list"></i> What's Included:</h4>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Complete journey from 45 failed accounts to success</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Strategic gig optimization techniques</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Real client project breakdown</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>SEO and algorithm insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Update Item 2 -->
+            <div class="update-item">
+                <div class="update-header">
+                    <div class="update-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="update-info">
+                        <h3>Enhanced Visual Design</h3>
+                        <div class="update-date">july 1 2025</div>
+                    </div>
+                </div>
+                <div class="update-description">
+                    Completely redesigned the portfolio with modern glassmorphism effects, smooth animations, and an improved color scheme for better user experience.
+                </div>
+                <div class="update-features">
+                    <h4><i class="fas fa-magic"></i> Design Improvements:</h4>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Glassmorphism UI with blur effects</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Optimized animations for better performance</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Purple-cyan gradient theme with orange accents</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Responsive design for all devices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Update Item 3 -->
+            <div class="update-item">
+                <div class="update-header">
+                    <div class="update-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="update-info">
+                        <h3>SEO Optimization</h3>
+                        <div class="update-date">july 1 2025</div>
+                    </div>
+                </div>
+                <div class="update-description">
+                    Implemented comprehensive SEO optimization with structured data, meta tags, and performance enhancements for better search engine visibility.
+                </div>
+                <div class="update-features">
+                    <h4><i class="fas fa-cog"></i> SEO Features:</h4>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Schema.org structured data markup</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Open Graph and Twitter Cards</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Optimized meta descriptions</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Fast loading performance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Update Item 4 -->
+            <div class="update-item">
+                <div class="update-header">
+                    <div class="update-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="update-info">
+                        <h3>Coming Soon Page</h3>
+                        <div class="update-date">july 1 2025</div>
+                    </div>
+                </div>
+                <div class="update-description">
+                    Created an engaging coming soon page with interactive animations, countdown timer, and email subscription for future updates.
+                </div>
+                <div class="update-features">
+                    <h4><i class="fas fa-star"></i> Interactive Features:</h4>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Floating particle animations</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Live countdown timer</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Email subscription form</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Mouse parallax effects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="continue-section">
+            <h2 class="continue-title">Ready to Explore?</h2>
+            <p class="continue-subtitle">Continue to the main portfolio and discover more amazing projects</p>
+            <a href="#" class="continue-btn" id="continue-btn">
+                <span>Continue with New Experience</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <br>
+            <a href="#" class="back-portfolio-btn" id="back-portfolio-btn">
+                <i class="fas fa-home"></i>
+                <span>Back to Portfolio</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const envelope = document.getElementById('envelope');
+            const envelopeStage = document.getElementById('envelope-stage');
+            const paperDocument = document.getElementById('paper-document');
+            const closeBtn = document.getElementById('close-btn');
+            const continueBtn = document.getElementById('continue-btn');
+            const backPortfolioBtn = document.getElementById('back-portfolio-btn');
+
+            // Reset function to initial state
+            function resetToInitialState() {
+                paperDocument.classList.remove('visible');
+                envelope.classList.remove('opening');
+                envelopeStage.classList.remove('hidden');
+                
+                // Reset all transforms and transitions
+                paperDocument.style.transform = '';
+                paperDocument.style.opacity = '';
+            }
+
+            // Envelope click handler
+            envelope.addEventListener('click', function() {
+                envelope.classList.add('opening');
+                
+                setTimeout(() => {
+                    envelopeStage.classList.add('hidden');
+                    setTimeout(() => {
+                        paperDocument.classList.add('visible');
+                    }, 300);
+                }, 1200);
+            });
+
+            // Close button handler
+            closeBtn.addEventListener('click', function() {
+                resetToInitialState();
+            });
+
+            // Continue button handler
+            continueBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                paperDocument.style.transform = 'translate(-50%, -50%) scale(0.8)';
+                paperDocument.style.opacity = '0';
+                
+                setTimeout(() => {
+                    if (window.history.length > 1) {
+                        window.history.back();
+                    } else {
+                        window.close();
+                    }
+                }, 500);
+            });
+
+            // Back to portfolio button handler
+            backPortfolioBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                resetToInitialState();
+            });
+
+            // Simple ripple effect
+            document.querySelectorAll('.continue-btn, .close-btn, .back-portfolio-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    const rect = this.getBoundingClientRect();
+                    
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                    ripple.style.pointerEvents = 'none';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.left = (e.clientX - rect.left - 25) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - 25) + 'px';
+                    ripple.style.width = ripple.style.height = '50px';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // Add ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(2);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
