@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's New - Portfolio Updates</title>
     <meta name="description" content="Discover the latest updates and new features added to the portfolio">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* Root Variables - Your Portfolio Colors */
         :root {
@@ -20,16 +23,16 @@
             --secondary-dark: #00a3c1;
             --accent: #ff6b00;
             --accent-light: #ff8c42;
-            
+
             --bg-dark: #0c0c14;
             --bg-dark-lighter: #12121f;
             --card-dark: #16161f;
             --card-dark-hover: #1a1a28;
-            
+
             --text-light: #ffffff;
             --text-muted: #9e9eb3;
             --text-dark: #0c0c14;
-            
+
             --glass-bg: rgba(22, 22, 31, 0.95);
             --glass-border: rgba(255, 255, 255, 0.1);
             --backdrop-filter: blur(20px);
@@ -126,11 +129,14 @@
         }
 
         @keyframes float {
-            0%, 100% { 
+
+            0%,
+            100% {
                 transform: translateY(0px) rotate(0deg);
                 opacity: 0.1;
             }
-            50% { 
+
+            50% {
                 transform: translateY(-20px) rotate(180deg);
                 opacity: 0.3;
             }
@@ -165,8 +171,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         /* Container */
@@ -218,8 +231,15 @@
         }
 
         @keyframes slideProgress {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
+
+            0%,
+            100% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(100%);
+            }
         }
 
         .update-icon {
@@ -236,19 +256,28 @@
         }
 
         @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
-        .update-icon.primary { 
+        .update-icon.primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             box-shadow: 0 10px 30px rgba(112, 0, 255, 0.4);
         }
-        .update-icon.secondary { 
+
+        .update-icon.secondary {
             background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
             box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
         }
-        .update-icon.accent { 
+
+        .update-icon.accent {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
             box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
         }
@@ -455,6 +484,7 @@
                 opacity: 1;
                 transform: scale(1);
             }
+
             100% {
                 opacity: 0;
                 transform: scale(0);
@@ -527,11 +557,17 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
@@ -558,7 +594,7 @@
     <!-- Stats Counter -->
     <div class="stats-counter">
         <div class="stat-item">
-            <div class="stat-number">0.1</div>
+            <div class="stat-number">0.2</div>
             <div class="stat-label">Updates</div>
         </div>
         <div class="stat-item">
@@ -588,7 +624,9 @@
                     <div class="update-date">July 1, 2025</div>
                 </div>
                 <p class="update-description">
-                    Added an in-depth case study documenting my journey with 45+ Fiverr accounts, including failures, breakthroughs, and valuable lessons learned. This real-world experience provides actionable insights for freelancers.
+                    Added an in-depth case study documenting my journey with 45+ Fiverr accounts, including failures,
+                    breakthroughs, and valuable lessons learned. This real-world experience provides actionable insights
+                    for freelancers.
                 </p>
                 <div class="update-features">
                     <h4 class="features-title">
@@ -607,30 +645,33 @@
                 </button>
             </div>
 
-           
+
             <!-- Update Card 3 -->
             <div class="update-card">
                 <div class="update-icon accent">
-                    <i class="fas fa-search"></i>
+                   <i class="fas fa-blog"></i>
+
                 </div>
                 <div class="update-header">
-                    <h2 class="update-title">SEO Optimization</h2>
-                    <div class="update-date">July 1, 2025</div>
+                    <h2 class="update-title">Added New Blog</h2>
+                    <div class="update-date">July 15, 2025</div>
                 </div>
                 <p class="update-description">
-                    Implemented comprehensive SEO optimization with structured data, meta tags, and performance enhancements for better search engine visibility.
+                    Optimized gig visuals with strategic SEO elements like structured data, high-performing image
+                    assets, and thumbnail enhancements to improve visibility and engagement on Fiverr.
                 </p>
                 <div class="update-features">
                     <h4 class="features-title">
-                        <i class="fas fa-cog"></i> SEO Features:
+                        <i class="fas fa-cog"></i> Fiverr Gig Image Enhancements:
                     </h4>
                     <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Schema.org structured data markup</li>
-                        <li><i class="fas fa-check"></i> Open Graph and Twitter Cards</li>
-                        <li><i class="fas fa-check"></i> Optimized meta descriptions</li>
-                        <li><i class="fas fa-check"></i> Fast loading performance</li>
+                        <li><i class="fas fa-check"></i> Structured gig metadata for Fiverr algorithm compatibility</li>
+                        <li><i class="fas fa-check"></i> Click-optimized thumbnails for higher visibility</li>
+                        <li><i class="fas fa-check"></i> Descriptive alt text for improved SEO indexing</li>
+                        <li><i class="fas fa-check"></i> Lightweight, fast-loading image formats</li>
                     </ul>
                 </div>
+
                 <button class="see-update-btn" onclick="window.open('../case-studies/story-hardest-project.html')">
                     <i class="fas fa-external-link-alt"></i>
                     See Update
@@ -647,7 +688,8 @@
                     <div class="update-date">July 1, 2025</div>
                 </div>
                 <p class="update-description">
-                    Created an engaging coming soon page with interactive animations, countdown timer, and email subscription for future updates.
+                    Created an engaging coming soon page with interactive animations, countdown timer, and email
+                    subscription for future updates.
                 </p>
                 <div class="update-features">
                     <h4 class="features-title">
@@ -677,21 +719,21 @@
 
     <script>
         // Remove loading overlay after page loads
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             setTimeout(() => {
                 document.getElementById('loadingOverlay').classList.add('hidden');
             }, 1000);
         });
 
         // Mouse trail effect
-        document.addEventListener('mousemove', function(e) {
+        document.addEventListener('mousemove', function (e) {
             if (window.innerWidth > 768) {
                 const trail = document.createElement('div');
                 trail.className = 'mouse-trail';
                 trail.style.left = e.clientX + 'px';
                 trail.style.top = e.clientY + 'px';
                 document.body.appendChild(trail);
-                
+
                 setTimeout(() => trail.remove(), 1000);
             }
         });
@@ -699,7 +741,7 @@
         // Card interaction effects
         const cards = document.querySelectorAll('.update-card');
         cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 // Add subtle vibration on mobile
                 if (navigator.vibrate) {
                     navigator.vibrate(50);
@@ -708,10 +750,10 @@
         });
 
         // Smooth scroll and parallax effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrolled = window.pageYOffset;
             const particles = document.querySelectorAll('.particle');
-            
+
             particles.forEach((particle, index) => {
                 const speed = (index + 1) * 0.5;
                 particle.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
@@ -720,20 +762,20 @@
 
         // Add ripple effect to buttons
         document.querySelectorAll('.see-update-btn, .main-action-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
+            button.addEventListener('click', function (e) {
                 const ripple = document.createElement('span');
                 const rect = this.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
                 const x = e.clientX - rect.left - size / 2;
                 const y = e.clientY - rect.top - size / 2;
-                
+
                 ripple.style.width = ripple.style.height = size + 'px';
                 ripple.style.left = x + 'px';
                 ripple.style.top = y + 'px';
                 ripple.classList.add('ripple');
-                
+
                 this.appendChild(ripple);
-                
+
                 setTimeout(() => ripple.remove(), 600);
             });
         });
@@ -760,7 +802,7 @@
         document.head.appendChild(style);
 
         // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 window.history.back();
             }
@@ -800,4 +842,5 @@
         }
     </script>
 </body>
+
 </html>

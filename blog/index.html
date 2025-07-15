@@ -8,6 +8,7 @@
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script defer src="../js.case-study-stories/case-study-stories.js"></script>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,51 +46,66 @@
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
   
-  <!-- Navbar -->
-  <header class="navbar scrolled">
+  <!-- Updated Navbar HTML -->
+<header class="navbar">
+   <!-- Complete Mobile-Responsive Navbar for Muatasim Website -->
+<header class="navbar">
     <nav class="glass">
-      <a href="../index.html" class="logo">
-        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
-      </a>
-      
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <div class="nav-links desktop-nav">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="../index.html#about" class="nav-link">About</a>
-        <a href="../index.html#skills" class="nav-link">Skills</a>
-        <a href="../index.html#projects" class="nav-link">Projects</a>
-        <a href="../index.html#services" class="nav-link">Services</a>
-        <a href="../index.html#testimonials" class="nav-link">Testimonials</a>
-        <a href="#" class="nav-link active">Blog</a>
-        <a href="../index.html#contact" class="nav-link">Contact</a>
-      </div>
-      
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
+        <a href="index.html" class="logo">
+            <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-links desktop-nav">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../tools/index.html" class="nav-link">Tools</a>
+            <a href="../blog/index.html" class="nav-link">Blogs</a>
+            <a href="../case-studies/Case-study.html" class="nav-link">Case Studies</a>
+            <a href="../gigs/Main-services.html" class="nav-link">Gigs</a>
+            <a href="../Pricing/pricing.html" class="nav-link">Pricing</a>
+            <a href="../Whats-new/update.html" class="nav-link">Whats New</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <button class="mobile-close-btn" aria-label="Close menu">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="mobile-nav-links">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="../index.html#about" class="nav-link">About</a>
-        <a href="../index.html#skills" class="nav-link">Skills</a>
-        <a href="../index.html#projects" class="nav-link">Projects</a>
-        <a href="../index.html#services" class="nav-link">Services</a>
-        <a href="../index.html#testimonials" class="nav-link">Testimonials</a>
-        <a href="#" class="nav-link active">Blog</a>
-        <a href="../index.html#contact" class="nav-link">Contact</a>
-      </div>
-    </div>
-  </header>
+</header>
 
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu">
+    <div class="mobile-nav-links">
+        <a href="index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="tools/index.html" class="nav-link">
+            <i class="fas fa-tools"></i>
+            <span>Tools</span>
+        </a>
+        <a href="blog/index.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            <span>Blogs</span>
+        </a>
+        <a href="case-studies/Case-study.html" class="nav-link">
+            <i class="fas fa-chart-line"></i>
+            <span>Case Studies</span>
+        </a>
+        <a href="gigs/Main-services.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            <span>Gigs</span>
+        </a>
+        <a href="Pricing/pricing.html" class="nav-link">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Pricing</span>
+        </a>
+        
+    </div>
+</div>
+</header>
   <!-- Blog Header -->
   <section class="section section-reveal blog-header">
     <div class="container">
@@ -264,6 +280,23 @@
       <a href="improve-shopify-store.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
       </div>
       </div>
+      <!-- Fiverr Gig Image Tips Blog -->
+<div class="blog-card" data-category="graphic-design">
+  <div class="blog-image">
+    <img src="../images/gig image designing tips By Muatasim billah.png" alt="Fiverr Gig Image Tips">
+    <div class="blog-date">
+      <span class="day">15</span>
+      <span class="month">Jul</span>
+    </div>
+  </div>
+  <div class="blog-content">
+    <div class="blog-category">Freelancing & Design</div>
+    <h3 class="blog-title-card">Fiverr Gig Image Tips to Boost Clicks in 2025</h3>
+    <p class="blog-excerpt">Discover proven strategies to design eye-catching gig images that attract clients and increase conversions on Fiverr.</p>
+    <a href="fiverr-gig-image-tips.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div>
+
         <!-- Audio Engineering Blog -->
         <div class="blog-card" data-category="audio">
           <div class="blog-image">
@@ -282,6 +315,7 @@
         </div>
       </div>
     </div>
+    
   </section>
 
   <!-- Font Awesome Icons -->
@@ -368,6 +402,8 @@
   <!-- JavaScript -->
   <script src="../js/main.js"></script>
   <script src="../js/chatbot.js"></script>
+  <script src="../search.js"></script>
+
   <script>
     // Update current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();

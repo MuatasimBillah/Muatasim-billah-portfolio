@@ -30,11 +30,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/whats-New.css">
     <link rel="stylesheet" href="search.css">
     <link rel="stylesheet" href="darkmood.css">
     <link rel="stylesheet" href="chatbot.css">
-    <link rel="stylesheet" href="/css-Case-studies/case-study.css">
     <link rel="stylesheet" href="/css-Gigs/gigs.css">
+    <link rel="stylesheet" href="/css-Case-studies/case-study.css">
     
     <!-- Google Analytics (non-critical, can load after CSS) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1502JK6E7V"></script>
@@ -60,6 +61,8 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="search.js"></script>
+    <script defer src="js/nav-bar.js"></script>
+    <script defer src="js.case-study-stories/case-study-stories.js"></script>
 
   </head>
 <body>
@@ -67,53 +70,76 @@
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
   
-  <!-- Navbar -->
-  <header class="navbar">
+ <!-- Updated Navbar HTML -->
+<header class="navbar">
+   <!-- Complete Mobile-Responsive Navbar for Muatasim Website -->
+<header class="navbar">
     <nav class="glass">
-      <a href="#" class="logo">
-        <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
-      </a>
-      
-      <label class="theme-toggle-switch" aria-label="Toggle theme">
-        <input type="checkbox" id="theme-toggle-input">
-        <span class="toggle-slider">
-          <i class="fas fa-sun"></i>
-          <i class="fas fa-moon"></i>
-        </span>
-      </label>
-     
-      <div class="nav-links desktop-nav">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="blog/index.html" class="nav-link">Blog</a>
-        <a href="tools\index.html" class="nav-link">Tools</a>
-        <a href="#testimonials" class="nav-link">Testimonials</a>
-        <a href="Whats-new/update.html" class="nav-link">Whats New</a>
-      </div>
-      
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
+        <a href="index.html" class="logo">
+            <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-links desktop-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="tools/index.html" class="nav-link">Tools</a>
+            <a href="blog/index.html" class="nav-link">Blogs</a>
+            <a href="case-studies/Case-study.html" class="nav-link">Case Studies</a>
+            <a href="gigs/Main-services.html" class="nav-link">Gigs</a>
+            <a href="Pricing/pricing.html" class="nav-link">Pricing</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <button class="mobile-close-btn" aria-label="Close menu">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="mobile-nav-links">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="blog/index.html" class="nav-link">Blog</a>
-        <a href="#testimonials" class="nav-link">Testimonials</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu">
+    <div class="mobile-nav-links">
+        <a href="index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="tools/index.html" class="nav-link">
+            <i class="fas fa-tools"></i>
+            <span>Tools</span>
+        </a>
+        <a href="blog/index.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            <span>Blogs</span>
+        </a>
+        <a href="case-studies/Case-study.html" class="nav-link">
+            <i class="fas fa-chart-line"></i>
+            <span>Case Studies</span>
+        </a>
+        <a href="gigs/Main-services.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            <span>Gigs</span>
+        </a>
+        <a href="Pricing/pricing.html" class="nav-link">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Pricing</span>
+        </a>
     </div>
-  </header>
+</div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu">
+    <div class="mobile-nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="tools/index.html" class="nav-link">Tools</a>
+        <a href="blog/index.html" class="nav-link">Blogs</a>
+        <a href="case-studies/Case-study.html" class="nav-link">Case Studies</a>
+        <a href="gigs/Main-services.html" class="nav-link">Gigs</a>
+        <a href="Pricing/pricing.html" class="nav-link">Pricing</a>
+    </div>
+</div>
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
@@ -398,7 +424,7 @@
         </div>
         <div class="project-info">
           <h3>Shopify Store Development</h3>
-          <p>Custom Shopify theme development with enhanced product pages and checkout optimization.</p>
+          <p>Custom Shopify theme development with enhanced product pages .</p>
           <div class="project-tags">
             <span class="project-tag">Liquid</span>
             <span class="project-tag">E-commerce</span>
@@ -466,8 +492,8 @@
           <h3>AI Voiceover</h3>
           <p>Natural-sounding AI voice generation for commercials and narrations.</p>
           <div class="project-tags">
-            <span class="project-tag">ElevenLabs</span>
-            <span class="project-tag">Text-to-Speech</span>
+            <span class="project-tag">11Labs</span>
+            <span class="project-tag">Text to Speech</span>
             <span class="project-tag">Voice Cloning</span>
           </div>
           <a href="projects/ai-voice.html" class="btn-secondary view-project-btn">View Project</a>
@@ -1040,6 +1066,18 @@
     </div>
   </div>
 </section>
+
+<!-- What's New Floating Badge - Final Version -->
+<a href="Whats-new/update.html" class="whats-new-floating-badge">
+  <div class="floating-badge-content">
+    <div class="floating-badge-icon">
+      <i class="fas fa-bell"></i>
+      <span class="floating-notification-dot"></span>
+    </div>
+    <span class="floating-badge-text">What's New</span>
+  </div>
+  <div class="floating-badge-ring"></div>
+</a>
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -1056,7 +1094,7 @@
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
-          <a href="tools/image-effects.js">Explore Tools Shop</a>
+          <a href="tools/index.html">Explore Tools Shop</a>
           <a href="#projects">Projects</a>
           <a href="#services">Services</a>
           <a href="#contact">Contact</a>
@@ -1107,46 +1145,6 @@
 
 <!-- Your existing website content goes here -->
 
-<!-- Chatbot Toggle Button -->
-<button id="chatbot-toggle" aria-label="Toggle chatbot">
-  <div class="toggle-icon">
-      <i class="fas fa-comment-dots"></i>
-  </div>
-</button>
-
-<!-- Chatbot Interface -->
-<div id="chatbot-container" class="glass">
-  <div class="chatbot-header">
-      <div class="chatbot-title">
-          <div class="chatbot-avatar">
-              <img src="images/chatbot avatar.png" alt="Muatasim Billah" class="avatar-image">
-              <span class="avatar-text" style="display:none;">MB</span>
-          </div>
-          <h3>MEHAR SHADOW</h3>
-      </div>
-      <div class="chatbot-controls">
-          <button id="theme-toggle" aria-label="Toggle theme">
-              <i class="fas fa-moon" id="theme-icon"></i>
-          </button>
-          <button id="close-chatbot" aria-label="Close chatbot">
-              <i class="fas fa-times"></i>
-          </button>
-      </div>
-  </div>
-  
-  <div id="chatbot-messages"></div>
-  
-  <div class="chatbot-typing-indicator" id="typing-indicator">
-      <span></span><span></span><span></span>
-  </div>
-  
-  <div class="chatbot-input">
-      <input type="text" id="user-input" placeholder="Ask me about my services, skills, or tools..." autocomplete="off">
-      <button id="send-button" aria-label="Send message">
-          <i class="fas fa-paper-plane"></i>
-      </button>
-  </div>
-</div>
         <!-- Back to Top Button -->
         <button id="back-to-top" aria-label="Back to top">
           <i class="fas fa-arrow-up"></i>
@@ -1167,5 +1165,6 @@
   <script src="js/main.js"></script>
   <script src="contactform.js"></script>
   <script src="darkmood.js"></script>
+  <script src="js/whats-New.js"></script>
 </body>
 </html>

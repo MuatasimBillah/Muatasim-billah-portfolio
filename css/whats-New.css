@@ -1,0 +1,191 @@
+/* ===== WHAT'S NEW FLOATING BADGE - SMALLER VERSION ===== */
+.whats-new-floating-badge {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-badge-content {
+  background: rgba(22, 22, 31, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(112, 0, 255, 0.3);
+  border-radius: 20px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 20px rgba(112, 0, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  min-width: 85px;
+}
+
+.floating-badge-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #7000ff, #5a00cc);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.whats-new-floating-badge:hover .floating-badge-content::before {
+  left: 0;
+}
+
+.floating-badge-icon {
+  position: relative;
+  color: #7000ff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.whats-new-floating-badge:hover .floating-badge-icon {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.floating-notification-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 7px;
+  height: 7px;
+  background: #ff6b00;
+  border-radius: 50%;
+  animation: floatingPulse 2s infinite;
+}
+
+.floating-badge-text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 11px;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+
+.floating-badge-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #7000ff;
+  border-radius: 20px;
+  transform: translate(-50%, -50%);
+  animation: floatingRing 4s infinite;
+  opacity: 0.4;
+}
+
+/* Animations */
+@keyframes floatingPulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.6; 
+    transform: scale(1.3); 
+  }
+}
+
+@keyframes floatingRing {
+  0% { 
+    transform: translate(-50%, -50%) scale(1); 
+    opacity: 0.4; 
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.2); 
+    opacity: 0.2; 
+  }
+  100% { 
+    transform: translate(-50%, -50%) scale(1.5); 
+    opacity: 0; 
+  }
+}
+
+/* Hover Effects */
+.whats-new-floating-badge:hover {
+  transform: translateY(-5px) scale(1.05);
+  filter: drop-shadow(0 15px 30px rgba(112, 0, 255, 0.3));
+}
+
+.whats-new-floating-badge:active {
+  transform: translateY(-3px) scale(0.98);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .whats-new-floating-badge {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .floating-badge-content {
+    padding: 6px 10px;
+    min-width: 75px;
+  }
+  
+  .floating-badge-text {
+    font-size: 10px;
+  }
+  
+  .floating-badge-icon {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whats-new-floating-badge {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .floating-badge-text {
+    display: none;
+  }
+  
+  .floating-badge-content {
+    padding: 8px;
+    border-radius: 50%;
+    min-width: 35px;
+    width: 35px;
+    height: 35px;
+    justify-content: center;
+  }
+  
+  .floating-badge-ring {
+    border-radius: 50%;
+  }
+  
+  .floating-notification-dot {
+    top: -2px;
+    right: -2px;
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Light Theme Support */
+body.light-theme .floating-badge-content {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(112, 0, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .floating-badge-text {
+  color: #16161f;
+}
+
+body.light-theme .whats-new-floating-badge:hover .floating-badge-text {
+  color: #ffffff;
+}
