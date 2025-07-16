@@ -45,61 +45,74 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../chatbot.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/Nav-bar.css">
   <link rel="stylesheet" href="tools.css">
   <link rel="stylesheet" href="../search.css">
   <link rel="stylesheet" href="../darkmood.css">
+  <link rel="stylesheet" href="../css/style.css">
   
   <!-- JS files with defer attribute -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script defer src="../js/main.js"></script>
-  <script defer src="../js/chatbot.js"></script>
+  <script defer src="../js/nav-bar.js"></script>
 </head>
 <body>
   <!-- Custom Cursor (Desktop Only) -->
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
   
- <!-- Navbar -->
- <header class="navbar">
-  <nav class="glass">
-    <a href="#" class="logo">
-      <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
-    </a>
-    
-    
-
-    <div class="nav-links desktop-nav">
-      <a href="../index.html" class="nav-link">Home</a>
-      <a href="../index.html#about" class="nav-link">About</a>
-      <a href="../index.html#skills" class="nav-link">Skills</a>
-      <a href="../index.html#projects" class="nav-link">Projects</a>
-      <a href="../index.html#services" class="nav-link">Services</a>
-      <a href="../index.html#testimonials" class="nav-link">Testimonials</a>
-      <a href="#" class="nav-link active">tools</a>
-      <a href="../index.html#contact" class="nav-link">Contact</a>
-    </div>
-    
-  
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <button class="mobile-close-btn" aria-label="Close menu">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="mobile-nav-links">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#services" class="nav-link">Services</a>
-      <a href="blog/index.html" class="nav-link">Blog</a>
-      <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </div>
-  </div>
+<header class="navbar" id="navbar">
+    <nav class="glass">
+        <a href="index.html" class="logo">
+            <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+        </a>
+        
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../tools/index.html" class="nav-link">Tools</a>
+            <a href="../blog/index.html" class="nav-link">Blogs</a>
+            <a href="../case-studies/Case-study.html" class="nav-link">Case Studies</a>
+            <a href="../gigs/Main-services.html" class="nav-link">Gigs</a>
+            <a href="../Pricing/pricing.html" class="nav-link">Pricing</a>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-nav-links">
+        <a href="../index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="../tools/index.html" class="nav-link">
+            <i class="fas fa-tools"></i>
+            <span>Tools</span>
+        </a>
+        <a href="../blog/index.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            <span>Blogs</span>
+        </a>
+        <a href="../case-studies/Case-study.html" class="nav-link">
+            <i class="fas fa-chart-line"></i>
+            <span>Case Studies</span>
+        </a>
+        <a href="../gigs/Main-services.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            <span>Gigs</span>
+        </a>
+        <a href="../Pricing/pricing.html" class="nav-link">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Pricing</span>
+        </a>
+    </div>
+</div>
 
 
   <!-- Page Header -->
@@ -307,46 +320,6 @@
 
 <!-- Your existing website content goes here -->
 
-<!-- Chatbot Toggle Button -->
-<button id="chatbot-toggle" aria-label="Toggle chatbot">
-  <div class="toggle-icon">
-      <i class="fas fa-comment-dots"></i>
-  </div>
-</button>
-
-<!-- Chatbot Interface -->
-<div id="chatbot-container" class="glass">
-  <div class="chatbot-header">
-      <div class="chatbot-title">
-          <div class="chatbot-avatar">
-              <img src="../images/chatbot avatar.png" alt="Muatasim Billah" class="avatar-image">
-              <span class="avatar-text" style="display:none;">MB</span>
-          </div>
-          <h3>MEHAR SHADOW</h3>
-      </div>
-      <div class="chatbot-controls">
-          <button id="theme-toggle" aria-label="Toggle theme">
-              <i class="fas fa-moon" id="theme-icon"></i>
-          </button>
-          <button id="close-chatbot" aria-label="Close chatbot">
-              <i class="fas fa-times"></i>
-          </button>
-      </div>
-  </div>
-  
-  <div id="chatbot-messages"></div>
-  
-  <div class="chatbot-typing-indicator" id="typing-indicator">
-      <span></span><span></span><span></span>
-  </div>
-  
-  <div class="chatbot-input">
-      <input type="text" id="user-input" placeholder="Ask me about my services, skills, or tools..." autocomplete="off">
-      <button id="send-button" aria-label="Send message">
-          <i class="fas fa-paper-plane"></i>
-      </button>
-  </div>
-</div>
 
         <!-- Back to Top Button -->
         <button id="back-to-top" aria-label="Back to top">

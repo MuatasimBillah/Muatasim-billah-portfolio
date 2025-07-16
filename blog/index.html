@@ -40,34 +40,29 @@
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="../css/Nav-bar.css">
 </head>
 <body>
   <!-- Custom Cursor (Desktop Only) -->
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
   
-  <!-- Updated Navbar HTML -->
-<header class="navbar">
-   <!-- Complete Mobile-Responsive Navbar for Muatasim Website -->
-<header class="navbar">
+ <header class="navbar" id="navbar">
     <nav class="glass">
         <a href="index.html" class="logo">
             <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
         </a>
         
-        <!-- Desktop Navigation -->
-        <div class="nav-links desktop-nav">
+        <div class="nav-links">
             <a href="../index.html" class="nav-link">Home</a>
             <a href="../tools/index.html" class="nav-link">Tools</a>
             <a href="../blog/index.html" class="nav-link">Blogs</a>
             <a href="../case-studies/Case-study.html" class="nav-link">Case Studies</a>
             <a href="../gigs/Main-services.html" class="nav-link">Gigs</a>
             <a href="../Pricing/pricing.html" class="nav-link">Pricing</a>
-            <a href="../Whats-new/update.html" class="nav-link">Whats New</a>
         </div>
         
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
             <span></span>
             <span></span>
             <span></span>
@@ -75,37 +70,34 @@
     </nav>
 </header>
 
-<!-- Mobile Menu Overlay -->
-<div class="mobile-menu">
+<div class="mobile-menu" id="mobileMenu">
     <div class="mobile-nav-links">
-        <a href="index.html" class="nav-link">
+        <a href="../index.html" class="nav-link">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
-        <a href="tools/index.html" class="nav-link">
+        <a href="../tools/index.html" class="nav-link">
             <i class="fas fa-tools"></i>
             <span>Tools</span>
         </a>
-        <a href="blog/index.html" class="nav-link">
+        <a href="../blog/index.html" class="nav-link">
             <i class="fas fa-blog"></i>
             <span>Blogs</span>
         </a>
-        <a href="case-studies/Case-study.html" class="nav-link">
+        <a href="../case-studies/Case-study.html" class="nav-link">
             <i class="fas fa-chart-line"></i>
             <span>Case Studies</span>
         </a>
-        <a href="gigs/Main-services.html" class="nav-link">
+        <a href="../gigs/Main-services.html" class="nav-link">
             <i class="fas fa-briefcase"></i>
             <span>Gigs</span>
         </a>
-        <a href="Pricing/pricing.html" class="nav-link">
+        <a href="../Pricing/pricing.html" class="nav-link">
             <i class="fas fa-dollar-sign"></i>
             <span>Pricing</span>
         </a>
-        
     </div>
 </div>
-</header>
   <!-- Blog Header -->
   <section class="section section-reveal blog-header">
     <div class="container">
@@ -401,8 +393,8 @@
 
   <!-- JavaScript -->
   <script src="../js/main.js"></script>
-  <script src="../js/chatbot.js"></script>
   <script src="../search.js"></script>
+  <script src="../js/nav-bar.js"></script>
 
   <script>
     // Update current year in footer

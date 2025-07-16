@@ -14,42 +14,60 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="/css-Gigs/All-gig.css">
+    <link rel="stylesheet" href="../css/Nav-bar.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="navbar">
-        <nav class="glass">
-            <a href="index.html" class="logo">
-                <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
-            </a>
-            
-            <div class="nav-links desktop-nav">
-                <a href="index.html#home" class="nav-link">Home</a>
-                <a href="index.html#about" class="nav-link">About</a>
-                <a href="index.html#projects" class="nav-link">Projects</a>
-                <a href="#" class="nav-link active">Services</a>
-                <a href="index.html#contact" class="nav-link">Contact</a>
-            </div>
-            
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
-            </button>
-        </nav>
+    <header class="navbar" id="navbar">
+    <nav class="glass">
+        <a href="index.html" class="logo">
+            <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+        </a>
         
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <button class="mobile-close-btn" aria-label="Close menu">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="mobile-nav-links">
-                <a href="index.html#home" class="nav-link">Home</a>
-                <a href="index.html#about" class="nav-link">About</a>
-                <a href="index.html#projects" class="nav-link">Projects</a>
-                <a href="#" class="nav-link active">Services</a>
-                <a href="index.html#contact" class="nav-link">Contact</a>
-            </div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../tools/index.html" class="nav-link">Tools</a>
+            <a href="../blog/index.html" class="nav-link">Blogs</a>
+            <a href="../case-studies/Case-study.html" class="nav-link">Case Studies</a>
+            <a href="../gigs/Main-services.html" class="nav-link">Gigs</a>
+            <a href="../Pricing/pricing.html" class="nav-link">Pricing</a>
         </div>
-    </header>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-nav-links">
+        <a href="../index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="../tools/index.html" class="nav-link">
+            <i class="fas fa-tools"></i>
+            <span>Tools</span>
+        </a>
+        <a href="../blog/index.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            <span>Blogs</span>
+        </a>
+        <a href="../case-studies/Case-study.html" class="nav-link">
+            <i class="fas fa-chart-line"></i>
+            <span>Case Studies</span>
+        </a>
+        <a href="../gigs/Main-services.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            <span>Gigs</span>
+        </a>
+        <a href="../Pricing/pricing.html" class="nav-link">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Pricing</span>
+        </a>
+    </div>
+</div>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -346,10 +364,10 @@
             <div class="footer-bottom">
                 <div class="footer-divider"></div>
                 <div class="footer-bottom-content">
-                    <p>&copy; 2024 Muatasim Billah. All rights reserved.</p>
+                    <p>&copy; 2025 Muatasim Billah. All rights reserved.</p>
                     <div class="footer-bottom-links">
-                        <a href="privacy-policy.html">Privacy Policy</a>
-                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="../privacy-policy.html">Privacy Policy</a>
+                        <a href="../terms-of-service.html">Terms of Service</a>
                     </div>
                 </div>
             </div>
@@ -358,5 +376,7 @@
 
     <!-- JavaScript -->
     <script src="/js-gigs/all-gigs.js"></script>
+    <script src="../js/nav-bar.js"></script>
+    <script src="../search.js"></script>
 </body>
 </html>
