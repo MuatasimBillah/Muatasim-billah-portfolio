@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="darkmood.css">
     <link rel="stylesheet" href="chatbot.css">
     <link rel="stylesheet" href="/css-Gigs/gigs.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="/css-Case-studies/case-study.css">
     
     <!-- Google Analytics (non-critical, can load after CSS) -->
@@ -70,20 +71,206 @@
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
   
- <!-- Complete Mobile-Responsive Navbar for Muatasim Website -->
+<!-- Enhanced Navbar with Dropdown Categories - HTML Section Only -->
 <header class="navbar">
     <nav class="glass">
         <a href="index.html" class="logo">
             <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
         </a>
         
-        <!-- Desktop Navigation -->
+        <!-- Desktop Navigation with Dropdowns -->
         <div class="nav-links desktop-nav">
             <a href="index.html" class="nav-link">Home</a>
-            <a href="tools/index.html" class="nav-link">Tools</a>
-            <a href="blog/index.html" class="nav-link">Blogs</a>
-            <a href="case-studies/Case-study.html" class="nav-link">Case Studies</a>
-            <a href="gigs/Main-services.html" class="nav-link">Gigs</a>
+            
+            <!-- Tools Dropdown -->
+            <div class="nav-dropdown">
+                <a href="tools/index.html" class="nav-link dropdown-trigger">
+                    Tools
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <h4 class="dropdown-title">
+                            <i class="fas fa-music"></i>
+                            Audio Tools
+                        </h4>
+                        <a href="tools/audio-cutter.html" class="dropdown-item">
+                            <i class="fas fa-cut"></i>
+                            <span>Audio Cutter</span>
+                        </a>
+                        <a href="tools/voice-recorder.html" class="dropdown-item">
+                            <i class="fas fa-microphone"></i>
+                            <span>Voice Recorder</span>
+                        </a>
+                        <a href="tools/slow-reverb.html" class="dropdown-item">
+                            <i class="fas fa-wave-square"></i>
+                            <span>Slow & Reverb</span>
+                        </a>
+                        <a href="tools/video-to-audio.html" class="dropdown-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Video to Audio</span>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-section">
+                        <h4 class="dropdown-title">
+                            <i class="fas fa-image"></i>
+                            Image Tools
+                        </h4>
+                        <a href="tools/color-palette.html" class="dropdown-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Color Palette Generator</span>
+                        </a>
+                        <a href="tools/image-effects.html" class="dropdown-item">
+                            <i class="fas fa-magic"></i>
+                            <span>Image Effects Studio</span>
+                        </a>
+                        <a href="tools/image-compressor.html" class="dropdown-item">
+                            <i class="fas fa-compress"></i>
+                            <span>Image Compressor</span>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-section">
+                        <h4 class="dropdown-title">
+                            <i class="fas fa-file-pdf"></i>
+                            PDF Tools
+                        </h4>
+                        <a href="tools/jpg-to-pdf.html" class="dropdown-item">
+                            <i class="fas fa-file-export"></i>
+                            <span>JPG to PDF</span>
+                        </a>
+                        <a href="tools/pdf-to-jpg.html" class="dropdown-item">
+                            <i class="fas fa-file-import"></i>
+                            <span>PDF to JPG</span>
+                        </a>
+                        <a href="tools/pdf-to-word.html" class="dropdown-item">
+                            <i class="fas fa-file-word"></i>
+                            <span>PDF to Word</span>
+                        </a>
+                        <a href="tools/pdf-to-powerpoint.html" class="dropdown-item">
+                            <i class="fas fa-file-powerpoint"></i>
+                            <span>PDF to PowerPoint</span>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-section">
+                        <h4 class="dropdown-title">
+                            <i class="fas fa-tools"></i>
+                            Other Tools
+                        </h4>
+                        <a href="tools/qr-generator.html" class="dropdown-item">
+                            <i class="fas fa-qrcode"></i>
+                            <span>QR Code Generator</span>
+                        </a>
+                        <a href="tools/barcode-generator.html" class="dropdown-item">
+                            <i class="fas fa-barcode"></i>
+                            <span>Barcode Generator</span>
+                        </a>
+                        <a href="tools/video-trimmer.html" class="dropdown-item">
+                            <i class="fas fa-video"></i>
+                            <span>Video Trimmer</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blogs Dropdown -->
+            <div class="nav-dropdown">
+                <a href="blog/index.html" class="nav-link dropdown-trigger">
+                    Blogs
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section single-column">
+                        <a href="blog/index.html?category=web-development" class="dropdown-item">
+                            <i class="fas fa-code"></i>
+                            <span>Web Development</span>
+                        </a>
+                        <a href="blog/index.html?category=ai-voice" class="dropdown-item">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Voice</span>
+                        </a>
+                        <a href="blog/index.html?category=graphic-design" class="dropdown-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Graphic Design</span>
+                        </a>
+                        <a href="blog/index.html?category=ai-avatars" class="dropdown-item">
+                            <i class="fas fa-user-robot"></i>
+                            <span>AI Avatars</span>
+                        </a>
+                        <a href="blog/index.html?category=ecommerce" class="dropdown-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>E-commerce</span>
+                        </a>
+                        <a href="blog/index.html?category=audio-engineering" class="dropdown-item">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Audio Engineering</span>
+                        </a>
+                        <a href="blog/index.html?category=freelancing" class="dropdown-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>Freelancing & Design</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Studies Dropdown -->
+            <div class="nav-dropdown">
+                <a href="case-studies/Case-study.html" class="nav-link dropdown-trigger">
+                    Case Studies
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section single-column">
+                        <a href="case-studies/Case-study.html?category=challenges" class="dropdown-item">
+                            <i class="fas fa-mountain"></i>
+                            <span>Challenges</span>
+                        </a>
+                        <a href="case-studies/Case-study.html?category=learnings" class="dropdown-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Learnings</span>
+                        </a>
+                        <a href="case-studies/Case-study.html?category=success-stories" class="dropdown-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>Success Stories</span>
+                        </a>
+                        <a href="case-studies/Case-study.html?category=fiverr-experience" class="dropdown-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>Fiverr Experience</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gigs Dropdown -->
+            <div class="nav-dropdown">
+                <a href="gigs/Main-services.html" class="nav-link dropdown-trigger">
+                    Gigs
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section single-column">
+                        <a href="gigs/Main-services.html?category=web-design" class="dropdown-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Web Design</span>
+                        </a>
+                        <a href="gigs/Main-services.html?category=ai-services" class="dropdown-item">
+                            <i class="fas fa-brain"></i>
+                            <span>AI Services</span>
+                        </a>
+                        <a href="gigs/Main-services.html?category=design" class="dropdown-item">
+                            <i class="fas fa-pencil-ruler"></i>
+                            <span>Design</span>
+                        </a>
+                        <a href="gigs/Main-services.html?category=audio" class="dropdown-item">
+                            <i class="fas fa-headphones"></i>
+                            <span>Audio</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
             <a href="Pricing/pricing.html" class="nav-link">Pricing</a>
         </div>
         
@@ -96,30 +283,216 @@
     </nav>
 </header>
 
-<!-- Mobile Menu Overlay -->
+<!-- Enhanced Mobile Menu Overlay with Accordions -->
 <div class="mobile-menu">
     <div class="mobile-nav-links">
-        <a href="index.html" class="nav-link">
+        <a href="index.html" class="mobile-nav-link">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
-        <a href="tools/index.html" class="nav-link">
-            <i class="fas fa-tools"></i>
-            <span>Tools</span>
-        </a>
-        <a href="blog/index.html" class="nav-link">
-            <i class="fas fa-blog"></i>
-            <span>Blogs</span>
-        </a>
-        <a href="case-studies/Case-study.html" class="nav-link">
-            <i class="fas fa-chart-line"></i>
-            <span>Case Studies</span>
-        </a>
-        <a href="gigs/Main-services.html" class="nav-link">
-            <i class="fas fa-briefcase"></i>
-            <span>Gigs</span>
-        </a>
-        <a href="Pricing/pricing.html" class="nav-link">
+        
+        <!-- Mobile Tools Accordion -->
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-trigger">
+                <i class="fas fa-tools"></i>
+                <span>Tools</span>
+                <i class="fas fa-chevron-down mobile-dropdown-icon"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <div class="mobile-dropdown-section">
+                    <h5 class="mobile-section-title">Audio Tools</h5>
+                    <a href="tools/audio-cutter.html" class="mobile-dropdown-item">
+                        <i class="fas fa-cut"></i>
+                        <span>Audio Cutter</span>
+                    </a>
+                    <a href="tools/voice-recorder.html" class="mobile-dropdown-item">
+                        <i class="fas fa-microphone"></i>
+                        <span>Voice Recorder</span>
+                    </a>
+                    <a href="tools/slow-reverb.html" class="mobile-dropdown-item">
+                        <i class="fas fa-wave-square"></i>
+                        <span>Slow & Reverb</span>
+                    </a>
+                    <a href="tools/video-to-audio.html" class="mobile-dropdown-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Video to Audio</span>
+                    </a>
+                </div>
+                
+                <div class="mobile-dropdown-section">
+                    <h5 class="mobile-section-title">Image Tools</h5>
+                    <a href="tools/color-palette.html" class="mobile-dropdown-item">
+                        <i class="fas fa-palette"></i>
+                        <span>Color Palette Generator</span>
+                    </a>
+                    <a href="tools/image-effects.html" class="mobile-dropdown-item">
+                        <i class="fas fa-magic"></i>
+                        <span>Image Effects Studio</span>
+                    </a>
+                    <a href="tools/image-compressor.html" class="mobile-dropdown-item">
+                        <i class="fas fa-compress"></i>
+                        <span>Image Compressor</span>
+                    </a>
+                </div>
+                
+                <div class="mobile-dropdown-section">
+                    <h5 class="mobile-section-title">PDF Tools</h5>
+                    <a href="tools/jpg-to-pdf.html" class="mobile-dropdown-item">
+                        <i class="fas fa-file-export"></i>
+                        <span>JPG to PDF</span>
+                    </a>
+                    <a href="tools/pdf-to-jpg.html" class="mobile-dropdown-item">
+                        <i class="fas fa-file-import"></i>
+                        <span>PDF to JPG</span>
+                    </a>
+                    <a href="tools/pdf-to-word.html" class="mobile-dropdown-item">
+                        <i class="fas fa-file-word"></i>
+                        <span>PDF to Word</span>
+                    </a>
+                    <a href="tools/pdf-to-powerpoint.html" class="mobile-dropdown-item">
+                        <i class="fas fa-file-powerpoint"></i>
+                        <span>PDF to PowerPoint</span>
+                    </a>
+                </div>
+                
+                <div class="mobile-dropdown-section">
+                    <h5 class="mobile-section-title">Other Tools</h5>
+                    <a href="tools/qr-generator.html" class="mobile-dropdown-item">
+                        <i class="fas fa-qrcode"></i>
+                        <span>QR Code Generator</span>
+                    </a>
+                    <a href="tools/barcode-generator.html" class="mobile-dropdown-item">
+                        <i class="fas fa-barcode"></i>
+                        <span>Barcode Generator</span>
+                    </a>
+                    <a href="tools/video-trimmer.html" class="mobile-dropdown-item">
+                        <i class="fas fa-video"></i>
+                        <span>Video Trimmer</span>
+                    </a>
+                </div>
+                
+                <a href="tools/index.html" class="mobile-view-all">
+                    <i class="fas fa-tools"></i>
+                    <span>View All Tools</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Blogs Accordion -->
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-trigger">
+                <i class="fas fa-blog"></i>
+                <span>Blogs</span>
+                <i class="fas fa-chevron-down mobile-dropdown-icon"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <div class="mobile-dropdown-section">
+                    <a href="blog/index.html?category=web-development" class="mobile-dropdown-item">
+                        <i class="fas fa-code"></i>
+                        <span>Web Development</span>
+                    </a>
+                    <a href="blog/index.html?category=ai-voice" class="mobile-dropdown-item">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Voice</span>
+                    </a>
+                    <a href="blog/index.html?category=graphic-design" class="mobile-dropdown-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Graphic Design</span>
+                    </a>
+                    <a href="blog/index.html?category=ai-avatars" class="mobile-dropdown-item">
+                        <i class="fas fa-user-robot"></i>
+                        <span>AI Avatars</span>
+                    </a>
+                    <a href="blog/index.html?category=ecommerce" class="mobile-dropdown-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>E-commerce</span>
+                    </a>
+                    <a href="blog/index.html?category=audio-engineering" class="mobile-dropdown-item">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>Audio Engineering</span>
+                    </a>
+                    <a href="blog/index.html?category=freelancing" class="mobile-dropdown-item">
+                        <i class="fas fa-handshake"></i>
+                        <span>Freelancing & Design</span>
+                    </a>
+                </div>
+                
+                <a href="blog/index.html" class="mobile-view-all">
+                    <i class="fas fa-blog"></i>
+                    <span>View All Blogs</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Case Studies Accordion -->
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-trigger">
+                <i class="fas fa-chart-line"></i>
+                <span>Case Studies</span>
+                <i class="fas fa-chevron-down mobile-dropdown-icon"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <div class="mobile-dropdown-section">
+                    <a href="case-studies/Case-study.html?category=challenges" class="mobile-dropdown-item">
+                        <i class="fas fa-mountain"></i>
+                        <span>Challenges</span>
+                    </a>
+                    <a href="case-studies/Case-study.html?category=learnings" class="mobile-dropdown-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Learnings</span>
+                    </a>
+                    <a href="case-studies/Case-study.html?category=success-stories" class="mobile-dropdown-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Success Stories</span>
+                    </a>
+                    <a href="case-studies/Case-study.html?category=fiverr-experience" class="mobile-dropdown-item">
+                        <i class="fas fa-handshake"></i>
+                        <span>Fiverr Experience</span>
+                    </a>
+                </div>
+                
+                <a href="case-studies/Case-study.html" class="mobile-view-all">
+                    <i class="fas fa-chart-line"></i>
+                    <span>View All Case Studies</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Gigs Accordion -->
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-trigger">
+                <i class="fas fa-briefcase"></i>
+                <span>Gigs</span>
+                <i class="fas fa-chevron-down mobile-dropdown-icon"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <div class="mobile-dropdown-section">
+                    <a href="gigs/Main-services.html?category=web-design" class="mobile-dropdown-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Web Design</span>
+                    </a>
+                    <a href="gigs/Main-services.html?category=ai-services" class="mobile-dropdown-item">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Services</span>
+                    </a>
+                    <a href="gigs/Main-services.html?category=design" class="mobile-dropdown-item">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <span>Design</span>
+                    </a>
+                    <a href="gigs/Main-services.html?category=audio" class="mobile-dropdown-item">
+                        <i class="fas fa-headphones"></i>
+                        <span>Audio</span>
+                    </a>
+                </div>
+                
+                <a href="gigs/Main-services.html" class="mobile-view-all">
+                    <i class="fas fa-briefcase"></i>
+                    <span>View All Gigs</span>
+                </a>
+            </div>
+        </div>
+        
+        <a href="Pricing/pricing.html" class="mobile-nav-link">
             <i class="fas fa-dollar-sign"></i>
             <span>Pricing</span>
         </a>
