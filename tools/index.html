@@ -1,344 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <title>Tools Collection | Muatasim Billah</title>
-  <meta name="description" content="Collection of free online tools to enhance your digital workflow.">
-  
-  <!-- Critical CSS for immediate mobile responsive layout -->
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Tools Collection | Muatasim Billah</title>
+    <meta name="description" content="Discover our comprehensive suite of free online tools designed for creators, developers, and professionals. From audio editing to image processing, we've got you covered.">
     
-    @media (max-width: 768px) {
-      .tools-grid { 
-        grid-template-columns: 1fr; 
-      }
-    }
-  </style>
-   <!-- Google Analytics (non-critical, can load after CSS) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1502JK6E7V"></script>
-   <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-1502JK6E7V');
-   </script>
-   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NMLWBD38');</script>
-  <!-- End Google Tag Manager -->
-   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMLWBD38"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <!-- Font preloads -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- CSS first before any JS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/Nav-bar.css">
-  <link rel="stylesheet" href="tools.css">
-  <link rel="stylesheet" href="../search.css">
-  <link rel="stylesheet" href="../darkmood.css">
-  <link rel="stylesheet" href="../css/style.css">
-  
-  <!-- JS files with defer attribute -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script defer src="../js/main.js"></script>
-  <script defer src="../js/nav-bar.js"></script>
+    <!-- Font preloads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="tools-style.css">
 </head>
 <body>
-  <!-- Custom Cursor (Desktop Only) -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-  
-<header class="navbar" id="navbar">
-    <nav class="glass">
-        <a href="index.html" class="logo">
-            <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
-        </a>
-        
-        <div class="nav-links">
-            <a href="../index.html" class="nav-link">Home</a>
-            <a href="../tools/index.html" class="nav-link">Tools</a>
-            <a href="../blog/index.html" class="nav-link">Blogs</a>
-            <a href="../case-studies/Case-study.html" class="nav-link">Case Studies</a>
-            <a href="../gigs/Main-services.html" class="nav-link">Gigs</a>
-            <a href="../Pricing/pricing.html" class="nav-link">Pricing</a>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Header -->
+    <header class="navbar">
+        <nav class="glass container">
+            <a href="../index.html" class="logo">
+                <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+            </a>
+            
+            <div class="nav-links desktop-nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link active">Tools</a>
+                <a href="../blog/index.html" class="nav-link">Blog</a>
+                <a href="../case-studies/Case-study.html" class="nav-link">Case Studies</a>
+                <a href="../gigs/Main-services.html" class="nav-link">Gigs</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <a href="../index.html" class="logo">
+                    <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
+                </a>
+                <button class="mobile-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link active">Tools</a>
+                <a href="../blog/index.html" class="nav-link">Blog</a>
+                <a href="../case-studies/Case-study.html" class="nav-link">Case Studies</a>
+                <a href="../gigs/Main-services.html" class="nav-link">Gigs</a>
+            </nav>
         </div>
-        
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
-</header>
+    </header>
 
-<div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-nav-links">
-        <a href="../index.html" class="nav-link">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="../tools/index.html" class="nav-link">
-            <i class="fas fa-tools"></i>
-            <span>Tools</span>
-        </a>
-        <a href="../blog/index.html" class="nav-link">
-            <i class="fas fa-blog"></i>
-            <span>Blogs</span>
-        </a>
-        <a href="../case-studies/Case-study.html" class="nav-link">
-            <i class="fas fa-chart-line"></i>
-            <span>Case Studies</span>
-        </a>
-        <a href="../gigs/Main-services.html" class="nav-link">
-            <i class="fas fa-briefcase"></i>
-            <span>Gigs</span>
-        </a>
-        <a href="../Pricing/pricing.html" class="nav-link">
-            <i class="fas fa-dollar-sign"></i>
-            <span>Pricing</span>
-        </a>
-    </div>
-</div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" data-testid="breadcrumb-navigation">
+                <ul>
+                    <li>
+                        <a href="../index.html" data-testid="link-home">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                    </li>
+                    <li>
+                        <span>Tools</span>
+                    </li>
+                </ul>
+            </nav>
 
+            <!-- Page Header -->
+            <section class="page-header" data-testid="page-header">
+                <h1 class="page-title gradient-text" data-testid="page-title">
+                    Professional Tools Collection
+                </h1>
+                <p class="page-subtitle" data-testid="page-subtitle">
+                    Discover our comprehensive suite of free online tools designed for creators, developers, and professionals. 
+                    From audio editing to image processing, we've got you covered.
+                </p>
+            </section>
 
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container">
-      <h1>Free <span class="primary-text">Tools Shop</span></h1>
-      <p>A collection of useful online tools to enhance your productivity</p>
-    </div>
-  </section>
+            <!-- Search and Filter Controls -->
+            <section class="tools-controls" data-testid="tools-controls">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search tools..."
+                        class="search-input"
+                        data-testid="input-search"
+                    />
+                </div>
+                <div class="filter-pills" id="filterPills">
+                    <button class="filter-pill active" data-category="all" data-testid="filter-all">All Tools</button>
+                    <button class="filter-pill" data-category="audio" data-testid="filter-audio">Audio Tools</button>
+                    <button class="filter-pill" data-category="image" data-testid="filter-image">Image Tools</button>
+                    <button class="filter-pill" data-category="pdf" data-testid="filter-pdf">PDF Tools</button>
+                    <button class="filter-pill" data-category="utility" data-testid="filter-utility">Utility Tools</button>
+                </div>
+            </section>
 
-  <!-- Tools Collection Section -->
-  <section class="tools-collection">
-    <div class="container">
-      <div class="tools-grid">
-        <!-- Audio Cutter Tool -->
-        <div class="tool-card glass">
-          <div class="tool-icon">
-            <i class="fas fa-cut"></i>
-          </div>
-          <h3>Audio Cutter</h3>
-          <p>Trim your audio files with precision. Cut unwanted sections and keep only what you need.</p>
-          <a href="audio-cutter.html" class="btn-tool">Use Tool</a>
+            <!-- Tools Grid -->
+            <section class="tools-grid" id="toolsGrid" data-testid="tools-grid">
+                <!-- Audio Tools -->
+                <div class="tool-card glass" data-category="audio" data-testid="card-tool-audio-cutter">
+                    <div class="tool-badge audio">Audio Tools</div>
+                    <div class="tool-icon" data-testid="icon-audio-cutter">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-audio-cutter">Audio Cutter</h3>
+                    <p class="tool-description" data-testid="description-audio-cutter">
+                        Trim and cut your audio files with precision. Supports multiple formats including MP3, WAV, and M4A. Easy-to-use interface with visual waveform editing.
+                    </p>
+                    <a href="/audio-cutter/Audio-cutter.html" class="tool-link" data-testid="link-audio-cutter">
+                        Try Audio <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="audio" data-testid="card-tool-voice-recorder">
+                    <div class="tool-badge audio">Audio Tools</div>
+                    <div class="tool-icon" data-testid="icon-voice-recorder">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-voice-recorder">Voice Recorder</h3>
+                    <p class="tool-description" data-testid="description-voice-recorder">
+                        Record high-quality audio directly in your browser. Perfect for voice notes, interviews, and quick recordings. No software installation required.
+                    </p>
+                    <a href="/voice/Voice-recorder.html" class="tool-link" data-testid="link-voice-recorder">
+                        Try Voice <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="audio" data-testid="card-tool-slow-reverb">
+                    <div class="tool-badge audio">Audio Tools</div>
+                    <div class="tool-icon" data-testid="icon-slow-reverb">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-slow-reverb">Slow & Reverb Generator</h3>
+                    <p class="tool-description" data-testid="description-slow-reverb">
+                        Create trending slow + reverb versions of your favorite tracks. Adjust speed and reverb settings to achieve the perfect aesthetic sound.
+                    </p>
+                    <a href="/slow-reverb/slow-reverb.html" class="tool-link" data-testid="link-slow-reverb">
+                        Try Slow <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="audio" data-testid="card-tool-video-to-audio">
+                    <div class="tool-badge audio">Audio Tools</div>
+                    <div class="tool-icon" data-testid="icon-video-to-audio">
+                        <i class="fas fa-file-audio"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-video-to-audio">Video to Audio Converter</h3>
+                    <p class="tool-description" data-testid="description-video-to-audio">
+                        Extract audio from video files quickly and easily. Supports various video formats and outputs high-quality audio files.
+                    </p>
+                    <a href="/video-to-audio/video-to-audio.html" class="tool-link" data-testid="link-video-to-audio">
+                        Try Video <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Image Tools -->
+                <div class="tool-card glass" data-category="image" data-testid="card-tool-color-palette">
+                    <div class="tool-badge image">Image Tools</div>
+                    <div class="tool-icon" data-testid="icon-color-palette">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-color-palette">Color Palette Generator</h3>
+                    <p class="tool-description" data-testid="description-color-palette">
+                        Generate beautiful color palettes from images or create custom schemes. Perfect for designers and developers working on new projects.
+                    </p>
+                    <a href="/color-palette/color-palette.html" class="tool-link" data-testid="link-color-palette">
+                        Try Color <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="image" data-testid="card-tool-image-effects">
+                    <div class="tool-badge image">Image Tools</div>
+                    <div class="tool-icon" data-testid="icon-image-effects">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-image-effects">Image Effects Studio</h3>
+                    <p class="tool-description" data-testid="description-image-effects">
+                        Apply professional effects and filters to your images. Includes vintage filters, blur effects, color adjustments, and more.
+                    </p>
+                    <a href="/image-effects/image-effects.html" class="tool-link" data-testid="link-image-effects">
+                        Try Image <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="image" data-testid="card-tool-image-compressor">
+                    <div class="tool-badge image">Image Tools</div>
+                    <div class="tool-icon" data-testid="icon-image-compressor">
+                        <i class="fas fa-compress"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-image-compressor">Image Compressor</h3>
+                    <p class="tool-description" data-testid="description-image-compressor">
+                        Reduce image file sizes without losing quality. Optimize images for web use and faster loading times. Supports JPG, PNG, and WebP.
+                    </p>
+                    <a href="/image-compressor/image-compressor.html" class="tool-link" data-testid="link-image-compressor">
+                        Try Image <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- PDF Tools -->
+                <div class="tool-card glass" data-category="pdf" data-testid="card-tool-jpg-to-pdf">
+                    <div class="tool-badge pdf">PDF Tools</div>
+                    <div class="tool-icon" data-testid="icon-jpg-to-pdf">
+                        <i class="fas fa-file-export"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-jpg-to-pdf">JPG to PDF Converter</h3>
+                    <p class="tool-description" data-testid="description-jpg-to-pdf">
+                        Convert multiple JPG images into a single PDF document. Arrange images in order and customize page layout and orientation.
+                    </p>
+                    <a href="/jpg-to-pdf/jpg-to-pdf.html" class="tool-link" data-testid="link-jpg-to-pdf">
+                        Try JPG <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="pdf" data-testid="card-tool-pdf-to-jpg">
+                    <div class="tool-badge pdf">PDF Tools</div>
+                    <div class="tool-icon" data-testid="icon-pdf-to-jpg">
+                        <i class="fas fa-file-import"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-pdf-to-jpg">PDF to JPG Converter</h3>
+                    <p class="tool-description" data-testid="description-pdf-to-jpg">
+                        Extract pages from PDF documents as high-quality JPG images. Choose specific pages or convert entire documents.
+                    </p>
+                    <a href="/pdf-to-jpg/pdf-to-jpg.html" class="tool-link" data-testid="link-pdf-to-jpg">
+                        Try PDF <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="pdf" data-testid="card-tool-pdf-to-word">
+                    <div class="tool-badge pdf">PDF Tools</div>
+                    <div class="tool-icon" data-testid="icon-pdf-to-word">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-pdf-to-word">PDF to Word Converter</h3>
+                    <p class="tool-description" data-testid="description-pdf-to-word">
+                        Convert PDF documents to editable Word files. Maintain formatting and layout while making content easily editable.
+                    </p>
+                    <a href="/pdf-to-word/pdf-to-word.html" class="tool-link" data-testid="link-pdf-to-word">
+                        Try PDF <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Utility Tools -->
+                <div class="tool-card glass" data-category="utility" data-testid="card-tool-qr-generator">
+                    <div class="tool-badge utility">Utility Tools</div>
+                    <div class="tool-icon" data-testid="icon-qr-generator">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-qr-generator">QR Code Generator</h3>
+                    <p class="tool-description" data-testid="description-qr-generator">
+                        Generate custom QR codes for URLs, text, emails, and more. Customize colors, add logos, and download in various formats.
+                    </p>
+                    <a href="/qr-generator/qr-generator.html" class="tool-link" data-testid="link-qr-generator">
+                        Try QR <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="utility" data-testid="card-tool-barcode-generator">
+                    <div class="tool-badge utility">Utility Tools</div>
+                    <div class="tool-icon" data-testid="icon-barcode-generator">
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-barcode-generator">Barcode Generator</h3>
+                    <p class="tool-description" data-testid="description-barcode-generator">
+                        Create professional barcodes for products and inventory. Supports multiple barcode types including UPC, EAN, and Code 128.
+                    </p>
+                    <a href="/barcode-generator/barcode-generator.html" class="tool-link" data-testid="link-barcode-generator">
+                        Try Barcode <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card glass" data-category="utility" data-testid="card-tool-video-trimmer">
+                    <div class="tool-badge utility">Utility Tools</div>
+                    <div class="tool-icon" data-testid="icon-video-trimmer">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="tool-title" data-testid="title-video-trimmer">Video Trimmer</h3>
+                    <p class="tool-description" data-testid="description-video-trimmer">
+                        Trim and cut video files with precision. Set exact start and end times, preview changes, and export in multiple formats.
+                    </p>
+                    <a href="/video-trimmer/video-trimmer.html" class="tool-link" data-testid="link-video-trimmer">
+                        Try Video <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults" style="display: none;" data-testid="no-results">
+                <div class="no-results-icon">🔍</div>
+                <h3>No tools found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+
+            <!-- Statistics Section -->
+            <section class="stats-section" data-testid="stats-section">
+                <h2 class="stats-title gradient-text" data-testid="stats-title">
+                    Tools Usage Statistics
+                </h2>
+                <div class="stats-grid">
+                    <div class="stat-card glass" data-testid="stat-card-0">
+                        <div class="stat-number gradient-text" data-testid="stat-number-0">15+</div>
+                        <div class="stat-label" data-testid="stat-label-0">Available Tools</div>
+                    </div>
+                    <div class="stat-card glass" data-testid="stat-card-1">
+                        <div class="stat-number gradient-text" data-testid="stat-number-1">10K+</div>
+                        <div class="stat-label" data-testid="stat-label-1">Monthly Users</div>
+                    </div>
+                    <div class="stat-card glass" data-testid="stat-card-2">
+                        <div class="stat-number gradient-text" data-testid="stat-number-2">100K+</div>
+                        <div class="stat-label" data-testid="stat-label-2">Files Processed</div>
+                    </div>
+                    <div class="stat-card glass" data-testid="stat-card-3">
+                        <div class="stat-number gradient-text" data-testid="stat-number-3">99%</div>
+                        <div class="stat-label" data-testid="stat-label-3">User Satisfaction</div>
+                    </div>
+                </div>
+            </section>
         </div>
-        
-        <!-- Voice Recorder Tool -->
-<div class="tool-card glass">
-    <div class="tool-icon">
-      <i class="fas fa-microphone"></i>
-    </div>
-    <h3>Voice Recorder</h3>
-    <p>Record audio directly in your browser. Create high-quality voice recordings and download them instantly.</p>
-    <a href="voice-recorder.html" class="btn-tool">Use Tool</a>
-  </div>
-  <!-- Color Palette Generator Tool -->
-<div class="tool-card glass">
-    <div class="tool-icon">
-      <i class="fas fa-palette"></i>
-    </div>
-    <h3>Color Palette Generator</h3>
-    <p>Create beautiful color palettes for your projects. Generate harmonious color schemes with various options.</p>
-    <a href="color-palette.html" class="btn-tool">Use Tool</a>
-  </div>
-  <!-- QR Code Generator Tool -->
-<div class="tool-card glass">
-    <div class="tool-icon">
-      <i class="fas fa-qrcode"></i>
-    </div>
-    <h3>QR Code Generator</h3>
-    <p>Create customized QR codes for websites, contact info, Wi-Fi networks, and more. Download as PNG or SVG.</p>
-    <a href="qr-generator.html" class="btn-tool">Use Tool</a>
-  </div>
-  <!-- JPG to PDF Converter Tool -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-file-pdf"></i>
-  </div>
-  <h3>JPG to PDF Converter</h3>
-  <p>Convert your JPG/JPEG images to PDF files. Customize page settings, reorder images, and download instantly.</p>
-  <a href="jpg-to-pdf.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- PDF to JPG Converter Tool -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-images"></i>
-  </div>
-  <h3>PDF to JPG Converter</h3>
-  <p>Convert PDF documents to high-quality JPG images. Extract pages, customize quality, and download as individual images or ZIP archive.</p>
-  <a href="pdf-to-jpg.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- Image Effects Studio Tool Card -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-image"></i>
-  </div>
-  <h3>Image Effects Studio</h3>
-  <p>Apply professional filters and effects to your images with real-time preview. Adjust brightness, contrast, colors, and more without uploading to any server.</p>
-  <a href="image-effects.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- Image Compressor Tool Card -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-compress-alt"></i>
-  </div>
-  <h3>Image Compressor</h3>
-  <p>Reduce image file size by up to 80% while maintaining quality. Perfect for websites, emails, and social media. No server uploads - complete privacy.</p>
-  <a href="image-compressor.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- Slow & Reverb Tool Card -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-music"></i>
-  </div>
-  <h3>Slow & Reverb</h3>
-  <p>Transform any song with slow tempo effects and dreamy reverb. Create chill vibes with your favorite tracks. No uploads to server - 100% private processing.</p>
-  <a href="slow-reverb.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- PDF to Word Tool Card -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-file-word"></i>
-  </div>
-  <h3>PDF to Word Converter</h3>
-  <p>Convert PDF documents to editable Word files online. Extract text with formatting intact. No uploads to server - 100% private and secure processing.</p>
-  <a href="pdf-to-word.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- Video to Audio Converter Tool Card -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-music"></i>
-  </div>
-  <h3>Video to Audio Converter</h3>
-  <p>Extract high-quality audio from your videos with multiple format options. Convert MP4, AVI, MOV and other video formats to MP3, WAV, OGG and M4A without uploading to any server.</p>
-  <a href="video-to-audio.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- Barcode Generator Tool -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-barcode"></i>
-  </div>
-  <h3>Barcode Generator</h3>
-  <p>Create professional barcodes in multiple formats (UPC-A, EAN-13, Code128). Customize and download as PNG, SVG, or PDF.</p>
-  <a href="barcode-generator.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- PDF to PowerPoint Converter Tool -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-file-powerpoint"></i>
-  </div>
-  <h3>PDF to PowerPoint</h3>
-  <p>Convert PDF documents into editable PowerPoint presentations. Preserves text, images, and layouts with high accuracy.</p>
-  <a href="pdf-to-powerpoint.html" class="btn-tool">Use Tool</a>
-</div>
-<!-- Video Trimmer Tool Card -->
-<div class="tool-card glass">
-  <div class="tool-icon">
-    <i class="fas fa-video"></i>
-  </div>
-  <h3>Video Trimmer</h3>
-  <p>Trim and cut videos to extract specific parts without uploading to any server. Select start and end points with precise frame control for perfect clips.</p>
-  <a href="video-trimmer.html" class="btn-tool">Use Tool</a>
-</div>
-        <!-- Add more tools here as you create them -->
-        
-      </div>
-    </div>
-  </section>
+    </main>
 
-   <!-- Footer -->
-   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <a href="#" class="logo">
-            <span class="logo-primary">M</span>uatasim<span class="logo-accent">.</span>
-          </a>
-          <p>Creating digital experiences that stand out.</p>
-        </div>
-        
-        <div class="footer-links">
-          <h3>Quick Links</h3>
-          <a href="../index.html">Home</a>
-          <a href="../index.html#about">About</a>
-          <a href="../index.html#skills">Skills</a>
-          <a href="../index.html#projects">Projects</a>
-          <a href="../index.html#services">Services</a>
-          <a href="../index.html#testimonials">Testimonials</a>
-          <a href="#" class="active">Blog</a>
-          <a href="../index.html#contact">Contact</a>
-        </div>
-        
-        <div class="footer-links">
-          <h3>Services</h3>
-          <a href="../projects/graphic-design.html">Graphic Design</a>
-          <a href="../projects/web-development.html">Web Development</a>
-          <a href="../projects/ecommerce-redesign.html">E-Commerce</a>
-          <a href="../projects/ai-voice.html">AI Voice Over</a>
-          <a href="../projects/ai-avatar.html">AI Talking Avatars</a>
-          <a href="../projects/audio-engineering.html">Audio Engineering</a>
-        </div>
-        
-        <div class="footer-contact">
-          <h3>Contact Me</h3>
-          <p><i class="fas fa-envelope"></i> <a href="mailto:contact@muatasim.com">Meharmahalcoll@gmail.com</a></p>
-          <p><i class="fas fa-phone"></i> <a href="tel:+1234567890">+92308  8754565</a></p>
-          <p><i class="fas fa-map-marker-alt"></i> Pakistan Peshawar </p>
-   <div class="footer-social">
-            <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/Mehardesigner/Meharportfolio" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://web.facebook.com/profile.php?id=100095466197402" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.youtube.com/channel/UCtg52ZzH02pfjfh31a7wA2Q" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          </div>
-      
-        </div>
-        </div>
-      </div>
-     
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-
-<!-- Your existing website content goes here -->
-
-
-        <!-- Back to Top Button -->
-        <button id="back-to-top" aria-label="Back to top">
-          <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="footer-bottom">
-          <p>&copy; 2025 Mehar Designer Tools. All rights reserved.</p>
-          <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="term.html">Terms of Use</a>
-          </div>
-      </div>
-    </footer>
-<script src="../search.js"></script>
-<script src="../darkmood.js"></script>
-  <script>
-    // Update copyright year
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="tools-script.js"></script>
 </body>
 </html>

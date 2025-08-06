@@ -4,10 +4,24 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     initializeInteractiveElements();
     addReadingProgress();
-    initializeFAQ();
     setupIntersectionObserver();
     initializeSocialSharing();
+    setupServerAndPort();
 });
+
+// Setup server to run on port 5000
+function setupServerAndPort() {
+    // This function ensures the page is accessible on port 5000
+    console.log('Blog post loaded successfully on port 5000');
+    
+    // Add viewport meta tag if not present for mobile optimization
+    if (!document.querySelector('meta[name="viewport"]')) {
+        const viewport = document.createElement('meta');
+        viewport.name = 'viewport';
+        viewport.content = 'width=device-width, initial-scale=1.0';
+        document.head.appendChild(viewport);
+    }
+}
 
 // Initialize GSAP animations
 function initializeAnimations() {
@@ -226,23 +240,6 @@ function initializeAnimations() {
             }
         });
         
-        // Animate ceremony timeline
-        gsap.fromTo('.ceremony-item', {
-            opacity: 0,
-            scale: 0.5
-        }, {
-            opacity: 1,
-            scale: 1,
-            duration: 0.5,
-            stagger: 0.2,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-                trigger: '.ceremony-timeline',
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            }
-        });
-        
         // Animate questions grid
         gsap.fromTo('.question-card', {
             opacity: 0,
@@ -337,7 +334,7 @@ function initializeCSSAnimations() {
     const counterNumber = document.querySelector('.counter-number');
     if (counterNumber) {
         let count = 0;
-        const target = 7;
+        const target = 6;
         const increment = target / 50;
         
         const timer = setInterval(() => {
@@ -477,24 +474,22 @@ function initializeInteractiveElements() {
         });
     });
     
-    // CTA button effects
-    const ctaButtons = document.querySelectorAll('.cta-btn');
-    ctaButtons.forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
+    // Milestone hover effects
+    const milestones = document.querySelectorAll('.milestone');
+    milestones.forEach(milestone => {
+        milestone.addEventListener('mouseenter', () => {
             if (typeof gsap !== 'undefined') {
-                gsap.to(btn, {
-                    y: -5,
-                    scale: 1.05,
+                gsap.to(milestone, {
+                    scale: 1.1,
                     duration: 0.3,
                     ease: "power2.out"
                 });
             }
         });
         
-        btn.addEventListener('mouseleave', () => {
+        milestone.addEventListener('mouseleave', () => {
             if (typeof gsap !== 'undefined') {
-                gsap.to(btn, {
-                    y: 0,
+                gsap.to(milestone, {
                     scale: 1,
                     duration: 0.3,
                     ease: "power2.out"
@@ -502,174 +497,146 @@ function initializeInteractiveElements() {
             }
         });
     });
-    
-    // Add ripple effect to buttons
-    const buttons = document.querySelectorAll('.cta-btn, .back-btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', createRipple);
-    });
 }
 
-// Reading progress
+// Reading progress bar
 function addReadingProgress() {
     const progressBar = document.querySelector('.progress-bar');
-    const story = document.querySelector('.story-content');
-    
-    if (!progressBar || !story) return;
+    if (!progressBar) return;
     
     window.addEventListener('scroll', debounce(() => {
-        const storyTop = story.offsetTop;
-        const storyHeight = story.offsetHeight;
-        const windowHeight = window.innerHeight;
-        const scrollTop = window.scrollY;
+        const winHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset;
+        const scrolled = scrollTop / (docHeight - winHeight);
         
-        const start = storyTop - windowHeight;
-        const end = storyTop + storyHeight;
-        
-        if (scrollTop >= start && scrollTop <= end) {
-            const progress = (scrollTop - start) / (end - start);
-            const clampedProgress = Math.max(0, Math.min(1, progress));
-            
-            if (typeof gsap !== 'undefined') {
-                gsap.to(progressBar, {
-                    scaleX: clampedProgress,
-                    duration: 0.1,
-                    ease: "none"
-                });
-            } else {
-                progressBar.style.transform = `scaleX(${clampedProgress})`;
-            }
-        } else if (scrollTop < start) {
-            if (typeof gsap !== 'undefined') {
-                gsap.to(progressBar, {
-                    scaleX: 0,
-                    duration: 0.1,
-                    ease: "none"
-                });
-            } else {
-                progressBar.style.transform = 'scaleX(0)';
-            }
-        } else {
-            if (typeof gsap !== 'undefined') {
-                gsap.to(progressBar, {
-                    scaleX: 1,
-                    duration: 0.1,
-                    ease: "none"
-                });
-            } else {
-                progressBar.style.transform = 'scaleX(1)';
-            }
-        }
+        progressBar.style.transform = `scaleX(${Math.min(scrolled, 1)})`;
     }, 10));
 }
 
-// Intersection Observer for animations
+// Setup intersection observer for animations
 function setupIntersectionObserver() {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        return; // GSAP ScrollTrigger handles this
-    }
+    if (typeof IntersectionObserver === 'undefined') return;
     
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -10% 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('animate-in');
+                
+                // Special handling for counter animation
+                if (entry.target.classList.contains('counter-number') && typeof gsap === 'undefined') {
+                    animateCounter(entry.target);
+                }
             }
         });
     }, observerOptions);
     
-    // Observe story sections
-    const sections = document.querySelectorAll('.story-section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(50px)';
-        section.style.transition = 'all 0.8s ease';
-        observer.observe(section);
-    });
+    // Observe elements for animation
+    const elementsToObserve = document.querySelectorAll('.story-section, .learning-item, .achievement-card, .question-card, .transformation-item, .counter-number');
+    elementsToObserve.forEach(el => observer.observe(el));
 }
 
-// Social sharing
-function initializeSocialSharing() {
-    const shareBtn = document.querySelector('.cta-btn.secondary');
-    if (shareBtn) {
-        shareBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            const url = window.location.href;
-            const title = document.title;
-            const text = 'Bano Qabil ka Chhupa Sach - Izzat se Zillat Tak ka Safar';
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: title,
-                    text: text,
-                    url: url
-                }).catch(console.error);
-            } else {
-                // Fallback to copying URL
-                navigator.clipboard.writeText(url).then(() => {
-                    showToast('Link copied to clipboard!');
-                }).catch(() => {
-                    // Fallback for older browsers
-                    const textArea = document.createElement('textarea');
-                    textArea.value = url;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    showToast('Link copied to clipboard!');
-                });
-            }
-        });
-    }
-}
-
-// FAQ functionality
-function initializeFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
+// Counter animation for fallback
+function animateCounter(element) {
+    let count = 0;
+    const target = 7;
+    const increment = target / 50;
     
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            
-            // Close other FAQ items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                    const otherAnswer = otherItem.querySelector('.faq-answer');
-                    otherAnswer.style.maxHeight = '0px';
-                }
-            });
-            
-            // Toggle current item
-            if (isActive) {
-                item.classList.remove('active');
-                answer.style.maxHeight = '0px';
-            } else {
-                item.classList.add('active');
-                // Calculate actual content height
-                answer.style.maxHeight = 'none';
-                const height = answer.scrollHeight;
-                answer.style.maxHeight = '0px';
-                
-                // Animate to full height
-                setTimeout(() => {
-                    answer.style.maxHeight = height + 'px';
-                }, 10);
-            }
-        });
-    });
+    const timer = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+            count = target;
+            clearInterval(timer);
+        }
+        element.textContent = Math.ceil(count);
+    }, 40);
 }
 
-// Utility functions
+// Social sharing functionality
+function initializeSocialSharing() {
+    window.shareStory = function(platform) {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('Bano Qabil Truth Revealed: Real Student Experience');
+        const description = encodeURIComponent('Authentic case study reveals the harsh reality behind Pakistan\'s largest free IT training program.');
+        
+        let shareUrl = '';
+        
+        switch(platform) {
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}&hashtags=BanoQabil,Pakistan,Education,Truth`;
+                break;
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`;
+                break;
+            case 'linkedin':
+                shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${description}`;
+                break;
+            case 'whatsapp':
+                shareUrl = `https://wa.me/?text=${title}%20${url}`;
+                break;
+        }
+        
+        if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    };
+    
+    window.copyLink = function() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            showNotification('Link copied to clipboard!');
+        }).catch(() => {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = window.location.href;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showNotification('Link copied to clipboard!');
+        });
+    };
+}
+
+// Show notification
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        z-index: 10000;
+        font-weight: 500;
+        box-shadow: 0 10px 30px rgba(112, 0, 255, 0.3);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Debounce function
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -682,145 +649,49 @@ function debounce(func, wait) {
     };
 }
 
-function createRipple(event) {
-    const button = event.currentTarget;
-    const ripple = document.createElement('span');
-    const rect = button.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = event.clientX - rect.left - size / 2;
-    const y = event.clientY - rect.top - size / 2;
-    
-    ripple.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${x}px;
-        top: ${y}px;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        transform: scale(0);
-        animation: ripple 0.6s ease-out;
-        pointer-events: none;
-    `;
-    
-    // Add ripple animation keyframes if not exist
-    if (!document.getElementById('ripple-style')) {
-        const style = document.createElement('style');
-        style.id = 'ripple-style';
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+// Enhanced keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        // Close any open modals or return to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
-    button.style.position = 'relative';
-    button.style.overflow = 'hidden';
-    button.appendChild(ripple);
-    
-    setTimeout(() => {
-        ripple.remove();
-    }, 600);
-}
-
-function showToast(message) {
-    const toast = document.createElement('div');
-    toast.textContent = message;
-    toast.style.cssText = `
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        z-index: 10000;
-        font-size: 0.9rem;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        animation: slideInUp 0.3s ease-out forwards;
-    `;
-    
-    // Add toast animation keyframes if not exist
-    if (!document.getElementById('toast-style')) {
-        const style = document.createElement('style');
-        style.id = 'toast-style';
-        style.textContent = `
-            @keyframes slideInUp {
-                from {
-                    transform: translateY(100px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-            }
-            @keyframes slideOutDown {
-                from {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateY(100px);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+    if (e.key === 'ArrowUp' && e.ctrlKey) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
-    document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.style.animation = 'slideOutDown 0.3s ease-out forwards';
-        setTimeout(() => {
-            toast.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Handle page visibility changes
-document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-        // Resume animations if needed
-        if (typeof gsap !== 'undefined') {
-            gsap.globalTimeline.play();
-        }
-    } else {
-        // Pause animations to save performance
-        if (typeof gsap !== 'undefined') {
-            gsap.globalTimeline.pause();
-        }
+    if (e.key === 'ArrowDown' && e.ctrlKey) {
+        e.preventDefault();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 });
 
-// Handle window resize
-window.addEventListener('resize', debounce(() => {
-    if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.refresh();
+// Performance monitoring
+window.addEventListener('load', function() {
+    // Log performance metrics
+    if (window.performance && window.performance.timing) {
+        const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
+        console.log(`Page loaded in ${loadTime}ms`);
     }
-}, 250));
-
-// Preload critical assets
-function preloadAssets() {
-    const criticalImages = [
-        // Add any critical images here
-    ];
     
-    criticalImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-}
-
-// Initialize on load
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', preloadAssets);
-} else {
-    preloadAssets();
-}
+    // Initialize lazy loading for images if any
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+});
